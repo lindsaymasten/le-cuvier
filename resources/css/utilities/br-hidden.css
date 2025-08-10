@@ -1,0 +1,11 @@
+@utility br-hidden {
+  br {
+    display: none;
+  }
+}
+
+@utility br-visible {
+  br {
+    display: block;
+  }
+}

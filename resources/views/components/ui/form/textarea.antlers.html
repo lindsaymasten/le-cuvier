@@ -1,0 +1,12 @@
+<textarea
+    x-model="{{ model }}"
+    id="{{ handle }}"
+    name="{{ handle }}"
+    rows="5"
+    {{ class | attribute:class }}
+    {{ placeholder | attribute:placeholder }}
+    {{ character_limit | attribute:maxlength }}
+    :aria-invalid="hasError('{{ handle }}')"
+    {{ instructions ?= 'aria-describedby="{handle}-instructions"' }}
+    @change="forgetError('{{ handle }}')"
+>{{ old }}</textarea>

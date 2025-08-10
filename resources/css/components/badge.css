@@ -1,0 +1,13 @@
+@layer components {
+  .badge {
+    @apply bg-primary text-primary-foreground inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent px-2 py-0.5 text-xs font-medium;
+  }
+
+  .badge--secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .badge--outline {
+    @apply text-foreground bg-background border-border;
+  }
+}

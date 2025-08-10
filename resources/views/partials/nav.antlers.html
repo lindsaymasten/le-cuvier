@@ -1,0 +1,59 @@
+<div id="aria-live" aria-live="polite" class="sr-only" role="status"></div>
+<header class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <button class="hamburger" aria-label="Menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="main-nav" aria-label="primary site navigation">
+      {{ partial:components/logo class="center-logo" }}
+        <ul class="main-nav-list">
+        {{ nav handle="header" max_depth="1" select="title|url|is_external" }}
+            <li>
+            <a href="{{ url }}" {{ if is_external }}target="_blank" rel="noopener"{{ /if }}>
+                {{ title }}
+            </a>
+            </li>
+        {{ /nav }}
+        </ul>
+    </nav>
+
+    <div class="navbar-right" aria-label="user login and cart navigation">
+      <a href="#" class="login-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+          <path
+            d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z"
+          />
+        </svg>
+      </a>
+      <a href="#" class="cart-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path
+            d="M4.558 7l4.701-4.702c.199-.198.46-.298.721-.298.613 0 1.02.505 1.02 1.029 0 .25-.092.504-.299.711l-3.26 3.26h-2.883zm12.001 0h2.883l-4.701-4.702c-.199-.198-.46-.298-.721-.298-.613 0-1.02.505-1.02 1.029 0 .25.092.504.299.711l3.26 3.26zm-16.559 2v2h.643c.534 0 1.021.304 1.256.784l4.101 10.216h12l4.102-10.214c.233-.481.722-.786 1.256-.786h.642v-2h-24z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Drawer -->
+<div
+  class="mobile-drawer"
+  id="mobile-drawer"
+  role="dialog"
+  aria-label="Mobile navigation menu"
+  aria-hidden="true"
+>
+  <div class="mobile-drawer-content">
+    <button class="close-btn" id="drawer-close" aria-label="Close menu">&times;</button>
+    <li><a href="#">Tasting</a></li>
+    <li><a href="#">Wines</a></li>
+    <li><a href="#">Winemaking</a></li>
+    <li><a href="#">Club</a></li>
+    <li><a href="#">About</a></li>
+  </div>
+</div>
