@@ -46,4 +46,5 @@ CSS folder structure is based on ITCSS:
 @import './utilities/site-grid.css';
 
 /* Custom Styles */
+@import './settings/tokens.css';
 @import './components/nav.css';

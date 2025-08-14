@@ -37,19 +37,19 @@
     https://ui.shadcn.com/docs/theming#list-of-variables
   */
 
-  --color-background: var(--color-white);
-  --color-foreground: var(--color-neutral-950);
-  --color-primary: oklch(0.205 0 0);
-  --color-primary-foreground: oklch(0.985 0 0);
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --color-primary: var(--color-accent);
+  --color-primary-foreground: oklch(0.18 0 0); /* dark text on gold */
   --color-secondary: oklch(0.97 0 0);
   --color-secondary-foreground: oklch(0.205 0 0);
   --color-muted: oklch(0.97 0 0);
   --color-muted-foreground: oklch(0.556 0 0);
   --color-accent: oklch(0.97 0 0);
-  --color-accent-foreground: oklch(0.205 0 0);
+  --color-accent-foreground: oklch(0.18 0 0);
   --color-destructive: oklch(0.577 0.245 27.325);
 
-  --color-border: oklch(0.922 0 0);
+  --color-border: var(--color-border);
   --color-input: oklch(0.922 0 0);
   --color-ring: oklch(0.708 0 0);
   --color-popover: var(--color-white);
@@ -68,7 +68,8 @@
   --color-transparent: transparent;
 
   /* Font families */
-  --font-sans: 'Mona Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans); /* Mona Sans */
+  --font-serif: var(--font-serif); /* Rufina */
 
   /* Font sizes */
   --text-xs: 0.75rem;

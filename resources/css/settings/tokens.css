@@ -1,0 +1,120 @@
+/* ---------- Colors ---------- */
+:root {
+  /* Base surfaces & text */
+  --color-bg:           #ffffff;
+  --color-surface:      #ffffff;
+  --color-surface-2:    #fafafb;
+  --color-border:       #f4f4fa;
+  --color-text:         #1a1d21; /* matches nav text */
+
+  /* Brand accents (gold) */
+  --color-accent:       #f6a521; /* nav alt-color */
+  --color-accent-500:   #f6a521;
+  --color-accent-600:   #e2941e;
+  --color-accent-700:   #c17f19;
+
+  /* Support (used in nav/login badge) */
+  --color-accent-amber: #fbb439;
+
+  /* States */
+  --color-success:      #16a34a;
+  --color-warning:      #f59e0b;
+  --color-danger:       #dc2626;
+
+  /* Optional subtle background gradient seen in the custom nav demo */
+  --bg-gradient:        linear-gradient(90deg, #eef1f9, #f9f0f2);
+}
+
+/* Dark mode token equivalents (kept subtle) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:        #0f1113;
+    --color-surface:   #141619;
+    --color-surface-2: #1a1d21;
+    --color-border:    rgba(255,255,255,0.12);
+    --color-text:      #e9eaec;
+
+    --color-accent:       #f6a521;
+    --color-accent-600:   #ef9a0d;
+    --color-accent-700:   #d88406;
+  }
+}
+
+/* ---------- Typography ---------- */
+/* fonts.css loads these families.
+   - Headings serif: Rufina (or Libre Baskerville)
+   - Body sans: Mona Sans (fallback to system-ui)
+*/
+:root {
+  --font-sans:  "Mona Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: "Rufina", "Libre Baskerville", ui-serif, Georgia, Cambria,
+                "Times New Roman", Times, serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium:  500;
+  --font-weight-bold:    700;
+
+  --text-size-base: 16px;
+  --line-height-base: 1.6;
+}
+
+/* Optional global hook so pages naturally pick up tokens */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-size-base);
+  line-height: var(--line-height-base);
+}
+
+/* Heading preference (serif-forward look from lcwine.com) */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Special Typography Elements */
+.brand-serif-italic { 
+    font-family: var(--font-serif-italic); 
+    font-style: italic; 
+}
+
+/* Links adopt brand accent by default */
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 2px;
+}
+a:hover { text-decoration: underline; }
+
+/* ---------- Radii / Shadows / Focus ---------- */
+:root {
+  --radius-lg:   16px;
+  --radius-pill: 2.5rem;
+
+  --shadow-1: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-2: 0 20px 60px rgba(0,0,0,0.18);
+
+  --focus-ring-color: var(--color-accent);
+  --focus-ring: 2px solid var(--focus-ring-color);
+}
+
+/* Keyboard-only outlines */
+:focus { outline: none; }
+body.user-is-tabbing :focus {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---------- Utilities (optional, non-invasive) ---------- */
+/* Use on containers you want softly elevated */
+.u-surface    { background: var(--color-surface); box-shadow: var(--shadow-1); }
+.u-surface-2  { background: var(--color-surface-2); }
+.u-rounded    { border-radius: var(--radius-lg); }
+.u-pill       { border-radius: var(--radius-pill); }
+.u-border     { border: 1px solid var(--color-border); }
+
+/* Soft gradient site-wide, apply this to html/body or a wrapper */
+.has-bg-gradient { background: var(--bg-gradient); }
