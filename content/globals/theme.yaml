@@ -1,6 +1,6 @@
 title: Theme
 data:
-  logo: logos/logo-brand.svg
+  logo: logos/lecuvier_logotype_black.svg
   search_results: d50dbcf7-2ed9-4a10-91c5-5b5557d694ea
   header_buttons:
     -
@@ -22,7 +22,7 @@ data:
         asset: null
         code: null
         button_type: text
-      label: 'Sign in'
+      label: Account
     -
       id: k0sBnlT1
       button_label: 'Get started'
@@ -43,5 +43,5 @@ data:
         code: null
         button_type: primary
       label: 'Get started'
-  about: 'Features shadcn/ui style Alpine.js components that you can customize, extend, and build on. Plus page builder and complete SEO setup.'
-  copyright_text: 'Bedrock. All rights reserved.'
+  about: 'Paso Robles winery.'
+  copyright_text: 'Le Cuvier. All rights reserved.'
