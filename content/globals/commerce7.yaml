@@ -1,0 +1,9 @@
+title: Commerce7
+data:
+  enable_c7: true
+  tenant_id: web-wolf
+  home_collection_slug: home
+  c7_css_url: 'https://cdn.commerce7.com/v2/commerce7.css'
+  c7_js_url: 'https://cdn.commerce7.com/v2/commerce7.js'
+  c7_script_id: c7-javascript
+  c7_defer: true

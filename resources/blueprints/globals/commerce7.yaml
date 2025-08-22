@@ -1,0 +1,49 @@
+title: Commerce7
+tabs:
+  main:
+    sections:
+      - fields:
+          - handle: enable_c7
+            field:
+              type: toggle
+              display: Enable Commerce7
+              default: false
+
+          - handle: tenant_id
+            field:
+              type: text
+              display: Tenant ID
+              placeholder: your-tenant-slug
+
+          - handle: home_collection_slug
+            field:
+              type: text
+              display: Home collection slug
+              default: home
+
+          - handle: c7_css_url
+            field:
+              type: text
+              display: C7 CSS URL
+              placeholder: https://cdn.commerce7.com/v2/commerce7.css
+              default: https://cdn.commerce7.com/v2/commerce7.css
+
+          - handle: c7_js_url
+            field:
+              type: text
+              display: C7 JS URL
+              placeholder: https://cdn.commerce7.com/v2/commerce7.js
+              default: https://cdn.commerce7.com/v2/commerce7.js
+
+          - handle: c7_script_id
+            field:
+              type: text
+              display: Script tag id
+              placeholder: c7-javascript
+              default: c7-javascript
+
+          - handle: c7_defer
+            field:
+              type: toggle
+              display: Defer JS load
+              default: true
