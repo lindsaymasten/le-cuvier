@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
         {{ partial:partials/seo }}
         {{ partial:partials/browser-appearance }}
 
@@ -11,14 +12,16 @@
         {{# Async load fonts #}}
         {{ vite src="resources/css/fonts.css" attr:style:media="print" attr:style:onload="this.media='all'" }}
 
-        {{ globals:commerce7 }}
-        {{ if enable_c7 && tenant_id }}
-            <link rel="stylesheet" href="{{ c7_css_url | default:'https://cdn.commerce7.com/v2/commerce7.css' }}">
+        {{# --- Commerce7 CSS (guarded by globals) --- #}}
+        {{ if commerce7:enable_c7 && commerce7:tenant_id }}
+            <link rel="preconnect" href="https://cdn.commerce7.com">
+            <link rel="stylesheet"
+                  href="{{ commerce7:c7_css_url or 'https://cdn.commerce7.com/v2/commerce7.css' }}">
         {{ /if }}
-        {{ /globals:commerce7 }}
 
         {{ scripts:code_head }}
     </head>
+
     <body class="min-h-screen bg-white font-sans antialiased text-base/6 text-neutral-800 overflow-x-hidden selection:bg-primary selection:text-white">
         {{ partial:partials/skip-to-content }}
         {{ yield:seo_body }}
@@ -33,15 +36,15 @@
 
         {{ partial:partials/footer }}
 
-        {{# Commerce7 #}}
-        {{ globals:commerce7 }}
-            {{ if enable_c7 && tenant_id }}
-                <script id="{{ c7_script_id | default:'c7-javascript' }}"
-                        src="{{ c7_js_url | default:'https://cdn.commerce7.com/v2/commerce7.js' }}"
-                        data-tenant="{{ tenant_id }}"
-                        {{ if c7_defer }}defer{{ /if }}></script>
-            {{ /if }}
-        {{ /globals:commerce7 }}
+        {{# --- Commerce7 JS (guarded by globals) --- #}}
+        {{ if commerce7:enable_c7 && commerce7:tenant_id }}
+            <script
+                id="{{ commerce7:c7_script_id or 'c7-javascript' }}"
+                src="{{ commerce7:c7_js_url or 'https://cdn.commerce7.com/v2/commerce7.js' }}"
+                data-tenant="{{ commerce7:tenant_id }}"
+                {{ if commerce7:c7_defer }}defer{{ /if }}>
+            </script>
+        {{ /if }}
 
         {{# Push scripts when various components are added #}}
         {{ stack:scripts }}
