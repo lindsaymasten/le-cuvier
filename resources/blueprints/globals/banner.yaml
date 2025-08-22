@@ -4,7 +4,7 @@ tabs:
     sections:
       -
         display: Banner
-        instructions: 'Announce new product releases, rebranding, or any other important stuff that warrants prime real estate on your website.'
+        instructions: 'Announce new product releases, rebranding, or any other important stuff.'
         fields:
           -
             handle: show

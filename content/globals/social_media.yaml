@@ -2,33 +2,26 @@ title: 'Social media'
 data:
   platforms:
     -
-      id: m32jlzlr
-      url: JasonBaciulis
-      prefix: 'https://x.com/'
-      type: x
-      enabled: true
-    -
-      id: 1pQqfxOP
-      handle: in/jasonbaciulis/
-      prefix: 'https://www.linkedin.com/'
-      type: linkedin
-      enabled: true
-      url: in/jasonbaciulis
-    -
-      id: m32k08y1
-      url: JasonBaciulis
-      prefix: 'https://www.github.com/'
-      type: github
-      enabled: true
-    -
-      id: m32k0hix
-      url: statamic
-      prefix: 'https://www.youtube.com/'
-      type: youtube
-      enabled: true
-    -
       id: m32kbi2g
-      url: jason@remarkable.dev
+      url: mika@lcwine.com
       prefix: 'mailto:'
       type: email
+      enabled: true
+    -
+      id: med8oo8n
+      url: lecuvierwinery
+      prefix: 'https://www.facebook.com/'
+      type: facebook
+      enabled: true
+    -
+      id: med8oqh4
+      url: lecuvierwinery
+      prefix: 'https://www.instagram.com/'
+      type: instagram
+      enabled: true
+    -
+      id: med8orzb
+      url: lecuvierwinery
+      prefix: 'https://www.pinterest.com/'
+      type: pinterest
       enabled: true

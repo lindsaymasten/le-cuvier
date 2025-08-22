@@ -3,13 +3,13 @@ id: home
 blueprint: pages
 title: Home
 template: default
-updated_by: 6d26d0a8-ff9c-4c3e-a25e-7e036508908c
-updated_at: 1753803065
+updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
+updated_at: 1755288793
 blocks:
   -
     id: ZbruxJDq
     type: hero_home
-    enabled: true
+    enabled: false
     title: 'The Foundation for your Statamic projects'
     text: 'shadcn/ui style Alpine.js components that you can customize, extend, and build on. Plus page builder and complete SEO setup.'
     buttons:
@@ -33,17 +33,17 @@ blocks:
     text: 'Demo contact form with sections and conditional fields.'
     form: contact
     type: contact
-    enabled: true
+    enabled: false
     success_message: 'Thanks! We got your inquiry and will get back to you within 24 hours.'
     button_label: 'Submit the inquiry'
   -
     id: m3h0yigt
     type: newsletter
-    enabled: true
+    enabled: false
   -
     id: s343JCRf
     type: style_guide
-    enabled: true
+    enabled: false
   -
     id: m5mqwjtr
     title: 'Our team'
@@ -51,7 +51,7 @@ blocks:
     query: ordered
     limit: 6
     type: team
-    enabled: true
+    enabled: false
   -
     id: m4seyrjx
     title: 'Recent posts'
@@ -59,7 +59,7 @@ blocks:
     query: latest
     limit: 3
     type: blog_excerpt
-    enabled: true
+    enabled: false
   -
     id: m5mjha3w
     title: 'Testimonials demo'
@@ -67,19 +67,19 @@ blocks:
     query: latest
     limit: 6
     type: testimonials
-    enabled: true
+    enabled: false
   -
     id: m5nrhfol
     title: 'Search demo'
     text: 'Search within posts collection'
     type: search_form
-    enabled: true
+    enabled: false
   -
     id: UXTueUcZ
     block_type: collapsed
     title: 'Frequently asked questions'
     type: faqs
-    enabled: true
+    enabled: false
     items:
       -
         id: m3e8xdmv
@@ -215,11 +215,19 @@ blocks:
                 text: 'We operate on a quantum schedule—updates both have and have not been made until you check the commit history.'
         type: item
         enabled: true
+  -
+    id: med9fev8
+    title: Blegh
+    text: Test
+    query: latest
+    limit: 3
+    type: blog_excerpt
+    enabled: false
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
-seo_title: 'The Foundation for Statamic projects'
-seo_description: 'Features shadcn/ui style Alpine.js components that you can customize, extend, and build on. Plus a page builder with CLI tools and complete SEO setup'
+seo_title: 'Le Cuvier Winery'
+seo_description: 'Description goes here.'
 ---
