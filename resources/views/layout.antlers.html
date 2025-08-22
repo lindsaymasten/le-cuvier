@@ -8,16 +8,16 @@
         {{ partial:partials/seo }}
         {{ partial:partials/browser-appearance }}
 
-        {{ vite src="resources/css/site.css" }}
-        {{# Async load fonts #}}
-        {{ vite src="resources/css/fonts.css" attr:style:media="print" attr:style:onload="this.media='all'" }}
-
         {{# --- Commerce7 CSS (guarded by globals) --- #}}
         {{ if commerce7:enable_c7 && commerce7:tenant_id }}
             <link rel="preconnect" href="https://cdn.commerce7.com">
             <link rel="stylesheet"
                   href="{{ commerce7:c7_css_url or 'https://cdn.commerce7.com/v2/commerce7.css' }}">
-        {{ /if }}
+        {{ /if }}        
+
+        {{ vite src="resources/css/site.css" }}
+        {{# Async load fonts #}}
+        {{ vite src="resources/css/fonts.css" attr:style:media="print" attr:style:onload="this.media='all'" }}
 
         {{ scripts:code_head }}
     </head>

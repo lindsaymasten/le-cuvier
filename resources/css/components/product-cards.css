@@ -108,14 +108,20 @@
   margin: 0 1.5rem 2rem; padding: 1rem;
 }
 .product-cards .product-purchase h3 { font-size: 1.25em; font-weight: 600; color: #fff; }
-.product-cards .product-purchase a.purchase-button {
+.product-cards .product-purchase :is(a.purchase-button, c7-product-add-to-cart button) {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 40px; padding: 0.5rem 1rem;
   background: #d4cec6; color: hsl(0 0% 22%);
   text-decoration: none; border: 1px solid #d4cec6; border-radius: 4px; font-weight: 600;
   transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
 }
-.product-cards .product-purchase a.purchase-button:hover { transform: translateY(-1px); }
+.product-cards .product-purchase :is(a.purchase-button, c7-product-add-to-cart button):hover {
+  transform: translateY(-1px);
+}
+.product-cards c7-product-add-to-cart button {
+  appearance: none;
+  font: inherit;
+}
 
 /* Top CTA */
 .product-cards .cta-button { width: 100%; text-align: center; margin: 10px 0 20px; }
