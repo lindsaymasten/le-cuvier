@@ -14,6 +14,10 @@ fields:
         main:
           display: Main
           sets:
+            product_cards:
+              display: Product Cards
+              instructions: "Product Cards"
+              fields: []
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'

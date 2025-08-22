@@ -38,6 +38,7 @@ CSS folder structure is based on ITCSS:
 @import './components/scrollbar.css';
 @import './components/tooltip.css';
 @import './components/typography.css';
+@import './components/product-cards.css';
 
 /* Utilities */
 @import './utilities/br-hidden.css';

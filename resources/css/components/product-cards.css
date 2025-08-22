@@ -1,0 +1,144 @@
+/* Product Cards component (scoped under .product-cards) */
+
+.product-cards .products { display: flex; flex-wrap: wrap; }
+
+/* Card */
+.product-cards .product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 16%;
+  background-color: #fff;
+  box-shadow: 0 0 1px rgba(0,0,0,0.25);
+  transition:
+    transform 0.35s cubic-bezier(0.4,0,0.2,1),
+    filter 0.35s cubic-bezier(0.4,0,0.2,1),
+    border-radius 0.35s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 10px;
+  min-width: 240px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+/* Multiply tint overlay */
+.product-cards .product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #035147;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.4,0,0.2,1),
+    border-radius 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.product-cards .product-card:hover::after,
+.product-cards .product-card:focus-within::after { opacity: 0.65; }
+
+/* Hover lift */
+.product-cards .product-card:hover,
+.product-cards .product-card:focus-within {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  border-radius: 18px;
+}
+
+.product-cards .product-card:hover .product-image img,
+.product-cards .product-card:focus-within .product-image img,
+.product-cards .product-card:hover .product-details,
+.product-cards .product-card:focus-within .product-details {
+  border-radius: 18px;
+  transition: border-radius 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Image */
+.product-cards .product-image { height: 100%; }
+.product-cards .product-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Details */
+.product-cards .product-details {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  inset: 0;
+  padding: 20px;
+  border-radius: inherit;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.4,0,0.2,1),
+    border-radius 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.product-cards .product-card:hover .product-details,
+.product-cards .product-card:focus-within .product-details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Text blocks */
+.product-cards .product-info {
+  display: flex; flex-direction: column; justify-content: center; text-align: center;
+  color: #fff;
+  margin: 1.5rem; padding: 0.5rem;
+}
+.product-cards .product-info h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 0.8vw + 1rem, 1.75rem);
+  line-height: 1.1;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-weight: 500;
+}
+.product-cards .product-info h2 {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* Price + CTA row */
+.product-cards .product-purchase {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin: 0 1.5rem 2rem; padding: 1rem;
+}
+.product-cards .product-purchase h3 { font-size: 1.25em; font-weight: 600; color: #fff; }
+.product-cards .product-purchase a.purchase-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 40px; padding: 0.5rem 1rem;
+  background: #d4cec6; color: hsl(0 0% 22%);
+  text-decoration: none; border: 1px solid #d4cec6; border-radius: 4px; font-weight: 600;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.product-cards .product-purchase a.purchase-button:hover { transform: translateY(-1px); }
+
+/* Top CTA */
+.product-cards .cta-button { width: 100%; text-align: center; margin: 10px 0 20px; }
+.product-cards .cta-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 40px; padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text); background: var(--color-surface);
+  text-decoration: none; font-weight: 600;
+  transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.product-cards .cta-link:hover {
+  border-color: color-mix(in oklab, var(--color-border), var(--color-text) 25%);
+  transform: translateY(-1px);
+}
+
+/* Layout rules from the original */
+@media (min-width: 1200px) {
+  .product-cards .products .product-card { flex: 1 16%; }
+  .product-cards .products .product-card:first-child,
+  .product-cards .products .product-card:nth-child(2) { flex: 2 46%; }
+}
+@media (max-width: 600px) {
+  .product-cards .product-card { flex: 1 46%; }
+}

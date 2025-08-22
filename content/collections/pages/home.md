@@ -4,8 +4,12 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1755288793
+updated_at: 1755834994
 blocks:
+  -
+    id: memat9au
+    type: product_cards
+    enabled: true
   -
     id: ZbruxJDq
     type: hero_home
