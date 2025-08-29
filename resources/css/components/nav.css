@@ -9,7 +9,6 @@
 body {
   font-family: var(--font-family);
   background: linear-gradient(90deg, #eef1f9, #f9f0f2);
-  padding-top: 100px;
   overflow-x: hidden;
 }
 
@@ -86,7 +85,8 @@ body {
 /* === Nav Shell === */
 .navbar {
   position: fixed;
-  top: 0; left: 50%;
+  top: 40px; 
+  left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 3rem);
   max-width: 1200px;

@@ -1,6 +1,22 @@
-/* Product Cards component (scoped under .product-cards) */
+/* Override Commerce7 Products Grid */
+.product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list) {
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
 
-.product-cards .products { display: flex; flex-wrap: wrap; }
+/* Product Cards Component */
+
+.product-cards .products { 
+  display: flex; 
+  flex-wrap: wrap; 
+}
 
 /* Card */
 .product-cards .product-card {
@@ -16,7 +32,6 @@
     border-radius 0.35s cubic-bezier(0.4,0,0.2,1);
   border-radius: 10px;
   min-width: 240px;
-  margin: 10px;
   overflow: hidden;
 }
 
@@ -157,11 +172,6 @@
 .product-cards .product-purchase form.c7-form.c7-product__add-to-cart > :not(.c7-product__price) {
   display: none !important;
 }
-
-/* If your tenant nests price one level deeper, use this fallback instead of the rule above: */
-/* .product-cards .product-purchase form.c7-form.c7-product__add-to-cart > *:not(:has(.c7-product__price)) { */
-/*   display: none !important; */
-/* } */
 
 /* Make sure the price itself shows as text */
 .product-cards .product-purchase .c7-product__price {
