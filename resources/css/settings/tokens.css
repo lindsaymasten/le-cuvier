@@ -1,3 +1,75 @@
+/* ---------- Typography ---------- */
+/* fonts.css loads these families.
+   - Headings serif: Rufina via composite serif
+   - Body sans: Mona Sans
+   - Italic: Libre Baskerville Italic
+   - Numerals: Libre Baskerville
+*/
+
+/* Composite serif: Libre Baskerville for numerals, Rufina for everything else */
+/* Regular (400) */
+@font-face {
+  font-family: "LC-SerifMix";
+  src: url(https://fonts.gstatic.com/s/librebaskerville/v16/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  size-adjust: 87%;
+  /* digits + common numeric punctuation/currency */
+  unicode-range:
+    U+0030-0039,        /* 0–9 */
+    U+002C, U+002E,     /* , . */
+    U+0025,             /* % */
+    U+002D,             /* hyphen-minus */
+    U+0024, U+20AC, U+00A3; /* $, €, £ */
+}
+@font-face {
+  font-family: "LC-SerifMix";
+  src: url(https://fonts.gstatic.com/s/rufina/v16/Yq6V-LyURyLy-aKCpB5lluRSlw.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  /* everything except the numeric/punct glyphs above */
+  unicode-range: U+0000-002B, U+002F, U+003A-10FFFF;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "LC-SerifMix";
+  src: url(https://fonts.gstatic.com/s/librebaskerville/v16/kmKiZrc3Hgbbcjq75U4uslyuy4kn0qviTgY3KcC-wLOj.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  size-adjust: 87%;
+  unicode-range:
+    U+0030-0039,
+    U+002C, U+002E,
+    U+0025,
+    U+002D,
+    U+0024, U+20AC, U+00A3;
+}
+@font-face {
+  font-family: "LC-SerifMix";
+  src: url(https://fonts.gstatic.com/s/rufina/v16/Yq6W-LyURyLy-aKKHztwu8ZfvRIkSQ.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+0000-002B, U+002F, U+003A-10FFFF;
+}
+
+:root {
+  --font-sans:  "Mona Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: "LC-SerifMix", "Rufina", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif-italic: "Libre Baskerville", ui-serif, Georgia, Cambria,
+                "Times New Roman", Times, serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   550;
+  --font-weight-bold:     700;
+  --font-weight-variable: <weight>;
+
+  --text-size-base: 16px;
+  --line-height-base: 1.6;
+}
+
 /* ---------- Colors ---------- */
 :root {
   /* Base surfaces & text */
@@ -7,7 +79,7 @@
   --color-border:       #f4f4fa;
   --color-text:         #1a1d21; /* matches nav text */
 
-  /* Brand accents (gold) */
+  /* Brand accents */
   --color-accent:       #f6a521; /* nav alt-color */
   --color-accent-500:   #f6a521;
   --color-accent-600:   #e2941e;
@@ -17,15 +89,15 @@
   --color-accent-amber: #fbb439;
 
   /* States */
-  --color-success:      #16a34a;
-  --color-warning:      #f59e0b;
+  --color-success:      #6f894e;
+  --color-warning:      #e7ab05;
   --color-danger:       #dc2626;
 
-  /* Optional subtle background gradient seen in the custom nav demo */
+  /* Optional subtle background gradient */
   --bg-gradient:        linear-gradient(90deg, #eef1f9, #f9f0f2);
 }
 
-/* Dark mode token equivalents (kept subtle) */
+/* Dark mode token equivalents */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg:        #0f1113;
@@ -40,39 +112,21 @@
   }
 }
 
-/* ---------- Typography ---------- */
-/* fonts.css loads these families.
-   - Headings serif: Rufina (or Libre Baskerville)
-   - Body sans: Mona Sans (fallback to system-ui)
-*/
-:root {
-  --font-sans:  "Mona Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-                Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-serif: "Rufina", "Libre Baskerville", ui-serif, Georgia, Cambria,
-                "Times New Roman", Times, serif;
-
-  --font-weight-regular: 400;
-  --font-weight-medium:  500;
-  --font-weight-bold:    700;
-
-  --text-size-base: 16px;
-  --line-height-base: 1.6;
-}
-
 /* Optional global hook so pages naturally pick up tokens */
 html, body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--text-size-base);
+  font-optical-sizing: normal;
+  font-variation-settings: "wdth" 100;
   line-height: var(--line-height-base);
 }
 
 /* Heading preference (serif-forward look from lcwine.com) */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-serif);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-regular);
 }
 
 /* Special Typography Elements */
