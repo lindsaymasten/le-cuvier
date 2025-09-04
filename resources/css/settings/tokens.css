@@ -73,6 +73,7 @@
 /* ---------- Colors ---------- */
 :root {
   /* Base surfaces & text */
+  --surface-page: linear-gradient(81deg, #eaeaea, #FCF3ED);
   --color-bg:           #ffffff;
   --color-surface:      #ffffff;
   --color-surface-2:    #fafafb;
