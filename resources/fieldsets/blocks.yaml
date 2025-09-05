@@ -16,8 +16,16 @@ fields:
           sets:
             product_cards:
               display: Product Cards
-              instructions: "Product Cards"
-              fields: []
+              instructions: >
+                Products managed in Commerce7
+              fields:
+                - handle: c7_notice
+                  field:
+                    type: html
+                    display: Commerce7
+                    antlers: false
+                    html: |
+                      <p>Manage products and promotions in Commerce7: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'
