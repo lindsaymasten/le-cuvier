@@ -16,17 +16,17 @@ fields:
           sets:
             product_cards:
               display: Product Cards
-              instructions: Product Cards
-              icon: layout-three-columns
+              instructions: Place a Commerce7 products collection.
+              icon: dashboard-layout
               fields:
                 - handle: c7_collection_slug
                   field:
                     type: slug
                     display: Collection Slug
-                    instructions: Enter the Commerce7 collection slug (Admin → Collections → Slug).
+                    instructions: Enter the Commerce7 collection slug (Store → Collections → Desired Collection → SEO → Slug).
                     validate:
                       - required
-                      
+
                 - handle: audience
                   field:
                     type: select
@@ -59,7 +59,7 @@ fields:
                     antlers: false
                     html: |
                       <div class="help-block">
-                      <p>Products shown are pulled automatically from the Commerce7 product collection specified by the slug.</p>
+                      <p>Products shown are pulled automatically from the Commerce7 product collection specified by the title.</p>
                       <p>Manage products and promotions: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
                       </div>
             article:
