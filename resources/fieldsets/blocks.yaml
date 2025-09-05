@@ -16,8 +16,8 @@ fields:
           sets:
             product_cards:
               display: Product Cards
-              instructions: >
-                Products managed in Commerce7
+              instructions: 'Products managed in Commerce7'
+              icon: dashboard-layout
               fields:
                 - handle: c7_notice
                   field:
