@@ -73,7 +73,6 @@
 /* ---------- Colors ---------- */
 :root {
   /* Base surfaces & text */
-  --surface-page: linear-gradient(81deg, #eaeaea, #FCF3ED);
   --color-bg:           #ffffff;
   --color-surface:      #ffffff;
   --color-surface-2:    #fafafb;
@@ -95,7 +94,7 @@
   --color-danger:       #dc2626;
 
   /* Optional subtle background gradient */
-  --bg-gradient:        linear-gradient(90deg, #eef1f9, #f9f0f2);
+  --bg-gradient:        linear-gradient(90deg, #edf0ed, #f0e6dc);
 }
 
 /* Dark mode token equivalents */
@@ -115,14 +114,16 @@
 
 /* Optional global hook so pages naturally pick up tokens */
 html, body {
-  background: var(--color-bg);
+  background: var(--bg-gradient); 
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--text-size-base);
   font-optical-sizing: normal;
   font-variation-settings: "wdth" 100;
   line-height: var(--line-height-base);
+  overflow-x: hidden;
 }
+  
 
 /* Heading preference (serif-forward look from lcwine.com) */
 h1, h2, h3, h4, h5 {

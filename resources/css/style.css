@@ -12,11 +12,6 @@
   --lc-heading-tracking: -0.01em;
 }
 
-/* Body background */
-body {
-  background: var(--surface-page); 
-}
-
 /* Use Rufina for headings, keep body as-is (from tokens/fonts) */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);

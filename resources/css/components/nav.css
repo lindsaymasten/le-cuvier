@@ -5,13 +5,6 @@
   padding: 0;
 }
 
-/* === Base Styles === */
-body {
-  font-family: var(--font-family);
-  background: linear-gradient(90deg, #eef1f9, #f9f0f2);
-  overflow-x: hidden;
-}
-
 /* === Layout Tokens === */
 :root {
   --text-color: rgb(26, 29, 33);

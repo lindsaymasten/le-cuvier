@@ -1,3 +1,8 @@
+.product-detail {
+  /* content below navbar */
+  padding-top: 120px;
+}
+
 .product-detail .pd {
   /* page padding uses tokens if present */
   padding: var(--space-6, 24px) 0;
