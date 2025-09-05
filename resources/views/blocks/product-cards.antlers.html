@@ -1,6 +1,32 @@
 {{ if commerce7:enable_c7 && commerce7:tenant_id }}
-  <div
-    class="c7-product-collection"
-    data-collection-slug="{{ c7_collection_slug }}">
-  </div>
+  <section
+    x-data="{
+      loggedIn: false,
+      init() {
+        const loginEl = this.$refs.c7login;
+        const check = () => { this.loggedIn = /logout/i.test((loginEl.textContent || '')); };
+        new MutationObserver(check).observe(loginEl, { subtree: true, childList: true, characterData: true });
+        check();
+      }
+    }"
+    class="product-cards"
+  >
+    <!-- Hidden C7 login widget to mirror login state -->
+    <div class="sr-only" aria-hidden="true" x-ref="c7login">
+      <div id="c7-login"></div>
+    </div>
+
+    {{ if audience == 'all' }}
+      <div class="c7-product-collection" data-collection-slug="{{ c7_collection_slug }}"></div>
+    {{ else }}
+      <template x-if="loggedIn">
+        <div class="c7-product-collection" data-collection-slug="{{ c7_collection_slug }}"></div>
+      </template>
+      <template x-if="!loggedIn">
+        <div class="product-cards__notice">
+          {{ guest_message ?? 'Log in to view member products.' }}
+        </div>
+      </template>
+    {{ /if }}
+  </section>
 {{ /if }}
