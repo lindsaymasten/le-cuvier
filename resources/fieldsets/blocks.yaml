@@ -16,16 +16,26 @@ fields:
           sets:
             product_cards:
               display: Product Cards
-              instructions: 'Products managed in Commerce7'
-              icon: dashboard-layout
+              instructions: Product Cards
+              icon: layout-three-columns
               fields:
+                - handle: c7_collection_slug
+                  field:
+                    type: slug
+                    display: Collection Slug
+                    instructions: Enter the Commerce7 collection slug (Admin → Collections → Slug).
+                    validate:
+                      - required
                 - handle: c7_notice
                   field:
                     type: html
-                    display: Commerce7
+                    display: This is a Commerce7 block:
                     antlers: false
                     html: |
-                      <p>Manage products and promotions in Commerce7: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
+                      <div class="help-block">
+                      <p>Products shown are pulled automatically from the Commerce7 product collection specified by the slug.</p>
+                      <p>Manage products and promotions: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
+                      </div>
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'

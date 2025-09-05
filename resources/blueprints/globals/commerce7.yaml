@@ -15,12 +15,6 @@ tabs:
               display: Tenant ID
               placeholder: your-tenant-slug
 
-          - handle: home_collection_slug
-            field:
-              type: text
-              display: Home collection slug
-              default: home
-
           - handle: c7_css_url
             field:
               type: text
