@@ -1,130 +1,93 @@
 .product-detail {
-  /* content below navbar */
-  padding-top: 120px;
+    box-sizing: border-box;
+    display: flex;
+    flex-grow: 1;
 }
 
-.product-detail .pd {
-  /* page padding uses tokens if present */
-  padding: var(--space-6, 24px) 0;
+.product-detail .c7-content {
+  padding: 0; /*overrides native c7 style */
 }
 
-.product-detail .pd-layout {
+.pd {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-8, 32px);
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: var(--space-5, 20px);
 }
 
-@media (min-width: 1024px) {
-  .product-detail .pd-layout {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--space-12, 48px);
-  }
-}
-
-/* Media (left column on desktop) */
-.product-detail .pd-media {
-  flex: 0 0 auto;
+.pd-layout {
+  display: flex;
+  align-items: stretch; /* equal height columns */
   width: 100%;
-  /* keep image prominent on mobile */
 }
 
-@media (min-width: 1024px) {
-  .product-detail .pd-media {
-    width: 46%;
-    position: sticky;
-    top: var(--space-8, 32px); /* mild stickiness */
-  }
+.pd-layout > .pd-media,
+.pd-layout > .pd-content-wrapper { 
+  flex: 0 0 50%; /* force each column to exactly 50% */
+  max-width: 50%;
+  box-sizing: border-box;
+  min-width: 0; /* prevents overflow from long content */
 }
 
-/* Ensure C7 product image behaves nicely */
-.product-detail .pd-media img,
-.product-detail .pd-media svg,
-.product-detail .pd-media picture,
-.product-detail .pd-media video {
-  display: block;
+.pd-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-media img,
+.pd-media c7-product-image {
   max-width: 100%;
   height: auto;
-}
-
-/* Content (right column) */
-.product-detail .pd-content {
-  flex: 1 1 auto;
-  width: 100%;
-  max-width: 640px; /* keep readable line length */
-}
-
-/* Titlebar: title left, price right */
-.product-detail .pd-titlebar {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-4, 16px);
-  margin-bottom: var(--space-4, 16px);
-}
-
-.product-detail .pd-title {
-  margin: 0;
-  line-height: 1.2;
-}
-
-.product-detail .pd-price {
-  white-space: nowrap;
-  font-weight: 600;
-}
-
-/* Teaser */
-.product-detail .pd-teaser {
-  margin-bottom: var(--space-6, 24px);
-}
-
-/* Purchase block */
-.product-detail .pd-buy {
-  margin-bottom: var(--space-8, 32px);
-}
-
-/* Let the default C7 add-to-cart UI render */
-.product-detail .pd-buy .c7-product__add-to-cart,
-.product-detail .pd-buy form.c7-form.c7-product__add-to-cart {
   display: block;
 }
 
-/* Section blocks: Notes, Vineyard, Aging */
-.product-detail .pd-section + .pd-section {
-  margin-top: var(--space-10, 40px);
+.pd-content {
+  position: relative;
+  top: 110px; /* clears main nav */
+  margin: 3rem 2rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
-.product-detail .pd-h2 {
-  margin: 0 0 var(--space-3, 12px) 0;
-  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
-  line-height: 1.3;
+.pd-titlebar {
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Typography rhythm inside sections */
-.product-detail .pd-section p,
-.product-detail .pd-section li {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 0 0.75em 0;
-}
-
-/* Gentle reset for C7 wrappers inside our scope to prevent unexpected spacing */
-.product-detail .pd-content :is(.c7, .c7-product, .c7-body) {
+.pd-titlebar .c7-product__add-to-cart__price {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
-/* Prevent any C7 product page grid from imposing layout on our page */
-.product-detail :is(.c7-product-collection__product-list, .c7-product-allocation__product-list) {
-  all: unset;
+.pd-teaser {
+  margin: 1.5rem 0;
 }
 
-/* A11y: focus styles for any interactive elements injected by C7 */
-.product-detail :is(button, [href], input, select, textarea):focus-visible {
-  outline: 2px solid var(--color-focus, currentColor);
-  outline-offset: 2px;
+.pd-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pd-section .pd-checkbox-element {
+  display: flex;
+  gap: 8px;
+}
+
+.pd-section .c7-chip {
+  display: flex;
+  background-color: rgb(224 216 202);
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+  .pd-layout {
+    flex-direction: column;
+  }
+  .pd-layout > .pd-media,
+  .pd-layout > .pd-content-wrapper {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+  .pd-content {
+    top: 0;
+  }
 }

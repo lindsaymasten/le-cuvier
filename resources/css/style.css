@@ -10,6 +10,18 @@
 :root {
   /* Fine-tune reading rhythm */
   --lc-heading-tracking: -0.01em;
+  --text-color: rgb(26, 29, 33);
+  --bg-color: #fff;
+  --border-color: rgb(244, 244, 250);
+  --alt-color: rgb(246, 165, 33);
+  --login-bg: rgb(251, 180, 57);
+  --font-family: 'Mona Sans', sans-serif;
+  --font-optical-sizing: auto;
+  --font-variation-settings: "wdth" 100;
+  -webkit-text-size-adjust: 100%;
+  word-wrap: break-word;
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
 /* Use Rufina for headings, keep body as-is (from tokens/fonts) */
