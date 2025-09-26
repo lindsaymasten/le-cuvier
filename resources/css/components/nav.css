@@ -94,8 +94,8 @@
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 0 2.5rem 2.5rem 0;
-  padding: 20px 30px;
-  margin: 0 0 0 0.15rem;
+  padding: 14px 16px;
+  margin: 0 0 0 2px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .navbar-left {
@@ -103,8 +103,8 @@
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 2.5rem 0 0 2.5rem;
-  padding: 20px 30px;
-  margin: 0 0.15rem 0 0;
+  padding: 15px 30px;
+  margin: 0 2px 0 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
@@ -115,7 +115,7 @@
   background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 2.5rem 0 0 2.5rem;
-  padding: 20px 30px;
+  padding: 14px 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   width: 100%;
 }
@@ -138,7 +138,6 @@
   flex: 0 1 auto;
   font-weight: 400;
   gap: 6px;
-  font-size: 14px;
 }
 .main-nav-list li a {
   text-decoration: none;
@@ -148,7 +147,7 @@
 
 /* Slot that receives the cloned logo */
 .logo-slot {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; transform: scale(1.5);
 }
 
 /* === Buttons === */
@@ -194,11 +193,11 @@
 
 /* === Responsive === */
 @media (max-width: 768px) {
-  .main-nav { padding: 20px; border-radius: 0; }
+  .main-nav { padding: 14px; border-radius: 0; }
   .main-nav-list { display: none; }
-  .center-logo { order: 1; margin: 0 auto; display: block; }
-  .navbar-left { display: flex; padding: 20px 26px; }
-  .navbar-right { padding: 20px 15px; gap: 0; }
+  .center-logo { order: 1; margin: 0 auto; display: block; transform: scale(1.5); }
+  .navbar-left { display: flex; padding: 15px 36px; }
+  .navbar-right { padding: 14px 15px; gap: 0; }
   .hamburger { display: flex; height: 38px; justify-content: center; }
 }
 
