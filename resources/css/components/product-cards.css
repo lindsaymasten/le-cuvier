@@ -139,6 +139,7 @@
   text-decoration: none;
 }
 .product-cards .product-info h2 {
+  color: var(--color-text);
   font-size: 0.9375rem;
   line-height: 1.4;
   opacity: 0.9;
