@@ -1,3 +1,4 @@
+{{ if product }}
 <section class="pd">
   <div class="pd-layout">
     <!-- Media (wine bottle) -->
@@ -75,3 +76,8 @@
     </div>
   </div>
 </section>
+{{ else }}
+<main id="content" class="product-detail">
+  <div id="c7-content"></div>
+</main>
+{{ /if }}
