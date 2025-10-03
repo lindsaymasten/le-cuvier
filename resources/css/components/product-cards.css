@@ -159,9 +159,9 @@
   font-weight: 600;
   color: #fff;
 }
-.c7-product__add-to-cart__form,
-.c7-product__variant__price__title,
-.c7-product__add-to-cart__price__variant::before {
+.product-card .c7-product__add-to-cart__form,
+.product-card .c7-product__variant__price__title,
+.product-card .c7-product__add-to-cart__price__variant::before {
   display: none;
 }
 
