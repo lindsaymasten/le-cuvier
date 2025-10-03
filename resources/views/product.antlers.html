@@ -1,3 +1,77 @@
-<main id="content" class="product-detail">
-  <div id="c7-content"></div>
-</main>
+<section class="pd">
+  <div class="pd-layout">
+    <!-- Media (wine bottle) -->
+    <aside class="pd-media">
+      {{ if images }}
+        <img src="{{ images[0].url ?? images[0] }}" alt="{{ title }}" loading="eager" decoding="async">
+      {{ /if }}
+    </aside>
+
+    <!-- Content -->
+    <div class="pd-content-wrapper">
+      <article class="pd-content" aria-labelledby="pd-title">
+        <!-- Title / Price row -->
+        <header class="pd-titlebar">
+          <h1 class="pd-title" id="pd-title">
+            {{ title | regex_replace('/\b(19|20)\d{2}\b/', '<span class="pd-vintage">$0</span>') }}
+          </h1>
+
+          <div class="pd-price">
+            {{ if addToCartUrl }}
+              <a class="c7-buy btn" href="{{ addToCartUrl }}">Add to Cart</a>
+            {{ /if }}
+          </div>
+        </header>
+
+        <!-- Teaser -->
+        {{ if teaser }}
+          <div class="pd-teaser">
+            {{ teaser }}
+          </div>
+        {{ /if }}
+
+        <!-- Purchase CTA -->
+        <div class="pd-buy">
+          {{ if addToCartUrl }}
+            <a class="c7-buy btn" href="{{ addToCartUrl }}">Add to Cart</a>
+          {{ /if }}
+        </div>
+
+        <!-- Notes (optional custom fields) -->
+        {{ if metas:tasting_notes }}
+          <section class="pd-section pd-notes">
+            <h2 class="pd-h2">Tasting Notes</h2>
+            {{ metas:tasting_notes }}
+          </section>
+        {{ /if }}
+
+        {{ if metas:winemaker_notes }}
+          <section class="pd-section pd-notes">
+            <h2 class="pd-h2">Winemaker’s Notes</h2>
+            {{ metas:winemaker_notes }}
+          </section>
+        {{ /if }}
+
+        <!-- Vineyard (checkbox list → spans) -->
+        {{ if metas:vineyard }}
+          <section class="pd-section pd-vineyard">
+            <h2 class="pd-h2">Vineyard</h2>
+            <div class="c7-product__meta">
+              {{ metas:vineyard | explode:, }}
+                <span class="c7-chip">{{ value | trim }}</span>
+              {{ /metas:vineyard }}
+            </div>
+          </section>
+        {{ /if }}
+
+        <!-- Aging -->
+        {{ if metas:aging }}
+          <section class="pd-section pd-aging">
+            <h2 class="pd-h2">Aging</h2>
+            {{ metas:aging }}
+          </section>
+        {{ /if }}
+      </article>
+    </div>
+  </div>
+</section>
