@@ -1,0 +1,14 @@
+.cart #c7-content {
+    position: relative;
+    top: 110px;
+}
+
+.c7-message--alert-error {
+    display: none;
+}
+
+.c7-content.c7-cart {
+    margin: auto;
+    width: calc(100% - 3rem);
+    max-width: 1200px;
+}

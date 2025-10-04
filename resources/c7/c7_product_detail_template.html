@@ -1,0 +1,86 @@
+<!-- NOTE this file is only a reference for ease of editing. 
+     Real custom Commerce7 templates live in Commerce7 > Developer > Product Templates
+     Copy and paste any changes there and save to go live. -->
+
+<section class="pd">
+    <div class="pd-layout">
+
+        <aside class="pd-media">
+            <c7-if product-image>
+                <c7-product-image size="large">
+            </c7-if>
+        </aside>
+
+        <div class="pd-content-wrapper">
+            <article class="pd-content" aria-labelledby="pd-title">
+
+                <header class="pd-titlebar">
+                    <h1 class="pd-title" x-data x-init="
+                    const apply = () => {
+                        const t = ($el.textContent || '').trim();
+                        if (!t || $el.querySelector('.pd-vintage')) return;
+                        // Match only reasonable vintage years 1900–2099
+                        const out = t.replace(/\b(19|20)\d{2}\b/, '<span class=\'pd-vintage\'>$&</span>');
+                        if (out !== t) { $el.innerHTML = out; obs && obs.disconnect(); }
+                    };
+                    apply();
+                    const obs = new MutationObserver(apply);
+                    obs.observe($el, { childList: true, subtree: true, characterData: true });
+                    ">
+                    <c7-product-title>
+                    </h1>
+                    <div class="pd-price">
+                        <c7-product-add-to-cart>
+                    </div>
+                </header>
+
+                <div class="pd-teaser">
+                    <c7-product-teaser>
+                </div>
+
+                <div class="pd-buy">
+                    <div class="pd-buy-buttons">
+                        <a class="c7-buy case-buy btn"
+                            href="/cart?addToCart=<c7-product-variant-sku type='raw'>&quantity=12">Case</a>
+                        <a class="c7-buy bottle-buy btn"
+                            href="/cart?addToCart=<c7-product-variant-sku type='raw'>">Bottle</a>
+                    </div>
+                </div>
+
+                <c7-if product-meta-tasting_notes>
+                    <section class="pd-section pd-notes">
+                        <h2 class="pd-h2">Tasting Notes</h2>
+                        <c7-product-meta-tasting_notes type="html">
+                    </section>
+                </c7-if>
+
+                <c7-if product-meta-winemaker_notes>
+                    <section class="pd-section pd-notes">
+                        <h2 class="pd-h2">Winemaker’s Notes</h2>
+                        <c7-product-meta-winemaker_notes type="html">
+                    </section>
+                </c7-if>
+
+                <c7-if product-meta-vineyard>
+                    <section class="pd-section pd-vineyard">
+                        <h2 class="pd-h2">Vineyard</h2>
+                        <div class="c7-product__meta" x-data x-init="
+                            const el = $el.querySelector('[data-vineyard]');
+                            const items = (el.textContent || '').split(',').map(s => s.trim()).filter(Boolean);
+                            el.innerHTML = items.map(i => `<span class='c7-chip'>${i}</span>`).join('');
+                            ">
+                            <div class="pd-checkbox-element" data-vineyard>{{product-meta-vineyard}}</div>
+                        </div>
+                    </section>
+                </c7-if>
+
+                <c7-if product-meta-aging>
+                    <section class="pd-section pd-aging">
+                        <h2 class="pd-h2">Aging</h2>
+                        <c7-product-meta-aging type="html">
+                    </section>
+                </c7-if>
+            </article>
+        </div>
+    </div>
+</section>

@@ -7,6 +7,10 @@ use App\Http\Controllers\ProductController;
 // Route to individual product/wine pages; template: resources/views/product.antlers.html
 Route::get('/product/{handle}', [ProductController::class, 'show'])->name('product.show');
 
+// Routes for product purchase
+Route::statamic('/cart', 'cart');
+Route::statamic('/checkout', 'checkout');
+
 // Route for handling newsletter subscriptions.
 Route::post('/newsletter', NewsletterController::class)->name('newsletter');
 

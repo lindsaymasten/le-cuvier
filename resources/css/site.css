@@ -48,5 +48,6 @@ CSS folder structure is based on ITCSS:
 
 /* Custom Styles */
 @import './components/product-detail.css';
+@import './components/cart.css';
 @import './settings/tokens.css';
 @import './components/nav.css';
