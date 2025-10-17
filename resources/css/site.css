@@ -16,6 +16,7 @@ CSS folder structure is based on ITCSS:
 @import 'tailwindcss';
 @import './config.css';
 @import './typography.css';
+@import './style.css';
 
 /* Elements */
 @import './elements/borders.css';
@@ -39,6 +40,10 @@ CSS folder structure is based on ITCSS:
 @import './components/tooltip.css';
 @import './components/typography.css';
 @import './components/product-cards.css';
+@import './components/product-detail.css';
+@import './components/cart.css';
+@import './components/footer.css';
+@import './components/nav.css';
 
 /* Utilities */
 @import './utilities/br-hidden.css';
@@ -46,8 +51,5 @@ CSS folder structure is based on ITCSS:
 @import './utilities/fill-current-nested.css';
 @import './utilities/site-grid.css';
 
-/* Custom Styles */
-@import './components/product-detail.css';
-@import './components/cart.css';
+/* Tokens */
 @import './settings/tokens.css';
-@import './components/nav.css';
