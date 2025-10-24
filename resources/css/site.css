@@ -41,8 +41,8 @@ CSS folder structure is based on ITCSS:
 @import './components/typography.css';
 @import './components/product-cards.css';
 @import './components/product-detail.css';
-@import './components/cart.css';
 @import './components/footer.css';
+@import './components/cart.css';
 @import './components/nav.css';
 
 /* Utilities */

@@ -41,6 +41,17 @@ class ProductController extends Controller
 
             return $resp->json();
         });
+        
+
+        // Test
+        \Log::info('C7 product debug', [
+            'slug'            => $handle,
+            'keys'            => array_keys((array) $product),
+            'has_content'     => isset($product['content']) && $product['content'] !== null && $product['content'] !== '',
+            'has_description' => isset($product['description']) && $product['description'] !== null && $product['description'] !== '',
+            'meta_keys'       => isset($product['meta']) && is_array($product['meta']) ? array_keys($product['meta']) : null,
+        ]);
+
 
         // Normalize fields for the view (guard against null)
         $title   = $product['title']   ?? null;
@@ -63,7 +74,7 @@ class ProductController extends Controller
                 'handle'       => $handle,
                 'title'        => $title,
                 'teaser'       => $teaser,
-                'content'      => $content,
+                'product_content' => $content,  // was 'content' => $content
                 'images'       => $images,
                 'metas'        => $metas,
                 'addToCartUrl' => $addToCartUrl,

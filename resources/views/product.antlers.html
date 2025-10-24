@@ -65,6 +65,13 @@
           </section>
         {{ /if }}
 
+{{ if product_content }}
+  <section class="pd-section pd-description">
+    <h2 class="pd-h2">Description</h2>
+    {{ product_content | decode }}
+  </section>
+{{ /if }}
+
         <!-- Aging -->
         {{ if metas:aging }}
           <section class="pd-section pd-aging">
