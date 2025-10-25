@@ -1,5 +1,12 @@
+.c7-product-collection:has(.product-cards) {
+  display: flex;
+}
+
 /* Component scope variables */
 .product-cards {
+  display: flex;
+  width: 100%;
+  flex: 0 0 auto;
   --pc-gap: 20px;
   --pc-radius: 10px;
   --pc-ease: cubic-bezier(0.4, 0, 0.2, 1);

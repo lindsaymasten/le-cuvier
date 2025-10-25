@@ -1,8 +1,8 @@
 /* -------- Layout Tokens -------- */
 :root {
-  --text-color: rgb(26, 29, 33);
-  --bg-color: #fff;
-  --border-color: rgb(244, 244, 250);
+  --text-color: rgb(26 29 33);
+  --bg-color: #f5f3f3;
+  --border-color: rgb(167 152 130 / 75%);
   --alt-color: rgb(246, 165, 33);
   --login-bg: rgb(251, 180, 57);
 }
@@ -12,6 +12,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  display: flex;
+}
+main {
+  display: flex;
+  width: 100%;
+  flex: 0 0 auto;  
 }
 
 /* -------- Visibility Helpers -------- */
@@ -28,8 +36,12 @@
   }
 }
 @media (prefers-contrast: more) {
-  body { background-color: #fff; color: #000; }
-  a { color: #000; text-decoration: underline; }
+  body { 
+    background-color: #fff; 
+    color: #000; }
+  a { 
+    color: #000; 
+    text-decoration: underline; }
 }
 
 /* -------- Accessibility --------  */
@@ -177,10 +189,18 @@ select:focus {
 }
 
 /* Placeholder tone */
-::placeholder { color: color-mix(in oklab, var(--color-text), white 45%); }
+::placeholder { 
+  color: color-mix(in oklab, var(--color-text), white 45%); 
+}
 
 /* Field group spacing */
-label { display: inline-block; margin-bottom: 0.375rem; font-weight: 600; }
-.form-row, .field, .form-group { margin-block: 0.75rem; }
+label { 
+  display: inline-block; 
+  margin-bottom: 0.375rem; 
+  font-weight: 600; 
+}
+.form-row, .field, .form-group { 
+  margin-block: 0.75rem; 
+}
 
 
