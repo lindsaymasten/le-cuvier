@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1761939662
+updated_at: 1762464390
 blocks:
   -
     id: memat9au
@@ -25,6 +25,7 @@ blocks:
         link_entry: 4f77e94c-1234-418e-bec7-b715e140799b
         bg_type: image
         bg_image: mockup-with-logo-example.jpg
+        heading: 'Testing title'
       -
         id: mhemv4wv
         members_only: false
@@ -35,6 +36,7 @@ blocks:
         link_url: '#'
         bg_type: color
         bg_color: '#cc2424'
+        heading: 'Title Dos'
       -
         id: mhen0s4w
         members_only: false
@@ -44,6 +46,7 @@ blocks:
         link_type: none
         bg_type: image
         bg_image: project_neo_adobe_firefly_generated_image-(1).jpg
+        heading: Tres!
     type: promo_cards
     enabled: true
 seo_noindex: false

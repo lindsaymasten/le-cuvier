@@ -1,9 +1,5 @@
-{{ if card_link_type == 'internal' or card_link_type == 'external' }}
-  <a
-    class="promo-card"
-    {{ if card_link_type == 'internal' }} href="{{ card_link_entry:url }}" {{ /if }}
-    {{ if card_link_type == 'external' }} href="{{ card_link_url }}" target="_blank" rel="noopener" {{ /if }}
-  >
+{{ if card_link_type == 'internal' and card_link_entry }}
+  <a class="promo-card" href="{{ card_link_entry:url }}">
     <div class="promo-card__media">
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
@@ -14,20 +10,40 @@
           decoding="async"
         >
       {{ elseif card_bg_type == 'color' and card_bg_color }}
-        <div
-          class="promo-card__color"
-          style="background-color: {{ card_bg_color }};"
-          aria-hidden="true"
-        ></div>
+        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
       {{ /if }}
     </div>
 
     <div class="promo-card__body">
-      <h3 class="promo-card__title">{{ card_title }}</h3>
-      {{ if card_subtitle }} <div class="promo-card__subtitle">{{ card_subtitle }}</div> {{ /if }}
-      {{ if card_body }}     <div class="promo-card__text">{{ card_body }}</div>       {{ /if }}
+      {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
+      {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
+      {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
     </div>
   </a>
+
+{{ elseif card_link_type == 'external' and card_link_url }}
+  <a class="promo-card" href="{{ card_link_url }}" target="_blank" rel="noopener">
+    <div class="promo-card__media">
+      {{ if card_bg_type == 'image' and card_bg_image }}
+        <img
+          src="{{ card_bg_image:url }}"
+          alt="{{ card_title }}"
+          class="promo-card__img"
+          loading="lazy"
+          decoding="async"
+        >
+      {{ elseif card_bg_type == 'color' and card_bg_color }}
+        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
+      {{ /if }}
+    </div>
+
+    <div class="promo-card__body">
+      {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
+      {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
+      {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
+    </div>
+  </a>
+
 {{ else }}
   <article class="promo-card">
     <div class="promo-card__media">
@@ -40,18 +56,14 @@
           decoding="async"
         >
       {{ elseif card_bg_type == 'color' and card_bg_color }}
-        <div
-          class="promo-card__color"
-          style="background-color: {{ card_bg_color }};"
-          aria-hidden="true"
-        ></div>
+        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
       {{ /if }}
     </div>
 
     <div class="promo-card__body">
-      <h3 class="promo-card__title">{{ card_title }}</h3>
-      {{ if card_subtitle }} <div class="promo-card__subtitle">{{ card_subtitle }}</div> {{ /if }}
-      {{ if card_body }}     <div class="promo-card__text">{{ card_body }}</div>       {{ /if }}
+      {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
+      {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
+      {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
     </div>
   </article>
 {{ /if }}

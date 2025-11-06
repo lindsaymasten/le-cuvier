@@ -89,7 +89,7 @@ fields:
                           default: false
                           width: 33
 
-                      - handle: title
+                      - handle: heading
                         field:
                           type: text
                           display: Card Title
