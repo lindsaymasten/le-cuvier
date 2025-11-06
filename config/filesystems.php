@@ -70,6 +70,14 @@ return [
             'report' => false,
         ],
 
+        'promo_images' => [
+            'driver' => 'local',
+            'root' => public_path('assets/promo'),
+            'url' => '/assets/promo',
+            'visibility' => 'public',
+        ],
+
+
     ],
 
     /*

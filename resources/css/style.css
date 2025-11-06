@@ -17,7 +17,7 @@ body {
   display: flex;
 }
 main {
-  display: flex;
+  /*display: flex;*/
   width: 100%;
   flex: 0 0 auto;  
 }

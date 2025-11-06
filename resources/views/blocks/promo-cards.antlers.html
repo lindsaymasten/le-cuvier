@@ -1,0 +1,17 @@
+<section class="promo-cards">
+  <div class="promo-cards__items">
+    {{ block:cards }}
+      {{ partial src="blocks/partials/promo-card"
+        card_title=title
+        card_subtitle=subtitle
+        card_body=body
+        card_link_type=link_type
+        card_link_entry=link_entry
+        card_link_url=link_url
+        card_bg_type=bg_type
+        card_bg_image=bg_image
+        card_bg_color=bg_color
+      }}
+    {{ /block:cards }}
+  </div>
+</section>

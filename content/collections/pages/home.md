@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1758917908
+updated_at: 1761939662
 blocks:
   -
     id: memat9au
@@ -12,6 +12,40 @@ blocks:
     enabled: true
     c7_collection_slug: home
     audience: all
+  -
+    id: mhemungq
+    cards:
+      -
+        id: 65Llqbdm
+        members_only: false
+        title: 'Testing 123'
+        subtitle: 'optional subtitle test test'
+        body: 'optional body text that is longer for testing'
+        link_type: internal
+        link_entry: 4f77e94c-1234-418e-bec7-b715e140799b
+        bg_type: image
+        bg_image: mockup-with-logo-example.jpg
+      -
+        id: mhemv4wv
+        members_only: false
+        title: 'members only test'
+        subtitle: subtitle
+        body: 'la la la'
+        link_type: external
+        link_url: '#'
+        bg_type: color
+        bg_color: '#cc2424'
+      -
+        id: mhen0s4w
+        members_only: false
+        title: 'another one'
+        subtitle: spfowen
+        body: wefjbwebf
+        link_type: none
+        bg_type: image
+        bg_image: project_neo_adobe_firefly_generated_image-(1).jpg
+    type: promo_cards
+    enabled: true
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry

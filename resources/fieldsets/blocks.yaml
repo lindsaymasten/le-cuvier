@@ -62,6 +62,124 @@ fields:
                       <p>Products shown are pulled automatically from the Commerce7 product collection specified by the title.</p>
                       <p>Manage products and promotions: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
                       </div>
+
+            promo_cards:
+              display: Promo Area
+              instructions: 'Promotional cards: recipes, events, wines.'
+              icon: dashboard-layout
+              fields:
+                - handle: cards
+                  field:
+                    type: grid
+                    antlers: true 
+                    display: Cards
+                    instructions: 'Add up to 9 promo cards. Drag to reorder.'
+                    mode: stacked
+                    reorderable: true
+                    min_rows: 1
+                    max_rows: 9
+
+                    fields:
+
+                      - handle: members_only
+                        field:
+                          type: toggle
+                          display: Members only?
+                          instructions: 'If on, this card only renders for logged-in members.'
+                          default: false
+                          width: 33
+
+                      - handle: title
+                        field:
+                          type: text
+                          display: Card Title
+                          instructions: 'Headline / promo name.'
+                          validate:
+                            - required
+                          width: 50
+
+                      - handle: subtitle
+                        field:
+                          type: text
+                          display: Subtitle
+                          instructions: 'Optional short subheading.'
+                          width: 50
+
+                      - handle: body
+                        field:
+                          type: textarea
+                          display: Body Text
+                          instructions: 'Optional short paragraph/description for this promo.'
+                          rows: 3
+
+                      - handle: link_type
+                        field:
+                          type: select
+                          display: Link Type
+                          instructions: 'Choose how (or if) this card links.'
+                          options:
+                            none: No link
+                            internal: Internal Entry
+                            external: External URL
+                          default: none
+                          width: 33
+
+                      - handle: link_entry
+                        field:
+                          type: entries
+                          display: Internal Link (Entry)
+                          instructions: 'Pick an internal page/entry to link to.'
+                          max_items: 1
+                          if:
+                            link_type: equals internal
+                          width: 33
+
+                      - handle: link_url
+                        field:
+                          type: text
+                          display: External Link (URL)
+                          instructions: 'Full external URL (Tock, booking, etc).'
+                          input_type: url
+                          if:
+                            link_type: equals external
+                          width: 33
+
+                      - handle: bg_type
+                        field:
+                          type: select
+                          display: Background Type
+                          instructions: 'Use an uploaded image (with focal point) or a solid color.'
+                          options:
+                            image: Image
+                            color: Color
+                          default: image
+                          width: 33
+
+                      - handle: bg_image
+                        field:
+                          type: assets
+                          display: Background Image
+                          instructions: 'Upload/select a background image. You can set focal point.'
+                          max_files: 1
+                          container: promo_images
+                          allow_uploads: true
+                          if:
+                            bg_type: equals image
+                          width: 66
+
+                      - handle: bg_color
+                        field:
+                          type: color
+                          display: Background Color
+                          instructions: 'Used if no image.'
+                          swatches:
+                            - '#000000'
+                            - '#ffffff'
+                            - '#cccccc'
+                          if:
+                            bg_type: equals color
+                          width: 33
+
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'

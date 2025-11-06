@@ -1,0 +1,130 @@
+.promo-cards {
+  --promo-gap: 1.5rem;
+  --promo-radius: 16px;
+
+  --promo-col-1: 100%;
+  --promo-col-2: calc((100% - var(--promo-gap)) / 2);
+  --promo-col-3: calc((100% - (var(--promo-gap) * 2)) / 3);
+  --promo-col-4: calc((100% - (var(--promo-gap) * 3)) / 4);
+
+  flex: 0 0 100%;
+  flex-basis:100%;
+  width: 100%;
+  position: relative;
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.promo-cards__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--promo-gap);
+  justify-content: flex-start;
+}
+
+.promo-card {
+  position: relative;
+  flex: 0 1 var(--promo-col-1);
+  border-radius: var(--promo-radius);
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.08),
+    0 2px 4px rgba(0,0,0,.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+a.promo-card:hover,
+a.promo-card:focus {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 32px rgba(0,0,0,.12),
+    0 4px 8px rgba(0,0,0,.06);
+  outline: none;
+}
+
+.promo-card__media {
+  position: relative;
+  width: 100%;
+  min-height: 10rem;
+  background: #000;
+  overflow: hidden;
+}
+
+.promo-card__picture,
+.promo-card__img,
+.promo-card__color {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* TODO: object-position from focal point */
+}
+
+.promo-card__color {
+  width: 100%;
+  height: 100%;
+}
+
+.promo-card__body {
+  padding: 1rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.promo-card__title {
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.promo-card__subtitle {
+  font-size: .875rem;
+  line-height: 1.4;
+  opacity: .75;
+}
+
+.promo-card__text {
+  font-size: .875rem;
+  line-height: 1.5;
+  color: inherit;
+  opacity: .9;
+}
+
+/* responsive column behavior */
+@media (min-width: 640px) {
+  .promo-card {
+    flex-basis: var(--promo-col-2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .promo-card {
+    flex-basis: var(--promo-col-3);
+  }
+}
+
+@media (min-width: 1440px) {
+  .promo-card {
+    flex-basis: var(--promo-col-4);
+  }
+}
+
+a.promo-card:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--promo-radius);
+}
