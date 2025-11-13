@@ -1,5 +1,5 @@
 <section class="promo-cards">
-  <div class="promo-cards__items">
+  <div class="promo-cards__items{{ if cards | count == 3 }} three-cards{{ /if }}">
     {{ cards }}
       {{ partial src="blocks/partials/promo-card"
         :card_title="heading"

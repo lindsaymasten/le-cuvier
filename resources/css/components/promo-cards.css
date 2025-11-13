@@ -20,7 +20,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--promo-gap);
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+.promo-cards__items > .promo-card:nth-child(1):last-child {
+  flex: 1 1 100%;
+}
+
+.promo-cards__items > .promo-card:nth-child(1):nth-last-child(2),
+.promo-cards__items > .promo-card:nth-child(2):last-child {
+  flex: 1 1 calc(50% - var(--promo-gap) / 2);
+}
+
+@media (min-width: 640px) {
+  .promo-cards__items.three-cards {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+  .promo-cards__items.three-cards > .promo-card {
+    flex: 1 1 calc(50% - var(--promo-gap) / 2);
+  }
+  .promo-cards__items.three-cards > .promo-card:nth-child(3) {
+    flex: 1 1 calc(50% - var(--promo-gap) / 2);
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .promo-card {
@@ -127,4 +151,36 @@ a.promo-card:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: var(--promo-radius);
+}
+
+/* --- Repeating 2-left + 1-right pattern (desktop) --- */
+
+/* Small screens keep your current flex stack, no change */
+
+/* ≥640px: switch the container to grid for layout only */
+@media (min-width: 640px) {
+  .promo-cards__items {
+    display: grid;
+    gap: var(--promo-gap);
+    grid-template-columns: 1fr 1fr;  /* two equal columns */
+    grid-auto-flow: dense;           /* allow the 3rd to span neatly */
+  }
+
+  .promo-cards__items > .promo-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Repeatable pattern:
+     items 1,2 go in left col; item 3 spans full right col.
+     Then 4,5 left; 6 spans right; etc. */
+  .promo-cards__items > .promo-card:nth-child(3n+1) { grid-column: 1; }
+  .promo-cards__items > .promo-card:nth-child(3n+2) { grid-column: 1; }
+  .promo-cards__items > .promo-card:nth-child(3n)   { grid-column: 2; grid-row: span 2; }
+
+  /* Make row heights consistent so the span-2 card visually matches two singles */
+  .promo-card__media {
+    aspect-ratio: 3 / 2;   /* consistent card heights; adjust if you prefer */
+    min-height: auto;      /* override earlier min-height */
+  }
 }
