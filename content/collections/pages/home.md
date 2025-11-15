@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1762468197
+updated_at: 1763155054
 blocks:
   -
     id: memat9au
@@ -20,33 +20,39 @@ blocks:
         members_only: false
         title: 'Testing 123'
         subtitle: 'optional subtitle test test'
-        body: 'optional body text that is longer for testing'
+        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
         link_type: internal
-        link_entry: 4f77e94c-1234-418e-bec7-b715e140799b
+        link_entry: 200a3990-53bd-444b-aa9a-9833d694d804
         bg_type: image
-        bg_image: 1y6a6940.jpg
-        heading: 'Testing title'
+        bg_image: 1y6a6729.jpeg
+        heading: 'First Title'
       -
         id: mhemv4wv
         members_only: false
         title: 'members only test'
-        subtitle: subtitle
-        body: 'la la la'
-        link_type: external
-        link_url: '#'
+        subtitle: Subtitle
+        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
+        link_type: none
         bg_type: color
-        bg_color: '#cc2424'
-        heading: 'Title Dos'
+        heading: 'Second Title'
       -
-        id: mhen0s4w
+        id: mhzcivw8
         members_only: false
-        title: 'another one'
-        subtitle: spfowen
-        body: wefjbwebf
+        heading: 'Test test Test'
+        subtitle: kjwebfkiu
+        body: erajhi43yug8i
+        link_type: none
+        bg_type: image
+        bg_image: 1y6a6940.jpg
+      -
+        id: mhzcixdv
+        members_only: false
+        heading: rflkejoit34
+        subtitle: dsfmrwliuh
+        body: reglemliuhr3i8
         link_type: none
         bg_type: image
         bg_image: _eee0245.jpg
-        heading: Tres!
     type: promo_cards
     enabled: true
 seo_noindex: false
