@@ -108,6 +108,7 @@
   border-radius: inherit;
   opacity: 0;
   pointer-events: none;
+  font-size: 1em;
   transition:
     opacity 0.35s var(--pc-ease),
     border-radius 0.35s var(--pc-ease);
@@ -126,20 +127,43 @@
   text-align: center;
   color: #fff;
   padding: 0.5rem;
+  container: product-card / inline-size;
 }
 .product-cards .product-info h1 {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 0.8vw + 1rem, 1.75rem);
+
+  /* fallback for browsers without container units */
+  font-size: 1.4rem;
+
+  text-align: left;
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: 400;
-  transition: transform 0.35s var(--pc-ease);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
-.product-cards .product-info h1:hover {
-  transform: scale(1.05);
+@supports (font-size: 1cqi) {
+  @container product-card (inline-size > 0px) {
+    .product-cards .product-info h1 {
+      font-size: clamp(
+        1.3rem,   /* min */
+        14cqi,    /* target: 12 characters ≈ container width */
+        3.5rem    /* max */
+      );
+    }
+  }
+}
+.product-cards .product-info h1 .product-card-vintage {
+  display: inline-block;
+  transform: rotate(270deg);
+  margin-bottom: 1.25ch;
+  margin-left: -1.15ch;
 }
 .product-cards .product-info h1 a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: var(--color-text);
 }
 .product-cards .product-info h1 a:hover {
