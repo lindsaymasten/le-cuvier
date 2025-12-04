@@ -1,6 +1,6 @@
 .promo-cards {
   --promo-gap: 1.5rem;
-  --promo-radius: 16px;
+  --promo-radius: 8px;
 
   --promo-col-1: 100%;
   --promo-col-2: calc((100% - var(--promo-gap)) / 2);

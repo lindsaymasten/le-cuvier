@@ -1,12 +1,3 @@
-/* -------- Layout Tokens -------- */
-:root {
-  --text-color: rgb(26 29 33);
-  --bg-color: #f5f3f3;
-  --border-color: rgb(167 152 130 / 75%);
-  --alt-color: rgb(246, 165, 33);
-  --login-bg: rgb(251, 180, 57);
-}
-
 /* -------- Global Reset -------- */
 * {
   box-sizing: border-box;
@@ -31,9 +22,9 @@ main {
 /* -------- Modes / Preferences -------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: rgb(240, 240, 240);
-    --bg-color: #1e1e1e;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --text-color: var(--color-bg);
+    --bg-color: var(--color-text);
+    --border-color: var(--border-color);
   }
 }
 @media (prefers-contrast: more) {
@@ -63,9 +54,8 @@ body.user-is-tabbing :focus {
 /* -------- Typography -------- */
 :root {
   --lc-heading-tracking: -0.01em;
-  --text-color: rgb(26, 29, 33);
+  --text-color: var(--color-text);
   --bg-color: #f1e8e0;
-  --border-color: rgb(244, 244, 250);
   --alt-color: rgb(246, 165, 33);
   --login-bg: rgb(251, 180, 57);
   --font-family: 'Mona Sans', sans-serif;
@@ -152,10 +142,32 @@ input[type="submit"]:hover,
   border-color: var(--color-accent-600);
 }
 
+/* Commerce7 modal override */
+.c7-modal {
+  background: var(--color-bg);
+}
+
+.c7-modal .c7-btn--primary:not([disabled]):hover {
+  background: var(--alt-color);
+}
+
 /* Commerce7 button override */
+.c7-btn--primary:not([disabled]):active, .c7-btn--primary:not([disabled]):focus, .c7-btn--primary:not([disabled]):hover, .c7-btn--primary--small:not([disabled]):active, .c7-btn--primary--small:not([disabled]):focus, .c7-btn--primary--small:not([disabled]):hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
 .c7-btn--primary, .c7-btn--primary--small {
-  background: var(--text-color);
+  background: var(--color-text);
   color: var(--bg-color);
+
+  border-radius: var(--c7-button-border-radius);
+  font-size: var(--c7-font-size);
+  font-family: var(--c7-font-family);
+  font-size: var(--c7-font-size);
+  line-height: 1.5;
+  min-height: 46px;
+  padding: 11px 20px;
 }
 
 /* Ghost variant */
@@ -174,7 +186,7 @@ select {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   padding: 0.625rem 0.875rem;
   line-height: 1.5;
   transition: border-color .15s ease, box-shadow .15s ease;

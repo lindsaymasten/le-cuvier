@@ -1,13 +1,13 @@
 /* ---------- Typography ---------- */
-/* fonts.css loads these families.
+/* fonts.css loads these families:
    - Headings serif: Rufina via composite serif
-   - Body sans: Mona Sans
-   - Italic: Libre Baskerville Italic
-   - Numerals: Libre Baskerville
+   - Body sans:      Mona Sans
+   - Italic:         Libre Baskerville Italic
+   - Numerals:       Libre Baskerville
 */
 
-/* Composite serif: Libre Baskerville for numerals, Rufina for everything else */
-/* Regular (400) */
+/* composite serif: Libre Baskerville for numerals, Rufina for everything else */
+/* regular (400) */
 @font-face {
   font-family: "LC-SerifMix";
   src: url(https://fonts.gstatic.com/s/librebaskerville/v16/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2) format("woff2");
@@ -31,7 +31,7 @@
   unicode-range: U+0000-002B, U+002F, U+003A-10FFFF;
 }
 
-/* Bold (700) */
+/* bold (700) */
 @font-face {
   font-family: "LC-SerifMix";
   src: url(https://fonts.gstatic.com/s/librebaskerville/v16/kmKiZrc3Hgbbcjq75U4uslyuy4kn0qviTgY3KcC-wLOj.woff2) format("woff2");
@@ -54,6 +54,7 @@
 }
 
 :root {
+  /* ---------- fonts applied ---------- */
   --font-sans:  "Mona Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
                 Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -68,51 +69,85 @@
 
   --text-size-base: 16px;
   --line-height-base: 1.6;
-}
 
-/* ---------- Colors ---------- */
-:root {
-  /* Base surfaces & text */
-  --color-bg:           #ffffff;
-  --color-surface:      #ffffff;
-  --color-surface-2:    #fafafb;
+  /* ---------- colors ---------- */
+  --color-bg:           #fefefe;
+  --color-surface:      #f4f4fa;
+  --color-surface-alt:  #faf8f4;
   --color-border:       #f4f4fa;
-  --color-text:         #1a1d21; /* matches nav text */
-
-  /* Brand accents */
-  --color-accent:       #f6a521; /* nav alt-color */
-  --color-accent-500:   #f6a521;
-  --color-accent-600:   #e2941e;
+  --color-text:         #1b1a21; /* matches nav text */
+  
+  --color-accent:       #a19883; /* nav alt-color */
+  --color-accent-500:   #f69d09;
+  --color-accent-600:   rgb(209, 137, 29);
   --color-accent-700:   #c17f19;
+  --color-accent-amber: #faac26;
 
-  /* Support (used in nav/login badge) */
-  --color-accent-amber: #fbb439;
-
-  /* States */
+  --color-neutral-lt:   #f4f1ec;
+  --color-neutral-md:   #d4cec6;
+  --color-neutral-dk:   #bcb6ae;
+  
   --color-success:      #6f894e;
   --color-warning:      #e7ab05;
-  --color-danger:       #dc2626;
+  --color-danger:       #971919;
 
-  /* Optional subtle background gradient */
-  --bg-gradient:        linear-gradient(90deg, #edf0ed, #f0e6dc);
+  --border-color:       rgb(167 152 130 / 75%);
+  --alt-color:          #f5b112;
+  --login-bg:           #e2941e;
+
+  --bg-gradient:        linear-gradient(90deg, #edf0ed, #f0e6dc);  
+  --overlay-bg:         rgba(58, 68, 44, 0.2);
+
+  /* ---------- radii / shadows / focus ---------- */
+  --radius-sm:   3px;
+  --radius-md:   8px;
+  --radius-lg:   14px;
+  --radius-btn:  3px;
+  --radius-pill: 2.5rem;
+
+  --shadow-1: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-2: 0 20px 60px rgba(0,0,0,0.18);
+
+  --focus-ring-color: var(--color-accent);
+  --focus-ring: 2px solid var(--focus-ring-color);
+
+  /* ---------- buttons ---------- */
+  --display-btn:     inline-block;
+  --line-height-btn: 1.5;
+  --min-height-btn:  40px;
+  --padding-btn:     0.5rem 1rem;
+  --text-align-btn:  center;
+
+  --font-size-btn:   1rem;
+  --font-family-btn: var(--font-sans);
 }
 
-/* Dark mode token equivalents */
+/* dark mode token equivalents */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg:        #0f1113;
-    --color-surface:   #141619;
-    --color-surface-2: #1a1d21;
-    --color-border:    rgba(255,255,255,0.12);
-    --color-text:      #e9eaec;
+    --color-bg:           #171715;
+    --color-surface:      #151617;
+    --color-surface-alt:  #232628;
+    --color-border:       rgba(255,255,255,0.12);
+    --color-text:         #f8f8f8;
 
-    --color-accent:       #f6a521;
-    --color-accent-600:   #ef9a0d;
-    --color-accent-700:   #d88406;
+    --color-accent:       #f8b74d;
+    --color-accent-600:   #ffa30e;
+    --color-accent-700:   #e98e07;
+
+    --color-neutral-lt:   #1a1919;
+    --color-neutral-md:   #383735;
+    --color-neutral-dk:   #514e4b;
+
+    --color-success:      #9fc470;
+    --color-warning:      #f7b604;
+    --color-danger:       #d72525;
+
+    --bg-gradient:        linear-gradient(90deg, #2a2b2a, #252528);  
   }
 }
 
-/* Optional global hook so pages naturally pick up tokens */
+/* global hook so pages naturally pick up tokens */
 html, body {
   background: var(--bg-gradient); 
   color: var(--color-text);
@@ -123,38 +158,27 @@ html, body {
   line-height: var(--line-height-base);
   overflow-x: hidden;
 }
-  
 
-/* Heading preference (serif-forward look from lcwine.com) */
+/* heading preference */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-serif);
   font-weight: var(--font-weight-regular);
 }
 
-/* Special Typography Elements */
+/* special typography elements */
 .brand-serif-italic { 
     font-family: var(--font-serif-italic); 
     font-style: italic; 
 }
 
-/* Links adopt brand accent by default */
+/* links adopt brand accent by default */
 a {
   color: var(--color-accent);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 2px;
 }
-a:hover { text-decoration: underline; }
-
-/* ---------- Radii / Shadows / Focus ---------- */
-:root {
-  --radius-lg:   16px;
-  --radius-pill: 2.5rem;
-
-  --shadow-1: 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-2: 0 20px 60px rgba(0,0,0,0.18);
-
-  --focus-ring-color: var(--color-accent);
-  --focus-ring: 2px solid var(--focus-ring-color);
+a:hover { 
+  text-decoration: underline; 
 }
 
 /* Keyboard-only outlines */
@@ -164,13 +188,25 @@ body.user-is-tabbing :focus {
   outline-offset: 2px;
 }
 
-/* ---------- Utilities (optional, non-invasive) ---------- */
-/* Use on containers you want softly elevated */
-.u-surface    { background: var(--color-surface); box-shadow: var(--shadow-1); }
-.u-surface-2  { background: var(--color-surface-2); }
-.u-rounded    { border-radius: var(--radius-lg); }
-.u-pill       { border-radius: var(--radius-pill); }
-.u-border     { border: 1px solid var(--color-border); }
+/* ---------- utilities ---------- */
+.u-surface    { 
+  background: var(--color-surface); 
+  box-shadow: var(--shadow-1); 
+}
+.u-surface-2  { 
+  background: var(--color-surface-alt); 
+}
+.u-rounded    { 
+  border-radius: var(--radius-lg); 
+}
+.u-pill       { 
+  border-radius: var(--radius-pill); 
+}
+.u-border     { 
+  border: 1px solid var(--color-border); 
+}
 
-/* Soft gradient site-wide, apply this to html/body or a wrapper */
-.has-bg-gradient { background: var(--bg-gradient); }
+/* soft gradient site-wide */
+.has-bg-gradient { 
+  background: var(--bg-gradient); 
+}
