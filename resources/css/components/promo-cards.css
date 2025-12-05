@@ -1,6 +1,6 @@
 .promo-cards {
   --promo-gap: 1.5rem;
-  --promo-radius: 16px;
+  --promo-radius: 8px;
 
   --promo-col-1: 100%;
   --promo-col-2: calc((100% - var(--promo-gap)) / 2);
@@ -45,6 +45,12 @@
     display: flex;
     flex-direction: column;
   }
+  .promo-cards__items.three-cards > .promo-card:nth-child(3) .promo-card__media {
+    min-height: 100%;
+  }
+  .promo-cards__items.three-cards > .promo-card:nth-child(3) .promo-card__img {
+    object-fit: cover;
+  }
 }
 
 .promo-card {
@@ -75,9 +81,12 @@ a.promo-card:focus {
 
 .promo-card__media {
   position: relative;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;  
   width: 100%;
   min-height: 10rem;
-  background: #000;
   overflow: hidden;
 }
 
@@ -90,10 +99,11 @@ a.promo-card:focus {
 }
 
 .promo-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* TODO: object-position from focal point */
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    padding: 2em;
+    border-radius: var(--radius-pill);
 }
 
 .promo-card__color {
@@ -102,27 +112,40 @@ a.promo-card:focus {
 }
 
 .promo-card__body {
-  padding: 1rem 1.25rem 1.5rem;
+  position: absolute;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-card__content {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.25rem 1.5rem;
   gap: .5rem;
+  flex-direction: column;
 }
 
 .promo-card__title {
-  font-family: inherit;
-  font-size: 1.125rem;
+  font-family: var(--font-serif);
+  font-size: 2.125rem;
+  letter-spacing: -0.025em;
   line-height: 1.3;
   font-weight: 500;
 }
 
 .promo-card__subtitle {
+  font-family: var(--font-serif-italic); 
+  font-style: italic;
   font-size: .875rem;
   line-height: 1.4;
   opacity: .75;
 }
 
 .promo-card__text {
-  font-size: .875rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: inherit;
   opacity: .9;
@@ -155,8 +178,6 @@ a.promo-card:focus-visible {
 
 /* --- Repeating 2-left + 1-right pattern (desktop) --- */
 
-/* Small screens keep your current flex stack, no change */
-
 /* ≥640px: switch the container to grid for layout only */
 @media (min-width: 640px) {
   .promo-cards__items {
@@ -180,7 +201,11 @@ a.promo-card:focus-visible {
 
   /* Make row heights consistent so the span-2 card visually matches two singles */
   .promo-card__media {
-    aspect-ratio: 3 / 2;   /* consistent card heights; adjust if you prefer */
-    min-height: auto;      /* override earlier min-height */
+    aspect-ratio: 3 / 2;
+    min-height: auto;
+  }
+
+  .promo-card__content {
+    max-width: 60%;
   }
 }
