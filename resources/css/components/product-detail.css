@@ -96,6 +96,12 @@
   justify-content: space-between;
 }
 
+.pd-title {
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-size: 1.25rem;
+}
+
 .pd-titlebar .c7-product__add-to-cart__price {
   font-size: 1rem;
   font-weight: var(--font-weight-medium);
