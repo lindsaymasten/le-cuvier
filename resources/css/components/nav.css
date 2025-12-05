@@ -177,14 +177,47 @@ navbar-left:before {
   order: 1;
 }
 .main-nav-list li {
+  display: flex;
+  position: relative;
   flex: 0 1 auto;
   font-weight: 400;
   gap: 6px;
 }
 .main-nav-list li a {
+  display: flex;
+  position: relative;
+  justify-content: center;
   text-decoration: none;
   color: var(--text-color);
   transition: color 0.2s ease;
+}
+.main-nav-list li a:before {
+  content: '';
+  background-color: var(--color-accent-500);
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  top: -0.4rem;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.main-nav-list li:hover a:before {
+  content: '';
+  background-color: var(--color-accent-500);
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  top: -0.4rem;
+  position: absolute;
+  z-index: -1;
+  opacity: 1;
+}
+.main-nav-list li.logo-slot:hover a:before {
+  width: 1.75rem;
+  height: 1.75rem;
+  top: 0.45rem;
 }
 
 /* Slot that receives the cloned logo */

@@ -43,7 +43,6 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  min-width: 240px;
   flex: 0 1 var(--pc-col-1);             /* base: 1 per row */
   background: #fff;
   border-radius: var(--pc-radius);
@@ -130,11 +129,9 @@
   container: product-card / inline-size;
 }
 .product-cards .product-info h1 {
+  order: 2;
   font-family: var(--font-serif);
-
-  /* fallback for browsers without container units */
-  font-size: 1.4rem;
-
+  font-size: 1.4rem; /* fallback for browsers without container units */
   text-align: left;
   line-height: 1.1;
   text-transform: uppercase;
@@ -171,10 +168,12 @@
 }
 .product-cards .product-info h2 {
   color: var(--color-text);
-  font-size: 0.9375rem;
+  font-size: 1.2rem;
   line-height: 1.4;
-  opacity: 0.9;
-  margin-top: 4px;
+  text-align: right;
+  margin-right: 1rem;
+  max-width: 20ch;
+  align-self: end;
 }
 
 /* Price + CTA row */
@@ -207,18 +206,22 @@
   justify-content: center; 
   min-height: var(--min-height-btn);
   padding: var(--padding-btn);
-  background: #d4cec6;
+  background: var(--color-bg);
   color: hsl(0 0% 22%);
   text-decoration: none;
   border: 1px solid #d4cec6;
   border-radius: var(--radius-btn);
-  font-weight: 600;
   transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
 }
 .product-cards .product-purchase a.purchase-button:hover { transform: translateY(-1px); }
 .product-cards .product-purchase a.purchase-button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+.product-cards .product-purchase a.purchase-button span {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+  margin: 0.15rem 0.25rem 0;
 }
 
 /* Normalize C7 provided button */
@@ -268,6 +271,7 @@
   color: var(--color-text);
   background: transparent;
   box-shadow: none;
+  font-weight: 400;
 }
 
 .product-cards .c7-product__login-message .c7-btn:before { 
@@ -276,14 +280,18 @@
 }
 
 .product-cards .c7-product__login-message .c7-btn:after { 
-  content: 'to buy';
+  content: 'for pricing';
   position: absolute;
   margin-top: 1.5rem;
+  margin-left: 0.1rem;
   line-height: 1.25;
   font-family: var(--font-serif-italic);
   font-style: italic;
-  font-size: 0.8em;
+  font-size: 0.75em;
   max-width: 4rem;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: antialiased;
 }
 
 /* CTA */
@@ -334,21 +342,35 @@
   }
 }
 
-/* Small screens fallback (≤600px) – keep two-up if you prefer that behavior there */
+/* Small screens fallback (≤ 600px) */
 @media (max-width: 600px) {
+  .product-cards { padding: 0 0.55rem; }
+  .product-cards .products { margin-top: 146px; }
   .product-cards .product-card { flex: 0 1 var(--pc-col-2); }
+  .product-cards .product-card:nth-last-of-type(5):nth-of-type(odd) { flex: 0 1 var(--pc-col-1); }
+  .product-cards .product-details { justify-content: space-between; }
+  .product-cards .product-info { padding: 0.5rem 0 }
+  .product-cards .product-purchase { flex-wrap: wrap; flex-direction: column; justify-content: center; padding: 0; gap: 3px; }
+  .c7-product__add-to-cart__price { margin: 0; font-size: 0.9rem; } 
+  .product-cards .product-info h2 { display: none; }
+  .product-cards .product-purchase a.purchase-button { padding: var(--padding-btn-sm); font-size: 0.8em; }
+  .product-cards .c7-product__login-message { min-height: 9.5ch; }
+  .product-cards .c7-product__login-message .c7-btn { font-size: 0.8rem; }
+  .product-cards .c7-product__login-message .c7-btn:after { margin-top: 1.2rem  }
 }
 
 /* ── C7 Add-to-Cart in Cards: show price only (keep form in DOM) ───────── */
 
 /* Keep the C7 form visible, but hide its interactive controls */
-.product-cards .product-purchase form.c7-form.c7-product__add-to-cart { display: block; }
+.product-cards .product-purchase form.c7-form.c7-product__add-to-cart { 
+  display: block; 
+}
 .product-cards .product-purchase form.c7-form.c7-product__add-to-cart .c7-product__add-to-cart__qty,
 .product-cards .product-purchase form.c7-form.c7-product__add-to-cart .c7-product__add-to-cart__variants,
 .product-cards .product-purchase form.c7-form.c7-product__add-to-cart .c7-product__add-to-cart__cta,
 .product-cards .product-purchase form.c7-form.c7-product__add-to-cart [type="submit"],
-.product-cards .product-purchase form.c7-form.c7-product__add-to-cart button {
-  display: none;
+.product-cards .product-purchase form.c7-form.c7-product__add-to-cart button { 
+  display: none; 
 }
 
 /* Ensure price is shown and styled */
