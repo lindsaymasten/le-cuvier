@@ -1,5 +1,6 @@
 .c7-product-collection:has(.product-cards) {
   display: flex;
+  padding: 1rem;
 }
 
 /* Component scope variables */
