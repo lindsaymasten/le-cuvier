@@ -14,6 +14,7 @@ fields:
         - unorderedlist
         - orderedlist
         - quote
+        - aside
         - removeformat
         - anchor
         - underline
@@ -49,6 +50,12 @@ fields:
               fields:
                 -
                   import: pull_quote
+            aside:
+              display: 'Aside'
+              icon: text-formatting-wrap-image-margin-left
+              fields:
+                -
+                  import: aside
             table:
               display: Table
               icon: layout-table-column-insert

@@ -1,0 +1,9 @@
+title: 'Aside'
+fields:
+  -
+    handle: aside
+    field:
+      type: textarea
+      localizable: true
+      listable: hidden
+      display: Aside
