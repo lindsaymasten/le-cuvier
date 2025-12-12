@@ -23,32 +23,41 @@
     @apply text-xs sm:text-sm;
   }
 
-/* --------------- Article Typography --------------- */
+  /* --------------- Article Typography --------------- */
 
+  /* Article layout hooks */
   main:has(.article-body) {
     justify-content: center;
     align-items: flex-start;
   }
 
   .site-grid:has(.article-body) {
-    row-gap: 1rem;   
+    row-gap: 1rem;
   }
 
+  /* <640px: enforce gutters for article pages */
+  @media (max-width: 639px) {
+    .site-grid:has(.article-body) {
+      padding-inline: 1.5rem;
+    }
+
+    /* prevent double-gutters from the article container */
+    .site-grid:has(.article-body) .article-body {
+      padding-inline: 0;
+    }
+  }
+
+  /* Article container */
   .article-body {
     container-type: inline-size;
     container-name: article-body;
     position: relative;
-
     max-width: 70ch;
     margin-inline: auto;
     padding-inline: 1.5rem;
   }
 
-  .article-body > p {
-    margin: 0;
-  }
-
-  /* Aside Base */
+  /* Aside base */
   .article-aside {
     position: relative;
     display: block;
@@ -69,9 +78,7 @@
   }
 
   .article-aside > :first-child { margin-top: 0; }
-  .article-aside > :last-child { margin-bottom: 0; }
-
-/* --------------- Aside Layout (Viewport) --------------- */
+  .article-aside > :last-child  { margin-bottom: 0; }
 
   /* ≥ 820px */
   @media (min-width: 51.25rem) {
@@ -108,12 +115,9 @@
       width: 14rem;
       margin: 0;
 
-      float: none;
       transform: translateX(-11rem);
     }
   }
-
-/* --------------- Aside Layout (Container Queries) --------------- */
 
   @supports (font-size: 1cqi) {
     @container article-body (inline-size > 40ch) {
@@ -130,10 +134,44 @@
         inset-inline-start: 0;
 
         width: 12rem;
-        transform: translateX(-9rem);
+        transform: translateX(-14rem) translateY(12.5%);
         float: none;
         margin: 0;
       }
     }
   }
+}
+
+/* --------------- Tailwind Overrides --------------- */
+
+.article-body {
+  margin-block: clamp(2rem, 2rem + 3vw, 10rem)
+                clamp(1.5rem, 2rem + 2vw, 7.5rem);
+  row-gap: clamp(0.75em, 0.75em + 0.15vw, 0.925em);
+}
+
+@media (max-width: 639px) {
+  .article-body {
+    width: calc(100% - 3rem);
+    margin-inline: auto;
+  }
+}
+
+.article-body > figure.not-prose:has(.article-aside) + * {
+  margin-top: clamp(-0.75em, -0.75em + -0.15vw, -0.925em);
+}
+
+.article-body.prose p {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 0.75rem + 0.85vw, 1.35rem);
+  line-height: clamp(1.5em, 1.5em + 0.3vw, 1.85em);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-optical-sizing: auto;
+}
+
+/* --------------- Commerce7 Overrides --------------- */
+
+.site-grid .article-body p {
+  margin: 0;
 }

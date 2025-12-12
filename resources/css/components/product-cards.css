@@ -323,6 +323,16 @@
   .product-cards .product-card { flex: 0 1 var(--pc-col-2); }
 }
 
+/* 641px - 1199px */
+@media (min-width: 641px) and (max-width: 1199px) {
+  /* If the total number of cards is odd, make the last 3 cards 3-up */
+  .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:last-of-type,
+  .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:nth-last-of-type(2),
+  .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:nth-last-of-type(3) {
+    flex: 0 1 var(--pc-col-3);
+  }
+}
+
 /* ≥1200px: 3–4–3 repeating pattern */
 @media (min-width: 1200px) {
   /* Default row = 3 across */

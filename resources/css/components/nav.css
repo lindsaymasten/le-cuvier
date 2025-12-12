@@ -258,7 +258,7 @@ navbar-left:before {
   .main-nav:before { border-radius: 0; }
   .main-nav-list { display: none; }
   .center-logo { order: 1; margin: 0 auto; display: block; transform: scale(1.5); }
-  .navbar-left { display: flex; padding: 15px 36px; }
+  .navbar-left { display: flex; padding: 15px 28px; }
   .navbar-right { padding: 14px 15px; gap: 0; }
   .hamburger { display: flex; height: 38px; justify-content: center; }
 }
