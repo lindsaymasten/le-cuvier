@@ -235,6 +235,80 @@ navbar-left:before {
   gap: 6px; font-size: 14px;
 }
 
+/* === Cart widget (Commerce7) + badge === */
+.cart-wrap {
+  position: relative;
+  width: 44px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* C7 renders the clickable button inside #c7-cart */
+.cart-wrap #c7-cart {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Normalize the C7 button to behave like an icon button */
+.cart-wrap #c7-cart .c7-link {
+  width: 48px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* Hide C7 "Cart" text label (keep icon) */
+.cart-wrap #c7-cart .c7-user-nav__cart__title span {
+  display: none;
+}
+
+/* Hide C7's internal count (we use our own badge) 
+.cart-wrap #c7-cart .c7-user-nav__cart__count {
+  display: none;
+}*/
+
+/* Badge */
+.cart-wrap .cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  transform: translate(35%, -35%);
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  background: var(--login-bg);
+  color: white;
+  display: none;
+  z-index: 5;
+}
+.cart-wrap.has-items .cart-count {
+  display: inline-block;
+}
+
+/* Force the side cart to overlay the viewport (not open inside nav) */
+#c7-side-cart.c7-side-cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 99999;
+}
+
 /* === Hamburger === */
 .hamburger {
   display: none; /* mobile only; enabled in @media */

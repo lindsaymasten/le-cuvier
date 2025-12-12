@@ -1,6 +1,7 @@
-data: {  }
+data:
+  alt: 'Put whatever'
 size: 1280637
-last_modified: 1762469713
+last_modified: 1763070213
 width: 2400
 height: 1600
 mime_type: image/jpeg

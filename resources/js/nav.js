@@ -14,12 +14,12 @@
 
   ready(() => {
     // --- Cache elements your nav depends on
-    const drawer   = document.getElementById('mobile-drawer')
-    const openBtn  = document.getElementById('menu-toggle')
+    const drawer = document.getElementById('mobile-drawer')
+    const openBtn = document.getElementById('menu-toggle')
     const closeBtn = document.getElementById('drawer-close')
-    const live     = document.getElementById('aria-live')
-    const list     = document.querySelector('.main-nav-list')
-    const logo     = document.querySelector('.main-nav .center-logo')
+    const live = document.getElementById('aria-live')
+    const list = document.querySelector('.main-nav-list')
+    const logo = document.querySelector('.main-nav .center-logo')
 
     // --- Keyboard focus detection (for outlines)
     function handleFirstTab(e) {
@@ -40,7 +40,12 @@
       let lastFocus = null
 
       function firstFocusable(root) {
-        return root && root.querySelector('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])')
+        return (
+          root &&
+          root.querySelector(
+            'a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])'
+          )
+        )
       }
 
       function openDrawer() {
@@ -63,13 +68,18 @@
         if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus()
       }
 
-      function onKeydown(e) { if (e.key === 'Escape') closeDrawer() }
+      function onKeydown(e) {
+        if (e.key === 'Escape') closeDrawer()
+      }
 
       function trapFocus(e) {
         if (!drawer.classList.contains('open')) return
         if (!drawer.contains(e.target)) {
           const f = firstFocusable(drawer)
-          if (f) { e.stopPropagation(); f.focus() }
+          if (f) {
+            e.stopPropagation()
+            f.focus()
+          }
         }
       }
 
@@ -79,69 +89,100 @@
 
     // === Center-logo injection (clone for desktop-only) ===
     if (list && logo && !list.querySelector('.logo-slot')) {
-    const li = document.createElement('li')
-    li.className = 'logo-slot'
+      const li = document.createElement('li')
+      li.className = 'logo-slot'
 
-    const cloned = logo.cloneNode(true)
-    // restore original behavior: cloned logo shows on desktop only
-    cloned.classList.add('desktop-only')
+      const cloned = logo.cloneNode(true)
+      // restore original behavior: cloned logo shows on desktop only
+      cloned.classList.add('desktop-only')
 
-    li.appendChild(cloned)
-    const mid = Math.ceil(list.children.length / 2)
-    list.insertBefore(li, list.children[mid] || null)
+      li.appendChild(cloned)
+      const mid = Math.ceil(list.children.length / 2)
+      list.insertBefore(li, list.children[mid] || null)
     }
 
-// --- Cart: open side cart if Commerce7 is present (keep this)
-const cartBtn = document.getElementById('cart-trigger')
-if (cartBtn) {
-  cartBtn.addEventListener('click', () => {
-    if (window.c7action && typeof window.c7action.showSideCart === 'function') {
-      window.c7action.showSideCart()
+    // --- Cart: prefer clicking the C7 cart widget overlay; fall back to side cart trigger
+    const c7Cart = document.getElementById('c7-cart')
+    const cartWrap = c7Cart ? c7Cart.closest('.cart-wrap') : null
+    const cartBtn = document.getElementById('cart-trigger')
+
+    // Optional fallback: if you still keep a manual trigger somewhere
+    if (cartBtn) {
+      cartBtn.addEventListener('click', () => {
+        if (
+          window.c7action &&
+          typeof window.c7action.showSideCart === 'function'
+        ) {
+          window.c7action.showSideCart()
+        }
+      })
     }
-  })
-}
 
-// --- Cart count (tenant-free placeholder; add this whole IIFE after the handler)
-;(function () {
-  const live = document.getElementById('aria-live')
-  const els = Array.from(document.querySelectorAll('.cart-count'))
+    // --- Cart count
+    ;(function () {
+      const live = document.getElementById('aria-live')
+      const els = Array.from(document.querySelectorAll('.cart-count'))
 
-  function toInt(v) {
-    const n = Number(v)
-    return Number.isFinite(n) && n >= 0 ? Math.floor(n) : 0
-  }
-  function setCartCount(n) {
-    const count = toInt(n)
-    els.forEach(el => (el.textContent = String(count)))
-    if (live) {
-      live.textContent = `Cart updated: ${count === 1 ? '1 item' : count + ' items'} in cart`
-    }
-  }
+      function toInt(v) {
+        const n = Number(v)
+        return Number.isFinite(n) && n >= 0 ? Math.floor(n) : 0
+      }
+      function setCartCount(n) {
+        const count = toInt(n)
+        els.forEach((el) => (el.textContent = String(count)))
+        if (cartWrap) cartWrap.classList.toggle('has-items', count > 0)
+        if (live) {
+          live.textContent = `Cart updated: ${
+            count === 1 ? '1 item' : count + ' items'
+          } in cart`
+        }
+      }
 
-  // Seed from localStorage (dev-only)
-  setCartCount(localStorage.getItem('cart_count') || 0)
+      function syncFromC7CartDom() {
+        if (!c7Cart) return false
+        const t = (c7Cart.textContent || '').trim()
+        const m = t.match(/\d+/)
+        const count = m ? Number(m[0]) : 0
+        setCartCount(count)
+        return true
+      }
 
-  // Future Commerce7 hook
-  window.addEventListener('c7:cart:change', (e) => {
-    const count = e?.detail?.count
-    if (typeof count !== 'undefined') setCartCount(count)
-  })
+      // Prefer real C7 widget if present; otherwise fall back to dev storage
+      if (!syncFromC7CartDom()) {
+        setCartCount(localStorage.getItem('cart_count') || 0)
+      }
 
-  // Keep tabs in sync during dev
-  window.addEventListener('storage', (e) => {
-    if (e.key === 'cart_count') setCartCount(e.newValue)
-  })
+      // Keep in sync as C7 updates the widget
+      if (c7Cart) {
+        const mo = new MutationObserver(syncFromC7CartDom)
+        mo.observe(c7Cart, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        })
+      }
 
-  // Optional dev demo: middle-click cart to bump count (remove if undesired)
-  if (cartBtn && !window.__cartDemoHooked) {
-    window.__cartDemoHooked = true
-    cartBtn.addEventListener('auxclick', () => {
-      const next = toInt(localStorage.getItem('cart_count')) + 1
-      localStorage.setItem('cart_count', String(next))
-      setCartCount(next)
-    })
-  }
-})()
+      // Future Commerce7 hook (keep)
+      window.addEventListener('c7:cart:change', (e) => {
+        const count = e?.detail?.count
+        if (typeof count !== 'undefined') setCartCount(count)
+      })
 
+      // Keep tabs in sync during dev
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'cart_count') setCartCount(e.newValue)
+      })
+
+      // Optional dev demo: middle-click cart to bump count (remove if undesired)
+      const demoTarget = cartBtn || c7Cart
+      if (demoTarget && !window.__cartDemoHooked) {
+        window.__cartDemoHooked = true
+        demoTarget.addEventListener('auxclick', () => {
+          const next = toInt(localStorage.getItem('cart_count')) + 1
+          localStorage.setItem('cart_count', String(next))
+          setCartCount(next)
+        })
+      }
+    })()
   })
 })()
