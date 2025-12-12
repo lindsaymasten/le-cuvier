@@ -67,4 +67,10 @@ document.addEventListener('click', (e) => {
 
   console.log(`[LC] Triggering C7 add-to-cart (qty=${qty}).`);
   cta.click();
+
+  // Match the old behavior: go to cart page after add-to-cart
+  window.setTimeout(() => {
+    window.location.assign('/cart');
+  }, 75);
+
 });
