@@ -13,17 +13,25 @@
 
                     <header class="pd-titlebar">
                         <h1 class="pd-title" x-data x-init="
+                        let obs;
+
                         const apply = () => {
                             const t = ($el.textContent || '').trim();
                             if (!t || $el.querySelector('.pd-vintage')) return;
-                            // Match only reasonable vintage years 1900–2099
+
                             const out = t.replace(/\b(19|20)\d{2}\b/, '<span class=\'pd-vintage\'>$&</span>');
-                            if (out !== t) { $el.innerHTML = out; obs && obs.disconnect(); }
+                            if (out !== t) {
+                            $el.innerHTML = out;
+                            if (obs) obs.disconnect();
+                            }
                         };
+
                         apply();
-                        const obs = new MutationObserver(apply);
+                        obs = new MutationObserver(apply);
                         obs.observe($el, { childList: true, subtree: true, characterData: true });
                         ">
+                        <c7-product-title>
+                        </h1>
                         <c7-product-title>
                         </h1>
                         <div class="pd-price">
@@ -41,14 +49,13 @@
                         <c7-product-teaser>
                     </div>
 
-                    <div class="pd-buy">
-                        <div class="pd-buy-buttons">
-                            <a class="c7-buy case-buy btn"
-                                href="/cart?addToCart=<c7-product-variant-sku type='raw'>&quantity=12">Case</a>
-                            <a class="c7-buy bottle-buy btn"
-                                href="/cart?addToCart=<c7-product-variant-sku type='raw'>">Bottle</a>
-                        </div>
-                    </div>
+<div class="pd-buy">
+  <div class="pd-buy-buttons">
+    <button type="button" class="c7-buy case-buy btn" data-c7-qty="12">Case</button>
+    <button type="button" class="c7-buy bottle-buy btn" data-c7-qty="1">Bottle</button>
+  </div>
+</div>
+
 
                     <c7-if product-meta-tasting_notes>
                         <section class="pd-section pd-notes">

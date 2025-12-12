@@ -5,6 +5,7 @@ import focus from '@alpinejs/focus'
 import intersect from '@alpinejs/intersect'
 import Cookies from 'js-cookie'
 import './nav.js'
+import './c7-pd-buy-buttons.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine
