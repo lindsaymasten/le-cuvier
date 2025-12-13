@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765427783
+updated_at: 1765572733
 blocks:
   -
     id: memat9au
@@ -53,14 +53,11 @@ blocks:
             type: text
             text: ' the unusual character we gain via this process cannot be rushed without loss of that je ne sais quoi that makes our wines unique. The consequence of this long, long time in barrel is that it renders accurate planning a delusional process at best.'
       -
-        type: blockquote
+        type: paragraph
         content:
           -
-            type: paragraph
-            content:
-              -
-                type: text
-                text: 'And, oh yes, another bit of stupidity is that for each additional year we stay in barrel we lose about 8% of our wine to evaporation—meaning that by the time we slide the wine into bottles, we’ve lost roughly a quarter of it in the form of the proverbial “angels’ share”—fumes to be enjoyed by those besotted winged beings that can be heard giggling in the darkened corners of our barrel room.'
+            type: text
+            text: 'And, oh yes, another bit of stupidity is that for each additional year we stay in barrel we lose about 8% of our wine to evaporation—meaning that by the time we slide the wine into bottles, we’ve lost roughly a quarter of it in the form of the proverbial “angels’ share”—fumes to be enjoyed by those besotted winged beings that can be heard giggling in the darkened corners of our barrel room.'
       -
         type: paragraph
         content:
