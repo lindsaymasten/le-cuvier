@@ -157,7 +157,7 @@ h6 { font-weight: 600; line-height: 1.35; font-size: 1rem; }
   --c7-pill-text-color: var(--color-text);
 }
 
-/* Optional (still “global”): ensure C7 root areas inherit site typography */
+/* Ensure C7 root areas inherit site typography */
 #c7-content,
 #c7-cart,
 #c7-account {
@@ -290,7 +290,12 @@ label {
   margin-block: 0.75rem; 
 }
 
-/* -------- Global Token Hooks (moved from tokens.css) -------- */
+/* Commerce7 checkbox override */
+.c7-checkbox__control, .c7-radio__control {
+  margin: 0 10px 0 0;
+}
+
+/* -------- Global Token Hooks -------- */
 html, body {
   background: var(--bg-gradient);
   color: var(--color-text);
@@ -302,7 +307,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* -------- Utilities (moved from tokens.css) -------- */
+/* -------- Utilities -------- */
 .u-surface {
   background: var(--color-surface);
   box-shadow: var(--shadow-1);
@@ -320,7 +325,7 @@ html, body {
   border: 1px solid var(--color-border);
 }
 
-/* soft gradient site-wide */
+/* Soft gradient site-wide */
 .has-bg-gradient {
   background: var(--bg-gradient);
 }

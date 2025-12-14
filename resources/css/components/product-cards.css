@@ -61,6 +61,8 @@
   position: absolute;
   inset: 0;
   background: rgb(209, 206, 205);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   opacity: 0;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -72,7 +74,9 @@
 }
 .product-cards .product-card:hover::after,
 .product-cards .product-card:focus-within::after { 
-  opacity: 0.5;
+  opacity: 1;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);  
 }
 
 /* Hover lift / rounded corners */

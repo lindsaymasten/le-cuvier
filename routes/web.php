@@ -9,7 +9,10 @@ Route::get('/product/{handle}', [ProductController::class, 'show'])->name('produ
 
 // Routes for product purchase
 Route::statamic('/cart', 'cart');
-Route::statamic('/checkout', 'checkout');
+Route::statamic('/checkout/{any?}', 'checkout')->where('any', '.*');
+
+// Route for member login
+Route::statamic('/profile/{any?}', 'profile')->where('any', '.*');
 
 // Route for handling newsletter subscriptions.
 Route::post('/newsletter', NewsletterController::class)->name('newsletter');
