@@ -71,7 +71,9 @@
     border-radius 0.35s var(--pc-ease);
 }
 .product-cards .product-card:hover::after,
-.product-cards .product-card:focus-within::after { opacity: 0.85; }
+.product-cards .product-card:focus-within::after { 
+  opacity: 0.5;
+}
 
 /* Hover lift / rounded corners */
 .product-cards .product-card:hover,
@@ -314,6 +316,20 @@
 .product-cards .cta-link:hover {
   border-color: color-mix(in oklab, var(--color-border), var(--color-text) 25%);
   transform: translateY(-1px);
+}
+
+/* Hover background */
+.product-cards .product-info h1:before {
+  content: '';
+  position: absolute;
+  left: 3rem;
+  bottom: 4.5rem;
+  background: #e5b321;
+  width: 100%;
+  max-width: calc(100% - 6.25rem);
+  height: 100%;
+  max-height: calc(100% - 20rem);
+  z-index: -1;
 }
 
 /* ── Layout (flex) ─────────────────────────────────────────── */
