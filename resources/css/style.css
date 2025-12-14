@@ -217,6 +217,7 @@ input[type="submit"]:hover,
 
 /* Commerce7 modal override */
 .c7-modal {
+  align-self: center;
   background: var(--color-bg);
 }
 
