@@ -254,6 +254,9 @@ navbar-left:before {
   align-items: center;
   justify-content: center;
 }
+.login-btn:first-of-type {
+  margin-left: 5px;
+}
 .login-btn:hover,
 .login-btn:focus,
 .login-btn:focus-visible {
