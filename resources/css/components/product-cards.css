@@ -170,6 +170,7 @@
 .product-cards .product-info h2 {
   color: var(--color-text);
   font-size: 1.2rem;
+  font-weight: 400;
   line-height: 1.4;
   text-align: right;
   margin-right: 1rem;
@@ -212,9 +213,8 @@
   text-decoration: none;
   border: 1px solid #d4cec6;
   border-radius: var(--radius-btn);
-  transition: background-color .2s ease, border-color .2s ease, transform .15s ease;
+  transition: background-color .2s ease, border-color .2s ease;
 }
-.product-cards .product-purchase a.purchase-button:hover { transform: translateY(-1px); }
 .product-cards .product-purchase a.purchase-button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
@@ -252,7 +252,7 @@
   margin-bottom: 0.75ch;
   line-height: 1ch;
   background-color: var(--color-bg);
-  border: 1px solid var(--color-text);
+  border: 1px solid #1b1a2133;
 }
 
 .product-cards .c7-product__login-message:hover {

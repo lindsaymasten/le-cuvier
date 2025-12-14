@@ -159,7 +159,7 @@
   gap: 24px;
 }
 
-.pd-buy-buttons a {
+.pd-buy-buttons button {
   display: flex;
   flex-grow: 1;
   color: var(--text-color);
@@ -169,7 +169,7 @@
   font-size: 1rem;
 }
 
-.pd-buy-buttons a:hover {
+.pd-buy-buttons button:hover {
   text-decoration: none;
   border: solid 3px var(--text-color);
   background: var(--text-color);
