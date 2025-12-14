@@ -66,9 +66,10 @@
 /* === Nav Shell === */
 .navbar {
   position: fixed;
-  top: 40px; 
-  left: 50%;
-  transform: translateX(-50%);
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
   width: calc(100% - 3rem);
   max-width: 1200px;
   z-index: 1000;
@@ -78,14 +79,13 @@
   flex-wrap: nowrap;
 }
 .navbar-right {
+  position: relative;
   display: flex; 
   align-items: center; 
   gap: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 0 40px 20px rgba(255, 255, 255, 0.2);
   background: #fff;
   background: linear-gradient(to bottom, hsl(40, 7%, 76%) 0%, transparent 50%);
-  backdrop-filter: blur(16px) brightness(120%);
-  -webkit-backdrop-filter: blur(16px) brightness(120%);
   border: 1px solid #d5d5e0;
   border-radius: 0 2.5rem 2.5rem 0;
   padding: 14px 16px;
@@ -95,13 +95,20 @@
 .navbar-right:before {
   content: '';
   position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
   z-index: -10;
+
   width: 100%;
   height: 100%;
   border-radius: 0 2.5rem 2.5rem 0;
   background: #ffffff70;
   border-bottom: 1px solid #bad0e18f;
+
+  backdrop-filter: blur(16px) brightness(120%);
+  -webkit-backdrop-filter: blur(16px) brightness(120%);
 }
 .navbar-left {
   display: none; align-items: center; gap: 1rem;
@@ -256,7 +263,8 @@ navbar-left:before {
 
 /* Normalize the C7 button to behave like an icon button */
 .cart-wrap #c7-cart .c7-link {
-  width: 48px;
+  width: auto;
+  min-width: 20px;
   height: 40px;
   display: inline-flex;
   align-items: center;
@@ -268,21 +276,29 @@ navbar-left:before {
   cursor: pointer;
 }
 
+.c7-user-nav__cart__title svg {
+  width: 36px;
+  height: 24px;
+  stroke: var(--text-color);
+  stroke-width: 1.3;
+  vertical-align: text-top;
+}
+
 /* Hide C7 "Cart" text label (keep icon) */
 .cart-wrap #c7-cart .c7-user-nav__cart__title span {
   display: none;
 }
 
-/* Hide C7's internal count (we use our own badge) 
+/* Hide C7's internal count (we use our own badge) */
 .cart-wrap #c7-cart .c7-user-nav__cart__count {
   display: none;
-}*/
+}
 
 /* Badge */
 .cart-wrap .cart-count {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  bottom: -4px;
+  left: 2px;
   transform: translate(35%, -35%);
   min-width: 18px;
   height: 18px;
@@ -324,6 +340,48 @@ navbar-left:before {
   height: 2px; width: 24px;
   background: var(--text-color);
   border-radius: 2px;
+}
+
+/* === Commerce7 Slideout Side Cart === */
+@media (min-width: 769px) {
+  #c7-side-cart.c7-side-cart {
+    position: fixed;
+    top: 0; 
+    right: 0;  
+    height: 100vh;
+    width: min(440px, 100vw);
+    max-width: 520px;
+    z-index: 99999;
+  }
+}
+
+@media (max-width: 768px) {
+  #c7-side-cart.c7-side-cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99999;
+  }
+}
+
+#c7-side-cart .c7-order-item__image {
+  display: none;
+}
+
+.c7-side-cart__header {
+  background: var(--color-neutral-lt);
+}
+
+#c7-side-cart__header__title {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-regular);
+  font-size: 2.25ch;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  color: var(--text-color);
 }
 
 /* === Responsive === */

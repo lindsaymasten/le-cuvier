@@ -93,6 +93,79 @@ h6 { font-weight: 600; line-height: 1.35; font-size: 1rem; }
   font-style: italic; 
 }
 
+/* -------- Commerce7 Global Overrides -------- */
+
+:root {
+  /* Layout */
+  --c7-page-width: 1200px;
+  --c7-page-width-checkout: 1200px;
+
+  /* Typography */
+  --c7-font-family: var(--font-sans);
+  --c7-heading-font-family: var(--font-serif);
+
+  --c7-body-text-color: var(--color-text);
+  --c7-heading-text-color: var(--color-text);
+  --c7-alt-text-color: var(--color-text);
+
+  --c7-font-size: 1rem;
+  --c7-font-size-sub: 14px;
+  --c7-heading-font-weight: var(--font-weight-regular);
+
+  /* Brand colors */
+  --c7-primary-color: var(--color-accent);
+  --c7-primary-color-text: var(--color-text);
+  --c7-primary-color-dark: var(--color-accent-600);
+  --c7-primary-color-focus: var(--color-accent);
+
+  --c7-link-color: var(--color-accent);
+
+  /* Surfaces / borders */
+  --c7-bg: var(--color-bg);
+  --c7-bg-alt: var(--color-surface-alt);
+  --c7-border-color: var(--color-border);
+  --c7-border-radius: var(--radius-md);
+
+  /* Overlays / modals */
+  --c7-overlay-bg: var(--overlay-bg);
+  --c7-modal-border-radius: var(--radius-lg);
+  --c7-modal-shadow: var(--shadow-2);
+
+  /* Form fields */
+  --c7-field-bg: var(--color-surface);
+  --c7-field-border-radius: var(--radius-sm);
+  --c7-field-border-color: var(--color-border);
+  --c7-field-focus-color: var(--color-accent);
+  --c7-field-option-selected-color: var(--color-accent-500);
+  --c7-field-option-focus-color: var(--color-accent-500);
+
+  /* Buttons */
+  --c7-primary-button-bg: var(--color-text);
+  --c7-primary-button-bg-hover: var(--color-text);
+  --c7-primary-button-text-color: var(--color-bg);
+
+  --c7-alt-button-bg: transparent;
+  --c7-alt-button-bg-hover: transparent;
+  --c7-alt-button-text-color: var(--color-text);
+
+  --c7-button-border-radius: var(--radius-btn);
+
+  /* Loading / misc */
+  --c7-loading-bg: var(--color-surface);
+  --c7-progress-bar: var(--color-accent-500);
+  --c7-pill-bg: var(--color-neutral-lt);
+  --c7-pill-text-color: var(--color-text);
+}
+
+/* Optional (still “global”): ensure C7 root areas inherit site typography */
+#c7-content,
+#c7-cart,
+#c7-account {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+}
+
+
 /* -------- Links -------- */
 a {
   color: var(--color-accent);
@@ -216,4 +289,37 @@ label {
   margin-block: 0.75rem; 
 }
 
+/* -------- Global Token Hooks (moved from tokens.css) -------- */
+html, body {
+  background: var(--bg-gradient);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-size-base);
+  font-optical-sizing: normal;
+  font-variation-settings: "wdth" 100;
+  line-height: var(--line-height-base);
+  overflow-x: hidden;
+}
 
+/* -------- Utilities (moved from tokens.css) -------- */
+.u-surface {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+.u-surface-2 {
+  background: var(--color-surface-alt);
+}
+.u-rounded {
+  border-radius: var(--radius-lg);
+}
+.u-pill {
+  border-radius: var(--radius-pill);
+}
+.u-border {
+  border: 1px solid var(--color-border);
+}
+
+/* soft gradient site-wide */
+.has-bg-gradient {
+  background: var(--bg-gradient);
+}

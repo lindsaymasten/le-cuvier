@@ -73,6 +73,8 @@
 
 .pd-content {
   position: relative;
+  display: flex;
+  flex-direction: column;
   scroll-margin-top: 110px; /* clears main nav */
   margin: max(5vw, 74px);
   overflow-wrap: break-word;

@@ -95,7 +95,7 @@
   --alt-color:          #f5b112;
   --login-bg:           #e2941e;
 
-  --bg-gradient:        linear-gradient(90deg, #edf0ed, #f0e6dc);  
+  --bg-gradient:        linear-gradient(90deg, #edf0ed, #f5f3f1);  
   --overlay-bg:         rgba(58, 68, 44, 0.2);
 
   /* ---------- radii / shadows / focus ---------- */
@@ -146,68 +146,4 @@
 
     --bg-gradient:        linear-gradient(90deg, #2a2b2a, #252528);  
   }
-}
-
-/* global hook so pages naturally pick up tokens */
-html, body {
-  background: var(--bg-gradient); 
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: var(--text-size-base);
-  font-optical-sizing: normal;
-  font-variation-settings: "wdth" 100;
-  line-height: var(--line-height-base);
-  overflow-x: hidden;
-}
-
-/* heading preference */
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-serif);
-  font-weight: var(--font-weight-regular);
-}
-
-/* special typography elements */
-.brand-serif-italic { 
-    font-family: var(--font-serif-italic); 
-    font-style: italic; 
-}
-
-/* links adopt brand accent by default */
-a {
-  color: var(--color-accent);
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 2px;
-}
-a:hover { 
-  text-decoration: underline; 
-}
-
-/* Keyboard-only outlines */
-:focus { outline: none; }
-body.user-is-tabbing :focus {
-  outline: var(--focus-ring);
-  outline-offset: 2px;
-}
-
-/* ---------- utilities ---------- */
-.u-surface    { 
-  background: var(--color-surface); 
-  box-shadow: var(--shadow-1); 
-}
-.u-surface-2  { 
-  background: var(--color-surface-alt); 
-}
-.u-rounded    { 
-  border-radius: var(--radius-lg); 
-}
-.u-pill       { 
-  border-radius: var(--radius-pill); 
-}
-.u-border     { 
-  border: 1px solid var(--color-border); 
-}
-
-/* soft gradient site-wide */
-.has-bg-gradient { 
-  background: var(--bg-gradient); 
 }
