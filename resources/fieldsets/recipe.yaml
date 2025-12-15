@@ -9,26 +9,102 @@ fields:
         - required
 
   -
-    handle: description
+    handle: image_caption
     field:
       type: textarea
-      display: Description
-      rows: 3
+      display: Image Caption
+      rows: 1
 
   -
-    handle: image
+    import: picture
+
+  -
+    handle: servings
     field:
-      import: picture
-      display: Image
+      type: text
+      input_type: number
+      display: Servings
+      width: 33
+      validate:
+        - integer
+        - min:0
+
+  -
+    handle: difficulty
+    field:
+      type: select
+      display: Difficulty
+      width: 33
+      options:
+        easy: Easy
+        intermediate: Intermediate
+        advanced: Advanced
+      default: easy
+      clearable: false
+      searchable: false
+      validate:
+        - required
+
+  -
+    handle: cook_time
+    field:
+      type: text
+      input_type: number
+      display: Cook time
+      width: 33
+      instructions: "Hours in 0.5 increments"
+      validate:
+        - numeric
+        - min:0
+      step: 0.5
 
   -
     handle: ingredients
     field:
-      type: markdown
+      type: replicator
       display: Ingredients
+      collapse: false
+      replicator_preview: false
+      sets:
+        main:
+          display: Items
+          sets:
+            item:
+              display: Ingredient
+              icon: text-formatting-list-bulleted
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Item
+                    validate:
+                      - required
+            group:
+              display: Group
+              icon: text-formatting-list-numbered
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Group title
+                -
+                  handle: items
+                  field:
+                    type: list
+                    display: Items
+                    instructions: "One item per line. You can reorder."
+                    validate:
+                      - required
 
   -
     handle: instructions
+    field: common.text_rich
+
+  -
+    handle: notes
     field:
-      type: markdown
-      display: Instructions
+      type: textarea
+      display: Notes
+      rows: 3

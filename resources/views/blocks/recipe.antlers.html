@@ -4,11 +4,11 @@
       <h2 id="recipe-title" class="recipe-title">{{ title }}</h2>
     {{ /if }}
 
-    {{ if description }}
-      <p class="recipe-description">{{ description }}</p>
+    {{ if image_caption }}
+      <p class="recipe-image-caption">{{ description }}</p>
     {{ /if }}
 
-    {{ if servings || prep_time || cook_time }}
+    {{ if servings || difficulty || cook_time }}
       <div class="recipe-details" aria-label="Recipe details">
         {{ if servings }}
           <div class="recipe-detail">
@@ -17,35 +17,41 @@
           </div>
         {{ /if }}
 
-        {{ if prep_time }}
+        {{ if difficulty }}
           <div class="recipe-detail">
-            <span class="recipe-detail-label">Prep</span>
-            <span class="recipe-detail-value">{{ prep_time }}</span>
+            <span class="recipe-detail-label">Difficulty</span>
+            <span class="recipe-detail-value">{{ difficulty }}</span>
           </div>
         {{ /if }}
 
         {{ if cook_time }}
           <div class="recipe-detail">
             <span class="recipe-detail-label">Cook</span>
-            <span class="recipe-detail-value">{{ cook_time }}</span>
+            <span class="recipe-detail-value">
+              {{ hours = cook_time | floor }}
+              {{ mins  = cook_time | subtract:hours | multiply:60 | round }}
+
+              {{ if hours == 0 }}
+                {{ mins }} min{{ if mins != 1 }}s{{ /if }}
+              {{ else }}
+                {{ hours }} hr{{ if hours != 1 }}s{{ /if }}
+                {{ if mins > 0 }} {{ mins }} min{{ if mins != 1 }}s{{ /if }}{{ /if }}
+              {{ /if }}
+            </span>
           </div>
         {{ /if }}
+
       </div>
     {{ /if }}
   </header>
 
-  {{# Image moved ABOVE columns (directly below details row) #}}
-  {{ if image:image || image }}
+  {{ if image }}
     <figure class="recipe-photo">
-      {{ if image:image }}
-        {{ partial:components/ui/picture :image="image:image" w="1600" h="1000" }}
-      {{ else }}
-        {{ partial:components/ui/picture :image="image" w="1600" h="1000" }}
-      {{ /if }}
+      {{ partial:components/ui/picture :image="image" w="1600" h="1000" }}
 
-      {{ if image:caption }}
+      {{ if caption }}
         <figcaption class="recipe-photo-caption">
-          {{ image:caption }}
+          {{ caption }}
         </figcaption>
       {{ /if }}
     </figure>
@@ -59,7 +65,24 @@
 
         <div class="recipe-block recipe-ingredients">
           {{ if ingredients }}
-            {{ ingredients }}
+            <ul>
+              {{ ingredients }}
+                {{ if type == "item" }}
+                  <li>{{ text }}</li>
+                {{ /if }}
+
+                {{ if type == "group" }}
+                  <li>
+                    {{ if heading }}<strong>{{ heading }}</strong>{{ /if }}
+                    <ul>
+                      {{ items }}
+                        <li>{{ value }}</li>
+                      {{ /items }}
+                    </ul>
+                  </li>
+                {{ /if }}
+              {{ /ingredients }}
+            </ul>
           {{ /if }}
         </div>
       </section>
