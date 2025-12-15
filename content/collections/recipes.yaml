@@ -1,0 +1,5 @@
+title: Recipes
+route: '/recipes/{slug}'
+template: recipes/show
+blueprints:
+  - recipe

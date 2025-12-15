@@ -1,0 +1,11 @@
+nav:
+  content:
+    'content::collections':
+      action: '@modify'
+      children:
+        'content::collections::pages': '@hide'
+    'content::navigation':
+      action: '@modify'
+      reorder:
+        - 'content::navigation::header'
+        - 'content::navigation::footer'
