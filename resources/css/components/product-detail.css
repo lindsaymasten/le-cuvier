@@ -118,6 +118,7 @@
 
 .pd-title:not(.pd-vintage) {
   font-size: 2.25ch;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -153,7 +154,7 @@
 
 .pd-buy .pd-buy-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-grow: 1;
   gap: 24px;
@@ -211,6 +212,10 @@
   line-height: 1;
 }
 
+.pd-blend {
+  margin-top: 1.5rem;
+}
+
 .pd-vineyard .pd-h2 {
   flex: 0 0 auto;
   margin-right: 1rem;
@@ -218,6 +223,7 @@
 
 .pd-h2 {
   font-size: 2.25ch;
+  font-weight: 400;
 }
 
 .c7-product__meta {

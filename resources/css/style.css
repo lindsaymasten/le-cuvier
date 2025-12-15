@@ -302,7 +302,7 @@ input[type="submit"]:hover,
   padding: 16px;
   border-radius: 5px;
   font-size: 1rem;
-  max-width: calc-size(fit-content, size + 3.5rem);
+  max-width: calc-size(fit-content, size + 16rem);
 }
 
 .lc-btn-purchase:hover,

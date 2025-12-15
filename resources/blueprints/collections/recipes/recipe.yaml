@@ -1,0 +1,86 @@
+title: Recipe
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+              rows: 3
+
+          -
+            handle: image
+            field:
+              import: picture
+              display: Image
+
+          -
+            handle: servings
+            field:
+              type: text
+              display: Servings
+              width: 33
+
+          -
+            handle: prep_time
+            field:
+              type: text
+              display: Prep time
+              width: 33
+
+          -
+            handle: cook_time
+            field:
+              type: text
+              display: Cook time
+              width: 33
+
+          -
+            handle: ingredients
+            field:
+              type: markdown
+              display: Ingredients
+
+          -
+            handle: instructions
+            field:
+              type: markdown
+              display: Instructions
+
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              validate:
+                - required
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: featured
+            field:
+              display: Featured
+              type: toggle
+              default: false

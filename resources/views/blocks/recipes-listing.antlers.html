@@ -1,0 +1,19 @@
+<section id="{{ type | slugify }}" class="m-section">
+    <div class="container">
+        {{ partial:partials/section-header }}
+
+        {{ if query === 'custom' }}
+            {{ $entries = entries }}
+        {{ elseif query === 'latest' }}
+            {{ $entries = {collection:recipes :limit="limit" sort="date:desc"} }}
+        {{ elseif query === 'featured' }}
+            {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
+        {{ /if }}
+
+        <div class="site-grid gap-y-20 max-w-2xl mx-auto lg:max-w-none">
+            {{ $entries }}
+                {{ partial:partials/entry-recipes class="col-span-full lg:col-span-4" }}
+            {{ /$entries }}
+        </div>
+    </div>
+</section>

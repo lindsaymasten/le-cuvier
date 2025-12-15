@@ -180,6 +180,13 @@ fields:
                             bg_type: equals color
                           width: 33
 
+            recipes_listing:
+              display: 'Recipes Listing'
+              icon: layout-three-columns
+              fields:
+                -
+                  import: recipes_listing
+
             recipe:
               display: Recipe
               icon: text-format

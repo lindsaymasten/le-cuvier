@@ -1,0 +1,34 @@
+title: Recipe
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      validate:
+        - required
+
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+      rows: 3
+
+  -
+    handle: image
+    field:
+      import: picture
+      display: Image
+
+  -
+    handle: ingredients
+    field:
+      type: markdown
+      display: Ingredients
+
+  -
+    handle: instructions
+    field:
+      type: markdown
+      display: Instructions
