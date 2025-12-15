@@ -1,229 +1,162 @@
 <section id="{{ type | slugify }}" class="container m-section">
-    <h2 class="h2 mb-28">Style guide</h2>
-    <div class="space-y-28">
-        <div>
-            <div class="border-b border-gray-300 mb-10">
-                <h3 class="h3 pb-6">Site grid</h3>
-            </div>
-            <div
-                class="site-grid"
-                x-data="{
-                    columnGap: 0,
-                    columnWidth: 0,
-                    calcGrid() {
-                        const styles = window.getComputedStyle($el);
-                        this.columnGap = parseInt(styles.gridColumnGap);
-                        const columnCount = styles.gridTemplateColumns.split(' ').length;
-                        this.columnWidth = ($el.clientWidth - (this.columnGap * (columnCount - 1))) / columnCount;
-                    }
-                }"
-                x-init="calcGrid()"
-                @resize.window="calcGrid()"
-            >
-                {{ loop times="12" }}
-                    <div class="relative bg-pink-50 h-40">
-                        {{ unless last }}
-                            <span
-                                class="hidden sm:block absolute -translate-y-1/2 top-1/2 left-full border-b border-dashed border-gray-400 text-[10px] font-mono text-muted-foreground text-center"
-                                :style="`width:${columnGap}px`" x-text="`${columnGap}px`">
+  <h2 class="h2 mb-14">Style guide</h2>
 
-                            </span>
-                        {{ /unless }}
-                        <span class="absolute top-full left-1/2 sm:mt-2 -translate-x-1/2 text-[10px] font-mono text-muted-foreground" x-text="`${columnWidth.toFixed(1)}px`"></span>
-                    </div>
-                {{ /loop }}
-            </div>
-        </div>
+  <div class="flex flex-col gap-14">
 
-        <div>
-            <div class="border-b border-gray-300 mb-10">
-                <h3 class="h3 pb-6">Colors</h3>
-            </div>
-            <div class="space-y-10">
-                <div class="grid grid-cols-1 md:grid-cols-11 gap-y-3 gap-x-2">
-                    {{ foreach
-                        :array="[
-                            'bg-background',
-                            'bg-foreground',
-                            'bg-primary',
-                            'bg-primary-foreground',
-                            'bg-secondary',
-                            'bg-secondary-foreground',
-                            'bg-muted',
-                            'bg-muted-foreground',
-                            'bg-accent',
-                            'bg-accent-foreground',
-                            'bg-destructive',
-                        ]"
-                    }}
-                        <div class="relative flex">
-                            <div class="flex items-center gap-x-3 w-full md:block md:space-y-1.5">
-                                <div class="size-24 rounded md:w-full {{ value }}"></div>
-                                <div class="px-0.5">
-                                    <div class="text-xs font-mono w-full text-muted-foreground">{{ value | replace('bg-', '') }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    {{ /foreach }}
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-11 gap-y-3 gap-x-2">
-                    {{ foreach
-                        :array="[
-                            'bg-neutral-50',
-                            'bg-neutral-100',
-                            'bg-neutral-200',
-                            'bg-neutral-300',
-                            'bg-neutral-400',
-                            'bg-neutral-500',
-                            'bg-neutral-600',
-                            'bg-neutral-700',
-                            'bg-neutral-800',
-                            'bg-neutral-900',
-                            'bg-neutral-950',
-                        ]"
-                    }}
-                        <div class="relative flex">
-                            <div class="flex items-center gap-x-3 w-full md:block md:space-y-1.5">
-                                <div class="size-24 rounded md:w-full {{ value }}"></div>
-                                <div class="px-0.5">
-                                    <div class="text-xs font-mono w-full text-muted-foreground">{{ value | replace('bg-', '') }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    {{ /foreach }}
-                </div>
-            </div>
-        </div>
+    {{# ============================
+       Typography
+       ============================ #}}
+    <section aria-labelledby="sg-typography" class="flex flex-col gap-6">
+      <header class="border-b border-gray-300 pb-3">
+        <h3 id="sg-typography" class="h3">Typography</h3>
+      </header>
 
-        <div>
-            <div class="border-b border-gray-300 mb-10">
-                <h3 class="h3 pb-6">Buttons</h3>
-            </div>
-            <div class="space-y-10">
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--primary</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="primary" label="Get started" link_type="url" url="/" class="btn--sm" }}
-                        {{ partial:components/ui/button button_type="primary" label="Get started" link_type="url" url="/" }}
-                        {{ partial:components/ui/button button_type="primary" label="Get started" link_type="url" url="/" class="btn--lg" }}
-                        {{ partial:components/ui/button button_type="primary" label="Get started" link_type="url" url="/" class="btn--xl" }}
-                    </dd>
-                </div>
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--secondary</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="secondary" label="Get started" link_type="url" url="/" class="btn--sm" }}
-                        {{ partial:components/ui/button button_type="secondary" label="Get started" link_type="url" url="/" }}
-                        {{ partial:components/ui/button button_type="secondary" label="Get started" link_type="url" url="/" class="btn--lg" }}
-                        {{ partial:components/ui/button button_type="secondary" label="Get started" link_type="url" url="/" class="btn--xl" }}
-                    </dd>
-                </div>
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--outline</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="outline" label="Get started" link_type="url" url="/" class="btn--sm" }}
-                        {{ partial:components/ui/button button_type="outline" label="Get started" link_type="url" url="/" }}
-                        {{ partial:components/ui/button button_type="outline" label="Get started" link_type="url" url="/" class="btn--lg" }}
-                        {{ partial:components/ui/button button_type="outline" label="Get started" link_type="url" url="/" class="btn--xl" }}
-                    </dd>
-                </div>
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--destructive</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="destructive" label="Get started" link_type="url" url="/" class="btn--sm" }}
-                        {{ partial:components/ui/button button_type="destructive" label="Get started" link_type="url" url="/" }}
-                        {{ partial:components/ui/button button_type="destructive" label="Get started" link_type="url" url="/" class="btn--lg" }}
-                        {{ partial:components/ui/button button_type="destructive" label="Get started" link_type="url" url="/" class="btn--xl" }}
-                    </dd>
-                </div>
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--ghost</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="ghost" label="Get started" link_type="url" url="/" class="btn--sm" }}
-                        {{ partial:components/ui/button button_type="ghost" label="Get started" link_type="url" url="/" }}
-                        {{ partial:components/ui/button button_type="ghost" label="Get started" link_type="url" url="/" class="btn--lg" }}
-                        {{ partial:components/ui/button button_type="ghost" label="Get started" link_type="url" url="/" class="btn--xl" }}
-                    </dd>
-                </div>
-                <div class="flex flex-col gap-y-6 md:flex-row md:items-end">
-                    <dt class="md:w-44 shrink-0 content-sm text-muted-foreground font-mono leading-6">btn--link</dt>
-                    <dd class="flex flex-col gap-6 items-start justify-start md:flex-row md:items-end">
-                        {{ partial:components/ui/button button_type="link" label="Get started" link_type="url" url="/" }}
-                    </dd>
-                </div>
-            </div>
-        </div>
+      <div class="flex flex-col gap-8">
 
-        <div>
-            <div class="border-b border-gray-300 mb-10">
-                <h3 class="h3 pb-6">Headings</h3>
-            </div>
-            <div class="space-y-10">
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h1</dt>
-                    <dd class="h1 leading-tight truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h2</dt>
-                    <dd class="h2 leading-tight truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h3</dt>
-                    <dd class="h3 truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h4</dt>
-                    <dd class="h4 truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h5</dt>
-                    <dd class="h5 truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-16 shrink-0 content-sm text-muted-foreground font-mono leading-6">h6</dt>
-                    <dd class="h6 truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-            </div>
-        </div>
+        <section aria-labelledby="sg-typography-headings" class="flex flex-col gap-3">
+          <h4 id="sg-typography-headings" class="content-sm text-muted-foreground font-mono">Headings</h4>
 
-        <div>
-            <div class="border-b border-gray-300 mb-10">
-                <h3 class="h3 pb-6">Typography</h3>
+          <div class="flex flex-col gap-5">
+            <h1 class="h1">H1 Heading One</h1>
+            <h2 class="h2">H2 Heading Two</h2>
+            <h3 class="h3">H3 Heading Three</h3>
+            <h4 class="h4">H4 Heading Four</h4>
+            <h5 class="h5">H5 Heading Five</h5>
+            <h6 class="h6">H6 Heading 6</h6>
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-typography-body" class="flex flex-col gap-3">
+          <h4 id="sg-typography-body" class="content-sm text-muted-foreground font-mono">
+            Body paragraph text (two columns)
+          </h4>
+
+          <div class="flex flex-col gap-5 md:flex-row md:gap-6">
+            <p class="content md:w-1/2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non metus vitae ipsum vehicula cursus.
+              Integer luctus, arcu a vulputate dignissim, est mi pulvinar lorem, non suscipit purus massa vitae justo.
+              Aenean tincidunt, erat sed facilisis lacinia, lectus ex congue nibh, vel luctus odio risus quis sem.
+            </p>
+
+            <p class="content md:w-1/2">
+              Curabitur euismod, ipsum sed porta pulvinar, lorem lacus laoreet risus, non tristique orci tortor non
+              augue. Maecenas blandit, magna sed tempor fermentum, libero eros cursus metus, vel pretium urna leo at
+              arcu.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-typography-aside" class="flex flex-col gap-3">
+          <h4 id="sg-typography-aside" class="content-sm text-muted-foreground font-mono">Aside text</h4>
+
+          <aside class="article-aside">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel lectus ac nunc finibus dignissim.
+            </p>
+          </aside>
+        </section>
+
+        <section aria-labelledby="sg-typography-link" class="flex flex-col gap-2">
+          <h4 id="sg-typography-link" class="content-sm text-muted-foreground font-mono">Inline link</h4>
+          <p class="content">
+            Inline Link: <a href="#">Example Link</a>
+          </p>
+        </section>
+
+      </div>
+    </section>
+
+    {{# ============================
+       Buttons / Links
+       ============================ #}}
+    <section aria-labelledby="sg-buttons" class="flex flex-col gap-6">
+      <header class="border-b border-gray-300 pb-3">
+        <h3 id="sg-buttons" class="h3">Buttons / Links</h3>
+      </header>
+
+      <div class="flex flex-col gap-7">
+
+        <section aria-labelledby="sg-btn-basic" class="flex flex-col gap-3">
+          <h4 id="sg-btn-basic" class="content-sm text-muted-foreground font-mono">
+            Basic Button (.purchase-button from Product Cards)
+          </h4>
+
+          <div class="product-cards">
+            <div class="product-purchase">
+              <a class="purchase-button" href="#">Basic Button</a>
             </div>
-            <div class="space-y-10">
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">badge</dt>
-                    <dd class="flex gap-3">
-                        <span class="badge">Brown</span>
-                        <span class="badge badge--secondary">Brown</span>
-                        <span class="badge badge--outline">Brown</span>
-                    </dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">tagline</dt>
-                    <dd class="tagline text-primary truncate">The quick brown fox</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">content-xl</dt>
-                    <dd class="content-xl truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">content-lg</dt>
-                    <dd class="content-lg truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">content</dt>
-                    <dd class="content truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">content-sm</dt>
-                    <dd class="content-sm truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
-                <div class="flex items-center">
-                    <dt class="w-32 shrink-0 content-sm text-muted-foreground font-mono leading-6">content-xs</dt>
-                    <dd class="content-xs truncate">The quick brown fox jumps over the lazy dog.</dd>
-                </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-btn-purchase" class="flex flex-col gap-3">
+          <h4 id="sg-btn-purchase" class="content-sm text-muted-foreground font-mono">
+            Purchase Button (.pd-buy-buttons button)
+          </h4>
+
+          <div class="pd-buy">
+            <div class="pd-buy-buttons">
+              <button type="button">Purchase Button</button>
             </div>
-        </div>
-    </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-btn-misc" class="flex flex-col gap-3">
+          <h4 id="sg-btn-misc" class="content-sm text-muted-foreground font-mono">
+            Button as Link / Link as Button / Ghost
+          </h4>
+
+          <ul class="flex flex-wrap items-center gap-4" role="list">
+            <li><a class="btn" href="#">Button as Link</a></li>
+            <li><button class="btn" type="button">Link as Button</button></li>
+            <li><button class="button--ghost" type="button">Ghost Button</button></li>
+          </ul>
+        </section>
+
+      </div>
+    </section>
+
+    {{# ============================
+       Forms
+       ============================ #}}
+    <section aria-labelledby="sg-forms" class="flex flex-col gap-6">
+      <header class="border-b border-gray-300 pb-3">
+        <h3 id="sg-forms" class="h3">Forms</h3>
+      </header>
+
+      <form class="flex flex-col gap-7" action="#" method="post">
+        <section aria-labelledby="sg-form-text" class="flex flex-col gap-2">
+          <h4 id="sg-form-text" class="content-sm text-muted-foreground font-mono">Text input</h4>
+
+          <div class="flex flex-col gap-2">
+            <label for="sg-input">Text input field</label>
+            <input id="sg-input" name="sg_input" type="text" placeholder="Placeholder text">
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-form-controls" class="flex flex-col gap-2">
+          <h4 id="sg-form-controls" class="content-sm text-muted-foreground font-mono">
+            Checkbox / Radio
+          </h4>
+
+          <div class="flex flex-col gap-3">
+            <label class="inline-flex items-center gap-3">
+              <input type="checkbox" class="c7-checkbox__control">
+              <span>Checkbox</span>
+            </label>
+
+            <label class="inline-flex items-center gap-3">
+              <input type="radio" name="sg-radio" class="c7-radio__control">
+              <span>Radio button</span>
+            </label>
+          </div>
+        </section>
+
+        <section aria-labelledby="sg-form-submit" class="flex flex-col gap-2">
+          <h4 id="sg-form-submit" class="content-sm text-muted-foreground font-mono">Submit button</h4>
+          <input class="is-primary" type="submit" value="Submit">
+        </section>
+      </form>
+    </section>
+
+  </div>
 </section>

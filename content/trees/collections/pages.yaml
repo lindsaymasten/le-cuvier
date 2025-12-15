@@ -2,15 +2,13 @@ tree:
   -
     entry: home
   -
-    entry: 506c8e50-bc23-4c16-b691-c8aca71c1258
-  -
     entry: 00527668-31b8-4658-88e3-b41fba9dc10c
     children:
       -
         entry: d50dbcf7-2ed9-4a10-91c5-5b5557d694ea
   -
-    entry: 69b81205-4546-4c78-91b5-ab3ef8f664df
-  -
     entry: 200a3990-53bd-444b-aa9a-9833d694d804
   -
-    entry: 55d47f52-a63d-4364-86b3-01b53af16880
+    entry: 506c8e50-bc23-4c16-b691-c8aca71c1258
+  -
+    entry: 6dc32f75-709f-435f-ba65-0e54c5823388

@@ -56,8 +56,8 @@ body.user-is-tabbing :focus {
   --lc-heading-tracking: -0.01em;
   --text-color: var(--color-text);
   --bg-color: #f1e8e0;
-  --alt-color: rgb(246, 165, 33);
-  --login-bg: rgb(251, 180, 57);
+  --alt-color: #e5b321;
+  --login-bg: #ce9c09;
   --font-family: 'Mona Sans', sans-serif;
   --font-optical-sizing: auto;
   --font-variation-settings: "wdth" 100;
@@ -81,6 +81,43 @@ h4 { font-weight: 600; line-height: 1.25; font-size: 1.25rem; }
 h5 { font-weight: 600; line-height: 1.3;  font-size: 1.125rem; }
 h6 { font-weight: 600; line-height: 1.35; font-size: 1rem; }
 
+/* Combined Headlines */
+h1 + h2 {
+  margin-top: 0.2;
+}
+
+h1 + h3 {
+  margin-top: 0.15em;
+}
+
+h1 + h4 {
+  margin-top: 0.1em;
+}
+
+h1 + h5 {
+  margin-top: 1.2em;
+}
+
+h1 + h6 {
+  margin-top: 0.65em;
+}
+
+h2 + h3 {
+  margin-top: 0.2em;
+}
+
+h3 + h4 {
+  margin-top: 0.1em;
+}
+
+h4 + h5 {
+  margin-top: 0.2em;
+}
+
+h5 + h6 {
+  margin-top: 0.35em;
+}
+
 /* Lead paragraphs on marketing blocks */
 .lead { 
   font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem); 
@@ -91,6 +128,17 @@ h6 { font-weight: 600; line-height: 1.35; font-size: 1rem; }
 .brand-serif-italic { 
   font-family: var(--font-serif-italic); 
   font-style: italic; 
+}
+
+/* -------- Style Guide Visualizations -------- */
+
+#style-guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1.5rem;
+  margin-block: 1.5rem 3rem;
+  max-width: 90ch;
 }
 
 /* -------- Commerce7 Global Overrides -------- */
@@ -165,7 +213,6 @@ h6 { font-weight: 600; line-height: 1.35; font-size: 1rem; }
   color: var(--color-text);
 }
 
-
 /* -------- Links -------- */
 a {
   color: var(--color-accent);
@@ -215,7 +262,58 @@ input[type="submit"]:hover,
   border-color: var(--color-accent-600);
 }
 
-/* Commerce7 modal override */
+/* -------- Le Cuvier Global Buttons -------- */
+
+/* Basic Button (matches Product Cards .purchase-button) */
+.lc-btn-basic,
+.product-cards .product-purchase a.purchase-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--min-height-btn);
+  padding: var(--padding-btn);
+  background: var(--color-bg);
+  color: hsl(0 0% 22%);
+  text-decoration: none;
+  border: 1px solid #d4cec6;
+  border-radius: var(--radius-btn);
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.lc-btn-basic:hover,
+.product-cards .product-purchase a.purchase-button:hover {
+  text-decoration: none;
+}
+
+.lc-btn-basic:focus-visible,
+.product-cards .product-purchase a.purchase-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Purchase Button (matches Product Detail .pd-buy-buttons button) */
+.lc-btn-purchase,
+.pd-buy-buttons button {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  color: var(--text-color);
+  border: solid 3px rgb(167 152 130 / 75%);
+  padding: 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  max-width: calc-size(fit-content, size + 3.5rem);
+}
+
+.lc-btn-purchase:hover,
+.pd-buy-buttons button:hover {
+  text-decoration: none;
+  border: solid 3px var(--text-color);
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Commerce7 modal buttons override */
 .c7-modal {
   align-self: center;
   background: var(--color-bg);

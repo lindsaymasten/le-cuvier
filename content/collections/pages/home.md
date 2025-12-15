@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765772546
+updated_at: 1765776587
 blocks:
   -
     id: memat9au
@@ -145,6 +145,20 @@ blocks:
   -
     id: mj6ndra6
     type: style_guide
+    enabled: true
+  -
+    id: mj6ppyeu
+    title: Contact
+    text: 'Contact text area'
+    button_label: 'Button label'
+    success_message: success
+    type: contact
+    enabled: false
+  -
+    id: mj6pr895
+    title: Search
+    text: 'Search form text'
+    type: search_form
     enabled: true
 seo_noindex: false
 seo_nofollow: false
