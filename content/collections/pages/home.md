@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765572733
+updated_at: 1765772546
 blocks:
   -
     id: memat9au
@@ -12,6 +12,30 @@ blocks:
     enabled: true
     c7_collection_slug: home
     audience: all
+  -
+    id: mj6kqa5x
+    title: 'Recipe Title'
+    description: 'Recipe description text'
+    image: images/blake-wisz--jjg90oanwi-unsplash.jpg
+    caption: 'Image caption text'
+    ingredients: |-
+      Ingredients
+      - Ingredient
+      - Ingredient
+      - Ingredient
+      - Ingredient
+    instructions: |-
+      Hello, these are instructions.
+      1. Something
+      2. Something else
+      3. The third 
+      4. Four instructions
+    type: recipe
+    enabled: true
+    servings: 4-5
+    prep_time: '20 min'
+    cook_time: '25 min'
+    notes: 'Note text looks like this and goes right here.'
   -
     id: mj0wb3sv
     article:
@@ -117,6 +141,10 @@ blocks:
         bg_type: image
         bg_image: _eee0245.jpg
     type: promo_cards
+    enabled: true
+  -
+    id: mj6ndra6
+    type: style_guide
     enabled: true
 seo_noindex: false
 seo_nofollow: false

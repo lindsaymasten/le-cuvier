@@ -1,0 +1,180 @@
+.recipe{
+  --recipe-max: 980px;
+  --recipe-pad: clamp(1rem, 2.5vw, 2rem);
+  --recipe-gap: clamp(1rem, 2vw, 1.75rem);
+  --recipe-rule: var(--color-border, #cfcfcf);
+  --recipe-text: var(--color-text, #1a1a1a);
+
+  max-width: var(--recipe-max);
+  margin: 0 auto;
+  padding: var(--recipe-pad);
+  color: var(--recipe-text);
+}
+
+/* ---------- Header ---------- */
+.recipe-header{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recipe-title{
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.recipe-description{
+  margin: 0;
+  text-align: center;
+}
+
+/* ---------- Details row ---------- */
+.recipe-details{
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.recipe-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.recipe-detail-label{
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.recipe-detail-value{
+  font-size: 0.95rem;
+}
+
+/* ---------- Image (now ABOVE columns) ---------- */
+.recipe-photo{
+  margin: var(--recipe-gap) 0 0;
+}
+
+.recipe-photo picture,
+.recipe-photo img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.recipe-photo img{
+  border: 1px solid var(--recipe-rule);
+}
+
+.recipe-photo-caption{
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* ---------- Columns layout ---------- */
+.recipe-body{
+  display: flex;
+  flex-direction: column; /* mobile first */
+  gap: var(--recipe-gap);
+  margin-top: var(--recipe-gap);
+}
+
+/* Mobile order requirement:
+   Ingredients -> Directions -> Notes
+   Achieved by making the left wrapper layout-transparent on mobile. */
+.recipe-col-left{
+  display: contents;
+}
+
+.recipe-panel-left{ order: 1; }
+.recipe-panel-right{ order: 2; }
+.recipe-notes{ order: 3; }
+
+.recipe-panel{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe-block{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recipe-h2{
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Markdown output safety */
+.recipe-ingredients > :first-child,
+.recipe-instructions > :first-child,
+.recipe-notes-text > :first-child{
+  margin-top: 0;
+}
+
+.recipe-ingredients > :last-child,
+.recipe-instructions > :last-child,
+.recipe-notes-text > :last-child{
+  margin-bottom: 0;
+}
+
+.recipe-ingredients ul,
+.recipe-ingredients ol,
+.recipe-instructions ul,
+.recipe-instructions ol,
+.recipe-notes-text ul,
+.recipe-notes-text ol{
+  padding-left: 1.25rem;
+}
+
+/* Notes spacing on mobile */
+.recipe-notes{
+  margin-top: 0.5rem;
+}
+
+.recipe-notes-text{
+  margin-top: 0.25rem;
+}
+
+/* ---------- Desktop: stable 2-column flex row ---------- */
+@media (min-width: 800px){
+  .recipe-body{
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .recipe-col-left{
+    display: flex;  /* becomes a real left column */
+    flex-direction: column;
+    gap: var(--recipe-gap);
+    flex: 0 0 34%;
+    padding-right: var(--recipe-gap);
+    border-right: 2px solid var(--recipe-rule);
+    min-width: 0;
+  }
+
+  .recipe-panel-right{
+    order: 0; /* reset ordering on desktop */
+    flex: 1 1 auto;
+    padding-left: var(--recipe-gap);
+    min-width: 0;
+  }
+
+  .recipe-panel-left,
+  .recipe-notes{
+    order: 0; /* reset */
+  }
+
+  .recipe-notes{
+    margin-top: 0;
+  }
+}

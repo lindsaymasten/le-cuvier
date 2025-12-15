@@ -180,6 +180,71 @@ fields:
                             bg_type: equals color
                           width: 33
 
+            recipe:
+              display: Recipe
+              icon: text-format
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                    validate:
+                      - required
+
+                -
+                  handle: description
+                  field:
+                    type: textarea
+                    display: Description
+                    rows: 3
+
+                -
+                  handle: servings
+                  field:
+                    type: text
+                    display: Servings
+                    width: 33
+                    instructions: e.g. 4–6
+
+                -
+                  handle: prep_time
+                  field:
+                    type: text
+                    display: Prep Time
+                    width: 33
+                    instructions: e.g. 15 min
+
+                -
+                  handle: cook_time
+                  field:
+                    type: text
+                    display: Cook Time
+                    width: 33
+                    instructions: e.g. 25 min
+
+                -
+                  handle: image
+                  import: picture
+
+                -
+                  handle: ingredients
+                  field:
+                    type: markdown
+                    display: Ingredients
+
+                -
+                  handle: instructions
+                  field:
+                    type: markdown
+                    display: Instructions
+
+                -
+                  handle: notes
+                  field:
+                    type: markdown
+                    display: Notes      
+
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'

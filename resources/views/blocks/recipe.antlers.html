@@ -1,0 +1,87 @@
+<article class="recipe" aria-labelledby="recipe-title">
+  <header class="recipe-header">
+    {{ if title }}
+      <h2 id="recipe-title" class="recipe-title">{{ title }}</h2>
+    {{ /if }}
+
+    {{ if description }}
+      <p class="recipe-description">{{ description }}</p>
+    {{ /if }}
+
+    {{ if servings || prep_time || cook_time }}
+      <div class="recipe-details" aria-label="Recipe details">
+        {{ if servings }}
+          <div class="recipe-detail">
+            <span class="recipe-detail-label">Servings</span>
+            <span class="recipe-detail-value">{{ servings }}</span>
+          </div>
+        {{ /if }}
+
+        {{ if prep_time }}
+          <div class="recipe-detail">
+            <span class="recipe-detail-label">Prep</span>
+            <span class="recipe-detail-value">{{ prep_time }}</span>
+          </div>
+        {{ /if }}
+
+        {{ if cook_time }}
+          <div class="recipe-detail">
+            <span class="recipe-detail-label">Cook</span>
+            <span class="recipe-detail-value">{{ cook_time }}</span>
+          </div>
+        {{ /if }}
+      </div>
+    {{ /if }}
+  </header>
+
+  {{# Image moved ABOVE columns (directly below details row) #}}
+  {{ if image:image || image }}
+    <figure class="recipe-photo">
+      {{ if image:image }}
+        {{ partial:components/ui/picture :image="image:image" w="1600" h="1000" }}
+      {{ else }}
+        {{ partial:components/ui/picture :image="image" w="1600" h="1000" }}
+      {{ /if }}
+
+      {{ if image:caption }}
+        <figcaption class="recipe-photo-caption">
+          {{ image:caption }}
+        </figcaption>
+      {{ /if }}
+    </figure>
+  {{ /if }}
+
+  <div class="recipe-body">
+    {{# Left column wrapper: becomes layout-transparent on mobile so Notes can come after Directions #}}
+    <div class="recipe-col recipe-col-left">
+      <section class="recipe-panel recipe-panel-left" aria-labelledby="ingredients-title">
+        <h3 id="ingredients-title" class="recipe-h2">Ingredients</h3>
+
+        <div class="recipe-block recipe-ingredients">
+          {{ if ingredients }}
+            {{ ingredients }}
+          {{ /if }}
+        </div>
+      </section>
+
+      {{ if notes }}
+        <aside class="recipe-notes" aria-labelledby="notes-title">
+          <h3 id="notes-title" class="recipe-h2">Notes</h3>
+          <div class="recipe-notes-text">
+            {{ notes }}
+          </div>
+        </aside>
+      {{ /if }}
+    </div>
+
+    <section class="recipe-panel recipe-panel-right" aria-labelledby="directions-title">
+      <h3 id="directions-title" class="recipe-h2">Directions</h3>
+
+      <div class="recipe-block recipe-instructions">
+        {{ if instructions }}
+          {{ instructions }}
+        {{ /if }}
+      </div>
+    </section>
+  </div>
+</article>
