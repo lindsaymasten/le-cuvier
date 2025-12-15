@@ -1,5 +1,10 @@
 main:has(#c7-content .c7-account-login) {
     align-content: center;
     justify-content: center;
-    padding-top: 150px;
+    position: relative;
+}
+
+main > #c7-content {
+    position: relative;
+    top: max(0px, 150px - 50%);
 }
