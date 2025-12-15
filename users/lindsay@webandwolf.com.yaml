@@ -3,3 +3,27 @@ super: true
 avatar: anarchy_death-or-glory_skull.png
 id: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
 password_hash: $2y$12$29xikb8Lga1cFibWBv0iO.1TPmGZKV/bCJShMR4O/s/ZrwvTViaZW
+preferences:
+  nav:
+    content:
+      reorder:
+        - 'content::navigation'
+        - 'content::collections::pages'
+        - 'content::collections'
+        - 'content::assets'
+      items:
+        'content::navigation':
+          icon: burger
+          action: '@modify'
+        'content::collections::pages': '@move'
+        'content::collections':
+          action: '@modify'
+          reorder:
+            - 'content::collections::events'
+            - 'content::collections::menus'
+            - 'content::collections::recipes'
+            - 'content::collections::vineyards'
+            - 'content::collections::team'
+            - 'content::collections::history'
+            - 'content::collections::blog_posts'
+          icon: collections

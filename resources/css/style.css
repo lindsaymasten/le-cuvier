@@ -130,6 +130,17 @@ h5 + h6 {
   font-style: italic; 
 }
 
+/* -------- Universal Top Padding ---------- */
+
+main:has(> article) {
+    position: relative;
+}
+
+main#content > article {
+    position: relative;
+    top: max(0px, 150px - 50%);
+}
+
 /* -------- Style Guide Visualizations -------- */
 
 #style-guide {
@@ -308,7 +319,7 @@ input[type="submit"]:hover,
 .lc-btn-purchase:hover,
 .pd-buy-buttons button:hover {
   text-decoration: none;
-  border: solid 3px var(--text-color);
+  border: solid 3px var(--text-color); 
   background: var(--text-color);
   color: var(--bg-color);
 }
