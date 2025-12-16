@@ -1,57 +1,23 @@
 <section id="{{ type | slugify }}" class="m-section">
-    <div class="container">
+    <div class="recipes-listing-container">
         {{ partial:partials/section-header }}
 
         {{ if query === 'custom' }}
-            {{ $count = entries | count }}
-        {{ else }}
-            {{ $count = limit }}
+            {{ $entries = entries }}
+        {{ elseif query === 'latest' }}
+            {{ $entries = {collection:recipes :limit="limit" sort="date:desc"} }}
+        {{ elseif query === 'featured' }}
+            {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
         {{ /if }}
 
-        {{ if $count <= 6 }}
-            <div class="recipes-listing recipes-listing--rail">
-                {{ if query === 'custom' }}
-                    <div class="recipes-listing__rail" aria-label="Recipes">
-                        {{ entries }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /entries }}
-                    </div>
-                {{ elseif query === 'latest' }}
-                    <div class="recipes-listing__rail" aria-label="Recipes">
-                        {{ collection:recipes :limit="limit" sort="date:desc" }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /collection:recipes }}
-                    </div>
-                {{ elseif query === 'featured' }}
-                    <div class="recipes-listing__rail" aria-label="Recipes">
-                        {{ collection:recipes :limit="limit" featured:is="true" sort="date:desc" }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /collection:recipes }}
-                    </div>
-                {{ /if }}
+        <div class="recipes-hscroll" data-recipes-hscroll>
+            <div class="recipes-hscroll__sticky">
+                <div class="recipes-hscroll__track" data-recipes-hscroll-track>
+                    {{ $entries }}
+                        {{ partial:partials/entry-recipes class="recipes-hscroll__item" }}
+                    {{ /$entries }}
+                </div>
             </div>
-        {{ else }}
-            <div class="recipes-listing recipes-listing--masonry">
-                {{ if query === 'custom' }}
-                    <div class="recipes-listing__masonry" aria-label="Recipes">
-                        {{ entries }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /entries }}
-                    </div>
-                {{ elseif query === 'latest' }}
-                    <div class="recipes-listing__masonry" aria-label="Recipes">
-                        {{ collection:recipes :limit="limit" sort="date:desc" }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /collection:recipes }}
-                    </div>
-                {{ elseif query === 'featured' }}
-                    <div class="recipes-listing__masonry" aria-label="Recipes">
-                        {{ collection:recipes :limit="limit" featured:is="true" sort="date:desc" }}
-                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
-                        {{ /collection:recipes }}
-                    </div>
-                {{ /if }}
-            </div>
-        {{ /if }}
+        </div>
     </div>
 </section>

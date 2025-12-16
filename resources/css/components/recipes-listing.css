@@ -1,127 +1,113 @@
-@layer components {
-  /* ---------- Layout switcher wrapper ---------- */
-  .recipes-listing {
-    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+/* Recipes Listing – “Ditch the Carousel” style (plain CSS, no Tailwind layers) */
+
+.recipes-listing-container {
+  width: 100%;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .recipes-listing-container {
+    padding-inline: 2rem;
+  }
+}
+
+/* Mobile: just stack, no sticky/translate behavior */
+.recipes-hscroll {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 767px) {
+  .recipes-hscroll__sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
   }
 
-  /* ---------- Rail (<= 6) ---------- */
-  .recipes-listing--rail .recipes-listing__rail {
+  .recipes-hscroll__track {
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 2.5vw, 1.5rem);
+    transform: none !important;
+    will-change: auto;
   }
 
-  /* Larger screens: horizontal scroll rail */
-  @media (min-width: 768px) {
-    .recipes-listing--rail .recipes-listing__rail {
-      flex-direction: row;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 0.75rem;
+  .recipes-hscroll__item {
+    width: 100%;
+  }
+}
 
-      /* Break out of the container ONLY on the right so the rail bleeds to the viewport edge. */
-      margin-right: calc(50% - 50vw);
-
-      /* Re-add a comfortable gutter at the far right so the last card doesn't slam the edge. */
-      padding-right: 2rem; /* matches container md:px-8 */
-      scroll-padding-right: 2rem;
-
-      overscroll-behavior-x: contain;
-    }
-
-    .recipes-listing--rail .recipes-listing__item {
-    /* Use vw so cards scale up on wide screens, guaranteeing overflow/bleed. */
-    flex: 0 0 clamp(20rem, 34vw, 32rem);
-    scroll-snap-align: start;
-    }
+/* Desktop/tablet: tall outer container + sticky viewport + translateX track */
+@media (min-width: 768px) {
+  .recipes-hscroll {
+    /* Height is set dynamically via JS */
+    height: 100vh;
+    position: relative;
   }
 
-  /* Keeps the right gutter in sync with container base padding if rail is enabled below md later. */
-  @media (min-width: 640px) and (max-width: 767px) {
-    .recipes-listing--rail .recipes-listing__rail {
-      padding-right: 1.5rem; /* matches container px-6 */
-      scroll-padding-right: 1.5rem;
-    }
-  }
+  .recipes-hscroll__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
 
-  /* ---------- Masonry (>= 7) ---------- */
-  .recipes-listing--masonry .recipes-listing__masonry {
-    column-width: 18rem;
-    column-gap: clamp(1rem, 2.5vw, 1.75rem);
-  }
-
-  .recipes-listing--masonry .recipes-listing__item {
-    break-inside: avoid;
-    margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
-  }
-
-  /* ---------- Recipe card ---------- */
-  .recipe-card {
-    --card-bg: var(--color-surface-alt, #faf8f4);
-    --card-border: var(--border-color, rgb(167 152 130 / 75%));
-    --card-radius: 1.5rem;
-
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--card-radius);
-    padding: clamp(1rem, 2.2vw, 1.5rem);
-    box-shadow: var(--shadow-1, 0 4px 12px rgba(0, 0, 0, 0.05));
-
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.75rem, 1.6vw, 1rem);
-  }
-
-  .recipe-card__header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .recipe-card__title {
-    margin: 0;
-    line-height: 1.05;
-    /* Override global h1 sizing so it matches the reference card scale. */
-    font-size: clamp(2rem, 2.6vw, 2.75rem);
-  }
-
-  .recipe-card__subtitle {
-    margin: 0;
-    font-size: clamp(1.125rem, 1.4vw, 1.5rem);
-    line-height: 1.25;
-    color: color-mix(in srgb, var(--color-text, #1b1a21) 70%, transparent);
-  }
-
-  .recipe-card__media {
-    width: min(18rem, 100%);
-    margin-inline: auto;
-
-    aspect-ratio: 1 / 1;
-    border-radius: 999px;
+    /* Hide overflow (no horizontal scrollbar; movement is via translate) */
     overflow: hidden;
-
-    background: var(--color-surface, #f4f4fa);
-    border: 1px solid color-mix(in srgb, var(--card-border) 55%, transparent);
   }
 
-  .recipe-card__picture,
-  .recipe-card__media picture,
-  .recipe-card__media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .recipe-card__footer {
+  .recipes-hscroll__track {
     display: flex;
-    align-items: center;
-    margin-top: 0.25rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: clamp(1rem, 2vw, 1.5rem);
+
+    /* Performance hint (as in the referenced approach) */
+    will-change: transform;
+
+    /* “start 1/3 across” feel comes from padding, not a fake spacer */
+    padding-left: 0;
+    padding-right: 2rem;
+
+    transform: translate3d(0, 0, 0);
   }
 
-  .recipe-card__cta {
-    width: 100%;
-    justify-content: space-between;
+  /* Card widths: at least ~2⅓ visible; more on very wide screens */
+  .recipes-hscroll__item {
+    flex: 0 0 auto;
+    width: clamp(20rem, 28vw, 32rem);
+    min-width: 0;
   }
+}
+
+@media (min-width: 1024px) {
+  .recipes-hscroll__track {
+    padding-left: 33vw; /* your “start a third across” composition */
+    padding-right: 2rem;
+  }
+}
+
+/* (Optional) If you want the right-edge to bleed to browser edge, not container edge:
+   Cancel the container padding only for the sticky viewport area. */
+@media (min-width: 768px) {
+  .recipes-hscroll__sticky {
+    margin-right: -2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Your card styling block (leave as-is if already set elsewhere).
+   If you already have these rules in this same file, keep one canonical copy. */
+.recipe-card {
+  --card-bg: var(--color-surface-alt, #faf8f4);
+  --card-border: var(--border-color, rgb(167 152 130 / 75%));
+  --card-radius: 1.5rem;
+
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  box-shadow: var(--shadow-1, 0 4px 12px rgba(0, 0, 0, 0.05));
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.6vw, 1rem);
 }

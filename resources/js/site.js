@@ -6,6 +6,7 @@ import intersect from '@alpinejs/intersect'
 import Cookies from 'js-cookie'
 import './nav.js'
 import './c7-pd-buy-buttons.js'
+import './recipes-scroll.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine
