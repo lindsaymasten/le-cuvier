@@ -1,7 +1,7 @@
 ---
-id: 10eeb5e4-e551-4a16-88d3-aa1f1c204406
+id: eb94d1ca-2695-485e-87ee-a4eab5c59819
 blueprint: recipe
-title: 'Braised Short Rib Street Taco'
+title: 'Recipe Title Test'
 servings: 2
 prep_time: Medium
 cook_time: 3.5
@@ -172,10 +172,11 @@ instructions:
 date: '2024-03-27'
 featured: false
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765863005
+updated_at: 1765863054
 notes: 'Optional notes text may go here.'
 description: 'Optional descriptive text may go here.'
 difficulty: intermediate
-image: images/jeremy-bishop-vgjgvtsfys4-unsplash.jpg
+image: promo/1y6a6940.jpg
 caption: 'An elevated street taco.'
+duplicated_from: 10eeb5e4-e551-4a16-88d3-aa1f1c204406
 ---

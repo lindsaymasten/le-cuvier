@@ -3,17 +3,55 @@
         {{ partial:partials/section-header }}
 
         {{ if query === 'custom' }}
-            {{ $entries = entries }}
-        {{ elseif query === 'latest' }}
-            {{ $entries = {collection:recipes :limit="limit" sort="date:desc"} }}
-        {{ elseif query === 'featured' }}
-            {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
+            {{ $count = entries | count }}
+        {{ else }}
+            {{ $count = limit }}
         {{ /if }}
 
-        <div class="site-grid gap-y-20 max-w-2xl mx-auto lg:max-w-none">
-            {{ $entries }}
-                {{ partial:partials/entry-recipes class="col-span-full lg:col-span-4" }}
-            {{ /$entries }}
-        </div>
+        {{ if $count <= 6 }}
+            <div class="recipes-listing recipes-listing--rail">
+                {{ if query === 'custom' }}
+                    <div class="recipes-listing__rail" aria-label="Recipes">
+                        {{ entries }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /entries }}
+                    </div>
+                {{ elseif query === 'latest' }}
+                    <div class="recipes-listing__rail" aria-label="Recipes">
+                        {{ collection:recipes :limit="limit" sort="date:desc" }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /collection:recipes }}
+                    </div>
+                {{ elseif query === 'featured' }}
+                    <div class="recipes-listing__rail" aria-label="Recipes">
+                        {{ collection:recipes :limit="limit" featured:is="true" sort="date:desc" }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /collection:recipes }}
+                    </div>
+                {{ /if }}
+            </div>
+        {{ else }}
+            <div class="recipes-listing recipes-listing--masonry">
+                {{ if query === 'custom' }}
+                    <div class="recipes-listing__masonry" aria-label="Recipes">
+                        {{ entries }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /entries }}
+                    </div>
+                {{ elseif query === 'latest' }}
+                    <div class="recipes-listing__masonry" aria-label="Recipes">
+                        {{ collection:recipes :limit="limit" sort="date:desc" }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /collection:recipes }}
+                    </div>
+                {{ elseif query === 'featured' }}
+                    <div class="recipes-listing__masonry" aria-label="Recipes">
+                        {{ collection:recipes :limit="limit" featured:is="true" sort="date:desc" }}
+                            {{ partial:partials/entry-recipes class="recipes-listing__item" }}
+                        {{ /collection:recipes }}
+                    </div>
+                {{ /if }}
+            </div>
+        {{ /if }}
     </div>
 </section>

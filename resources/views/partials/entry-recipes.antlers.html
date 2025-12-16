@@ -1,15 +1,26 @@
-<article class="{{ class }}">
-    <div class="aspect-video lg:aspect-3/2 bg-gray-100 rounded-2xl ring-1 ring-gray-900/10 ring-inset">
-        {{ partial:components/ui/picture w="672" h="378" cover="true" class="rounded-2xl" }}
+<article class="recipe-card {{ class }}">
+    <header class="recipe-card__header">
+        <h1 class="recipe-card__title">{{ title }}</h1>
+
+        {{ if difficulty || cook_time || servings }}
+            <h2 class="recipe-card__subtitle">
+                {{ if difficulty }}{{ difficulty | title }}{{ /if }}
+                {{ if difficulty && (cook_time || servings) }} <span aria-hidden="true">•</span> {{ /if }}
+                {{ if cook_time }}{{ cook_time }} hr{{ if cook_time != 1 }}s{{ /if }}{{ /if }}
+                {{ if cook_time && servings }} <span aria-hidden="true">•</span> {{ /if }}
+                {{ if servings }}Serves {{ servings }}{{ /if }}
+            </h2>
+        {{ /if }}
+    </header>
+
+    <div class="recipe-card__media" aria-hidden="true">
+        {{ partial:components/ui/picture w="720" h="720" cover="true" class="recipe-card__picture" }}
     </div>
 
-    <a href="{{ url }}" class="block mt-6 group">
-        <h3 class="h5 text-pretty group-hover:underline underline-offset-4">{{ title }}</h3>
-
-        {{ if description }}
-            <p class="mt-4 line-clamp-3 text-sm/6 text-muted-foreground">
-                {{ description }}
-            </p>
-        {{ /if }}
-    </a>
+    <div class="recipe-card__footer">
+        <a href="{{ url }}" class="recipe-card__cta btn btn--secondary">
+            <span>Recipe Details</span>
+            {{ svg src="heroicons-outline/chevron-right" class="size-4" }}
+        </a>
+    </div>
 </article>
