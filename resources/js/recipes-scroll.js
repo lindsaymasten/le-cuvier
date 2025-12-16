@@ -1,93 +1,81 @@
 (function () {
+  const EXTRA_PX = 150;
   const mq = window.matchMedia("(min-width: 768px)");
 
-  function clamp(n, min, max) {
-    return Math.max(min, Math.min(max, n));
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
   }
 
-  function initOne(section) {
-    const track = section.querySelector("[data-recipes-hscroll-track]");
-    if (!track) return;
+  function setupOne(tallOuter) {
+    const stickyInner = tallOuter.querySelector("[data-recipes-hscroll-sticky]");
+    const translateEl = tallOuter.querySelector("[data-recipes-hscroll-translate]");
 
-    const END_BUFFER = 150;
+    if (!stickyInner || !translateEl) return;
 
-    let sectionTop = 0;
-    let maxTranslate = 0;
     let ticking = false;
+
+    function calcDynamicHeight(objectWidth) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      // canonical: objectWidth - vw + vh + 150
+      return objectWidth - vw + vh + EXTRA_PX;
+    }
 
     function measure() {
       if (!mq.matches) {
-        section.style.height = "";
-        track.style.transform = "";
+        tallOuter.style.height = "";
+        translateEl.style.transform = "";
         return;
       }
 
-      // Section's document Y position
-      const rect = section.getBoundingClientRect();
-      sectionTop = rect.top + window.scrollY;
+      const objectWidth = translateEl.scrollWidth;
+      const dynamicHeight = calcDynamicHeight(objectWidth);
 
-      // How far the track can translate left
-      const trackWidth = track.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      maxTranslate = Math.max(0, trackWidth - viewportWidth);
-
-      // Make the vertical scroll distance equal the horizontal distance (plus a little buffer)
-      section.style.height = `${window.innerHeight + maxTranslate + END_BUFFER}px`;
+      tallOuter.style.height = `${dynamicHeight}px`;
+      update(); // ensure correct position after measuring
     }
 
     function update() {
-      ticking = false;
       if (!mq.matches) return;
 
-      // How far we've scrolled into the section
-      const progress = window.scrollY - sectionTop;
+      const outerTop = tallOuter.getBoundingClientRect().top + window.scrollY;
+      const progress = window.scrollY - outerTop;
 
-      // Translate 1:1 with scroll progress (classic pattern)
-      const x = clamp(progress, 0, maxTranslate);
+      const maxTranslate = Math.max(0, translateEl.scrollWidth - window.innerWidth);
+      const clamped = clamp(progress, 0, maxTranslate);
 
-      track.style.transform = `translate3d(${-x}px, 0, 0)`;
+      translateEl.style.transform = `translateX(${-clamped}px)`;
     }
 
     function onScroll() {
+      if (!mq.matches) return;
       if (ticking) return;
+
       ticking = true;
-      requestAnimationFrame(update);
+      requestAnimationFrame(() => {
+        ticking = false;
+        update();
+      });
     }
 
     // Initial
     measure();
-    update();
 
-    // Scroll/resize
+    // Events
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", () => {
-      measure();
-      update();
-    });
+    window.addEventListener("resize", measure, { passive: true });
+    mq.addEventListener("change", measure);
+    window.addEventListener("load", measure);
 
-    mq.addEventListener("change", () => {
-      measure();
-      update();
-    });
-
-    // Re-measure after images/fonts load can change track width
-    window.addEventListener("load", () => {
-      measure();
-      update();
-    });
-
-    // Re-measure when track content size changes (images, responsive text, etc.)
+    // Content-size changes (images/fonts/responsive) should re-measure
     if ("ResizeObserver" in window) {
-      const ro = new ResizeObserver(() => {
-        measure();
-        update();
-      });
-      ro.observe(track);
+      const ro = new ResizeObserver(measure);
+      ro.observe(translateEl);
     }
   }
 
   function initAll() {
-    document.querySelectorAll("[data-recipes-hscroll]").forEach(initOne);
+    document.querySelectorAll("[data-recipes-hscroll]").forEach(setupOne);
     window.__recipesHscrollEnabled = true;
   }
 

@@ -1,23 +1,28 @@
 <section id="{{ type | slugify }}" class="m-section">
-    <div class="recipes-listing-container">
-        {{ partial:partials/section-header }}
+  <div class="recipes-listing-container">
+    {{ partial:partials/section-header }}
 
-        {{ if query === 'custom' }}
-            {{ $entries = entries }}
-        {{ elseif query === 'latest' }}
-            {{ $entries = {collection:recipes :limit="limit" sort="date:desc"} }}
-        {{ elseif query === 'featured' }}
-            {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
-        {{ /if }}
+    {{ if query === 'custom' }}
+      {{ $entries = entries }}
+    {{ elseif query === 'latest' }}
+      {{ $entries = {collection:recipes :limit="limit" sort="date:desc"} }}
+    {{ elseif query === 'featured' }}
+      {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
+    {{ /if }}
 
-        <div class="recipes-hscroll" data-recipes-hscroll>
-            <div class="recipes-hscroll__sticky">
-                <div class="recipes-hscroll__track" data-recipes-hscroll-track>
-                    {{ $entries }}
-                        {{ partial:partials/entry-recipes class="recipes-hscroll__item" }}
-                    {{ /$entries }}
-                </div>
+    <div class="recipes-hscroll horizontal-section">
+      <div class="tall-outer" data-recipes-hscroll>
+        <div class="sticky-inner" data-recipes-hscroll-sticky>
+          <div class="translate" data-recipes-hscroll-translate>
+            <div class="cards">
+              {{ $entries }}
+                {{ partial:partials/entry-recipes class="card" }}
+              {{ /$entries }}
             </div>
+          </div>
         </div>
+      </div>
     </div>
+
+  </div>
 </section>

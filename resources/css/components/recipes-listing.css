@@ -1,4 +1,4 @@
-/* Recipes Listing – “Ditch the Carousel” style (plain CSS, no Tailwind layers) */
+/* Recipes Listing – CodeSandbox-canonical horizontal scroll (no @layer) */
 
 .recipes-listing-container {
   width: 100%;
@@ -11,103 +11,105 @@
   }
 }
 
-/* Mobile: just stack, no sticky/translate behavior */
-.recipes-hscroll {
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+/* --- Canonical structure (matches confirmed vanilla) --- */
+
+.horizontal-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
 }
 
+/* The tall outer container (height set by JS on desktop) */
+.tall-outer {
+  position: relative;
+  width: 100%;
+}
+
+/* Sticky viewport */
+.sticky-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Translated element (absolute) */
+.translate {
+  position: absolute;
+  height: 100%;
+  will-change: transform;
+  transform: translateX(0px);
+}
+
+/* Cards row */
+.cards {
+  position: relative;
+  height: 100%;
+  padding: 0 0 0 150px; /* canonical left inset */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*
+  IMPORTANT:
+  We are keeping your recipe card markup (partials/entry-recipes) intact,
+  and applying the canonical “dark block” sizing/spacing via the passed `.card` class.
+*/
+.recipe-card.card {
+  position: relative;
+  height: 300px;
+  width: 500px;
+  margin-right: 75px; /* canonical gap */
+  flex-shrink: 0;
+
+  background-color: #111f30; /* canonical */
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* If any internal recipe-card styling introduces layout changes, neutralize it here (scoped). */
+.recipe-card.card * {
+  /* Do not remove unless needed; keep minimal.
+     If your recipe-card internals break the canonical card silhouette,
+     we can selectively override specific inner blocks instead of nuking all. */
+}
+
+/* --- Mobile: normal vertical stack (no sticky/translate) --- */
 @media (max-width: 767px) {
-  .recipes-hscroll__sticky {
+  .tall-outer {
+    height: auto !important;
+  }
+
+  .sticky-inner {
     position: static;
     height: auto;
     overflow: visible;
   }
 
-  .recipes-hscroll__track {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(1rem, 2.5vw, 1.5rem);
+  .translate {
+    position: static;
+    height: auto;
     transform: none !important;
     will-change: auto;
   }
 
-  .recipes-hscroll__item {
-    width: 100%;
-  }
-}
-
-/* Desktop/tablet: tall outer container + sticky viewport + translateX track */
-@media (min-width: 768px) {
-  .recipes-hscroll {
-    /* Height is set dynamically via JS */
-    height: 100vh;
-    position: relative;
-  }
-
-  .recipes-hscroll__sticky {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-
-    /* Hide overflow (no horizontal scrollbar; movement is via translate) */
-    overflow: hidden;
-  }
-
-  .recipes-hscroll__track {
+  .cards {
+    padding: 0;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 16px;
     align-items: stretch;
-    gap: clamp(1rem, 2vw, 1.5rem);
-
-    /* Performance hint (as in the referenced approach) */
-    will-change: transform;
-
-    /* “start 1/3 across” feel comes from padding, not a fake spacer */
-    padding-left: 0;
-    padding-right: 2rem;
-
-    transform: translate3d(0, 0, 0);
   }
 
-  /* Card widths: at least ~2⅓ visible; more on very wide screens */
-  .recipes-hscroll__item {
-    flex: 0 0 auto;
-    width: clamp(20rem, 28vw, 32rem);
-    min-width: 0;
+  .recipe-card.card {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    padding: 0;
   }
-}
-
-@media (min-width: 1024px) {
-  .recipes-hscroll__track {
-    padding-left: 33vw; /* your “start a third across” composition */
-    padding-right: 2rem;
-  }
-}
-
-/* (Optional) If you want the right-edge to bleed to browser edge, not container edge:
-   Cancel the container padding only for the sticky viewport area. */
-@media (min-width: 768px) {
-  .recipes-hscroll__sticky {
-    margin-right: -2rem;
-    padding-right: 2rem;
-  }
-}
-
-/* Your card styling block (leave as-is if already set elsewhere).
-   If you already have these rules in this same file, keep one canonical copy. */
-.recipe-card {
-  --card-bg: var(--color-surface-alt, #faf8f4);
-  --card-border: var(--border-color, rgb(167 152 130 / 75%));
-  --card-radius: 1.5rem;
-
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--card-radius);
-  padding: clamp(1rem, 2.2vw, 1.5rem);
-  box-shadow: var(--shadow-1, 0 4px 12px rgba(0, 0, 0, 0.05));
-
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.75rem, 1.6vw, 1rem);
 }
