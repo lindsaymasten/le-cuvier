@@ -11,6 +11,10 @@
   color: var(--recipe-text);
 }
 
+main#content > article.recipe {
+  padding-top: var(--nav-clearance, 150px);
+}
+
 /* ---------- Header ---------- */
 .recipe-header{
   display: flex;

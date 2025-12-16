@@ -9,13 +9,6 @@ fields:
         - required
 
   -
-    handle: image_caption
-    field:
-      type: textarea
-      display: Image Caption
-      rows: 1
-
-  -
     import: picture
 
   -

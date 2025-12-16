@@ -138,7 +138,7 @@ main:has(> article) {
 
 main#content > article {
     position: relative;
-    top: max(0px, 150px - 50%);
+    scroll-margin-top: var(--nav-clearance, 150px);
 }
 
 /* -------- Style Guide Visualizations -------- */
