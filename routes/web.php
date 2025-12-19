@@ -9,6 +9,7 @@ Route::get('/product/{handle}', [ProductController::class, 'show'])->name('produ
 
 // Routes for product purchase
 Route::statamic('/cart', 'cart');
+Route::statamic('/club', 'club');
 Route::statamic('/checkout/{any?}', 'checkout')->where('any', '.*');
 
 // Route for member login

@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765863294
+updated_at: 1766174702
 blocks:
   -
     id: memat9au
@@ -126,6 +126,25 @@ blocks:
     limit: 3
     type: recipes_listing
     enabled: true
+  -
+    id: mjd8zaz0
+    heading: 'Wine Club Heading'
+    intro: 'Wine club intro text.'
+    cta_label: 'View Club Options'
+    cta_url: /club
+    type: wine_club_signup
+    enabled: true
+    clubs:
+      -
+        id: mjdaqtw3
+        club_slug: mixed-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
+      -
+        id: mjdaszyq
+        club_slug: reds-only-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry

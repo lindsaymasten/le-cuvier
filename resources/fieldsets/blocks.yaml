@@ -63,6 +63,58 @@ fields:
                       <p>Manage products and promotions: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
                       </div>
 
+            wine_club_signup:
+              display: Wine Club Signup
+              instructions: 'Links to the Commerce7 clubs set to Web Status > Available.'
+              icon: dashboard-layout
+              fields:
+                - handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                    instructions: Optional. Short headline above the club signup list.
+                    antlers: false
+
+                - handle: intro
+                  field:
+                    type: textarea
+                    display: Intro
+                    instructions: Optional. Short supporting text.
+                    antlers: false
+
+                - handle: clubs
+                  field:
+                    type: grid
+                    display: Clubs
+                    instructions: 'Add one row per club to show. Club slug must match Commerce7. Clubs must be set to Web Status > Available in Commerce7.'
+                    add_row: Add Club
+                    mode: stacked
+                    fields:
+                      - handle: club_slug
+                        field:
+                          type: text
+                          display: Club Slug
+                          instructions: 'Commerce7 club slug.'
+                          antlers: false
+                          validate:
+                            - required
+
+                      - handle: join_text
+                        field:
+                          type: text
+                          display: Join Text
+                          instructions: 'Button text when the user is not a member.'
+                          antlers: false
+                          default: Join Club
+
+                      - handle: edit_text
+                        field:
+                          type: text
+                          display: Edit Text
+                          instructions: 'Button text when the user already has a membership to edit.'
+                          antlers: false
+                          default: Edit Club Membership
+
             promo_cards:
               display: Promo Area
               instructions: 'Promotional cards: recipes, events, wines.'

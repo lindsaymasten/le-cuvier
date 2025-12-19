@@ -1,0 +1,24 @@
+<section class="wine-club-signup">
+  {{ if heading }}
+    <h2 class="wine-club-signup__heading">{{ heading }}</h2>
+  {{ /if }}
+
+  {{ if intro }}
+    <p class="wine-club-signup__intro">{{ intro }}</p>
+  {{ /if }}
+
+  {{ if clubs }}
+    <div class="wine-club-signup__clubs">
+      {{ clubs }}
+        <div class="wine-club-signup__club">
+          <div
+            class="c7-club-join-button"
+            data-club-slug="{{ club_slug }}"
+            data-join-text="{{ join_text }}"
+            data-edit-text="{{ edit_text }}"
+          ></div>
+        </div>
+      {{ /clubs }}
+    </div>
+  {{ /if }}
+</section>
