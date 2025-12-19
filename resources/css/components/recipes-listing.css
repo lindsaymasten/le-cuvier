@@ -1,115 +1,59 @@
-/* Recipes Listing – CodeSandbox-canonical horizontal scroll (no @layer) */
+/* Recipes Listing: native horizontal scroller (simple + robust) */
 
-.recipes-listing-container {
-  width: 100%;
-  padding-inline: 1.5rem;
+.recipes-strip {
+  /* This controls the “held partially off-screen” feel */
+  --edge: clamp(1rem, 6vw, 4rem);
+  --gap: clamp(1rem, 2.5vw, 2.25rem);
+
+  /* Full-bleed scroller while still living inside your normal container */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  /* Make scrolling feel intentional */
+  scroll-snap-type: x proximity;
+  scrollbar-gutter: stable both-edges;
+  cursor: grab;
+
+  /* Optional: hide scrollbar without breaking scroll */
+  /* scrollbar-width: none; */
 }
-
-@media (min-width: 768px) {
-  .recipes-listing-container {
-    padding-inline: 2rem;
-  }
+.recipes-strip.is-dragging {
+  cursor: grabbing;
 }
+/* .recipes-strip::-webkit-scrollbar { display: none; } */
 
-/* --- Canonical structure (matches confirmed vanilla) --- */
-
-.horizontal-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-}
-
-/* The tall outer container (height set by JS on desktop) */
-.tall-outer {
-  position: relative;
-  width: 100%;
-}
-
-/* Sticky viewport */
-.sticky-inner {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Translated element (absolute) */
-.translate {
-  position: absolute;
-  height: 100%;
-  will-change: transform;
-  transform: translateX(0px);
-}
-
-/* Cards row */
-.cards {
-  position: relative;
-  height: 100%;
-  padding: 0 0 0 150px; /* canonical left inset */
+.recipes-strip__scroller {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+
+  /* left inset so first card is readable (your complaint) */
+  padding-left: var(--edge);
+  padding-right: var(--edge);
+
+  /* vertical rhythm */
+  padding-block: clamp(1rem, 3vw, 2rem);
+
+  align-items: stretch;
 }
 
-/*
-  IMPORTANT:
-  We are keeping your recipe card markup (partials/entry-recipes) intact,
-  and applying the canonical “dark block” sizing/spacing via the passed `.card` class.
-*/
-.recipe-card.card {
-  position: relative;
-  height: 300px;
-  width: 500px;
-  margin-right: 75px; /* canonical gap */
-  flex-shrink: 0;
+.recipes-strip__item {
+  flex: 0 0 auto;
 
-  background-color: #111f30; /* canonical */
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
+  /* Keep your intended “2⅓ cards visible” feel */
+  width: clamp(20rem, 28vw, 32rem);
+
+  scroll-snap-align: start;
 }
 
-/* If any internal recipe-card styling introduces layout changes, neutralize it here (scoped). */
-.recipe-card.card * {
-  /* Do not remove unless needed; keep minimal.
-     If your recipe-card internals break the canonical card silhouette,
-     we can selectively override specific inner blocks instead of nuking all. */
-}
-
-/* --- Mobile: normal vertical stack (no sticky/translate) --- */
+/* Mobile can be the same (native swipe), or stacked if you prefer */
 @media (max-width: 767px) {
-  .tall-outer {
-    height: auto !important;
-  }
-
-  .sticky-inner {
-    position: static;
-    height: auto;
-    overflow: visible;
-  }
-
-  .translate {
-    position: static;
-    height: auto;
-    transform: none !important;
-    will-change: auto;
-  }
-
-  .cards {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: stretch;
-  }
-
-  .recipe-card.card {
-    width: 100%;
-    height: auto;
-    margin-right: 0;
-    padding: 0;
+  .recipes-strip__item {
+    width: min(24rem, 85vw);
   }
 }

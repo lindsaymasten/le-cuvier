@@ -1,4 +1,4 @@
-<section id="{{ type | slugify }}" class="m-section">
+<section id="{{ type | slugify }}" class="m-section recipes-listing">
   <div class="recipes-listing-container">
     {{ partial:partials/section-header }}
 
@@ -10,19 +10,12 @@
       {{ $entries = {collection:recipes :limit="limit" featured:is="true" sort="date:desc"} }}
     {{ /if }}
 
-    <div class="recipes-hscroll horizontal-section">
-      <div class="tall-outer" data-recipes-hscroll>
-        <div class="sticky-inner" data-recipes-hscroll-sticky>
-          <div class="translate" data-recipes-hscroll-translate>
-            <div class="cards">
-              {{ $entries }}
-                {{ partial:partials/entry-recipes class="card" }}
-              {{ /$entries }}
-            </div>
-          </div>
-        </div>
+    <div class="recipes-strip" aria-label="Recipes">
+      <div class="recipes-strip__scroller">
+        {{ $entries }}
+          {{ partial:partials/entry-recipes class="recipes-strip__item" }}
+        {{ /$entries }}
       </div>
     </div>
-
   </div>
 </section>
