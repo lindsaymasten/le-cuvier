@@ -57,7 +57,7 @@ body.user-is-tabbing :focus {
   --text-color: var(--color-text);
   --bg-color: #f1e8e0;
   --alt-color: #e5b321;
-  --login-bg: #ce9c09;
+  --login-bg: #e5b321;
   --font-family: 'Mona Sans', sans-serif;
   --font-optical-sizing: auto;
   --font-variation-settings: "wdth" 100;

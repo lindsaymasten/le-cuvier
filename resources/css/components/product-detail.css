@@ -96,12 +96,17 @@
 .pd-titlebar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .pd-title {
     text-transform: uppercase;
     letter-spacing: 0.025em;
     font-size: 1.25rem;
+}
+
+.pd-content .pd-titlebar .pd-price .c7-product__login-message > p {
+  display: none;
 }
 
 .pd-titlebar .c7-product__add-to-cart__price {

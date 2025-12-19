@@ -78,9 +78,9 @@
   --color-text:         #1b1a21; /* matches nav text */
   
   --color-accent:       #a19883; /* nav alt-color */
-  --color-accent-500:   #f69d09;
-  --color-accent-600:   rgb(209, 137, 29);
-  --color-accent-700:   #c17f19;
+  --color-accent-500:   #ffa920;
+  --color-accent-600:   #f69d09;
+  --color-accent-700:   #d28303;
   --color-accent-amber: #faac26;
 
   --color-neutral-lt:   #f4f1ec;
@@ -88,12 +88,12 @@
   --color-neutral-dk:   #bcb6ae;
   
   --color-success:      #6f894e;
-  --color-warning:      #e7ab05;
+  --color-warning:      #f69d09;
   --color-danger:       #971919;
 
   --border-color:       rgb(167 152 130 / 75%);
-  --alt-color:          #f5b112;
-  --login-bg:           #e2941e;
+  --alt-color:          #f69d09;
+  --login-bg:           #f69d09;
 
   --bg-gradient:        linear-gradient(90deg, #edf0ed, #f5f3f1);  
   --overlay-bg:         rgba(58, 68, 44, 0.2);
