@@ -1,6 +1,7 @@
 .cart #c7-content {
     position: relative;
     top: 110px;
+    width: 100%;
 }
 
 .c7-message--alert-error {
@@ -11,4 +12,16 @@
     margin: auto;
     width: calc(100% - 3rem);
     max-width: 1200px;
+}
+
+.c7-content.c7-cart .c7-cart__header h1 {
+    visibility: hidden;
+}
+
+.c7-cart__content {
+    padding: 3rem;
+    margin-block-end: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-1);
 }

@@ -99,10 +99,19 @@ fields:
                           validate:
                             - required
 
+                      - handle: club_name
+                        field:
+                          type: text
+                          display: Club Name
+                          instructions: 'Club name (may be different from Commerce7).'
+                          antlers: false
+                          validate:
+                            - required
+
                       - handle: join_text
                         field:
                           type: text
-                          display: Join Text
+                          display: Join Button
                           instructions: 'Button text when the user is not a member.'
                           antlers: false
                           default: Join Club
@@ -110,10 +119,62 @@ fields:
                       - handle: edit_text
                         field:
                           type: text
-                          display: Edit Text
+                          display: Edit Button
                           instructions: 'Button text when the user already has a membership to edit.'
                           antlers: false
                           default: Edit Club Membership
+
+                      - handle: description
+                        field:
+                          type: bard
+                          display: Club Description
+                          instructions: 'Description shown above/beside the join button.'
+                          antlers: false
+                          buttons:
+                            - bold
+                            - italic
+                            - unorderedlist
+                            - orderedlist
+                            - link
+                          toolbar_mode: floating
+
+                      - handle: bottle_count
+                        field:
+                          type: integer
+                          display: Number of Bottles
+                          instructions: 'Number of bottles included in each shipment.'
+                          antlers: false
+                          validate:
+                            - min:1
+
+                      - handle: fulfillment
+                        field:
+                          type: toggle
+                          display: Shipping
+                          instructions: 'Toggle on (green) for Shipping, off for Will Call.'
+                          antlers: false
+                          inline_label_when_true: Ship
+                          inline_label_when_false: Will Call
+
+                      - handle: frequency_value
+                        field:
+                          type: integer
+                          display: Frequency
+                          instructions: 'How often does the club ship per interval.'
+                          antlers: false
+                          validate:
+                            - min:1
+
+                      - handle: frequency_unit
+                        field:
+                          type: select
+                          display: Frequency Unit
+                          instructions: 'Unit for the club shipping frequency.'
+                          antlers: false
+                          options:
+                            month: Month(s)
+                            year: Year(s)
+                          default: month
 
             promo_cards:
               display: Promo Area

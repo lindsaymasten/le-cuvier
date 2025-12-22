@@ -1,0 +1,61 @@
+/* =========================================================
+   Wine Club Signup (comparison grid)
+   ========================================================= */
+
+.wine-club-signup {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.wine-club-signup__clubs {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr; /* mobile: stacked cards */
+}
+
+@media (min-width: 640px) {
+  .wine-club-signup__clubs {
+    /* desktop: auto-fit comparison grid */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    align-items: start;
+  }
+}
+
+.wine-club-signup__club {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.wine-club-signup__club-name {
+  margin: 0;
+}
+
+.wine-club-signup__description p {
+  margin-block: var(--space-2);
+}
+
+.wine-club-signup__description ul,
+.wine-club-signup__description ol {
+  margin-block: var(--space-3);
+  padding-left: 1.25rem;
+}
+
+.wine-club-signup__meta {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.wine-club-signup__meta-item {
+  opacity: 0.85;
+}
+
+/* keep the CTA consistently placed */
+.wine-club-signup .c7-club-join-button {
+  margin-top: var(--space-4);
+}

@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1766174702
+updated_at: 1766176898
 blocks:
   -
     id: memat9au
@@ -117,7 +117,7 @@ blocks:
         bg_type: image
         bg_image: _eee0245.jpg
     type: promo_cards
-    enabled: true
+    enabled: false
   -
     id: mj6ya4s6
     title: Recipes
@@ -128,8 +128,6 @@ blocks:
     enabled: true
   -
     id: mjd8zaz0
-    heading: 'Wine Club Heading'
-    intro: 'Wine club intro text.'
     cta_label: 'View Club Options'
     cta_url: /club
     type: wine_club_signup
@@ -140,11 +138,35 @@ blocks:
         club_slug: mixed-club
         join_text: 'Join Club'
         edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 6
+        fulfillment: true
+        frequency_value: 2
+        frequency_unit: year
+        club_name: Mixed
       -
         id: mjdaszyq
         club_slug: reds-only-club
         join_text: 'Join Club'
         edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 12
+        fulfillment: false
+        frequency_value: 2
+        frequency_unit: year
+        club_name: 'Reds Only'
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
