@@ -75,8 +75,8 @@
 .product-cards .product-card:hover::after,
 .product-cards .product-card:focus-within::after { 
   opacity: 1;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);  
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);  
 }
 
 /* Hover lift / rounded corners */

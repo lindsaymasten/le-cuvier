@@ -106,7 +106,7 @@
   --radius-pill: 2.5rem;
 
   --shadow-1: 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-2: 0 20px 60px rgba(0,0,0,0.18);
+  --shadow-2: 0 6px 17px rgba(0,0,0,0.18);
 
   --focus-ring-color: var(--color-accent);
   --focus-ring: 2px solid var(--focus-ring-color);
