@@ -148,6 +148,7 @@
 .article-body {
   margin-block: clamp(2rem, 2rem + 3vw, 10rem)
                 clamp(1.5rem, 2rem + 2vw, 7.5rem);
+  margin-inline: 0;
   row-gap: clamp(0.75em, 0.75em + 0.15vw, 0.925em);
 }
 
