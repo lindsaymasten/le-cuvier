@@ -78,22 +78,22 @@
   --color-text:         #1b1a21; /* matches nav text */
   
   --color-accent:       #a19883; /* nav alt-color */
-  --color-accent-500:   #ffa920;
-  --color-accent-600:   #f69d09;
-  --color-accent-700:   #d28303;
-  --color-accent-amber: #faac26;
+  --color-accent-500:   #cac1ab;
+  --color-accent-600:   #d1cab9;
+  --color-accent-700:   #ded9ce;
+  --color-accent-amber: #e5b320;
 
   --color-neutral-lt:   #fafaf9;
   --color-neutral-md:   #f4f1ec;
   --color-neutral-dk:   #d4cec6;
   
   --color-success:      #6f894e;
-  --color-warning:      #f69d09;
+  --color-warning:      #e5b320;
   --color-danger:       #971919;
 
-  --border-color:       rgb(167 152 130 / 75%);
-  --alt-color:          #f69d09;
-  --login-bg:           #f69d09;
+  --border-color:       #928b7a;
+  --alt-color:          #e5b320;
+  --login-bg:           #e5b320;
 
   --bg-gradient:        linear-gradient(90deg, #edf0ed, #f5f3f1);  
   --overlay-bg:         rgba(58, 68, 44, 0.2);
