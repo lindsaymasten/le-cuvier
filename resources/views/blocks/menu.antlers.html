@@ -1,0 +1,42 @@
+<a class="skip-link" href="#pairings-{{ block:count }}">Skip to pairings</a>
+
+<section class="menu" aria-labelledby="menu-title-{{ block:count }}">
+  <header class="menu__header">
+    <h1 id="menu-title-{{ block:count }}" class="menu__title">{{ title }}</h1>
+    {{ if subtitle }}<h2 class="menu__subtitle">{{ subtitle }}</h2>{{ /if }}
+  </header>
+
+  <div class="menu__layout">
+    {{ if statement }}
+      <aside class="menu__aside" aria-label="Menu statement">
+        <p>{{ statement }}</p>
+      </aside>
+    {{ /if }}
+
+    <section id="pairings-{{ block:count }}" class="menu__pairings" aria-label="Wine and food pairings">
+      {{ pairings }}
+        <article class="pairing" aria-labelledby="p{{ count }}-title-{{ block:count }}">
+          <h3 id="p{{ count }}-title-{{ block:count }}" class="pairing__title">
+            <span class="pairing__num" aria-hidden="true">{{ count }}</span>
+            {{ wine }}
+          </h3>
+
+          {{ if description }}
+            <div class="pairing__desc">
+              <p>{{ description }}</p>
+            </div>
+          {{ /if }}
+
+          <h4 class="pairing__food">
+            <span class="pairing__label">Pairing:</span>
+            {{ food }}
+          </h4>
+
+          {{ if food_details }}
+            <p class="pairing__food-details">{{ food_details }}</p>
+          {{ /if }}
+        </article>
+      {{ /pairings }}
+    </section>
+  </div>
+</section>

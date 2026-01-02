@@ -66,7 +66,7 @@ fields:
             wine_club_signup:
               display: Wine Club Signup
               instructions: 'Links to the Commerce7 clubs set to Web Status > Available.'
-              icon: dashboard-layout
+              icon: mail-inbox-content
               fields:
                 - handle: heading
                   field:
@@ -179,7 +179,7 @@ fields:
             promo_cards:
               display: Promo Area
               instructions: 'Promotional cards: recipes, events, wines.'
-              icon: dashboard-layout
+              icon: dashboard-layout-2
               fields:
                 - handle: cards
                   field:
@@ -295,14 +295,14 @@ fields:
 
             recipes_listing:
               display: 'Recipes Listing'
-              icon: layout-three-columns
+              icon: layout-carousel-horizontal
               fields:
                 -
                   import: recipes_listing
 
             recipe:
               display: Recipe
-              icon: text-format
+              icon: food-menu-book
               fields:
                 -
                   handle: title
@@ -365,6 +365,61 @@ fields:
                     type: markdown
                     display: Notes      
 
+            menu:
+              display: Menu
+              instructions: Wine & Food Pairing menu block.
+              icon: dashboard-layout
+              fields:
+                - handle: title
+                  field:
+                    type: text
+                    display: Title
+                    width: 50
+                    validate: [required]
+
+                - handle: subtitle
+                  field:
+                    type: text
+                    display: Subtitle
+                    width: 50
+
+                - handle: statement
+                  field:
+                    type: textarea
+                    display: Menu statement
+                    antlers: false
+
+                - handle: pairings
+                  field:
+                    type: grid
+                    display: Pairings
+                    add_row: Add pairing
+                    reorderable: true
+                    fields:
+                      - handle: wine
+                        field:
+                          type: text
+                          display: Wine (title)
+                          validate: [required]
+
+                      - handle: description
+                        field:
+                          type: textarea
+                          display: Description
+                          antlers: false
+
+                      - handle: food
+                        field:
+                          type: text
+                          display: Pairing (food title)
+                          validate: [required]
+
+                      - handle: food_details
+                        field:
+                          type: textarea
+                          display: Food details
+                          antlers: false
+
             article:
               display: Article
               instructions: 'Long form content, can be expanded with picture, video, quotes or tables.'
@@ -397,7 +452,7 @@ fields:
                 -
                   import: faqs
             hero_home:
-              display: 'Hero Home'
+              display: 'Hero'
               icon: align-object-top
               fields:
                 -

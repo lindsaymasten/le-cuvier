@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1766176898
+updated_at: 1767368253
 blocks:
   -
     id: memat9au
@@ -74,6 +74,20 @@ blocks:
             type: text
             text: ' To enjoy them is to accept this quirk of fate, as their limitations are a side effect of their exceptional character.'
     type: article
+    enabled: true
+  -
+    id: mjx1b8a5
+    title: 'Wine & Food Pairing'
+    subtitle: 'Tasting Experience'
+    statement: 'Wines of distinction and fervor fermented only with wild yeast and aged exclusively in neutral oak barrels from Paso Robles’ best westside, dry-farmed vineyards.'
+    pairings:
+      -
+        id: mjx1baq5
+        wine: '2021 Grenache'
+        description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
+        food: 'chicken gyro'
+        food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+    type: menu
     enabled: true
   -
     id: mhemungq

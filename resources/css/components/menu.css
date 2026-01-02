@@ -1,0 +1,106 @@
+/* A11y */
+.menu .skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border: 2px solid currentColor;
+}
+.menu .skip-link:focus {
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 10;
+}
+
+/* Layout wrapper */
+.menu {
+  padding: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.menu__layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.menu__aside {
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 420px;
+}
+
+.menu__pairings {
+  flex: 2 1 520px;
+  min-width: 280px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.pairing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.pairing__title {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.pairing__num {
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.pairing__desc p {
+  margin: 0;
+}
+
+.pairing__food {
+  margin: 0;
+  font-weight: 600;
+}
+
+.pairing__label {
+  font-weight: 700;
+}
+
+.pairing__food-details {
+  margin: 0;
+}
+
+/* 800–1199: 2 columns */
+@media (min-width: 800px) {
+  .pairing {
+    flex-basis: calc(50% - 0.625rem);
+  }
+}
+
+/* 1200+: 3 columns */
+@media (min-width: 1200px) {
+  .pairing {
+    flex-basis: calc(33.333% - 0.833rem);
+  }
+}
