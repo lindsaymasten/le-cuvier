@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  flex: 0 1 var(--pc-col-1);             /* base: 1 per row */
+  flex: 1 1 var(--pc-col-1);
   background: #fff;
   border-radius: var(--pc-radius);
   box-shadow: 0 0 1px rgba(0,0,0,0.25);
@@ -340,7 +340,7 @@
 
 /* ≥640px: two across */
 @media (min-width: 640px) {
-  .product-cards .product-card { flex: 0 1 var(--pc-col-2); }
+  .product-cards .product-card { flex-basis: var(--pc-col-2); }
 }
 
 /* 641px - 1199px */
@@ -349,14 +349,14 @@
   .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:last-of-type,
   .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:nth-last-of-type(2),
   .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:nth-last-of-type(3) {
-    flex: 0 1 var(--pc-col-3);
+    flex-basis: var(--pc-col-3);
   }
 }
 
 /* ≥1200px: 3–4–3 repeating pattern */
 @media (min-width: 1200px) {
   /* Default row = 3 across */
-  .product-cards .product-card { flex: 0 1 var(--pc-col-3); }
+  .product-cards .product-card { flex-basis: var(--pc-col-3); }
 
   /* Items 4–7 in each 10-item cycle become 4-up (25%) */
   .product-cards .product-card:nth-child(10n + 4),
