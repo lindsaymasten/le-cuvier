@@ -1,8 +1,4 @@
-// Product detail "Case/Bottle" buttons → drive the real C7 add-to-cart UI.
-// This file is intentionally verbose in console so it cannot fail silently.
-
 function findAtcRoot(fromEl) {
-  // Prefer the injected C7 region
   return (
     fromEl.closest('#c7-content') ||
     document.querySelector('#c7-content') ||
@@ -67,10 +63,5 @@ document.addEventListener('click', (e) => {
 
   console.log(`[LC] Triggering C7 add-to-cart (qty=${qty}).`);
   cta.click();
-
-  // Match the old behavior: go to cart page after add-to-cart
-  window.setTimeout(() => {
-    window.location.assign('/cart');
-  }, 75);
 
 });

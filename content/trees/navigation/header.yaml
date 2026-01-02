@@ -1,9 +1,7 @@
 tree:
   -
-    id: 00889306-aa09-49b8-b91b-e9e7a72ed8a9
-    title: 'Wine Tasting'
-    data:
-      two_col_menu: false
+    id: 1409fb5b-eed7-41da-ac02-50961c7d4053
+    entry: 4bc7aa8c-ec45-4ae0-b5b7-50042d91ce57
     children:
       -
         id: 5e2933f5-10f3-4043-b585-903be44517d6
@@ -35,8 +33,8 @@ tree:
           icon: cursor-arrow-rays
           description: 'Prebuilt header and footer navigations'
   -
-    id: db467f1c-3d5e-4e0b-9a3f-695611b0c614
-    title: Club
+    id: 3631b19d-7256-434f-bdd1-9f95543b7ad1
+    entry: bd55cf14-8ac8-4fa5-86b2-144950e8c509
     children:
       -
         id: c36169bf-64ea-4419-8bbb-cb3f873d5975
@@ -46,9 +44,8 @@ tree:
         id: 4ad1ec5d-04c7-40e9-b9f7-7e804bbd8b45
         title: 'Account Login'
   -
-    id: 59d402c8-e333-4357-9102-b2dc4861985f
-    title: Winemaking
-    url: /
+    id: 53d3f375-007d-4f88-991e-4e9becc281d9
+    entry: d5b91fca-4c39-419c-945c-e421f67f19fd
     children:
       -
         id: 1606dcdf-a5a9-4498-8da4-8544493ae65a
@@ -62,10 +59,9 @@ tree:
     url: '#'
     children:
       -
+        id: 4cafa9e5-9c9e-4262-9b53-e75131e69291
+        entry: 6dc32f75-709f-435f-ba65-0e54c5823388
+      -
         id: 70158ade-6909-4a46-bd7c-746a05f5757b
         title: History
-        url: '#'
-      -
-        id: 84447889-54da-4ed9-9fe2-1de5aa5af3ba
-        title: Staff
         url: '#'
