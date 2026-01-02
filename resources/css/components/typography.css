@@ -116,7 +116,7 @@
       width: 14rem;
       margin: 0;
 
-      transform: translateX(-11rem);
+      transform: translateX(-13rem);
     }
   }
 
@@ -148,7 +148,7 @@
 .article-body {
   margin-block: clamp(2rem, 2rem + 3vw, 10rem)
                 clamp(1.5rem, 2rem + 2vw, 7.5rem);
-  margin-inline: 0;
+  margin-inline: auto;
   row-gap: clamp(0.75em, 0.75em + 0.15vw, 0.925em);
 }
 
