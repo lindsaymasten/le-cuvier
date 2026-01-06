@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767368253
+updated_at: 1767389792
 blocks:
   -
     id: memat9au
@@ -83,12 +83,36 @@ blocks:
     pairings:
       -
         id: mjx1baq5
+        wine: '2022 Grenache'
+        description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
+        food: 'chicken gyro'
+        food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+      -
+        id: mjxdlxi4
+        wine: '2023 Zinfandel'
+        description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
+        food: 'chicken gyro'
+        food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+      -
+        id: mjxdlzwn
+        wine: '2021 Grenache'
+        description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
+        food: 'chicken gyro'
+        food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+      -
+        id: mjxdlwc0
+        wine: '2021 Chrysos'
+        description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
+        food: 'chicken gyro'
+        food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+      -
+        id: mjxdlyi7
         wine: '2021 Grenache'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
     type: menu
-    enabled: true
+    enabled: false
   -
     id: mhemungq
     cards:
@@ -133,19 +157,36 @@ blocks:
     type: promo_cards
     enabled: false
   -
+    id: mjxdpi4r
+    title: 'Made up recipe'
+    description: description
+    servings: 4-6
+    prep_time: '15'
+    cook_time: '25'
+    image: clayweb1.jpg
+    caption: Caption
+    ingredients: |-
+      ingredient
+      **ingredient**
+      ingredient
+    instructions: Instructions
+    notes: 'Notes go here.'
+    type: recipe
+    enabled: false
+  -
     id: mj6ya4s6
     title: Recipes
     text: 'Recipes text intro'
     query: latest
     limit: 3
     type: recipes_listing
-    enabled: true
+    enabled: false
   -
     id: mjd8zaz0
     cta_label: 'View Club Options'
     cta_url: /club
     type: wine_club_signup
-    enabled: true
+    enabled: false
     clubs:
       -
         id: mjdaqtw3
@@ -163,7 +204,7 @@ blocks:
         fulfillment: true
         frequency_value: 2
         frequency_unit: year
-        club_name: Mixed
+        club_name: 'Mixed | Will Call'
       -
         id: mjdaszyq
         club_slug: reds-only-club
@@ -181,6 +222,15 @@ blocks:
         frequency_value: 2
         frequency_unit: year
         club_name: 'Reds Only'
+    heading: 'Header Title'
+    intro: 'Short club intro.'
+  -
+    id: mjxe0neh
+    title: Team
+    query: ordered
+    limit: 6
+    type: team
+    enabled: true
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
