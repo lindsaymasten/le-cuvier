@@ -141,6 +141,7 @@
   opacity: 1;
   max-height: 1000px;        /* large enough to reveal contents */
   pointer-events: auto;
+  overflow: visible;
 }
 
 /* Text blocks */
