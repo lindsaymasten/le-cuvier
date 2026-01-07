@@ -411,6 +411,9 @@ navbar-left:before {
   background: var(--text-color);
   border-radius: 2px;
 }
+.hamburger:hover {
+  box-shadow: none;
+}
 
 /* === Commerce7 Slideout Side Cart === */
 @media (min-width: 769px) {
