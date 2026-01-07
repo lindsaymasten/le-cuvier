@@ -15,6 +15,7 @@
   --pc-col-2: calc((100% - var(--pc-gap)) / 2);
   --pc-col-3: calc((100% - (2 * var(--pc-gap))) / 3);
   --pc-col-4: calc((100% - (3 * var(--pc-gap))) / 4);
+  z-index: 5; /*for the splatter*/
 }
 
 /* Commerce7 product list reset – keep scoped to the block */
