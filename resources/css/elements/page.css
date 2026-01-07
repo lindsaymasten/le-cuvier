@@ -6,4 +6,20 @@
   hr {
     @apply border-gray-200;
   }
+
+  /* initial paint when C7 is enabled */
+  html.c7-pending body {
+    opacity: 0;
+  }
+
+  html.c7-pending.c7-ready body {
+    opacity: 1;
+    transition: opacity 160ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.c7-pending.c7-ready body {
+      transition: none;
+    }
+  }
 }

@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767389792
+updated_at: 1767767195
 blocks:
   -
     id: memat9au
@@ -186,7 +186,7 @@ blocks:
     cta_label: 'View Club Options'
     cta_url: /club
     type: wine_club_signup
-    enabled: false
+    enabled: true
     clubs:
       -
         id: mjdaqtw3
@@ -230,7 +230,7 @@ blocks:
     query: ordered
     limit: 6
     type: team
-    enabled: true
+    enabled: false
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
