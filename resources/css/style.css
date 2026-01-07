@@ -118,6 +118,20 @@ h5 + h6 {
   margin-top: 0.35em;
 }
 
+p {
+  margin: 0;
+}
+
+p + p {
+  margin-block-start: 1.2em;
+}
+
+@media (min-width: 820px) {
+  p + figure {
+    margin-block-start: 2em; /* 2em approximates 1.2em applied to paragraphs... it's eyeballed */
+    }
+}
+
 /* Lead paragraphs on marketing blocks */
 .lead { 
   font-size: clamp(1.125rem, 0.6vw + 1rem, 1.375rem); 

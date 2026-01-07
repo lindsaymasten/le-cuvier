@@ -71,7 +71,7 @@
 
     font-family: var(--font-serif-italic);
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.6;
     font-style: italic;
     font-variant-numeric: normal;
 
@@ -88,7 +88,7 @@
       clear: left;
 
       width: 18rem;
-      margin-block: 0.25rem 0;
+      margin-block: 0.5em;
       margin-inline-start: -1rem;
       margin-inline-end: 1.5rem;
 
@@ -110,10 +110,10 @@
   @media (min-width: 71.25rem) {
     .article-aside {
       position: absolute;
-      inset-block-start: 0;
+      inset-block-start: 4ch;
       inset-inline-start: 0;
 
-      width: 14rem;
+      width: 24ch;
       margin: 0;
 
       transform: translateX(-13rem);
@@ -163,7 +163,13 @@
   margin-top: clamp(-0.75em, -0.75em + -0.15vw, -0.925em);
 }
 
-.article-body.prose p {
+@media (max-width: 819px) {
+  .article-body > figure.not-prose:has(.article-aside) + p {
+  margin-top: 0;
+  }
+}
+
+.article-body p {
   font-family: var(--font-serif);
   font-size: clamp(1rem, 0.75rem + 0.85vw, 1.35rem);
   line-height: clamp(1.5em, 1.5em + 0.3vw, 1.85em);
