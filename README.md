@@ -1,4 +1,4 @@
-# Le Cuvier Website (Statamic + Bedrock + Commerce7)
+# Le Cuvier
 Winery ecommerce site built on **Statamic (Laravel)** using a **Commerce7** integration by Web & Wolf LLC. 
 
 ## Stack
