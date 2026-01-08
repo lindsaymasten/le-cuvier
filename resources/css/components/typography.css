@@ -23,6 +23,12 @@
     @apply text-xs sm:text-sm;
   }
 
+  /* --------------- Punctuation ---------------------- */
+
+  main {
+    hanging-punctuation: first last;
+  }
+
   /* --------------- Article Typography --------------- */
 
   /* Article layout hooks */
@@ -135,18 +141,18 @@
       inset-block-start: 4ch;
       inset-inline-start: 0;
 
-      width: 24ch;
+      width: 22ch;
       margin: 0;
 
-      transform: translateX(-13rem);
+      transform: translateX(73ch);
     }
   }
 
   @supports (font-size: 1cqi) {
     @container article-body (inline-size > 40ch) {
       .article-aside {
-        font-size: clamp(0.8rem, 1.8cqi, 0.95rem);
-        line-height: 1.5;
+        font-size: clamp(0.9rem, 1.8cqi, 0.95rem);
+        line-height: clamp(1.5em, 1.5em + 0.3vw, 1.65em);
       }
     }
 
@@ -176,7 +182,7 @@
 
 @media (max-width: 639px) {
   .article-body {
-    width: calc(100% - 3rem);
+    /* width: calc(100% - 3rem); */
     margin-inline: auto;
   }
 }
@@ -198,6 +204,12 @@
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-optical-sizing: auto;
+}
+
+@media (max-width: 639px) {
+  .article-body p {
+    font-size: clamp(1.2rem, 0.75rem + 0.85vw, 1.35rem);
+  }
 }
 
 /* --------------- Commerce7 Overrides --------------- */
