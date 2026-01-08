@@ -347,7 +347,7 @@ input[type="submit"]:hover,
 
 /* Commerce7 button override */
 .c7-btn--primary:not([disabled]):active, .c7-btn--primary:not([disabled]):focus, .c7-btn--primary:not([disabled]):hover, .c7-btn--primary--small:not([disabled]):active, .c7-btn--primary--small:not([disabled]):focus, .c7-btn--primary--small:not([disabled]):hover {
-  background: var(--color-bg);
+  background: var(--color-moss);
   color: var(--color-text);
 }
 

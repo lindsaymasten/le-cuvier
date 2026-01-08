@@ -10,44 +10,44 @@
   {{ if clubs }}
     <div class="wine-club-signup__clubs">
       {{ clubs }}
-        <article class="wine-club-signup__club">
-          {{ if club_name }}
-            <h3 class="wine-club-signup__club-name">
-                {{ club_name }}
-            </h3>
-          {{ /if }}  
+        <article class="wine-club-signup__club"> 
           {{ if description }}
             <div class="wine-club-signup__description">
               {{ description }}
             </div>
           {{ /if }}
 
-          <ul class="wine-club-signup__meta">
-            {{ if bottle_count }}
+          <div class="wine-club-signup__join-area">
+            {{ if club_name }}
+              <h3 class="wine-club-signup__club-name">
+                  {{ club_name }}
+              </h3>
+            {{ /if }} 
+
+            <ul class="wine-club-signup__meta">
+              {{ if bottle_count }}
+                <li class="wine-club-signup__meta-item">
+                  <strong>{{ bottle_count }}</strong> bottles included per shipment.
+                </li>
+              {{ /if }}
+
               <li class="wine-club-signup__meta-item">
-                <strong>{{ bottle_count }}</strong> bottles
+                <strong>{{ if fulfillment }}Ships{{ else }}Will Call{{ /if }}</strong>
+                {{ if frequency_value }}
+                    every {{ frequency_value }}
+                    {{ if frequency_unit == "year" }}year{{ else }}month{{ /if }}{{ if frequency_value > 1 }}s{{ /if }}.
+                {{ /if }}
               </li>
-            {{ /if }}
 
-            <li class="wine-club-signup__meta-item">
-              {{ if fulfillment }}Ships{{ else }}Will Call{{ /if }}
-            </li>
+            </ul>
 
-            {{ if frequency_value }}
-              <li class="wine-club-signup__meta-item">
-                Every {{ frequency_value }}
-                {{ if frequency_unit == "year" }}year{{ else }}month{{ /if }}
-                {{ if frequency_value > 1 }}s{{ /if }}
-              </li>
-            {{ /if }}
-          </ul>
-
-          <div
-            class="c7-club-join-button"
-            data-club-slug="{{ club_slug }}"
-            data-join-text="{{ join_text }}"
-            data-edit-text="{{ edit_text }}"
-          ></div>
+            <div
+              class="c7-club-join-button"
+              data-club-slug="{{ club_slug }}"
+              data-join-text="{{ join_text }}"
+              data-edit-text="{{ edit_text }}"
+            ></div>
+          </div>
         </article>
       {{ /clubs }}
     </div>

@@ -2,14 +2,42 @@
    Wine Club Signup Grid
    ========================================================= */
 
+/* Component scope variables */
+.wine-club-signup {
+  --pc-gap: 20px;
+  --pc-radius: 8px;
+  --pc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Styling */
+
 .wine-club-signup {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--pc-gap);
+  padding: var(--pc-gap);
+}
+
+h2.wine-club-signup__heading:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  width: 3em;
+  height: 2em;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='h1_arrow' fill='%23dde0df' viewBox='0 0 112.69 44.58'%3E%3Cpath d='M104.88 22.34c-9.39 0-16.51 6.72-16.51 15.72 0 4 2.28 6.52 5.14 6.52a8 8 0 004-1.08c-1.82-12.44 7.08-20.27 15.18-21.16-8.1-1-17-8.79-15.22-21.25a8 8 0 00-4-1.09c-2.82 0-5.17 2.48-5.17 6.53 0 8.99 7.19 15.81 16.58 15.81zm-13.14-.39c-4.65-1.39-66.63-4.75-79-4.75C6.23 17.2 0 18.06 0 22.94s6.23 5.83 12.76 5.83c12.35 0 74.33-5.04 78.98-6.82z'/%3E%3C/svg%3E%0A");
+}
+
+.wine-club-signup > p {
+  max-width: 70ch;
+  padding-inline: 1.5rem;
+  margin: auto;
+  margin-block-end: 0.75rem;
 }
 
 .wine-club-signup__clubs {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--pc-gap);
   grid-template-columns: 1fr; /* mobile: stacked cards */
 }
 
@@ -23,15 +51,25 @@
 
 .wine-club-signup__club {
   display: grid;
-  gap: var(--space-4);
-  padding: var(--space-6);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  gap: var(--pc-gap);
+  padding: 2rem;
+  border: 1px solid var(--color-bg);
+  border-radius: var(--pc-radius);
   background-color: var(--color-bg);
+  filter: drop-shadow(0 6px 14px rgba(20, 19, 19, 0.12));
+}
+
+.wine-club-signup__join-area {
+  padding: 1rem;
+  background-color: var(--color-neutral-md);
+  border-radius: var(--pc-radius);
 }
 
 .wine-club-signup__club-name {
   margin: 0;
+  font-size: clamp(1.7rem, 1.35rem + 0.85vw, 2rem);
+  text-align: center;
+  padding-block: 0.5rem;
 }
 
 .wine-club-signup__description p {
@@ -46,9 +84,7 @@
 
 .wine-club-signup__meta {
   display: grid;
-  gap: var(--space-2);
-  padding: 0;
-  margin: 0;
+  gap: 0.25rem;
   list-style: none;
 }
 
@@ -56,7 +92,7 @@
   opacity: 0.85;
 }
 
-/* keep the CTA consistently placed */
 .wine-club-signup .c7-club-join-button {
-  margin-top: var(--space-4);
+  margin-block: 1rem;
+  text-align: center;
 }

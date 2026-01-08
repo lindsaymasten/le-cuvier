@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767767195
+updated_at: 1767857448
 blocks:
   -
     id: memat9au
@@ -75,6 +75,49 @@ blocks:
             text: ' To enjoy them is to accept this quirk of fate, as their limitations are a side effect of their exceptional character.'
     type: article
     enabled: true
+  -
+    id: mjd8zaz0
+    cta_label: 'View Club Options'
+    cta_url: /club
+    type: wine_club_signup
+    enabled: true
+    clubs:
+      -
+        id: mjdaqtw3
+        club_slug: mixed-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 6
+        fulfillment: true
+        frequency_value: 2
+        frequency_unit: year
+        club_name: 'Mixed | Will Call'
+      -
+        id: mjdaszyq
+        club_slug: reds-only-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 12
+        fulfillment: false
+        frequency_value: 2
+        frequency_unit: year
+        club_name: 'Reds Only'
+    heading: 'Club Signup Heading'
+    intro: 'Intro text, lorem ipsum doler san init compset. Thereafter, we’ll blend you a bottle of perfume for each season, delivered on the solstice.'
   -
     id: mjx1b8a5
     title: 'Wine & Food Pairing'
@@ -181,49 +224,6 @@ blocks:
     limit: 3
     type: recipes_listing
     enabled: false
-  -
-    id: mjd8zaz0
-    cta_label: 'View Club Options'
-    cta_url: /club
-    type: wine_club_signup
-    enabled: true
-    clubs:
-      -
-        id: mjdaqtw3
-        club_slug: mixed-club
-        join_text: 'Join Club'
-        edit_text: 'Edit Club Membership'
-        description:
-          -
-            type: paragraph
-            content:
-              -
-                type: text
-                text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
-        bottle_count: 6
-        fulfillment: true
-        frequency_value: 2
-        frequency_unit: year
-        club_name: 'Mixed | Will Call'
-      -
-        id: mjdaszyq
-        club_slug: reds-only-club
-        join_text: 'Join Club'
-        edit_text: 'Edit Club Membership'
-        description:
-          -
-            type: paragraph
-            content:
-              -
-                type: text
-                text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
-        bottle_count: 12
-        fulfillment: false
-        frequency_value: 2
-        frequency_unit: year
-        club_name: 'Reds Only'
-    heading: 'Header Title'
-    intro: 'Short club intro.'
   -
     id: mjxe0neh
     title: Team
