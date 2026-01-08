@@ -102,6 +102,7 @@
     line-height: 1.6;
     font-style: normal;
     font-variant-numeric: normal;
+    font-weight: 420;
 
     color: var(--color-teal-dark);
   }
