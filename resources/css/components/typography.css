@@ -80,6 +80,11 @@
     background-position: center;
     z-index: -1;
   }
+  @media (prefers-color-scheme: dark) {
+    section:has(.c7-product-collection) + *:has(.article-body)::before {
+      filter: brightness(0.25);
+    }
+  }
 
   section:has(.c7-product-collection) + *:has(.article-body) {
     position: relative;

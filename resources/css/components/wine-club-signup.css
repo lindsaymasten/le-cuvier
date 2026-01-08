@@ -1,5 +1,5 @@
 /* =========================================================
-   Wine Club Signup (comparison grid)
+   Wine Club Signup Grid
    ========================================================= */
 
 .wine-club-signup {
@@ -27,6 +27,7 @@
   padding: var(--space-6);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
 }
 
 .wine-club-signup__club-name {
