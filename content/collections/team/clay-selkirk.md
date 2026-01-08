@@ -1,6 +1,5 @@
 ---
 id: bcab7536-8e22-44c7-b727-30252f40786c
-published: false
 blueprint: team
 title: 'Clay Selkirk'
 first_name: Clay

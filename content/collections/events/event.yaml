@@ -1,0 +1,94 @@
+title: Event
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+
+          -
+            import: picture
+
+          -
+            handle: event_start
+            field:
+              type: date
+              display: Event Start
+              mode: single
+              time_enabled: true
+              time_required: false
+              required: true
+              validate:
+                - required
+
+          -
+            handle: event_end
+            field:
+              type: date
+              display: Event End
+              mode: single
+              time_enabled: true
+              time_required: false
+
+          -
+            handle: location
+            field:
+              type: text
+              display: Location
+
+          -
+            handle: teaser
+            field:
+              type: textarea
+              display: Teaser
+              instructions: 'Short summary used in listings.'
+              rows: 3
+              character_limit: 220
+
+          -
+            handle: details
+            field: common.text_rich
+
+          -
+            handle: tock_url
+            field:
+              type: text
+              display: Tock URL
+              instructions: 'Optional. If provided, listing CTA can link to Tock.'
+
+          -
+            handle: member_only
+            field:
+              type: toggle
+              display: Members only
+              instructions: 'If enabled, this event should only be shown to logged-in members (gating handled in templates).'
+              default: false
+
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              from: title
+              display: Slug
+              localizable: true
+              validate: 'max:200'
+
+          -
+            handle: published
+            field:
+              type: toggle
+              display: Published
+              default: true

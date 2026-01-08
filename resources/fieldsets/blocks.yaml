@@ -176,6 +176,37 @@ fields:
                             year: Year(s)
                           default: month
 
+            events_listing:
+              display: Events Listing
+              instructions: 'Lists upcoming entries from the Events collection.'
+              icon: calendar
+              fields:
+                -
+                  handle: heading
+                  field:
+                    type: text
+                    display: Heading
+                -
+                  handle: intro
+                  field:
+                    type: textarea
+                    display: Intro
+                -
+                  handle: limit
+                  field:
+                    type: integer
+                    display: Number of events
+                    default: 6
+                    validate:
+                      - min: 1
+                      - max: 24
+                -
+                  handle: show_past
+                  field:
+                    type: toggle
+                    display: Include past events
+                    default: false
+
             promo_cards:
               display: Promo Area
               instructions: 'Promotional cards: recipes, events, wines.'
@@ -427,54 +458,63 @@ fields:
               fields:
                 -
                   import: article
+
             blog_excerpt:
               display: 'Blog Excerpt'
               icon: layout-three-columns
               fields:
                 -
                   import: blog_excerpt
+
             blog_paginated:
               display: 'Blog Paginated'
               icon: layout-grid-dots
               fields:
                 -
                   import: blog_paginated
+
             contact:
               display: Contact
               icon: phone-contact-phonebook
               fields:
                 -
                   import: contact
+
             faqs:
               display: FAQs
               icon: alert-help-question
               fields:
                 -
                   import: faqs
+
             hero_home:
               display: 'Hero'
               icon: align-object-top
               fields:
                 -
                   import: hero_home
+
             newsletter:
               display: Newsletter
               icon: social-mail-send-email-message
               fields:
                 -
                   import: newsletter
+
             search_form:
               display: 'Search form'
               icon: search-magnifying-glass
               fields:
                 -
                   import: search_form
+
             search_results:
               display: 'Search Results'
               icon: text-formatting-image-bottom
               fields:
                 -
                   import: search_results
+
             style_guide:
               display: 'Style Guide'
               instructions: 'Styles and components in one place.'
@@ -482,12 +522,14 @@ fields:
               fields:
                 -
                   import: style_guide
+
             team:
               display: Team
               icon: user-multiple
               fields:
                 -
                   import: team
+
             testimonials:
               display: Testimonials
               icon: text-formatting-quotation

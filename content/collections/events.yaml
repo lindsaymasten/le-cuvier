@@ -1,5 +1,17 @@
 title: Events
+template: events/show
+layout: layout
 revisions: false
+route: '/events/{slug}'
+date: true
+sort_dir: asc
 date_behavior:
   past: public
-  future: private
+  future: unlisted
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+structure:
+  root: false

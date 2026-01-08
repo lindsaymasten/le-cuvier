@@ -1,0 +1,30 @@
+<article class="article">
+  <div class="article-body">
+    <h1>{{ title }}</h1>
+
+    {{ if event_start }}
+      <p>
+        <time datetime="{{ event_start | format('c') }}">
+          {{ event_start | format('F j, Y') }}
+        </time>
+        {{ if location }} · {{ location }}{{ /if }}
+      </p>
+    {{ /if }}
+
+    {{ if picture }}
+      <figure>
+        {{ picture }}
+      </figure>
+    {{ /if }}
+
+    {{ if details }}
+      {{ details }}
+    {{ /if }}
+
+    {{ if tock_url }}
+      <p>
+        <a class="btn" href="{{ tock_url }}">Reserve</a>
+      </p>
+    {{ /if }}
+  </div>
+</article>

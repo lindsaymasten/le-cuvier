@@ -1,0 +1,83 @@
+title: Event
+
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              validate:
+                - required
+
+          -
+            import: picture
+
+          -
+            handle: event_start
+            field:
+              type: date
+              display: Event Start
+              mode: single
+              time_enabled: true
+              time_required: false
+              validate:
+                - required
+
+          -
+            handle: event_end
+            field:
+              type: date
+              display: Event End
+              mode: single
+              time_enabled: true
+              time_required: false
+
+          -
+            handle: location
+            field:
+              type: text
+              display: Location
+
+          -
+            handle: teaser
+            field:
+              type: textarea
+              display: Teaser
+              instructions: Short summary used in listings.
+              rows: 3
+              character_limit: 220
+
+          -
+            handle: details
+            field: common.text_rich
+
+          -
+            handle: tock_url
+            field:
+              type: text
+              display: Tock URL
+              instructions: Optional. If provided, CTA links to Tock.
+
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              from: title
+              display: Slug
+
+          -
+            handle: published
+            field:
+              type: toggle
+              display: Published
+              default: true

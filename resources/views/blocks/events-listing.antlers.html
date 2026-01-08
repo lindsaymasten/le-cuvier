@@ -1,0 +1,60 @@
+{{ limit = limit ?? 6 }}
+{{ show_past = show_past ?? false }}
+{{ shown = 0 }}
+
+<section class="events-listing">
+  {{ if heading }}
+    <h2 class="events-listing__heading">{{ heading }}</h2>
+  {{ /if }}
+
+  {{ if intro }}
+    <p class="events-listing__intro">{{ intro }}</p>
+  {{ /if }}
+
+  <div class="events-listing__grid">
+    {{ collection:events sort="event_start:asc" }}
+      {{ if (show_past || (event_start && (event_start | is_future))) && shown < limit }}
+        {{ shown += 1 }}
+
+        <article class="events-listing__card">
+          {{ if picture }}
+            <div class="events-listing__media">
+              {{ picture }}
+            </div>
+          {{ /if }}
+
+          <div class="events-listing__body">
+            <h3 class="events-listing__title">
+              <a href="{{ url }}">{{ title }}</a>
+            </h3>
+
+            {{ if event_start }}
+              <p class="events-listing__meta">
+                <time datetime="{{ event_start | format('c') }}">
+                  {{ event_start | format('F j, Y') }}
+                </time>
+                {{ if location }} · {{ location }}{{ /if }}
+              </p>
+            {{ /if }}
+
+            {{ if teaser }}
+              <p class="events-listing__teaser">{{ teaser }}</p>
+            {{ /if }}
+
+            <div class="events-listing__actions">
+              {{ if tock_url }}
+                <a class="btn" href="{{ tock_url }}">Reserve</a>
+              {{ else }}
+                <a class="btn" href="{{ url }}">Details</a>
+              {{ /if }}
+            </div>
+          </div>
+        </article>
+      {{ /if }}
+    {{ /collection:events }}
+
+    {{ if shown == 0 }}
+      <p class="events-listing__empty">No upcoming events at this time.</p>
+    {{ /if }}
+  </div>
+</section>

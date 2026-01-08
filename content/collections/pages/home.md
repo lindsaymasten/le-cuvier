@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767863736
+updated_at: 1767912487
 blocks:
   -
     id: memat9au
@@ -118,6 +118,14 @@ blocks:
         club_name: 'Reds Only'
     heading: 'Club Signup Heading'
     intro: 'Intro text, lorem ipsum doler san init compset. Thereafter, we’ll blend you a bottle of perfume for each season, delivered on the solstice.'
+  -
+    id: mk61eofl
+    heading: 'Test Heading for Events'
+    intro: 'Optional introduction text area for events.'
+    limit: 4
+    show_past: false
+    type: events_listing
+    enabled: true
   -
     id: mjx1b8a5
     title: 'Wine & Food Pairing'
