@@ -1,6 +1,6 @@
 name: Lindsay
 super: true
-avatar: anarchy_death-or-glory_skull.png
+avatar: images/anarchy_death-or-glory_skull.png
 id: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
 password_hash: $2y$12$29xikb8Lga1cFibWBv0iO.1TPmGZKV/bCJShMR4O/s/ZrwvTViaZW
 preferences:

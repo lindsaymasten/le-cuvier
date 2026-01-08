@@ -14,7 +14,7 @@ bio: |-
   Favorite Le Cuvier memory: Library Cab Franc tasting; tasted '05, '09, and '12 vintages and the '05 smelled like the redwood forest floor
   Corky trait: drinking wine with chickens
   Favorite variety: depends on what she's eating, though she's partial to Cabernet Franc
-image: mirandaweb2.jpg
+image: images/mirandaweb2.jpg
 featured: false
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
 updated_at: 1767389607

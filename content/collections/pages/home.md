@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767857448
+updated_at: 1767863736
 blocks:
   -
     id: memat9au
@@ -84,7 +84,7 @@ blocks:
     clubs:
       -
         id: mjdaqtw3
-        club_slug: mixed-club
+        club_slug: mixed-will-call
         join_text: 'Join Club'
         edit_text: 'Edit Club Membership'
         description:
@@ -206,7 +206,7 @@ blocks:
     servings: 4-6
     prep_time: '15'
     cook_time: '25'
-    image: clayweb1.jpg
+    image: images/clayweb1.jpg
     caption: Caption
     ingredients: |-
       ingredient

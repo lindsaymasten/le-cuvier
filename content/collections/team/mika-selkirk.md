@@ -17,7 +17,7 @@ bio: |-
   Corky Trait: cooking too much food & expecting everyone else to eat it
   Favorite things about Le Cuvier: 1. The wine 2. The view 
   Favorite Variety: Cabernet Franc
-image: mika_web1.jpg
+image: images/mika_web1.jpg
 featured: false
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
 updated_at: 1767385935

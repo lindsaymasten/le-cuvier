@@ -41,12 +41,17 @@
 
             </ul>
 
-            <div
-              class="c7-club-join-button"
-              data-club-slug="{{ club_slug }}"
-              data-join-text="{{ join_text }}"
-              data-edit-text="{{ edit_text }}"
-            ></div>
+            <div class="c7-club-join-button" data-club-slug="reds-only-club" data-join-text="Join Club" data-edit-text="Edit Club Membership"></div>
+
+            {{ if club_slug }}
+              <div
+                class="c7-club-join-button"
+                data-club-slug="{{ club_slug | trim | lower }}"
+                data-join-text="{{ join_text }}"
+                data-edit-text="{{ edit_text }}"
+              ></div>
+            {{ /if }}
+
           </div>
         </article>
       {{ /clubs }}
