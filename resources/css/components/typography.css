@@ -97,13 +97,13 @@
 
     max-width: 34ch;
 
-    font-family: var(--font-serif-italic);
+    font-family: var(--font-sans);
     font-size: 0.9rem;
     line-height: 1.6;
-    font-style: italic;
+    font-style: normal;
     font-variant-numeric: normal;
 
-    color: var(--color-success);
+    color: var(--color-teal-dark);
   }
 
   .article-aside > :first-child { margin-top: 0; }
@@ -144,7 +144,7 @@
       width: 22ch;
       margin: 0;
 
-      transform: translateX(73ch);
+      transform: translateX(78ch);
     }
   }
 
@@ -199,8 +199,8 @@
 
 .article-body p {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 0.75rem + 0.85vw, 1.35rem);
-  line-height: clamp(1.5em, 1.5em + 0.3vw, 1.85em);
+  font-size: clamp(1rem, 0.75rem + 0.85vw, 1.31rem);
+  line-height: clamp(1.5em, 1.5em + 0.3vw, 1.65em);
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-optical-sizing: auto;

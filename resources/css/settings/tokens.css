@@ -80,19 +80,28 @@
   --color-accent-500:   #cac1ab;
   --color-accent-600:   #d1cab9;
   --color-accent-700:   #ded9ce;
-  --color-accent-amber: #e5b320;
+  --color-accent-amber: #e6b308;
 
   --color-neutral-lt:   #fafaf9;
   --color-neutral-md:   #f4f1ec;
   --color-neutral-dk:   #d4cec6;
+
+  --color-moss:         #bbc0aa;
+  --color-moss-alt:     #d2d8c0;
+  --color-tomato:       #cf3424;
+  --color-teal:         #68a098;
+  --color-teal-dark:    #1b7e6f;
+  --color-teal-alt:     #aad6d0;
+  --color-ochre:        #e6b308; 
+  --color-avocado:      #b6b72b;
   
   --color-success:      #6f894e;
-  --color-warning:      #e5b320;
+  --color-warning:      #e6b308;
   --color-danger:       #971919;
 
   --border-color:       #928b7a;
-  --alt-color:          #e5b320;
-  --login-bg:           #e5b320;
+  --alt-color:          #68a098;
+  --login-bg:           #e6b308;
 
   --bg-gradient:        linear-gradient(90deg, #edf0ed, #f5f3f1);  
   --overlay-bg:         rgba(58, 68, 44, 0.2);
