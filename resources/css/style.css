@@ -1,9 +1,4 @@
-/* -------- Global Reset -------- */
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
+/* -------- Global -------- */
 body {
   display: flex;
 }
@@ -139,9 +134,11 @@ p + p {
 }
 
 /* Ampersands/italics: opt-in utility (Libre Baskerville) */
-.brand-serif-italic { 
+.brand-serif-italic, em { 
   font-family: var(--font-serif-italic); 
   font-style: italic; 
+  font-weight: 200;
+  vertical-align: -1px;
 }
 
 /* -------- Universal Top Padding ---------- */

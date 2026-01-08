@@ -7,7 +7,6 @@
 */
 
 /* composite serif: Libre Baskerville for numerals, Rufina for everything else */
-/* regular (400) */
 @font-face {
   font-family: "LC-SerifMix";
   src: url(https://fonts.gstatic.com/s/librebaskerville/v16/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNZaxMaC82U.woff2) format("woff2");
@@ -27,7 +26,7 @@
   src: url(https://fonts.gstatic.com/s/rufina/v16/Yq6V-LyURyLy-aKCpB5lluRSlw.woff2) format("woff2");
   font-weight: 400;
   font-style: normal;
-  /* everything except the numeric/punct glyphs above */
+  /* everything except the numeric/punctuation glyphs above */
   unicode-range: U+0000-002B, U+002F, U+003A-10FFFF;
 }
 
