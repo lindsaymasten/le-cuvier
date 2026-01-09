@@ -1,103 +1,113 @@
 title: Recipe
-fields:
-  -
-    handle: title
-    field:
-      type: text
-      display: Title
-      validate:
-        - required
-
-  -
-    import: picture
-
-  -
-    handle: servings
-    field:
-      type: text
-      input_type: number
-      display: Servings
-      width: 33
-      validate:
-        - integer
-        - min:0
-
-  -
-    handle: difficulty
-    field:
-      type: select
-      display: Difficulty
-      width: 33
-      options:
-        easy: Easy
-        intermediate: Intermediate
-        advanced: Advanced
-      default: easy
-      clearable: false
-      searchable: false
-      validate:
-        - required
-
-  -
-    handle: cook_time
-    field:
-      type: text
-      input_type: number
-      display: Cook time
-      width: 33
-      instructions: "Hours in 0.5 increments"
-      validate:
-        - numeric
-        - min:0
-      step: 0.5
-
-  -
-    handle: ingredients
-    field:
-      type: replicator
-      display: Ingredients
-      collapse: false
-      replicator_preview: false
-      sets:
-        main:
-          display: Items
-          sets:
-            item:
-              display: Ingredient
-              icon: text-formatting-list-bulleted
-              fields:
-                -
-                  handle: text
-                  field:
-                    type: text
-                    display: Item
-                    validate:
-                      - required
-            group:
-              display: Group
-              icon: text-formatting-list-numbered
-              fields:
-                -
-                  handle: heading
-                  field:
-                    type: text
-                    display: Group title
-                -
-                  handle: items
-                  field:
-                    type: list
-                    display: Items
-                    instructions: "One item per line. You can reorder."
-                    validate:
-                      - required
-
-  -
-    handle: instructions
-    field: common.text_rich
-
-  -
-    handle: notes
-    field:
-      type: textarea
-      display: Notes
-      rows: 3
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: Title
+              validate:
+                - required
+          -
+            import: picture
+          -
+            handle: servings
+            field:
+              type: text
+              input_type: number
+              display: Servings
+              width: 33
+              validate:
+                - integer
+                - 'min:0'
+          -
+            handle: difficulty
+            field:
+              type: select
+              display: Difficulty
+              width: 33
+              options:
+                easy: Easy
+                intermediate: Intermediate
+                advanced: Advanced
+              default: easy
+              searchable: false
+              validate:
+                - required
+          -
+            handle: cook_time
+            field:
+              type: text
+              input_type: number
+              display: 'Cook time'
+              width: 33
+              instructions: 'Hours in 0.5 increments'
+              validate:
+                - numeric
+                - 'min:0'
+              step: 0.5
+          -
+            handle: ingredients
+            field:
+              type: replicator
+              display: Ingredients
+              replicator_preview: false
+              sets:
+                main:
+                  display: Items
+                  sets:
+                    item:
+                      display: Ingredient
+                      icon: text-formatting-list-bulleted
+                      fields:
+                        -
+                          handle: text
+                          field:
+                            type: text
+                            display: Item
+                            validate:
+                              - required
+                    group:
+                      display: Group
+                      icon: text-formatting-list-numbered
+                      fields:
+                        -
+                          handle: heading
+                          field:
+                            type: text
+                            display: 'Group title'
+                        -
+                          handle: items
+                          field:
+                            type: list
+                            display: Items
+                            instructions: 'One item per line. You can reorder.'
+                            validate:
+                              - required
+          -
+            handle: instructions
+            field: common.text_rich
+            config:
+              display: Instructions
+          -
+            handle: notes
+            field:
+              type: textarea
+              display: Notes
+              rows: 3
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

@@ -13,37 +13,45 @@
 
   <div class="events-listing__grid">
     {{ collection:events sort="event_start:asc" }}
-      {{ if (show_past || (event_start && (event_start | is_future))) && shown < limit }}
+      {{ if (show_past || (event_start && (event_start | is_future))) && shown < limit && !hidden && !members_only }}
         {{ shown += 1 }}
 
         <article class="events-listing__card">
-          {{ if picture }}
-            <div class="events-listing__media">
-              {{ picture }}
-            </div>
-          {{ /if }}
+          <div class="events-listing__card-inner">
+            <div class="events-listing__meta">
+              {{ if event_start }}
+                <time class="events-listing__date" datetime="{{ event_start format="Y-m-d\\TH:i:sP" }}">
+                  {{ event_start format="F j, Y" }}
+                  {{ if event_start format="g:i a" != "12:00 am" }}
+                    • {{ event_start format="g:i a" }}
+                  {{ /if }}
+                </time>
+              {{ /if }}
 
-          <div class="events-listing__body">
+              {{ if location }}
+                <div class="events-listing__location">{{ location }}</div>
+              {{ /if }}
+            </div>
+
             <h3 class="events-listing__title">
               <a href="{{ url }}">{{ title }}</a>
             </h3>
-
-            {{ if event_start }}
-              <p class="events-listing__meta">
-                <time datetime="{{ event_start | format('c') }}">
-                  {{ event_start | format('F j, Y') }}
-                </time>
-                {{ if location }} · {{ location }}{{ /if }}
-              </p>
-            {{ /if }}
 
             {{ if teaser }}
               <p class="events-listing__teaser">{{ teaser }}</p>
             {{ /if }}
 
+            {{ if members_only }}
+              <p class="events-listing__members-note">
+                {{ members_note ?? 'Club members only' }}
+              </p>
+            {{ /if }}
+
             <div class="events-listing__actions">
               {{ if tock_url }}
                 <a class="btn" href="{{ tock_url }}">Reserve</a>
+              {{ elseif cta_url }}
+                <a class="btn" href="{{ cta_url }}">{{ cta_text ?? 'Learn more' }}</a>
               {{ else }}
                 <a class="btn" href="{{ url }}">Details</a>
               {{ /if }}

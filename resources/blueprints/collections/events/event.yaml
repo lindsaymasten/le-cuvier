@@ -1,5 +1,4 @@
 title: Event
-
 tabs:
   main:
     display: Main
@@ -10,59 +9,91 @@ tabs:
             handle: title
             field:
               type: text
+              required: true
               display: Title
               validate:
                 - required
-
-          -
-            import: picture
-
-          -
-            handle: event_start
-            field:
-              type: date
-              display: Event Start
-              mode: single
-              time_enabled: true
-              time_required: false
-              validate:
-                - required
-
-          -
-            handle: event_end
-            field:
-              type: date
-              display: Event End
-              mode: single
-              time_enabled: true
-              time_required: false
-
+              width: 50
           -
             handle: location
             field:
               type: text
               display: Location
-
+              width: 50
+          -
+            handle: event_start
+            field:
+              type: date
+              time_enabled: true
+              display: 'Event Start'
+              validate:
+                - required
+              width: 50
+          -
+            handle: event_end
+            field:
+              type: date
+              time_enabled: true
+              display: 'Event End'
+              width: 50
           -
             handle: teaser
             field:
               type: textarea
               display: Teaser
-              instructions: Short summary used in listings.
-              rows: 3
-              character_limit: 220
-
-          -
-            handle: details
-            field: common.text_rich
-
           -
             handle: tock_url
             field:
+              type: link
+              display: 'Tock URL'
+              instructions: 'Optional. If present, the listing CTA will be “Reserve”.'
+              listable: false
+              localizable: true
+          -
+            handle: cta_url
+            field:
+              type: link
+              display: 'Alternate CTA URL'
+              instructions: 'Optional. If no Tock URL is provided, this link will be used for the block CTA.'
+              listable: false
+              localizable: true
+              width: 50
+          -
+            handle: cta_text
+            field:
               type: text
-              display: Tock URL
-              instructions: Optional. If provided, CTA links to Tock.
-
+              display: 'Alternate CTA Text'
+              instructions: 'Optional. Button label for the Alternate CTA URL.'
+              listable: false
+              localizable: true
+              width: 50
+          -
+            handle: details
+            field:
+              type: markdown
+              display: Details
+          -
+            handle: members_only
+            field:
+              type: toggle
+              display: 'Members only'
+              instructions: 'Tickets are restricted in Tock to club members. This note will display on the website.'
+              width: 50
+          -
+            handle: members_note
+            field:
+              type: text
+              display: 'Members-only note'
+              instructions: 'Optional. Defaults to “Club members only”.'
+              width: 50
+          -
+            handle: hidden
+            field:
+              type: toggle
+              display: 'Hide from listings'
+              instructions: 'If enabled, this event will not appear in Events Listing blocks.'
+              listable: false
+              localizable: true
   sidebar:
     display: Sidebar
     sections:
@@ -72,12 +103,31 @@ tabs:
             handle: slug
             field:
               type: slug
-              from: title
-              display: Slug
-
+              localizable: true
+              validate:
+                - required
           -
             handle: published
             field:
               type: toggle
               display: Published
               default: true
+              listable: false
+              localizable: true
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - events
+              max_items: 1
+              listable: false
+              localizable: true

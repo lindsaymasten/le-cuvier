@@ -83,57 +83,6 @@
                         </section>
                     </c7-if>
 
-                    <c7-if product-meta-ph>
-                        <section class="pd-section pd-chem" aria-label="Chemistry">
-                            <div class="pd-table" role="table" aria-label="pH TA RS">
-                            <div class="pd-row" role="row">
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">pH </div><div class="pd-v"><c7-product-meta-ph></div>
-                                </div>
-
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">TA </div><div class="pd-v"><c7-product-meta-ta></div>
-                                </div>
-
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">RS </div><div class="pd-v"><c7-product-meta-rs></div>
-                                </div>
-                            </div>
-                            </div>
-                        </section>
-                    </c7-if>
-
-                    <c7-if product-meta-total-barrel>
-                        <section class="pd-section pd-aging" aria-label="Aging">
-                            <div class="pd-table" role="table" aria-label="Barrels and Sur Lie">
-                            <div class="pd-row" role="row">
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">Barrels </div><div class="pd-v"><c7-product-meta-total-barrel></div>
-                                </div>
-
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">Sur Lie </div><div class="pd-v"><c7-product-meta-sure-lie></div>
-                                </div>
-                            </div>
-                            </div>
-                        </section>
-                    </c7-if>
-
-                    <c7-if product-meta-cases-bottled>
-                        <section class="pd-section pd-bottling" aria-label="Bottling Information">
-                            <div class="pd-table" role="table" aria-label="Bottling Date and Cases Bottled">
-                            <div class="pd-row" role="row">
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">Bottling Date </div><div class="pd-v"><c7-product-meta-bottling-date></div>
-                                </div>
-
-                                <div class="pd-cell" role="cell">
-                                <div class="pd-k">Cases Bottled </div><div class="pd-v"><c7-product-meta-cases-bottled></div>
-                                </div>
-                            </div>
-                            </div>
-                        </section>
-                    </c7-if>
                 </article>
             </div>
         </div>
@@ -145,6 +94,58 @@
                 </section>
             </c7-if>
         </div>
+
+        <c7-if product-meta-ph>
+            <section class="pd-section pd-chem" aria-label="Chemistry">
+                <div class="pd-table" role="table" aria-label="pH TA RS">
+                <div class="pd-row" role="row">
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">pH </div><div class="pd-v"><c7-product-meta-ph></div>
+                    </div>
+
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">TA </div><div class="pd-v"><c7-product-meta-ta></div>
+                    </div>
+
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">RS </div><div class="pd-v"><c7-product-meta-rs></div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </c7-if>
+
+        <c7-if product-meta-total-barrel>
+            <section class="pd-section pd-aging" aria-label="Aging">
+                <div class="pd-table" role="table" aria-label="Barrels and Sur Lie">
+                <div class="pd-row" role="row">
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">Barrels </div><div class="pd-v"><c7-product-meta-total-barrel></div>
+                    </div>
+
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">Sur Lie </div><div class="pd-v"><c7-product-meta-sure-lie></div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </c7-if>
+
+        <c7-if product-meta-cases-bottled>
+            <section class="pd-section pd-bottling" aria-label="Bottling Information">
+                <div class="pd-table" role="table" aria-label="Bottling Date and Cases Bottled">
+                <div class="pd-row" role="row">
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">Bottling Date </div><div class="pd-v"><c7-product-meta-bottling-date></div>
+                    </div>
+
+                    <div class="pd-cell" role="cell">
+                    <div class="pd-k">Cases Bottled </div><div class="pd-v"><c7-product-meta-cases-bottled></div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </c7-if>
 
         <div class="pd-video">
             <div class="video-content">

@@ -17,6 +17,8 @@
   align-items: stretch; /* equal height columns */
   width: 100%;
   min-height: 100vh; 
+  height: calc(100vh - 90px);
+  overflow: visible;
   padding-top: 90px;
   box-sizing: border-box; 
 }
@@ -220,7 +222,7 @@
 }
 
 .pd-blend {
-  margin-top: 1.5rem;
+  margin-block-start: 3.5rem;
 }
 
 .pd-vineyard .pd-h2 {
