@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3515247feaa533957740b3736b2a64c0",
+    "content-hash": "bd60d2bc89234b5506bff6d2503af186",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -2899,6 +2899,62 @@
                 }
             ],
             "time": "2025-03-24T10:02:05+00:00"
+        },
+        {
+            "name": "ndx/statamic-bard-color-picker",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/new-data-services/statamic-bard-color-picker.git",
+                "reference": "da57c287c703645d131207e27e835a440a241bec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/new-data-services/statamic-bard-color-picker/zipball/da57c287c703645d131207e27e835a440a241bec",
+                "reference": "da57c287c703645d131207e27e835a440a241bec",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^5.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.15",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.34"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ndx\\BardColorPicker\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Bard Color Picker",
+                    "description": "Text color picker with swatches for Bard fields"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ndx\\BardColorPicker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "new-data-services GmbH",
+                    "role": "Manufacturer"
+                }
+            ],
+            "description": "Text color picker with swatches for Bard fields",
+            "support": {
+                "issues": "https://github.com/new-data-services/statamic-bard-color-picker/issues",
+                "source": "https://github.com/new-data-services/statamic-bard-color-picker/tree/v2.1.0"
+            },
+            "time": "2025-08-17T09:56:14+00:00"
         },
         {
             "name": "nesbot/carbon",

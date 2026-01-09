@@ -1,75 +1,86 @@
-@layer components {
-  .events-listing {
-    width: 100%;
-  }
+/* Component scope variables */
+.wine-club-signup {
+  --el-gap: 20px;
+  --el-radius: 8px;
+  --el-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .events-listing__heading {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.events-listing {
+  display: flex;
+  width: calc(100% - 40px);
+  margin-block: 2.5rem;
+}
 
-  .events-listing__intro {
-    margin-bottom: 1.5rem;
-    max-width: 60ch;
-    opacity: 0.85;
-  }
+.events-listing__heading {
+  transform: rotate(-90deg) translate(0, -4ch);
+  transform-origin: top right;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+}
 
+.events-listing__intro {
+  margin-bottom: 1.5rem;
+  max-width: 60ch;
+  opacity: 0.85;
+}
+
+.events-listing__grid {
+  display: grid;
+  gap: var(--el-gap);
+}
+
+@media (min-width: 640px) {
   .events-listing__grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    .events-listing__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .events-listing__grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .events-listing__card {
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 1rem;
-    overflow: hidden;
-    background: #fff;
-  }
-
-  .events-listing__media img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .events-listing__body {
-    padding: 1.25rem;
-  }
-
-  .events-listing__title {
-    font-size: 1.125rem;
-    font-weight: 600;
-  }
-
-  .events-listing__meta {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    opacity: 0.7;
-  }
-
-  .events-listing__teaser {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-  }
-
-  .events-listing__actions {
-    margin-top: 1rem;
-  }
-
-  .events-listing__empty {
-    opacity: 0.7;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (min-width: 1024px) {
+  .events-listing__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.events-listing__card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--el-radius);
+  overflow: hidden;
+  background: #fff;
+}
+
+.events-listing__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.events-listing__body {
+  padding: 1.25rem;
+}
+
+.events-listing__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.events-listing__meta {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.events-listing__teaser {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.events-listing__actions {
+  margin-top: 1rem;
+}
+
+.events-listing__empty {
+  opacity: 0.7;
+}
+

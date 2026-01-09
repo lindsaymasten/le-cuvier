@@ -18,14 +18,16 @@
 }
 
 .wine-club-signup__heading {
+  position: relative;
   z-index: 1;
 }
 
 .wine-club-signup__heading:after {
   content: '';
   position: absolute;
-  left: -20px;
-  width: 3em;
+  left: -5ch;
+  bottom: -1ch;
+  width: 4em;
   height: 2em;
   opacity: 0.5;
   z-index: -1;

@@ -41,6 +41,20 @@ tabs:
             field:
               type: textarea
               display: Teaser
+              width: 50
+          -
+            handle: picture
+            field:
+              type: assets
+              display: 'Event Image'
+              instructions: 'Optional. Image shown in event listings and on the event detail page.'
+              container: assets
+              max_files: 1
+              mode: grid
+              show_filename: false
+              listable: false
+              localizable: true
+              width: 50
           -
             handle: tock_url
             field:
@@ -70,21 +84,39 @@ tabs:
           -
             handle: details
             field:
-              type: markdown
+              type: bard
               display: Details
+              buttons:
+                - h2
+                - h3
+                - h4
+                - bold
+                - italic
+                - strikethrough
+                - unorderedlist
+                - orderedlist
+                - color
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+                - code
+                - codeblock
+              remove_empty_nodes: false
           -
             handle: members_only
             field:
               type: toggle
               display: 'Members only'
-              instructions: 'Tickets are restricted in Tock to club members. This note will display on the website.'
+              instructions: 'Tickets are restricted in Tock to club members using a Tock group.'
               width: 50
           -
             handle: members_note
             field:
               type: text
               display: 'Members-only note'
-              instructions: 'Optional. Defaults to “Club members only”.'
+              instructions: 'Optional. Defaults to “Club Members Only”.'
               width: 50
           -
             handle: hidden

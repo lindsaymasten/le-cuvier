@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767912487
+updated_at: 1767975151
 blocks:
   -
     id: memat9au
@@ -120,8 +120,7 @@ blocks:
     intro: 'Intro text, lorem ipsum doler san init compset. Thereafter, we’ll blend you a bottle of perfume for each season, delivered on the solstice.'
   -
     id: mk61eofl
-    heading: 'Test Heading for Events'
-    intro: 'Optional introduction text area for events.'
+    heading: 'Upcoming Events'
     limit: 4
     show_past: false
     type: events_listing

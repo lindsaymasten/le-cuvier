@@ -13,11 +13,25 @@
 
   <div class="events-listing__grid">
     {{ collection:events sort="event_start:asc" }}
-      {{ if (show_past || (event_start && (event_start | is_future))) && shown < limit && !hidden && !members_only }}
+      {{ if (show_past || (event_start && (event_start | is_future))) && shown < limit && !hidden }}
         {{ shown += 1 }}
 
         <article class="events-listing__card">
           <div class="events-listing__card-inner">
+            
+            {{ if picture }}
+              <div class="events-listing__media">
+                {{ picture }}
+                  <img
+                    src="{{ url }}"
+                    alt="{{ alt ?? title }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {{ /picture }}
+              </div>
+            {{ /if }}
+
             <div class="events-listing__meta">
               {{ if event_start }}
                 <time class="events-listing__date" datetime="{{ event_start format="Y-m-d\\TH:i:sP" }}">
@@ -43,7 +57,7 @@
 
             {{ if members_only }}
               <p class="events-listing__members-note">
-                {{ members_note ?? 'Club members only' }}
+                {{ members_note ?? 'Club Members Only' }}
               </p>
             {{ /if }}
 
