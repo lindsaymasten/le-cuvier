@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767975151
+updated_at: 1767994616
 blocks:
   -
     id: memat9au
@@ -94,14 +94,48 @@ blocks:
               -
                 type: text
                 text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 12
+        fulfillment: false
+        frequency_value: 6
+        frequency_unit: month
+        club_name: 'Mixed | Will Call'
+      -
+        id: mk7e46ay
+        club_slug: mixed-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
         bottle_count: 6
         fulfillment: true
         frequency_value: 2
         frequency_unit: year
-        club_name: 'Mixed | Will Call'
+        club_name: 'Mixed Shipping'
       -
         id: mjdaszyq
         club_slug: reds-only-club
+        join_text: 'Join Club'
+        edit_text: 'Edit Club Membership'
+        description:
+          -
+            type: paragraph
+            content:
+              -
+                type: text
+                text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
+        bottle_count: 12
+        fulfillment: false
+        frequency_value: 2
+        frequency_unit: year
+        club_name: 'Reds Only'
+      -
+        id: mk7e50y1
+        club_slug: reds-will-call
         join_text: 'Join Club'
         edit_text: 'Edit Club Membership'
         description:

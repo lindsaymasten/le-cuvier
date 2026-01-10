@@ -93,6 +93,19 @@ tabs:
             handle: instructions
             field: common.text_rich
             config:
+              buttons:
+                - h2
+                - h3
+                - h4
+                - bold
+                - italic
+                - underline
+                - strikethrough
+                - color
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - anchor
               display: Instructions
           -
             handle: notes
