@@ -184,5 +184,42 @@
         })
       }
     })()
+
+    // --- Login indicator
+    ;(function () {
+      const loginBtn = document.querySelector('.login-btn')
+      const c7Account = document.getElementById('c7-account')
+
+      function checkLoginStatus() {
+        if (!loginBtn) return
+
+        // Check if Commerce7 has rendered a logout/account link (indicates logged in)
+        const hasLogoutLink = c7Account && (
+          c7Account.textContent.toLowerCase().includes('logout') ||
+          c7Account.textContent.toLowerCase().includes('account') ||
+          c7Account.querySelector('a[href*="logout"]') ||
+          c7Account.querySelector('a[href*="account"]')
+        )
+
+        loginBtn.classList.toggle('is-logged-in', hasLogoutLink)
+      }
+
+      // Check on load
+      checkLoginStatus()
+
+      // Watch for C7 to inject content
+      if (c7Account) {
+        const mo = new MutationObserver(checkLoginStatus)
+        mo.observe(c7Account, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        })
+      }
+
+      // Listen for Commerce7 login events if available
+      window.addEventListener('c7:user:login', checkLoginStatus)
+      window.addEventListener('c7:user:logout', checkLoginStatus)
+    })()
   })
 })()
