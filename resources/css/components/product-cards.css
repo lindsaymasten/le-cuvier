@@ -232,7 +232,7 @@
 .product-cards .product-purchase a.purchase-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   min-height: var(--min-height-btn);
   padding: var(--padding-btn);
   background: var(--color-bg);
@@ -240,7 +240,26 @@
   text-decoration: none;
   border: 1px solid #d4cec6;
   border-radius: var(--radius-btn);
-  transition: background-color .2s ease, border-color .2s ease;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.product-cards .product-purchase a.purchase-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-ochre);
+  opacity: 0;
+  transition: opacity .2s ease;
+  z-index: -1;
+}
+.product-cards .product-purchase a.purchase-button:hover {
+  border-color: var(--color-ochre);
+  transform: translateY(-1px);
+}
+.product-cards .product-purchase a.purchase-button:hover::before {
+  opacity: 0.15;
 }
 .product-cards .product-purchase a.purchase-button:focus-visible {
   outline: 2px solid currentColor;
