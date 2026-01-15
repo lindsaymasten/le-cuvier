@@ -10,21 +10,24 @@
 
 .pd {
   display: flex;
+  flex-direction: column;
 }
 
 .pd-top {
   display: flex;
   align-items: stretch; /* equal height columns */
   width: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
   height: calc(100vh - 90px);
   overflow: visible;
   padding-top: 90px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 @media (max-width: 900px) {
   .pd-top {
     flex-direction: column;
+    height: auto;
+    min-height: auto;
   }
 }
 
@@ -41,8 +44,10 @@
 @media (max-width: 900px) {
   .pd-top > .pd-media,
   .pd-top > .pd-content-wrapper {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     max-width: 100%;
+    width: 100%;
+    align-content: flex-start;
   }
 }
 

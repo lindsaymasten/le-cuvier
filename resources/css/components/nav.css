@@ -201,31 +201,96 @@ navbar-left:before {
 }
 .main-nav-list li a:before {
   content: '';
-  background-color: var(--color-accent-500);
-  border-radius: 50%;
+  background-color: var(--color-ochre);
+  border-radius: 63% 37% 28% 72% / 55% 71% 29% 45%;
   width: 2.5em;
   height: 2.5em;
   top: -0.4rem;
   position: absolute;
   z-index: -1;
   opacity: 0;
+  filter: url(#gooey-splatter);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(0.7) rotate(0deg);
+}
+.main-nav-list li a:after {
+  content: '';
+  position: absolute;
+  width: 2.8em;
+  height: 2.8em;
+  top: -0.55rem;
+  left: -0.15rem;
+  z-index: -1;
+  opacity: 0;
+  background-image:
+    radial-gradient(circle at 78% 12%, var(--color-ochre) 0.25em, transparent 0.25em),
+    radial-gradient(circle at 22% 18%, var(--color-ochre) 0.1em, transparent 0.1em),
+    radial-gradient(circle at 85% 82%, var(--color-ochre) 0.18em, transparent 0.18em),
+    radial-gradient(circle at 18% 88%, var(--color-ochre) 0.115em, transparent 0.115em),
+    radial-gradient(circle at 50% 5%, var(--color-ochre) 0.095em, transparent 0.095em),
+    radial-gradient(circle at 92% 48%, var(--color-ochre) 0.16em, transparent 0.16em);
   transition: opacity 0.2s ease;
 }
 .main-nav-list li:hover a:before {
   content: '';
   background-color: var(--color-accent-500);
-  border-radius: 50%;
+  content: '';
+  background-color: var(--color-ochre);
+  border-radius: 71% 29% 64% 36% / 39% 58% 42% 61%;
   width: 2.5em;
   height: 2.5em;
   top: -0.4rem;
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   opacity: 1;
+  filter: url(#gooey-splatter);
+  transform: scale(1) rotate(15deg);
+  animation: gooey-morph 0.35s ease-out;
+}
+.main-nav-list li:hover a:after {
+  opacity: 1;
+  animation: splatter-dots 0.35s ease-out;
 }
 .main-nav-list li.logo-slot:hover a:before {
   width: 1.75rem;
   height: 1.75rem;
   top: 0.45rem;
+}
+.main-nav-list li.logo-slot a:after {
+  width: 1.75rem;
+  height: 2rem;
+  top: 0.3rem;
+  left: -0.125rem;
+}
+
+@keyframes gooey-morph {
+  0% {
+    border-radius: 63% 37% 28% 72% / 55% 71% 29% 45%;
+    transform: scale(0.7) rotate(0deg);
+  }
+  40% {
+    border-radius: 34% 66% 72% 28% / 68% 29% 71% 32%;
+    transform: scale(1.08) rotate(-8deg);
+  }
+  100% {
+    border-radius: 71% 29% 64% 36% / 39% 58% 42% 61%;
+    transform: scale(1) rotate(15deg);
+  }
+}
+
+@keyframes splatter-dots {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Slot that receives the cloned logo */

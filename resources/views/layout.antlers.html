@@ -23,6 +23,15 @@
     </head>
 
     <body class="min-h-screen bg-white font-sans antialiased text-base/6 text-neutral-800 overflow-x-hidden selection:bg-primary selection:text-white">
+        <svg width="0" height="0" style="position: absolute;">
+            <defs>
+                <filter id="gooey-splatter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="goo" />
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                </filter>
+            </defs>
+        </svg>
         {{ partial:partials/skip-to-content }}
         {{ yield:seo_body }}
 
