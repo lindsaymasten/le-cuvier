@@ -210,6 +210,17 @@
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-optical-sizing: auto;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.article-body.js-fade-enabled p {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.article-body.js-fade-enabled p.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 639px) {
