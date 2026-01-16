@@ -457,4 +457,17 @@
   display: inline-block;
   font-weight: 600;
   margin-right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s var(--pc-ease);
+}
+
+@media (hover: none) {
+  .product-cards .product-purchase .c7-product__price {
+    opacity: 1;
+  }
+}
+
+.product-cards .product-card:hover .c7-product__price,
+.product-cards .product-card:focus-within .c7-product__price {
+  opacity: 1;
 }
