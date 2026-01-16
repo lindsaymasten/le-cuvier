@@ -1,0 +1,15 @@
+title: Footer
+data:
+  heading: 'Le Cuvier Winery'
+  tagline: 'We adore you, elliptical friends.'
+  contact_heading: Contact
+  contact_email: club@lcwine.com
+  contact_phone: '+1 805 238 5706'
+  contact_website: www.lcwine.com
+  location_heading: 'Winery & Tasting Room'
+  location_address: |
+    3333 Vine Hill Lane
+    Paso Robles,
+    CA
+    93446
+  copyright_text: 'Le Cuvier Winery'

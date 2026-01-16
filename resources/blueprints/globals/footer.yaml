@@ -1,0 +1,72 @@
+title: Footer
+sections:
+  main:
+    display: 'Footer Content'
+    fields:
+      -
+        handle: heading
+        field:
+          type: text
+          display: 'Footer Heading'
+          instructions: 'Main heading for the footer (e.g., "Le Cuvier Winery")'
+          default: 'Le Cuvier Winery'
+          width: 50
+      -
+        handle: tagline
+        field:
+          type: text
+          display: Tagline
+          instructions: 'Footer tagline or message (e.g., "We adore you, elliptical friends.")'
+          default: 'We adore you, elliptical friends.'
+          width: 50
+      -
+        handle: contact_heading
+        field:
+          type: text
+          display: 'Contact Section Heading'
+          default: Contact
+          width: 33
+      -
+        handle: contact_email
+        field:
+          type: text
+          display: 'Contact Email'
+          input_type: email
+          width: 33
+      -
+        handle: contact_phone
+        field:
+          type: text
+          display: 'Contact Phone'
+          input_type: tel
+          width: 33
+      -
+        handle: contact_website
+        field:
+          type: text
+          display: 'Contact Website'
+          input_type: url
+          width: 33
+      -
+        handle: location_heading
+        field:
+          type: text
+          display: 'Location Section Heading'
+          default: 'Winery & Tasting Room'
+          width: 33
+      -
+        handle: location_address
+        field:
+          type: textarea
+          display: 'Location Address'
+          instructions: 'Full address for the winery/tasting room'
+          rows: 4
+          width: 66
+      -
+        handle: copyright_text
+        field:
+          type: text
+          display: 'Copyright Text'
+          instructions: 'Copyright notice (year will be added automatically)'
+          default: 'Le Cuvier Winery'
+          width: 50

@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1768536986
+updated_at: 1768543197
 blocks:
   -
     id: memat9au
@@ -197,7 +197,7 @@ blocks:
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
     type: menu
-    enabled: false
+    enabled: true
   -
     id: mhemungq
     cards:

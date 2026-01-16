@@ -1,1 +1,26 @@
 title: 'Bottom footer'
+tree:
+  -
+    id: privacy
+    title: Privacy
+    url: /privacy
+  -
+    id: terms
+    title: Terms
+    url: /terms
+  -
+    id: returns
+    title: Returns
+    url: /returns
+  -
+    id: copyright
+    title: Copyright
+    url: /copyright
+  -
+    id: accessibility
+    title: Accessibility
+    url: /accessibility
+  -
+    id: shipping
+    title: Shipping
+    url: /shipping

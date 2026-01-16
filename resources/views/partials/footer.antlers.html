@@ -1,32 +1,69 @@
-<footer class="pb-12 pt-20 bg-white" aria-labelledby="footer">
-    <h2 id="footer" class="sr-only">Footer</h2>
-    <div class="container">
-        <hr />
-        <div class="py-20 xl:site-grid">
-            <div class="space-y-6 xl:col-span-4 xl:-mt-1">
-                {{ partial:components/logo class="w-40 h-8 inline-flex" }}
-
-                <p class="text-muted-foreground text-sm leading-6 max-w-prose xl:max-w-xs">
-                    {{ theme:about | widont }}
-                </p>
-            </div>
-            <div class="mt-12 grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4 xl:mt-0 xl:col-span-8">
-                {{ partial:partials/nav-footer }}
-            </div>
+<footer class="footer" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  
+  <div class="footer__container">
+    <div class="footer__main">
+      <h3 class="footer__heading">{{ footer:heading }}</h3>
+      
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4 class="footer__section-heading">{{ footer:contact_heading }}</h4>
+          <div class="footer__contact">
+            {{ if footer:contact_email }}
+              <a href="mailto:{{ footer:contact_email }}" class="footer__link">
+                {{ footer:contact_email }}
+              </a>
+            {{ /if }}
+            {{ if footer:contact_phone }}
+              <a href="tel:{{ footer:contact_phone | replace:' ':'' | replace:'+':'' }}" class="footer__link">
+                {{ footer:contact_phone }}
+              </a>
+            {{ /if }}
+            {{ if footer:contact_website }}
+              <a href="https://{{ footer:contact_website }}" class="footer__link" target="_blank" rel="noopener">
+                {{ footer:contact_website }}
+              </a>
+            {{ /if }}
+          </div>
         </div>
-        <hr />
-        <div class="pt-12">
-            <div class="space-y-8 justify-between lg:items-center flex-row-reverse md:space-y-0 md:flex">
-                {{ partial:partials/nav-social }}
 
-                <div class="space-y-8 flex-row-reverse items-center lg:space-y-0 lg:flex lg:gap-x-16">
-                    {{ partial:partials/nav-bottom-footer }}
-
-                    <p class="text-xs text-muted-foreground">
-                        &copy; {{ now | format('Y') }} {{ theme:copyright_text }}
-                    </p>
-                </div>
-            </div>
+        <div class="footer__section">
+          <h4 class="footer__section-heading">{{ footer:location_heading }}</h4>
+          <address class="footer__address">
+            {{ footer:location_address | nl2br }}
+          </address>
         </div>
+      </div>
     </div>
+
+    <div class="footer__bottom">
+      <p class="footer__tagline">{{ footer:tagline }}</p>
+      
+      <div class="footer__legal">
+        <p class="footer__copyright">
+          © Copyright {{ now | format('Y') }} {{ footer:copyright_text }}
+        </p>
+        
+        {{ nav handle="bottom_footer" max_depth="1" select="title|url|is_external" as="links" }}
+          {{ if links }}
+            <nav class="footer__nav" aria-label="Footer navigation">
+              <ul class="footer__nav-list">
+                {{ links }}
+                  <li class="footer__nav-item">
+                    <a 
+                      href="{{ url }}" 
+                      class="footer__nav-link"
+                      {{ if is_external }} target="_blank" rel="noopener nofollow" {{ /if }}
+                    >
+                      {{ title }}
+                    </a>
+                  </li>
+                {{ /links }}
+              </ul>
+            </nav>
+          {{ /if }}
+        {{ /nav }}
+      </div>
+    </div>
+  </div>
 </footer>
