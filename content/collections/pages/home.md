@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767994616
+updated_at: 1768536986
 blocks:
   -
     id: memat9au
@@ -155,10 +155,11 @@ blocks:
   -
     id: mk61eofl
     heading: 'Upcoming Events'
-    limit: 4
-    show_past: false
+    limit: 5
+    show_past: true
     type: events_listing
     enabled: true
+    intro: "Here's an intro text for events at Le Cuvier Winery in Paso Robles, California. These events are very good and fancy, etc. And this text is their important introduction."
   -
     id: mjx1b8a5
     title: 'Wine & Food Pairing'

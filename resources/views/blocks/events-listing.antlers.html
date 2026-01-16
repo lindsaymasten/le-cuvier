@@ -17,19 +17,21 @@
         {{ shown += 1 }}
 
         <article class="events-listing__card">
-          <div class="events-listing__card-inner">
-            
+          {{ if picture }}
+            <div class="events-listing__media">
+              {{ partial:components/ui/picture :image="picture" w="600" h="400" cover="true" }}
+            </div>
+          {{ /if }}
+
+          <div class="events-listing__content">
             {{ if picture }}
-              <div class="events-listing__media">
-                {{ picture }}
-                  <img
-                    src="{{ url }}"
-                    alt="{{ alt ?? title }}"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                {{ /picture }}
-              </div>
+              <h3 class="events-listing__title events-listing__title--overlay">
+                <a href="{{ url }}">{{ title }}</a>
+              </h3>
+            {{ else }}
+              <h3 class="events-listing__title">
+                <a href="{{ url }}">{{ title }}</a>
+              </h3>
             {{ /if }}
 
             <div class="events-listing__meta">
@@ -46,10 +48,6 @@
                 <div class="events-listing__location">{{ location }}</div>
               {{ /if }}
             </div>
-
-            <h3 class="events-listing__title">
-              <a href="{{ url }}">{{ title }}</a>
-            </h3>
 
             {{ if teaser }}
               <p class="events-listing__teaser">{{ teaser }}</p>
