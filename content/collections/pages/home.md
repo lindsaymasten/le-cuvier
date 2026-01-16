@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1768543197
+updated_at: 1768546921
 blocks:
   -
     id: memat9au
@@ -240,7 +240,7 @@ blocks:
         bg_type: image
         bg_image: _eee0245.jpg
     type: promo_cards
-    enabled: false
+    enabled: true
   -
     id: mjxdpi4r
     title: 'Made up recipe'

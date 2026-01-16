@@ -1,12 +1,13 @@
 /* -------- Global -------- */
 body {
   display: flex;
+  flex-direction: column;
 }
 main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  flex: 0 0 auto;  
+  flex: 1 0 auto;
 }
 
 /* -------- Visibility Helpers -------- */

@@ -70,3 +70,35 @@ sections:
           instructions: 'Copyright notice (year will be added automatically)'
           default: 'Le Cuvier Winery'
           width: 50
+  wine_club_cta:
+    display: 'Wine Club CTA'
+    fields:
+      -
+        handle: cta_heading
+        field:
+          type: text
+          display: 'CTA Heading'
+          default: 'Cultivating the Cosmic Dance: Join the Le Cuvier Wine Club'
+          width: 100
+      -
+        handle: cta_text
+        field:
+          type: textarea
+          display: 'CTA Text'
+          default: 'The Elliptical Society is a wine club unlike any other. For those seeking to join the esteemed fellowship of the Elliptical Society, boundless joys and opportunities await.'
+          rows: 3
+          width: 100
+      -
+        handle: cta_button_text
+        field:
+          type: text
+          display: 'CTA Button Text'
+          default: 'Join Now'
+          width: 50
+      -
+        handle: cta_button_url
+        field:
+          type: text
+          display: 'CTA Button URL'
+          default: '/club'
+          width: 50
