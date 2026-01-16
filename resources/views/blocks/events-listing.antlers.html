@@ -61,11 +61,11 @@
 
             <div class="events-listing__actions">
               {{ if tock_url }}
-                <a class="btn" href="{{ tock_url }}">Reserve</a>
+                <a class="btn--block-primary" href="{{ tock_url }}">Reserve</a>
               {{ elseif cta_url }}
-                <a class="btn" href="{{ cta_url }}">{{ cta_text ?? 'Learn more' }}</a>
+                <a class="btn--block-primary" href="{{ cta_url }}">{{ cta_text ?? 'Learn more' }}</a>
               {{ else }}
-                <a class="btn" href="{{ url }}">Details</a>
+                <a class="btn--block-primary" href="{{ url }}">Details</a>
               {{ /if }}
             </div>
           </div>
