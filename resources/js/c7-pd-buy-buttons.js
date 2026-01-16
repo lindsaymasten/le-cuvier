@@ -48,9 +48,17 @@ document.addEventListener('click', (e) => {
 
   const qtyInput = findQtyInput(atcBlock);
   if (qtyInput) {
+    console.log(`[LC] Found quantity input. Current value: ${qtyInput.value}, Setting to: ${qty}`);
     qtyInput.value = qty;
+
+    // Trigger Alpine.js reactivity if present
+    if (qtyInput._x_model) {
+      qtyInput._x_model.set(qty);
+    }
+
     qtyInput.dispatchEvent(new Event('input', { bubbles: true }));
     qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
+    console.log(`[LC] After setting, quantity input value: ${qtyInput.value}`);
   } else {
     console.warn('[LC] C7 add-to-cart block found, but quantity input not found. Proceeding to click CTA anyway.');
   }
@@ -62,6 +70,10 @@ document.addEventListener('click', (e) => {
   }
 
   console.log(`[LC] Triggering C7 add-to-cart (qty=${qty}).`);
-  cta.click();
+
+  // Small delay to ensure quantity is set before clicking
+  setTimeout(() => {
+    cta.click();
+  }, 50);
 
 });
