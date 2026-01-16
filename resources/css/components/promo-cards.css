@@ -1,189 +1,221 @@
 .promo-cards {
-  --promo-gap: 1.5rem;
-  --promo-radius: 8px;
-
-  --promo-col-1: 100%;
-  --promo-col-2: calc((100% - var(--promo-gap)) / 2);
-  --promo-col-3: calc((100% - (var(--promo-gap) * 2)) / 3);
-  --promo-col-4: calc((100% - (var(--promo-gap) * 3)) / 4);
-
-  flex: 0 0 100%;
-  flex-basis: 100%;
   width: 100%;
-  position: relative;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
+  padding-block: clamp(2rem, 5vw, 4rem);
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  container-type: inline-size;
+  container-name: promo-bento;
 }
 
-.promo-cards__items {
+.promo-cards__bento {
   display: grid;
-  gap: var(--promo-gap);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  grid-auto-rows: minmax(200px, auto);
+  grid-template-columns: 1fr;
+
+  @container promo-bento (min-width: 600px) {
+    &:has(> :last-child:nth-child(1)) {
+      grid-template-columns: 1fr;
+    }
+
+    &:has(> :last-child:nth-child(2)) {
+      grid-template-columns: 1fr;
+    }
+
+    &:has(> :last-child:nth-child(3)) > :first-child {
+      grid-column: span 2;
+    }
+
+    &:has(> :last-child:nth-child(4)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(5)) > :first-child {
+      grid-column: span 2;
+    }
+
+    &:has(> :last-child:nth-child(6)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(7)) > :first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:has(> :last-child:nth-child(8)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(9)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(10)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(11)) > :first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &:has(> :last-child:nth-child(12)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @container promo-bento (min-width: 768px) {
+    grid-auto-flow: dense;
+
+    &:has(> :last-child:nth-child(3)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(5)) > :first-child {
+      grid-column: initial;
+      grid-row: span 2;
+    }
+
+    &:has(> :last-child:nth-child(6)),
+    &:has(> :last-child:nth-child(8)),
+    &:has(> :last-child:nth-child(10)),
+    &:has(> :last-child:nth-child(12)) {
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    &:has(> :last-child:nth-child(9)) > :first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  @container promo-bento (min-width: 1080px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: row;
+
+    &:has(> :last-child:nth-child(1)),
+    &:has(> :last-child:nth-child(2)),
+    &:has(> :last-child:nth-child(3)),
+    &:has(> :last-child:nth-child(4)),
+    &:has(> :last-child:nth-child(5)),
+    &:has(> :last-child:nth-child(6)),
+    &:has(> :last-child:nth-child(7)),
+    &:has(> :last-child:nth-child(8)),
+    &:has(> :last-child:nth-child(9)),
+    &:has(> :last-child:nth-child(10)),
+    &:has(> :last-child:nth-child(11)),
+    &:has(> :last-child:nth-child(12)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    & > :first-child {
+      grid-column: auto;
+      grid-row: auto;
+    }
+  }
 }
 
-/* Base card */
 .promo-card {
   position: relative;
-  flex: 0 1 var(--promo-col-1);
-  border-radius: var(--promo-radius);
-  background: #fff;
-  color: inherit;
-  text-decoration: none;
-  box-shadow:
-    0 8px 24px rgba(0,0,0,.08),
-    0 2px 4px rgba(0,0,0,.04);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  transition: transform .15s ease, box-shadow .15s ease;
+  min-height: 200px;
+  background: var(--color-bg, #fff);
+  color: var(--color-text, #000);
+  text-decoration: none;
+  overflow: hidden;
+  border: 3px solid var(--color-text, #000);
+  box-shadow: 6px 6px 0 var(--color-text, #000);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 a.promo-card:hover,
 a.promo-card:focus {
-  transform: translateY(-2px);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.12),
-    0 4px 8px rgba(0,0,0,.06);
-  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--color-text, #000);
+  outline: 2px solid var(--color-accent-500, #adae60);
+  outline-offset: -5px;
 }
 
-/* Media region */
 .promo-card__media {
   position: relative;
+  flex: 1;
   display: flex;
   align-items: center;
-  align-content: center;
-  justify-content: flex-end;
-  width: 100%;
-  /* no fixed height here so we can control it via flex-basis when needed */
-  min-height: 10rem;
+  justify-content: center;
+  min-height: 150px;
   overflow: hidden;
-}
-
-.promo-card__picture,
-.promo-card__img,
-.promo-card__color {
-  display: block;
-  width: 100%;
-  height: 100%;
+  background: var(--color-surface, #f5f5f5);
 }
 
 .promo-card__img {
-  width: auto;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 2em;
-  border-radius: var(--radius-pill);
+  object-fit: cover;
 }
 
 .promo-card__color {
   width: 100%;
   height: 100%;
+  background: var(--promo-card-color, #e0e0e0);
 }
 
-/* Overlay body (intentionally absolute) */
 .promo-card__body {
   position: absolute;
+  inset: 0;
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
 }
 
 .promo-card__content {
-  display: flex;
-  justify-content: center;
-  padding: 1rem 1.25rem 1.5rem;
-  gap: .5rem;
-  flex-direction: column;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  color: var(--color-bg, #fff);
 }
 
 .promo-card__title {
-  font-family: var(--font-serif);
-  font-size: 2.125rem;
-  letter-spacing: -0.025em;
-  line-height: 1.3;
-  font-weight: 500;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-block-end: 0.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .promo-card__subtitle {
-  font-family: var(--font-serif-italic);
-  font-style: italic;
-  font-size: .875rem;
-  line-height: 1.4;
-  opacity: .75;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  font-weight: 600;
+  margin-block-end: 0.5rem;
+  opacity: 0.9;
 }
 
 .promo-card__text {
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   line-height: 1.5;
-  color: inherit;
-  opacity: .9;
+  opacity: 0.85;
 }
 
-a.promo-card:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-  border-radius: var(--promo-radius);
+.promo-card--featured {
+  scale: 1.3;
+  z-index: 10;
+
+  @container promo-bento (max-width: 599px) {
+    scale: 1;
+  }
+
+  @container promo-bento (min-width: 600px) and (max-width: 1079px) {
+    scale: 1.15;
+    transform: translate(-7%, 5%);
+  }
 }
 
-/* --- Repeating 2-left + 1-right pattern (desktop) --- */
-@media (min-width: 640px) {
-  .promo-cards__items {
-    display: grid;
-    gap: var(--promo-gap);
-    grid-template-columns: 1fr 1fr;  /* two equal columns */
-    grid-auto-flow: dense;           /* allow the 3rd to span neatly */
-    grid-auto-rows: minmax(0, auto);
-  }
-
-  .promo-cards__items > .promo-card {
-    width: 100%;
-    min-width: 0;
-  }
-
-  /* Pattern:
-     items 1,2 go in left col; item 3 spans full right col.
-     Then 4,5 left; 6 spans right; etc. */
-  .promo-cards__items > .promo-card:nth-child(3n+1) {
-    grid-column: 1;
-  }
-
-  .promo-cards__items > .promo-card:nth-child(3n+2) {
-    grid-column: 1;
-  }
-
-  .promo-cards__items > .promo-card:nth-child(3n) {
-    grid-column: 2;
-    grid-row: span 2;
-  }
-
-  /* Final card spans full width */
-  .promo-cards__items > .promo-card:last-child {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  /* General desktop tuning */
-  .promo-card__media {
-    /* let tall-card flex rules govern its height */
-    min-height: auto;
-  }
-
-  .promo-card__content {
-    max-width: 60%;
-  }
-
-  /* Tall (3n) cards: treat media as ~1/3 of card height */
-  .promo-cards__items > .promo-card:nth-child(3n) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .promo-cards__items > .promo-card:nth-child(3n) .promo-card__media {
-    flex: 0 0 33%;
-    width: 100%;
-    min-height: 10rem;
+.promo-cards__bento:has(.promo-card--featured) {
+  @container promo-bento (min-width: 600px) and (max-width: 1079px) {
+    & > .promo-card:not(.promo-card--featured) {
+      scale: 0.88;
+    }
   }
 }

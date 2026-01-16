@@ -1,5 +1,5 @@
 {{ if card_link_type == 'internal' and card_link_entry }}
-  <a class="promo-card" href="{{ card_link_entry:url }}">
+  <a class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}" href="{{ card_link_entry:url }}">
     <div class="promo-card__media">
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
@@ -24,7 +24,7 @@
   </a>
 
 {{ elseif card_link_type == 'external' and card_link_url }}
-  <a class="promo-card" href="{{ card_link_url }}" target="_blank" rel="noopener">
+  <a class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}" href="{{ card_link_url }}" target="_blank" rel="noopener">
     <div class="promo-card__media">
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
@@ -49,7 +49,7 @@
   </a>
 
 {{ else }}
-  <article class="promo-card">
+  <article class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}">
     <div class="promo-card__media">
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img

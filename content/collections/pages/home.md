@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1768546921
+updated_at: 1768553525
 blocks:
   -
     id: memat9au
@@ -212,6 +212,7 @@ blocks:
         bg_type: image
         bg_image: 1y6a6729.jpeg
         heading: 'First Title'
+        featured: false
       -
         id: mhemv4wv
         members_only: false
@@ -221,6 +222,7 @@ blocks:
         link_type: none
         bg_type: color
         heading: 'Second Title'
+        featured: true
       -
         id: mhzcivw8
         members_only: false
@@ -230,6 +232,7 @@ blocks:
         link_type: none
         bg_type: image
         bg_image: 1y6a6940.jpg
+        featured: false
       -
         id: mhzcixdv
         members_only: false
@@ -239,6 +242,7 @@ blocks:
         link_type: none
         bg_type: image
         bg_image: _eee0245.jpg
+        featured: false
     type: promo_cards
     enabled: true
   -
