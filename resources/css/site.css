@@ -42,6 +42,7 @@
 @import './components/members.css';
 @import './components/wine-club-signup.css';
 @import './components/nav.css';
+@import './components/vineyard.css';
 
 /* Utilities */
 @import './utilities/br-hidden.css';

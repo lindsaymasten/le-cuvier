@@ -1,0 +1,121 @@
+title: Vineyard
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: 'Vineyard Name'
+              validate:
+                - required
+          -
+            handle: header_image
+            field:
+              type: assets
+              display: 'Header Image'
+              container: assets
+              max_files: 1
+              mode: list
+          -
+            handle: instagram_url
+            field:
+              type: text
+              display: 'Instagram URL'
+              input_type: url
+              width: 50
+          -
+            handle: website_url
+            field:
+              type: text
+              display: 'Website URL'
+              input_type: url
+              width: 50
+          -
+            handle: size
+            field:
+              type: text
+              display: 'Size (e.g., 130 acres)'
+              width: 33
+          -
+            handle: location
+            field:
+              type: textarea
+              display: Location
+              width: 33
+          -
+            handle: distance_to_winery
+            field:
+              type: text
+              display: 'Distance to Le Cuvier'
+              width: 33
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: 'Vineyard Overview'
+              rows: 5
+          -
+            handle: grapes
+            field:
+              type: grid
+              display: 'Grapes Grown'
+              add_row: 'Add Grape'
+              fields:
+                -
+                  handle: variety
+                  field:
+                    type: text
+                    display: 'Grape Variety'
+                    validate:
+                      - required
+                -
+                  handle: acres
+                  field:
+                    type: text
+                    display: 'Acres'
+                -
+                  handle: sourced_by_lc
+                  field:
+                    type: toggle
+                    display: 'Sourced by Le Cuvier'
+                    default: false
+          -
+            handle: sourcing_summary
+            field:
+              type: textarea
+              display: 'Sourcing Summary'
+              instructions: 'Summary of what Le Cuvier sources from this vineyard'
+              rows: 3
+          -
+            handle: history
+            field:
+              type: textarea
+              display: 'Vineyard History'
+              rows: 5
+          -
+            handle: farming_practices
+            field:
+              type: textarea
+              display: 'Farming Practices'
+              rows: 5
+          -
+            handle: management
+            field:
+              type: textarea
+              display: Management
+              rows: 3
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
