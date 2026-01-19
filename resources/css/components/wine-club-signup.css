@@ -54,6 +54,20 @@
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     align-items: start;
   }
+
+  .wine-club-signup__clubs--two-wide {
+    /* 2 or 4 clubs: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  }
+}
+
+@media (min-width: 640px) {
+  .wine-club-signup__clubs {
+    /* desktop: auto-fit comparison grid */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    align-items: start;
+  }
 }
 
 .wine-club-signup__club {
