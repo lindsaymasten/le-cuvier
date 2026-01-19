@@ -17,19 +17,21 @@
         {{ shown += 1 }}
 
         <article class="events-listing__card">
-          <div class="events-listing__card-inner">
-            
+          {{ if picture }}
+            <div class="events-listing__media">
+              {{ partial:components/ui/picture :image="picture" w="600" h="400" cover="true" }}
+            </div>
+          {{ /if }}
+
+          <div class="events-listing__content">
             {{ if picture }}
-              <div class="events-listing__media">
-                {{ picture }}
-                  <img
-                    src="{{ url }}"
-                    alt="{{ alt ?? title }}"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                {{ /picture }}
-              </div>
+              <h3 class="events-listing__title events-listing__title--overlay">
+                <a href="{{ url }}">{{ title }}</a>
+              </h3>
+            {{ else }}
+              <h3 class="events-listing__title">
+                <a href="{{ url }}">{{ title }}</a>
+              </h3>
             {{ /if }}
 
             <div class="events-listing__meta">
@@ -47,10 +49,6 @@
               {{ /if }}
             </div>
 
-            <h3 class="events-listing__title">
-              <a href="{{ url }}">{{ title }}</a>
-            </h3>
-
             {{ if teaser }}
               <p class="events-listing__teaser">{{ teaser }}</p>
             {{ /if }}
@@ -63,11 +61,11 @@
 
             <div class="events-listing__actions">
               {{ if tock_url }}
-                <a class="btn" href="{{ tock_url }}">Reserve</a>
+                <a class="btn--block-primary" href="{{ tock_url }}">Reserve</a>
               {{ elseif cta_url }}
-                <a class="btn" href="{{ cta_url }}">{{ cta_text ?? 'Learn more' }}</a>
+                <a class="btn--block-primary" href="{{ cta_url }}">{{ cta_text ?? 'Learn more' }}</a>
               {{ else }}
-                <a class="btn" href="{{ url }}">Details</a>
+                <a class="btn--block-primary" href="{{ url }}">Details</a>
               {{ /if }}
             </div>
           </div>

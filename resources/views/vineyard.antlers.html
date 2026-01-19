@@ -1,0 +1,100 @@
+<main role="main" id="mainContent">
+  <article class="vineyard_info">
+    <section class="vineyard_header">
+      <div class="header_img" aria-hidden="true">
+        {{ if header_image }}
+          {{ header_image }}
+            <img src="{{ url }}" alt=" " />
+          {{ /header_image }}
+        {{ /if }}
+      </div>
+      <div class="vineyard_page_title">
+        <h1 class="vineyard_title">{{ title }} <span class="screenreader">Vineyard</span></h1>
+      </div>
+      <ul class="vineyard_social_icons">
+        {{ if instagram_url }}
+        <li>
+          <a href="{{ instagram_url }}" class="social_icon footer_link" target="_blank" rel="nofollow">
+            <svg class="social_svg" style="max-width: 100px; display: inline-block; list-style: none;" aria-hidden="true" focusable="false" fill="#a9a9a9" enable-background="new 0 0 20 19" version="1.1" viewBox="0 0 20 19" role="img" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m9.582 1.712c2.559 0 2.861 9e-3 3.873 0.055 2.597 0.117 3.81 1.339 3.928 3.895 0.047 1.001 0.055 1.302 0.055 3.839s-0.01 2.837-0.055 3.839c-0.119 2.553-1.328 3.777-3.928 3.895-1.012 0.045-1.312 0.055-3.873 0.055-2.559 0-2.862-0.01-3.872-0.055-2.603-0.119-3.81-1.346-3.928-3.896-0.046-1.001-0.055-1.302-0.055-3.839s0.01-2.836 0.056-3.839c0.118-2.555 1.328-3.777 3.927-3.894 1.011-0.045 1.313-0.055 3.872-0.055zm0-1.712c-2.602 0-2.928 0.011-3.95 0.057-3.48 0.158-5.414 2.072-5.574 5.526-0.047 1.014-0.058 1.337-0.058 3.917s0.011 2.904 0.058 3.917c0.16 3.45 2.09 5.368 5.573 5.526 1.023 0.045 1.349 0.057 3.951 0.057 2.603 0 2.93-0.012 3.951-0.057 3.477-0.158 5.416-2.072 5.572-5.526 0.047-1.013 0.059-1.337 0.059-3.917s-0.012-2.903-0.058-3.917c-0.156-3.447-2.089-5.367-5.573-5.526-1.021-0.046-1.348-0.057-3.951-0.057zm0 4.622c-2.717 0-4.92 2.185-4.92 4.878s2.203 4.879 4.92 4.879 4.92-2.184 4.92-4.879c0-2.694-2.203-4.878-4.92-4.878zm0 8.044c-1.764 0-3.194-1.416-3.194-3.166 0-1.749 1.43-3.167 3.194-3.167s3.194 1.417 3.194 3.167-1.43 3.166-3.194 3.166zm5.115-9.376c-0.636 0-1.15 0.51-1.15 1.14s0.515 1.14 1.15 1.14 1.148-0.511 1.148-1.14-0.513-1.14-1.148-1.14z"></path></svg>
+          </a>
+        </li>
+        {{ /if }}
+        {{ if website_url }}
+        <li>
+          <a href="{{ website_url }}" class="social_icon footer_link" target="_blank" rel="nofollow">
+            <svg class="social_svg" style="max-width: 100px; display: inline-block; list-style: none;" aria-hidden="true" focusable="false" data-prefix="fas" fill="#a9a9a9" data-icon="external-link-alt" class="svg-inline--fa fa-external-link-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path></svg>  
+          </a>
+        </li>
+        {{ /if }}
+      </ul>
+    </section>
+    
+    <section class="vineyard_geography">
+      <h2 class="screenreader">Property Geography</h2>
+      {{ if size }}
+      <dl class="geo_third">
+        <dt>Size</dt>
+        <dd>{{ size }}</dd>
+      </dl>
+      {{ /if }}
+      {{ if location }}
+      <dl class="geo_third">
+        <dt>Location</dt>
+        <dd>{{ location }}</dd>
+      </dl>
+      {{ /if }}
+      {{ if distance_to_winery }}
+      <dl class="geo_third">
+        <dt>Distance to Le Cuvier</dt>
+        <dd>{{ distance_to_winery }}</dd>
+      </dl>
+      {{ /if }}
+    </section>
+    
+    {{ if intro }}
+    <section class="vineyard_intro vineyard_text">
+      <h2 class="screenreader">Vineyard Overview</h2>
+      {{ intro | nl2br }}
+    </section>
+    {{ /if }}
+    
+    {{ if grapes }}
+    <section class="vineyard_grapes">
+      <h2 class="v_subhead">Grapes Grown & Wines Sourced</h2>
+      <p class="grape_table_info">{{ title }} Vineyard grows the following grape varieties. <span aria-hidden="true">Varieties shown with a highlighted green background are sourced by Le Cuvier for our wines.</span><span class="screenreader">Varieties used in Le Cuvier wines are identified as "sourced by Le Cuvier".</span></p>
+      <div class="grape_table grape_table--4cols grape_table--collapse">
+        {{ grapes }}
+          <div class="grape_table-cell grape_table-cell--{{ if sourced_by_lc }}Yes{{ else }}No{{ /if }}">
+            {{ variety }} {{ if acres }}<span class="acres">{{ acres }}</span>{{ /if }}
+          </div>
+        {{ /grapes }}
+      </div>
+      {{ if sourcing_summary }}
+      <h3 class="screenreader">Table Summary</h3>
+      <p class="vineyard_sourcing">{{ sourcing_summary }}</p>
+      {{ /if }}
+    </section>
+    {{ /if }}
+    
+    {{ if history }}
+    <section class="vineyard_history vineyard_text">
+      <h2 class="v_subhead">Vineyard History</h2>
+      {{ history | nl2br }}
+    </section>
+    {{ /if }}
+    
+    {{ if farming_practices }}
+    <section class="vineyard_farming vineyard_text">
+      <h2 class="v_subhead">Farming Practices</h2>
+      {{ farming_practices | nl2br }}
+    </section>
+    {{ /if }}
+    
+    {{ if management }}
+    <section class="vineyard_mgmt vineyard_text">
+      <h2 class="v_subhead">Management</h2>
+      {{ management | nl2br }}
+    </section>
+    {{ /if }}
+  </article> 
+</main>

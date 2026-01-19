@@ -233,6 +233,14 @@ fields:
                           default: false
                           width: 33
 
+                      - handle: featured
+                        field:
+                          type: toggle
+                          display: Featured Card?
+                          instructions: 'If on, this card will be 130% larger and positioned first.'
+                          default: false
+                          width: 33
+
                       - handle: heading
                         field:
                           type: text

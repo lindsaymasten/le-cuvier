@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1767994616
+updated_at: 1768553525
 blocks:
   -
     id: memat9au
@@ -155,10 +155,11 @@ blocks:
   -
     id: mk61eofl
     heading: 'Upcoming Events'
-    limit: 4
-    show_past: false
+    limit: 5
+    show_past: true
     type: events_listing
     enabled: true
+    intro: "Here's an intro text for events at Le Cuvier Winery in Paso Robles, California. These events are very good and fancy, etc. And this text is their important introduction."
   -
     id: mjx1b8a5
     title: 'Wine & Food Pairing'
@@ -196,7 +197,7 @@ blocks:
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
     type: menu
-    enabled: false
+    enabled: true
   -
     id: mhemungq
     cards:
@@ -211,6 +212,7 @@ blocks:
         bg_type: image
         bg_image: 1y6a6729.jpeg
         heading: 'First Title'
+        featured: false
       -
         id: mhemv4wv
         members_only: false
@@ -220,6 +222,7 @@ blocks:
         link_type: none
         bg_type: color
         heading: 'Second Title'
+        featured: true
       -
         id: mhzcivw8
         members_only: false
@@ -229,6 +232,7 @@ blocks:
         link_type: none
         bg_type: image
         bg_image: 1y6a6940.jpg
+        featured: false
       -
         id: mhzcixdv
         members_only: false
@@ -238,8 +242,9 @@ blocks:
         link_type: none
         bg_type: image
         bg_image: _eee0245.jpg
+        featured: false
     type: promo_cards
-    enabled: false
+    enabled: true
   -
     id: mjxdpi4r
     title: 'Made up recipe'

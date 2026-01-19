@@ -1,0 +1,18 @@
+title: Footer
+data:
+  heading: 'Le Cuvier Winery'
+  tagline: 'We adore you, elliptical friends.'
+  contact_heading: Contact
+  contact_email: club@lcwine.com
+  contact_phone: '+1 805 238 5706'
+  contact_website: www.lcwine.com
+  location_heading: 'Tasting Room'
+  location_address: |
+    3333 Vine Hill Lane
+    Paso Robles, CA
+    93446
+  copyright_text: 'Le Cuvier Winery'
+  cta_heading: 'Cultivating the Cosmic Dance'
+  cta_text: 'The Elliptical Society is a wine club unlike any other. For those seeking to join the esteemed fellowship of the Elliptical Society, boundless joys and opportunities await.'
+  cta_button_text: 'Join Now'
+  cta_button_url: '/club'

@@ -15,6 +15,8 @@
   display: grid;
   gap: var(--pc-gap);
   padding: var(--pc-gap);
+  margin-bottom: clamp(2rem, 2rem + 3vw, 10rem) clamp(1.5rem, 2rem + 2vw, 7.5rem);
+  max-width: 105ch;
 }
 
 .wine-club-signup__heading {
@@ -49,9 +51,39 @@
 }
 
 @media (min-width: 640px) {
-  .wine-club-signup__clubs {
-    /* desktop: auto-fit comparison grid */
+  /* 1 club: centered with max-width */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  /* 2 clubs: 2 columns */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 3 clubs: 3 columns */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 4 clubs: 2 columns */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 5 clubs: 3 columns */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(5):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 6+ clubs: auto-fit */
+  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(6)) {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+
+  .wine-club-signup__clubs {
     align-items: start;
   }
 

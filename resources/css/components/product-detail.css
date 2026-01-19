@@ -111,6 +111,7 @@
     text-transform: uppercase;
     letter-spacing: 0.025em;
     font-size: 1.25rem;
+    text-align: left;
 }
 
 .pd-content .pd-titlebar .pd-price .c7-product__login-message > p {
@@ -123,7 +124,14 @@
   margin: 0;
 }
 
-.pd-titlebar .c7-product__add-to-cart__form,
+.pd-titlebar .c7-product__add-to-cart__form {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
 .pd-titlebar .c7-product__variant__price__title,
 .pd-titlebar .c7-product__add-to-cart__price__variant::before {
   display: none;
@@ -167,15 +175,15 @@
 
 .pd-buy .pd-buy-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-grow: 1;
-  gap: 24px;
 }
 
 .pd-buy-buttons button {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
   color: var(--text-color);
   border: solid 3px rgb(167 152 130 / 75%);
   padding: 16px;
@@ -228,6 +236,20 @@
 
 .pd-blend {
   margin-block-start: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.pd-blend .c7-chip {
+  display: flex;
+  background-color: rgb(224 216 202);
+  padding: 5px 13px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  letter-spacing: 0.005em;
+  line-height: 1;
 }
 
 .pd-vineyard .pd-h2 {

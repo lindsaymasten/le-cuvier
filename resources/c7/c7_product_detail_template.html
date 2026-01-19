@@ -32,15 +32,23 @@
                         ">
                         <c7-product-title>
                         </h1>
-                        <c7-product-title>
-                        </h1>
                         <div class="pd-price">
                             <c7-product-add-to-cart>
                         </div>
                     </header>
 
                     <c7-if product-meta-blend>
-                        <section class="pd-section pd-blend">
+                        <section class="pd-section pd-blend" x-data x-init="
+                            const text = $el.textContent.trim();
+                            if (!text) return;
+
+                            const varieties = text.split(',').map(v => v.trim()).filter(v => v);
+                            if (varieties.length === 0) return;
+
+                            $el.innerHTML = varieties.map(v =>
+                                `<span class='c7-chip'>${v}</span>`
+                            ).join('');
+                        ">
                             <c7-product-meta-blend type="html">
                         </section>
                     </c7-if>
@@ -51,8 +59,7 @@
 
                     <div class="pd-buy">
                     <div class="pd-buy-buttons">
-                        <button type="button" class="c7-buy case-buy btn" data-c7-qty="12">Case</button>
-                        <button type="button" class="c7-buy bottle-buy btn" data-c7-qty="1">Bottle</button>
+                        <button type="button" class="c7-buy bottle-buy btn" data-c7-qty="1">Add to Cart</button>
                     </div>
                     </div>
 
