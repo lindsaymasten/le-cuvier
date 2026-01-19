@@ -59,7 +59,6 @@
     /* 2 or 4 clubs: 2 columns */
     grid-template-columns: repeat(2, 1fr);
   }
-  }
 }
 
 @media (min-width: 640px) {
