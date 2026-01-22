@@ -8,5 +8,13 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1765783134
+updated_at: 1769071907
+blocks:
+  -
+    id: mkp6l50q
+    title: Recipes
+    query: latest
+    limit: 4
+    type: recipes_listing
+    enabled: true
 ---
