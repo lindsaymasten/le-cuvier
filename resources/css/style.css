@@ -368,7 +368,12 @@ input[type="submit"]:hover,
 /* Tock button override */
 .TockWidgetWrapper button {
   border-radius: inherit;
+}
 
+.TockDropdown-container button, input[type=button], 
+.TockDropdown-container input[type=submit], 
+.TockDropdown-container .btn {
+  border-radius: inherit;
 }
 
 div#Tock_widget_container>div.TockWidgetWrapper .TockButton-white {
