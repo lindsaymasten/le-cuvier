@@ -495,12 +495,12 @@ fields:
                 -
                   import: faqs
 
-            hero_home:
-              display: 'Hero'
-              icon: align-object-top
-              fields:
-                -
-                  import: hero_home
+            #hero_home:
+              #display: 'Hero'
+              #icon: align-object-top
+              #fields:
+                #-
+                  #import: hero_home
 
             newsletter:
               display: Newsletter
@@ -544,3 +544,12 @@ fields:
               fields:
                 -
                   import: testimonials
+
+            embed:
+              display: Embed
+              icon: code
+              fields:
+                -
+                  import: embed
+
+            

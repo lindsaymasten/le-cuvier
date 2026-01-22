@@ -1,0 +1,16 @@
+title: Embed
+fields:
+  -
+    handle: embed_code
+    field:
+      type: code
+      mode: html
+      display: Embed Code
+      instructions: Paste the full HTML/JS snippet
+
+  -
+    handle: embed_note
+    field:
+      type: text
+      display: Label (optional)
+      instructions: Internal label for editors. Not shown on the site.
