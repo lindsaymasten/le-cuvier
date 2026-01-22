@@ -61,56 +61,6 @@ blocks:
         content:
           -
             type: text
-            text: 'There is firm empirical evidence to the effect that yeast and other varied wine pathogens die of boredom unless given an interesting environment within which to practice their art. Thus, at Le Cuvier, we have firmly dedicated ourselves to making life as interesting as possible, while leaving the entire process of winemaking in the hands (so to speak) of the wild beasties. Indeed all human efforts in the effervescent process are evanescent.'
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'Simply put, wine is best when left to its own devices. Interference in the natural fermentation process is tolerated only wherein it extends the life of the creation. The deep-hued, opaque & intense character one experiences from Le Cuvier wines is borne from this hands-off approach, married with these three philosophies:'
-      -
-        type: orderedList
-        attrs:
-          start: 1
-        content:
-          -
-            type: listItem
-            content:
-              -
-                type: paragraph
-                content:
-                  -
-                    type: text
-                    text: 'Wild yeast fermentation is practiced exclusively.'
-          -
-            type: listItem
-            content:
-              -
-                type: paragraph
-                content:
-                  -
-                    type: text
-                    text: 'Dry-farmed fruit is chosen wherever possible.'
-          -
-            type: listItem
-            content:
-              -
-                type: paragraph
-                content:
-                  -
-                    type: text
-                    text: 'Each wine spends a minimum of 33 months in neutral oak, reaching uncommon maturity.'
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'Our resulting wines not only develop a complex array of flavors and aromas, but are also incredibly age-worthy.'
-      -
-        type: paragraph
-        content:
-          -
-            type: text
             text: 'Please note, our experiences are currently offered to guests 21 years of age or older.'
           -
             type: hardBreak
@@ -141,5 +91,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769076795
+updated_at: 1769077486
 ---
