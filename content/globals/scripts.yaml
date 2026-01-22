@@ -10,7 +10,7 @@ data:
           window,document,'script','https://www.exploretock.com/tock.js');
 
           tock('init', 'lecuvierwinery');
-          </script>
+      </script>
     mode: htmlmixed
   code_footer:
     code: null
