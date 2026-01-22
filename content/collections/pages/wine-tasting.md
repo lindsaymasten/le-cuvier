@@ -40,6 +40,14 @@ blocks:
         food: 'Food title'
         food_details: 'Food details.'
     type: menu
+    enabled: false
+  -
+    id: mkp9c1tx
+    embed_code:
+      code: '<a href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservations </a>'
+      mode: html
+    embed_note: Tock
+    type: embed
     enabled: true
 seo_noindex: false
 seo_nofollow: false
@@ -47,5 +55,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769074155
+updated_at: 1769074602
 ---
