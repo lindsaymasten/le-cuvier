@@ -126,6 +126,14 @@ blocks:
       mode: html
     embed_note: Tock
     type: embed
+    enabled: false
+  -
+    id: mkpajnno
+    embed_code:
+      code: '<div id="Tock_widget_container" href="https://www.exploretock.com/lecuvierwinery" data-tock-business="lecuvierwinery" data-tock-reserve="true" data-tock-display-mode="Inline" data-tock-color-mode="White" data-tock-experience-list=true data-tock-locale="en-us" data-tock-timezone="America/Los_Angeles" class="no-touch"></div>'
+      mode: html
+    embed_note: Tock
+    type: embed
     enabled: true
 seo_noindex: false
 seo_nofollow: false
@@ -133,5 +141,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769075962
+updated_at: 1769076795
 ---
