@@ -365,6 +365,16 @@ input[type="submit"]:hover,
   padding: 11px 20px;
 }
 
+/* Tock button override */
+.TockWidgetWrapper button {
+  border-radius: inherit;
+
+}
+
+div#Tock_widget_container>div.TockWidgetWrapper .TockButton-white {
+  color: var(--c7-primary-color-text);
+}
+
 /* Block button utility - matches c7-btn--primary styling */
 .btn--block-primary {
   display: inline-block;
