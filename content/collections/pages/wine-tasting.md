@@ -122,7 +122,7 @@ blocks:
   -
     id: mkp9zq86
     embed_code:
-      code: '<a href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservations </a>'
+      code: '<a class="largeLinkBtn" href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservation Options </a>'
       mode: html
     embed_note: Tock
     type: embed
@@ -133,5 +133,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769075826
+updated_at: 1769075962
 ---
