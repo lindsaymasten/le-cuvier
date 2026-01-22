@@ -6,7 +6,8 @@ data:
   title_separator: /
   site_name: 'Le Cuvier'
   hreflang_auto: false
-  json_ld_type: none
+  json_ld_type: organization
+  organization_name: 'Le Cuvier Winery'
   breadcrumbs: false
   sitemap_collections:
     - pages

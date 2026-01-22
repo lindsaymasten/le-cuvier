@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1768553525
+updated_at: 1768674443
 blocks:
   -
     id: memat9au
@@ -80,7 +80,7 @@ blocks:
     cta_label: 'View Club Options'
     cta_url: /club
     type: wine_club_signup
-    enabled: true
+    enabled: false
     clubs:
       -
         id: mjdaqtw3
@@ -158,7 +158,7 @@ blocks:
     limit: 5
     show_past: true
     type: events_listing
-    enabled: true
+    enabled: false
     intro: "Here's an intro text for events at Le Cuvier Winery in Paso Robles, California. These events are very good and fancy, etc. And this text is their important introduction."
   -
     id: mjx1b8a5
@@ -197,7 +197,7 @@ blocks:
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
     type: menu
-    enabled: true
+    enabled: false
   -
     id: mhemungq
     cards:
@@ -244,7 +244,7 @@ blocks:
         bg_image: _eee0245.jpg
         featured: false
     type: promo_cards
-    enabled: true
+    enabled: false
   -
     id: mjxdpi4r
     title: 'Made up recipe'
@@ -252,7 +252,6 @@ blocks:
     servings: 4-6
     prep_time: '15'
     cook_time: '25'
-    image: images/clayweb1.jpg
     caption: Caption
     ingredients: |-
       ingredient

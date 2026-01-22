@@ -3,7 +3,7 @@ data:
   platforms:
     -
       id: m32kbi2g
-      url: mika@lcwine.com
+      url: club@lcwine.com
       prefix: 'mailto:'
       type: email
       enabled: true
