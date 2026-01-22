@@ -38,7 +38,7 @@ tabs:
             handle: size
             field:
               type: text
-              display: 'Size (e.g., 130 acres)'
+              display: 'Size (eg, 130 acres)'
               width: 33
           -
             handle: location
