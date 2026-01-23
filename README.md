@@ -9,13 +9,13 @@ Winery ecommerce site built on **Statamic (Laravel)** using a **Commerce7** inte
 ## Deployment Workflow
 Uses Statamic Git Automation so that content and assets edited in the Statamic Control Panel are committed to GitHub automatically on save by the production server bot. Production deployment via Laravel Forge.
 - Templates, CSS, JavaScript, and configuration files are committed to GitHub from local test environment.
-- - Always pull before working locally.
-- - Before starting work:
+ - Always pull before working locally.
+ - Before starting work:
 ```
 git checkout main
 git pull origin main
 ```
-- - Do not edit content, users, or assets over SSH on production.
+ - Do not edit content, users, or assets over SSH on production.
 - Content, globals, users, and uploaded assets are edited in Statamic and are automatically committed and pushed to GitHub by Statamic Git Automation.
 
 ### Emergency Recovery
