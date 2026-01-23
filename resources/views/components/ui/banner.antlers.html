@@ -15,14 +15,30 @@
                 this.visible = false;
             } else {
                 this.visible = true;
+                this.$nextTick(() => this.updateFooterPadding());
+            }
+        },
+        updateFooterPadding() {
+            const footer = document.querySelector('footer');
+            if (footer && this.visible) {
+                const bannerHeight = this.$el.offsetHeight;
+                footer.style.paddingBottom = `${bannerHeight}px`;
+            }
+        },
+        removeFooterPadding() {
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.paddingBottom = '';
             }
         },
         dismiss() {
             this.visible = false;
+            this.removeFooterPadding();
             Cookies.set(this.cookieName, true, { expires: {{ banner:cookie_expires }} });
       },
     }"
     x-init="initBannerDisplay()"
+    @resize.window="updateFooterPadding()"
     class="banner fixed bottom-0 left-0 right-0 z-50 flex items-center gap-x-6 bg-foreground px-6 py-2.5 sm:px-3.5 sm:before:flex-1"
 >
     <div class="text-sm/6 text-white">
