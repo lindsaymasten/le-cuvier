@@ -13,7 +13,7 @@ data:
     - pages
   trackers_local: true
   trackers_staging: false
-  trackers_production: true
+  trackers_production: false
   use_google_site_verification: false
   use_fathom: false
   use_cloudflare_web_analytics: false
