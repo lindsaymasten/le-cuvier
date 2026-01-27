@@ -59,10 +59,14 @@
 >
   <div class="mobile-drawer-content">
     <button class="close-btn" id="drawer-close" aria-label="Close menu">&times;</button>
-    <li><a href="#">Tasting</a></li>
-    <li><a href="#">Wines</a></li>
-    <li><a href="#">Winemaking</a></li>
-    <li><a href="#">Club</a></li>
-    <li><a href="#">About</a></li>
+    <ul>
+    {{ nav handle="header" max_depth="1" select="title|url|is_external" }}
+      <li>
+        <a href="{{ url }}" {{ if is_external }}target="_blank" rel="noopener"{{ /if }}>
+          {{ title }}
+        </a>
+      </li>
+    {{ /nav }}
+    </ul>
   </div>
 </div>
