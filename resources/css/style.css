@@ -355,7 +355,6 @@ input[type="submit"]:hover,
 .c7-btn--primary, .c7-btn--primary--small {
   background: var(--color-text);
   color: var(--bg-color);
-
   border-radius: var(--c7-button-border-radius);
   font-size: var(--c7-font-size);
   font-family: var(--c7-font-family);
@@ -363,6 +362,16 @@ input[type="submit"]:hover,
   line-height: 1.5;
   min-height: 46px;
   padding: 11px 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .c7-btn--primary, .c7-btn--primary--small {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+  }
+  .c7-btn--primary:hover, .c7-btn--primary:active, .c7-btn--primary--small:hover, .c7-btn--primary--small:active {
+    color: var(--color-neutral-lt);
+  }
 }
 
 /* Tock button override */
