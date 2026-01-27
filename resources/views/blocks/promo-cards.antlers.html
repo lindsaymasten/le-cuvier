@@ -15,7 +15,7 @@
   </div>
 
   <div class="bento-grid">
-    {{ cards sort="featured:desc" }}
+    {{ cards }}
       {{ if members_only }}
         <template x-if="loggedIn">
           {{ partial src="blocks/partials/promo-card"
@@ -28,7 +28,6 @@
             :card_bg_type="bg_type"
             :card_bg_image="bg_image"
             :card_bg_color="bg_color"
-            :card_featured="featured"
           }}
         </template>
       {{ else }}
@@ -42,7 +41,6 @@
           :card_bg_type="bg_type"
           :card_bg_image="bg_image"
           :card_bg_color="bg_color"
-          :card_featured="featured"
         }}
       {{ /if }}
     {{ /cards }}

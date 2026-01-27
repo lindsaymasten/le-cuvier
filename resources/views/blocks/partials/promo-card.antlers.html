@@ -1,5 +1,5 @@
 {{ if card_link_type == 'internal' and card_link_entry }}
-  <a class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}" href="{{ card_link_entry:url }}">
+  <a class="box" href="{{ card_link_entry:url }}">
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
@@ -7,13 +7,7 @@
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        <img
-          src="{{ card_bg_image:url }}"
-          alt="{{ card_title }}"
-          loading="lazy"
-          decoding="async"
-          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
-        >
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
       {{ /if }}
     </div>
     <div class="get-started">
@@ -28,7 +22,7 @@
   </a>
 
 {{ elseif card_link_type == 'external' and card_link_url }}
-  <a class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}" href="{{ card_link_url }}" target="_blank" rel="noopener">
+  <a class="box" href="{{ card_link_url }}" target="_blank" rel="noopener">
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
@@ -36,13 +30,7 @@
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        <img
-          src="{{ card_bg_image:url }}"
-          alt="{{ card_title }}"
-          loading="lazy"
-          decoding="async"
-          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
-        >
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
       {{ /if }}
     </div>
     <div class="get-started">
@@ -57,7 +45,7 @@
   </a>
 
 {{ else }}
-  <article class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
+  <article class="box"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
@@ -65,13 +53,7 @@
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        <img
-          src="{{ card_bg_image:url }}"
-          alt="{{ card_title }}"
-          loading="lazy"
-          decoding="async"
-          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
-        >
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
       {{ /if }}
     </div>
   </article>
