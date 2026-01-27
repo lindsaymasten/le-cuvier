@@ -10,6 +10,22 @@ main > #c7-content {
     top: max(0px, 150px - 50%);
 }
 
+main.profile:has(#c7-content .c7-account-login) {
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    height: calc(100vh - 150px);
+}
+
+main.profile > #c7-content {
+    position: relative;
+    top: max(0px, 150px - 50%);
+}
+
+main.profile:has(#c7-content) {
+    display: block;
+}
+
 /* =========================================================
    Club Page Styling - Match wine-club-signup block
    ========================================================= */
