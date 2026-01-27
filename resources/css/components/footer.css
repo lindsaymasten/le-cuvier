@@ -131,7 +131,7 @@ footer:has(.scroll_complete_fade) {
   }
 }
 
-@media screen and (min-width: 880px) {
+@media screen and (max-width: 879px) {
   .logo.scroll_complete_fade {
   top: -1.5rem;
   left: 15rem;
