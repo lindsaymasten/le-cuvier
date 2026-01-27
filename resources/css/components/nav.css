@@ -343,18 +343,27 @@ navbar-left:before {
 .login-btn #c7-account {
   position: absolute;
   inset: 0;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Normalize whatever C7 injects so it fills the hit-area and stays invisible */
+/* Make C7 injected content fill and be clickable */
+.login-btn #c7-account .c7-user-nav__account {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login-btn #c7-account a,
-.login-btn #c7-account button,
-.login-btn #c7-account .c7-link {
+.login-btn #c7-account button {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -363,14 +372,10 @@ navbar-left:before {
   margin: 0;
   box-shadow: none;
   cursor: pointer;
-  color: transparent; /* hide any injected label text */
-}
-
-/* Hide C7-injected child elements inside the overlay control */
-.login-btn #c7-account a *,
-.login-btn #c7-account button *,
-.login-btn #c7-account .c7-link * {
-  display: none;
+  font-size: 0;
+  color: transparent;
+  text-indent: -9999px;
+  overflow: hidden;
 }
 
 /* === Cart widget (Commerce7) + badge === */
@@ -378,6 +383,26 @@ navbar-left:before {
   position: relative;
   width: 44px;
   height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* C7 renders the clickable button inside #c7-cart */
+.cart-wrap #c7-cart {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Normalize the C7 button to behave like an icon button */
+.cart-wrap #c7-cart .c7-link {
+  width: auto;
+  min-width: 20px;
+  height: 40px;
+  display: inline-flex;
   display: inline-flex;
   align-items: center;
   justify-content: center;
