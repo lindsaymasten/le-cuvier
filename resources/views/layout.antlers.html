@@ -48,7 +48,6 @@
         {{# --- Commerce7 JS (guarded by globals) --- #}}
         {{ if commerce7:enable_c7 && commerce7:tenant_id }}
             <script
-                type="text/javascript"
                 id="{{ commerce7:c7_script_id or 'c7-javascript' }}"
                 src="{{ commerce7:c7_js_url or 'https://cdn.commerce7.com/v2/commerce7.js' }}"
                 data-tenant="{{ commerce7:tenant_id }}"
