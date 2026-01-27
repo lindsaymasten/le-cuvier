@@ -1,75 +1,78 @@
 {{ if card_link_type == 'internal' and card_link_entry }}
-  <a class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}" href="{{ card_link_entry:url }}">
-    <div class="promo-card__media">
+  <a class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}" href="{{ card_link_entry:url }}">
+    <div class="box-content">
+      <div class="top-text">
+        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
+      </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
           src="{{ card_bg_image:url }}"
           alt="{{ card_title }}"
-          class="promo-card__img"
           loading="lazy"
           decoding="async"
+          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
         >
-      {{ elseif card_bg_type == 'color' and card_bg_color }}
-        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
       {{ /if }}
     </div>
-
-    <div class="promo-card__body">
-      <div class="promo-card__content">
-        {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
-        {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
-        {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
-      </div>
+    <div class="get-started">
+      <p>Get Started</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 12h13" />
+        <path d="M18 9l3 3l-3 3" />
+        <path d="M5.5 9.5l-2.5 2.5l2.5 2.5l2.5 -2.5z" />
+      </svg>
     </div>
   </a>
 
 {{ elseif card_link_type == 'external' and card_link_url }}
-  <a class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}" href="{{ card_link_url }}" target="_blank" rel="noopener">
-    <div class="promo-card__media">
+  <a class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}" href="{{ card_link_url }}" target="_blank" rel="noopener">
+    <div class="box-content">
+      <div class="top-text">
+        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
+      </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
           src="{{ card_bg_image:url }}"
           alt="{{ card_title }}"
-          class="promo-card__img"
           loading="lazy"
           decoding="async"
+          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
         >
-      {{ elseif card_bg_type == 'color' and card_bg_color }}
-        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
       {{ /if }}
     </div>
-
-    <div class="promo-card__body">
-      <div class="promo-card__content">
-        {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
-        {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
-        {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
-      </div>
+    <div class="get-started">
+      <p>Get Started</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 12h13" />
+        <path d="M18 9l3 3l-3 3" />
+        <path d="M5.5 9.5l-2.5 2.5l2.5 2.5l2.5 -2.5z" />
+      </svg>
     </div>
   </a>
 
 {{ else }}
-  <article class="promo-card{{ if card_featured }} promo-card--featured{{ /if }}">
-    <div class="promo-card__media">
+  <article class="box{{ if card_featured }} box--featured{{ /if }}{{ if card_image_position }} box--image-{{ card_image_position }}{{ /if }}"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
+    <div class="box-content">
+      <div class="top-text">
+        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
+      </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
         <img
           src="{{ card_bg_image:url }}"
           alt="{{ card_title }}"
-          class="promo-card__img"
           loading="lazy"
           decoding="async"
+          class="box-image{{ if card_image_position }} box-image--{{ card_image_position }}{{ /if }}"
         >
-      {{ elseif card_bg_type == 'color' and card_bg_color }}
-        <div class="promo-card__color" style="--promo-card-color: {{ card_bg_color }};" aria-hidden="true"></div>
       {{ /if }}
-    </div>
-
-    <div class="promo-card__body">
-      <div class="promo-card__content">
-        {{ if card_title }}<h3 class="promo-card__title">{{ card_title }}</h3>{{ /if }}
-        {{ if card_subtitle }}<div class="promo-card__subtitle">{{ card_subtitle }}</div>{{ /if }}
-        {{ if card_body }}<div class="promo-card__text">{{ card_body }}</div>{{ /if }}
-      </div>
     </div>
   </article>
 {{ /if }}

@@ -16,10 +16,23 @@ section:not(.product-cards):not(.promo-cards) {
   margin-top: 0;
 }
 
-section.product-cards,
-section.promo-cards {
-  margin-top: -150px;
+section.product-cards:first-of-type,
+section.promo-cards:first-of-type {
+  margin-top: -74px;
   padding-top: 0;
+}
+
+section.product-cards:not(:first-of-type),
+section.promo-cards:not(:first-of-type) {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (max-width: 1024px) {
+  section.product-cards:first-of-type,
+  section.promo-cards:first-of-type {
+    margin-top: -60px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -27,8 +40,26 @@ section.promo-cards {
     padding-top: 120px;
   }
 
-  section.product-cards,
-  section.promo-cards {
+  section.product-cards:first-of-type,
+  section.promo-cards:first-of-type {
+    margin-top: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  section.product-cards:first-of-type,
+  section.promo-cards:first-of-type {
+    margin-top: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 120px;
+  }
+
+  section.product-cards:first-of-type,
+  section.promo-cards:first-of-type {
     margin-top: -120px;
   }
 }

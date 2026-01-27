@@ -14,7 +14,7 @@
     <div id="c7-login"></div>
   </div>
 
-  <div class="promo-cards__bento">
+  <div class="bento-grid">
     {{ cards sort="featured:desc" }}
       {{ if members_only }}
         <template x-if="loggedIn">
@@ -48,3 +48,4 @@
     {{ /cards }}
   </div>
 </section>
+
