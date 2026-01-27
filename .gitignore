@@ -22,3 +22,21 @@ yarn-error.log
 /public/build/
 /public/css/
 /public/js/
+
+# Statamic Content - Ignore content files but keep structure
+/content/collections/*/*.md
+/content/globals/*.yaml
+!/content/globals/.gitkeep
+/content/navigation/*.yaml
+!/content/navigation/.gitkeep
+/content/trees/**/*.yaml
+!/content/trees/**/.gitkeep
+/content/assets/**/*
+!/content/assets/.gitkeep
+!/content/assets/assets.yaml
+/users/*.yaml
+!/users/.gitkeep
+
+# Keep taxonomy and collection definitions
+!/content/taxonomies/**/*.yaml
+!/content/collections/**/.gitkeep
