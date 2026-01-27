@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769504683
+updated_at: 1769505200
 blocks:
   -
     id: memat9au
@@ -74,6 +74,54 @@ blocks:
             type: text
             text: ' To enjoy them is to accept this quirk of fate, as their limitations are a side effect of their exceptional character.'
     type: article
+    enabled: true
+  -
+    id: mhemungq
+    cards:
+      -
+        id: 65Llqbdm
+        members_only: false
+        title: 'Testing 123'
+        subtitle: 'optional subtitle test test'
+        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
+        link_type: internal
+        link_entry: 84b0c988-3fdc-4f37-a548-df1d444961a4
+        bg_type: image
+        bg_image: 1y6a6729.jpeg
+        heading: 'First Title'
+        featured: false
+      -
+        id: mhemv4wv
+        members_only: false
+        title: 'members only test'
+        subtitle: Subtitle
+        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
+        link_type: none
+        bg_type: color
+        heading: 'Second Title'
+        featured: true
+        bg_color: '#be2323'
+      -
+        id: mhzcivw8
+        members_only: false
+        heading: 'Test test Test'
+        subtitle: kjwebfkiu
+        body: erajhi43yug8i
+        link_type: none
+        bg_type: image
+        bg_image: 1y6a6940.jpg
+        featured: false
+      -
+        id: mhzcixdv
+        members_only: false
+        heading: rflkejoit34
+        subtitle: dsfmrwliuh
+        body: reglemliuhr3i8
+        link_type: none
+        bg_type: image
+        bg_image: _eee0245.jpg
+        featured: false
+    type: promo_cards
     enabled: true
   -
     id: mjd8zaz0
@@ -198,53 +246,6 @@ blocks:
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
     type: menu
     enabled: false
-  -
-    id: mhemungq
-    cards:
-      -
-        id: 65Llqbdm
-        members_only: false
-        title: 'Testing 123'
-        subtitle: 'optional subtitle test test'
-        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
-        link_type: internal
-        link_entry: 84b0c988-3fdc-4f37-a548-df1d444961a4
-        bg_type: image
-        bg_image: 1y6a6729.jpeg
-        heading: 'First Title'
-        featured: false
-      -
-        id: mhemv4wv
-        members_only: false
-        title: 'members only test'
-        subtitle: Subtitle
-        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
-        link_type: none
-        bg_type: color
-        heading: 'Second Title'
-        featured: true
-      -
-        id: mhzcivw8
-        members_only: false
-        heading: 'Test test Test'
-        subtitle: kjwebfkiu
-        body: erajhi43yug8i
-        link_type: none
-        bg_type: image
-        bg_image: 1y6a6940.jpg
-        featured: false
-      -
-        id: mhzcixdv
-        members_only: false
-        heading: rflkejoit34
-        subtitle: dsfmrwliuh
-        body: reglemliuhr3i8
-        link_type: none
-        bg_type: image
-        bg_image: _eee0245.jpg
-        featured: false
-    type: promo_cards
-    enabled: true
   -
     id: mjxdpi4r
     title: 'Made up recipe'
