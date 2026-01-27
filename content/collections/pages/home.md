@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769505200
+updated_at: 1769507168
 blocks:
   -
     id: memat9au
@@ -80,7 +80,7 @@ blocks:
     cards:
       -
         id: 65Llqbdm
-        members_only: false
+        members_only: true
         title: 'Testing 123'
         subtitle: 'optional subtitle test test'
         body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
