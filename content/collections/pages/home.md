@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1768674443
+updated_at: 1769504683
 blocks:
   -
     id: memat9au
@@ -208,7 +208,7 @@ blocks:
         subtitle: 'optional subtitle test test'
         body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
         link_type: internal
-        link_entry: 200a3990-53bd-444b-aa9a-9833d694d804
+        link_entry: 84b0c988-3fdc-4f37-a548-df1d444961a4
         bg_type: image
         bg_image: 1y6a6729.jpeg
         heading: 'First Title'
@@ -244,7 +244,7 @@ blocks:
         bg_image: _eee0245.jpg
         featured: false
     type: promo_cards
-    enabled: false
+    enabled: true
   -
     id: mjxdpi4r
     title: 'Made up recipe'
