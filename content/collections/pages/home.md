@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769509776
+updated_at: 1769509794
 blocks:
   -
     id: memat9au
@@ -122,7 +122,7 @@ blocks:
         bg_image: _eee0245.jpg
         featured: false
     type: promo_cards
-    enabled: true
+    enabled: false
   -
     id: mjd8zaz0
     cta_label: 'View Club Options'
