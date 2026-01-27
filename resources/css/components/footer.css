@@ -40,6 +40,7 @@ footer {
 .footer_upper .footer_info_wrap {
   display: flex;
   flex-basis: 100vw;
+  justify-content: space-between;
 }
 
 .footer_upper .footer_column p, .footer_list {
@@ -127,6 +128,16 @@ footer:has(.scroll_complete_fade) {
 @media screen and (min-width: 880px) {
   footer:has(.scroll_complete_fade) {
     padding-top: 5vw;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .logo.scroll_complete_fade {
+  top: -1.5rem;
+  left: 15rem;
+  }
+  .logo.scroll_complete_fade.visible {
+    opacity: 0.3;
   }
 }
 
