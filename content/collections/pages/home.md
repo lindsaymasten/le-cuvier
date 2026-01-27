@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769509075
+updated_at: 1769509776
 blocks:
   -
     id: memat9au
@@ -88,7 +88,7 @@ blocks:
         link_entry: 84b0c988-3fdc-4f37-a548-df1d444961a4
         bg_type: image
         bg_image: 1y6a6729.jpeg
-        heading: 'First Title'
+        heading: 'First Title Test'
         featured: false
       -
         id: mhemv4wv
@@ -122,7 +122,7 @@ blocks:
         bg_image: _eee0245.jpg
         featured: false
     type: promo_cards
-    enabled: false
+    enabled: true
   -
     id: mjd8zaz0
     cta_label: 'View Club Options'
