@@ -169,6 +169,13 @@ navbar-left:before {
   border-bottom: 1px solid #bad0e18f;
 }
 
+@media (prefers-color-scheme: dark) {
+  .main-nav:before {
+  background: #ffffff70;
+  border-bottom: 1px solid #bad0e18f;
+}
+})
+
 /* center-logo base (mobile-visible; desktop hidden below) */
 .center-logo {
   display: flex; justify-content: center; align-items: center;
