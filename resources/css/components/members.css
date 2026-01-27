@@ -2,6 +2,7 @@ main:has(#c7-content .c7-account-login) {
     align-content: center;
     justify-content: center;
     position: relative;
+    height: calc(100vh - 150px);
 }
 
 main > #c7-content {
