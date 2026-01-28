@@ -17,17 +17,17 @@
   display: flex;
   align-items: stretch; /* equal height columns */
   width: 100%;
-  min-height: 100vh;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 150px);
   overflow: visible;
-  padding-top: 90px;
   box-sizing: border-box;
+  padding-bottom: 2.5rem;
 }
 @media (max-width: 900px) {
   .pd-top {
     flex-direction: column;
     height: auto;
     min-height: auto;
+    padding-bottom: 0;
   }
 }
 
@@ -165,7 +165,7 @@
 }
 
 .pd-teaser {
-  margin: 2.5rem 0 1.5rem 0;
+  margin: 2.5rem 0 0.5rem 0;
 }
 
 .pd-buy {
@@ -193,9 +193,9 @@
 
 .pd-buy-buttons button:hover {
   text-decoration: none;
-  border: solid 3px var(--text-color);
-  background: var(--text-color);
-  color: var(--bg-color);
+  border: solid 3px var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 
 .pd-buy .c7-product__add-to-cart__price, 
@@ -226,7 +226,8 @@
 
 .pd-section .c7-chip {
   display: flex;
-  background-color: rgb(224 216 202);
+  background-color: var(--color-accent-500);
+  color: var(--color-surface);
   padding: 5px 13px;
   border-radius: 5px;
   font-size: 0.9rem;
@@ -234,7 +235,7 @@
   line-height: 1;
 }
 
-.pd-blend {
+section.pd-section.pd-blend {
   margin-block-start: 3.5rem;
   display: flex;
   flex-wrap: wrap;
