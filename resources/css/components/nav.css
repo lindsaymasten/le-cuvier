@@ -171,10 +171,10 @@ navbar-left:before {
 
 @media (prefers-color-scheme: dark) {
   .main-nav:before {
-  background: #ffffff70;
-  border-bottom: 1px solid #bad0e18f;
+    background: #ffffff70;
+    border-bottom: 1px solid #bad0e18f;
+  }
 }
-})
 
 /* center-logo base (mobile-visible; desktop hidden below) */
 .center-logo {
