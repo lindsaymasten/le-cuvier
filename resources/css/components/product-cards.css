@@ -74,10 +74,22 @@
     border-radius 0.35s var(--pc-ease);
 }
 .product-cards .product-card:hover::after,
-.product-cards .product-card:focus-within::after { 
+.product-cards .product-card:focus-within::after {
   opacity: 1;
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);  
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .product-cards .product-card::after {
+    mix-blend-mode: color;
+  }
+  .product-cards .product-card:hover::after,
+  .product-cards .product-card:focus-within::after {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
 }
 
 /* Hover lift / rounded corners */
