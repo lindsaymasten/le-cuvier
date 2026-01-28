@@ -344,7 +344,7 @@ section.pd-section.pd-blend {
   color: var(--pd-ink);
   background: var(--pd-bg);
   position: relative;
-  padding-top: clamp(100px, 18vw, 280px);
+  /*padding-top: clamp(100px, 18vw, 280px);*/
 }
 
 /*
