@@ -22,7 +22,6 @@ main.profile > #c7-content {
     top: max(0px, 150px - 50%);
 }
 
-=======
 main.profile:has(#c7-content) {
     display: block;
 }
