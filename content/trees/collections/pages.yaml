@@ -2,6 +2,8 @@ tree:
   -
     entry: home
   -
+    entry: 93722fad-6f4e-4c4d-9d73-2ccea90be58f
+  -
     entry: 4bc7aa8c-ec45-4ae0-b5b7-50042d91ce57
   -
     entry: bd55cf14-8ac8-4fa5-86b2-144950e8c509
@@ -18,5 +20,3 @@ tree:
     entry: 506c8e50-bc23-4c16-b691-c8aca71c1258
   -
     entry: d5b91fca-4c39-419c-945c-e421f67f19fd
-  -
-    entry: 93722fad-6f4e-4c4d-9d73-2ccea90be58f
