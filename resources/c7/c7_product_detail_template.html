@@ -103,56 +103,72 @@
         </div>
 
         <c7-if product-meta-ph>
-            <section class="pd-section pd-chem" aria-label="Chemistry">
-                <div class="pd-table" role="table" aria-label="pH TA RS">
-                <div class="pd-row" role="row">
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">pH </div><div class="pd-v"><c7-product-meta-ph></div>
-                    </div>
+        <section class="pd-meta-grid" aria-label="Production details">
+            <div class="pd-meta-grid__inner">
+                <div class="pd-meta-grid__row pd-meta-grid__row--top">
+                    <div class="pd-meta-grid__top">
+                        <div class="pd-meta-grid__cell pd-meta-grid__ava">
+                            <div class="pd-meta-grid__kicker">AVA</div>
+                            <div class="pd-meta-grid__value pd-meta-grid__value--lg">
+                                <c7-product-meta-ava>
+                            </div>
+                        </div>
 
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">TA </div><div class="pd-v"><c7-product-meta-ta></div>
-                    </div>
-
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">RS </div><div class="pd-v"><c7-product-meta-rs></div>
+                        <div class="pd-meta-grid__cell pd-meta-grid__vineyards">
+                            <div class="pd-meta-grid__kicker pd-meta-grid__kicker--right">Vineyards</div>
+                            <div class="pd-meta-grid__value pd-meta-grid__value--lg pd-meta-grid__value--right">
+                                <c7-product-meta-vineyard>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </section>
-        </c7-if>
 
-        <c7-if product-meta-total-barrel>
-            <section class="pd-section pd-aging" aria-label="Aging">
-                <div class="pd-table" role="table" aria-label="Barrels and Sur Lie">
-                <div class="pd-row" role="row">
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">Barrels </div><div class="pd-v"><c7-product-meta-total-barrel></div>
-                    </div>
+                <div class="pd-meta-grid__row pd-meta-grid__row--mid">
+                    <div class="pd-meta-grid__mid">
+                        <div class="pd-meta-grid__cell pd-meta-grid__aging">
+                            <div class="pd-meta-grid__kicker">Aging</div>
+                            <div class="pd-meta-grid__value pd-meta-grid__value--md">
+                                Sur Lie: <c7-product-meta-sure-lie><br />
+                                Total Barrel: <c7-product-meta-total-barrel>
+                            </div>
+                        </div>
 
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">Sur Lie </div><div class="pd-v"><c7-product-meta-sure-lie></div>
-                    </div>
-                </div>
-                </div>
-            </section>
-        </c7-if>
-
-        <c7-if product-meta-cases-bottled>
-            <section class="pd-section pd-bottling" aria-label="Bottling Information">
-                <div class="pd-table" role="table" aria-label="Bottling Date and Cases Bottled">
-                <div class="pd-row" role="row">
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">Bottling Date </div><div class="pd-v"><c7-product-meta-bottling-date></div>
-                    </div>
-
-                    <div class="pd-cell" role="cell">
-                    <div class="pd-k">Cases Bottled </div><div class="pd-v"><c7-product-meta-cases-bottled></div>
+                        <div class="pd-meta-grid__cell pd-meta-grid__bottling">
+                            <div class="pd-meta-grid__kicker pd-meta-grid__kicker--right">Bottling</div>
+                            <div class="pd-meta-grid__value pd-meta-grid__value--md pd-meta-grid__value--right">
+                                Cases Bottled: <c7-product-meta-cases-bottled><br />
+                                Bottling Date: <c7-product-meta-bottling-date>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="pd-meta-grid__row pd-meta-grid__row--bottom">
+                    <div class="pd-meta-grid__bottom">
+                        <div class="pd-meta-grid__kicker">Technical Notes</div>
+
+                        <div class="pd-meta-grid__tech-values" role="list">
+                            <div class="pd-meta-grid__metric" role="listitem">
+                                <span class="pd-meta-grid__metric-label">pH:</span>
+                                <span class="pd-meta-grid__metric-value"><c7-product-meta-ph></span>
+                            </div>
+
+                            <div class="pd-meta-grid__metric" role="listitem">
+                                <span class="pd-meta-grid__metric-label">TA:</span>
+                                <span class="pd-meta-grid__metric-value"><c7-product-meta-ta></span>
+                                <span class="pd-meta-grid__metric-unit">g TAR/100ML</span>
+                            </div>
+
+                            <div class="pd-meta-grid__metric pd-meta-grid__metric--right" role="listitem">
+                                <span class="pd-meta-grid__metric-label">RS:</span>
+                                <span class="pd-meta-grid__metric-value"><c7-product-meta-rs></span>
+                                <span class="pd-meta-grid__metric-unit">g/100ML</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </c7-if>
+            </div>
+        </section>
 
         <div class="pd-video">
             <div class="video-content">
