@@ -188,13 +188,8 @@ main#content > article {
   --c7-primary-color-text: var(--color-text);
   --c7-primary-color-dark: var(--color-accent-600);
   --c7-primary-color-focus: var(--color-accent);
-  --c7-link-color: var(--color-accent);
 
-  @media prefers-color-scheme: dark {
-    .c7-message, .c7-carrot {
-      background: var(--color-surface);
-    }
-  }
+  --c7-link-color: var(--color-accent);
 
   /* Surfaces / borders */
   --c7-bg: var(--color-bg);

@@ -26,10 +26,6 @@ main.profile:has(#c7-content) {
     display: block;
 }
 
-.c7-account__menu li:has(a[href*="reservation"]) {
-    display: none;
-}
-
 /* =========================================================
    Club Page Styling - Match wine-club-signup block
    ========================================================= */
