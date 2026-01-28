@@ -170,9 +170,60 @@ navbar-left:before {
 }
 
 @media (prefers-color-scheme: dark) {
+  /* Main nav container */
+  .main-nav {
+    background: linear-gradient(to bottom, rgba(35, 38, 40, 0.6) 0%, transparent 50%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.4),
+      inset 0 0 40px 20px rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+  }
+  
   .main-nav:before {
-    background: #ffffff70;
-    border-bottom: 1px solid #bad0e18f;
+    background: rgba(21, 22, 23, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+  }
+
+  /* Logo */
+  .center-logo svg,
+  .logo-slot svg {
+    filter: invert(1) brightness(0.95);
+  }
+
+  /* Right section (cart/login) */
+  .navbar-right {
+    background: linear-gradient(to bottom, rgba(35, 38, 40, 0.6) 0%, transparent 50%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.4),
+      inset 0 0 40px 20px rgba(255, 255, 255, 0.03);
+  }
+  
+  .navbar-right:before {
+    background: rgba(21, 22, 23, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+  }
+
+  /* Left section (if used) */
+  .navbar-left {
+    background: linear-gradient(to bottom, rgba(35, 38, 40, 0.6) 0%, transparent 50%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.4),
+      inset 0 0 40px 20px rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(90%);
+  }
+  
+  .navbar-left:before {
+    background: rgba(21, 22, 23, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
