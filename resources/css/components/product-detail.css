@@ -347,6 +347,7 @@ section.pd-section.pd-blend {
   padding-top: clamp(100px, 18vw, 280px);
 }
 
+/*
 .pd-meta-grid::before {
   content: "";
   position: absolute;
@@ -361,7 +362,7 @@ section.pd-section.pd-blend {
 .pd-meta-grid,
 .pd-meta-grid * {
   box-sizing: border-box;
-}
+}*/
 
 .pd-meta-grid__inner {
   width: min(1100px, 100%);
