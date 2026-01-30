@@ -22,11 +22,11 @@ tree:
       -
         id: de58fcc1-fe3f-4b89-855b-b96423b87c64
         title: Terms
-        url: '#'
+        url: /terms
       -
         id: 95168561-8954-407f-b2c2-691d56231500
         title: Privacy
-        url: '#'
+        url: /privacy
   -
     id: 4a3e3ee2-331b-4fad-8293-af6ef3089cd9
     title: Resources
