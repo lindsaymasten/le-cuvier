@@ -1,8 +1,7 @@
 name: Mika
-super: false
 roles:
   - winery_admin
 groups:
   - winery
 id: c9a05d23-3623-4986-a31d-642880558c7f
-password: elliptical
+password_hash: $2y$12$lAyb1LTAUWRNPANwamR./.hmnGWpVc4HbHPcUfssZXB45OgHEr2q.
