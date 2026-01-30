@@ -176,3 +176,11 @@ main.club .c7-club, .c7-reservation-type {
     max-width: unset;
     margin: unset;
 }
+
+/* =========================================================
+   MEMBER LOGIN ACCOUNT NUKE BUTTON HIDE
+   ========================================================= */
+
+.c7-account-details__delete-account {
+  display: none;
+}
