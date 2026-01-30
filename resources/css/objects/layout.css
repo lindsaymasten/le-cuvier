@@ -16,7 +16,7 @@ section:not(.product-cards):not(.promo-cards):not(.pd-blend) {
   margin-top: 0;
 }
 
-/* 
+
 section.product-cards:first-of-type,
 section.promo-cards:first-of-type {
   margin-top: -74px;
@@ -64,4 +64,4 @@ section.promo-cards:not(:first-of-type) {
     margin-top: -120px;
   }
 }
-  */
+  
