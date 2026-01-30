@@ -153,7 +153,7 @@
 
 main.club .c7-club__details {
     display: grid;
-    align-content: space-around;
+    align-content: space-between;
 }
 
 main.club .c7-btn--primary {
