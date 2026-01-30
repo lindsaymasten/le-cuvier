@@ -1,13 +1,25 @@
 tree:
   -
-    id: e2b72cc1-795c-4b38-ae70-69e9714b0610
-    title: Terms
-    url: /terms
-  -
     id: 7729099b-6d44-4a1a-a85f-3a3a80673769
     title: Privacy
     url: /privacy
   -
+    id: e2b72cc1-795c-4b38-ae70-69e9714b0610
+    title: Terms
+    url: /terms
+  -
+    id: e86d907c-7689-433c-93e0-6cab8a17bb3c
+    title: 'Returns & Cancellations'
+    url: /returns
+  -
+    id: 504de079-28ad-41e2-a22d-c332f5a03cfa
+    title: Copyright
+    url: copyright
+  -
     id: 849b4dad-9041-401e-a3f6-2c0a7cb4470c
     title: Accessibility
     url: /accessibility
+  -
+    id: 1716fcfe-8bb1-4512-9d41-14bfb7fadcf1
+    title: Shipping
+    url: shipping
