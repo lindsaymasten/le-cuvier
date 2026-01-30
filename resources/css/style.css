@@ -389,6 +389,11 @@ div#Tock_widget_container>div.TockWidgetWrapper .TockButton-white {
   color: var(--c7-primary-color-text);
 }
 
+.block-embed {
+  display: flex;
+  align-self: center;
+}
+
 /* Block button utility - matches c7-btn--primary styling */
 .btn--block-primary {
   display: inline-block;
