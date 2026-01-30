@@ -12,7 +12,7 @@ body {
   padding-top: 150px;
 }
 
-section:not(.product-cards):not(.promo-cards) {
+section:not(.product-cards):not(.promo-cards):not(.pd-blend) {
   margin-top: 0;
 }
 

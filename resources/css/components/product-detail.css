@@ -124,6 +124,10 @@
   margin: 0;
 }
 
+.pd-price {
+  min-width: fit-content;
+}
+
 .pd-titlebar .c7-product__add-to-cart__form {
   position: absolute;
   opacity: 0;
@@ -143,15 +147,16 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   max-width: 28ch;
+  margin-left: 2em;
 }
 
 .pd-vintage {
   font-size: initial;
   display: inline-block;
-  position: relative;
-  transform: rotate(270deg);
+  position: absolute;
+  transform: rotate(270deg) translate(-35%);
   left: -1.5ch;
-  top: -20%;
+  top: 0;
 }
 
 .pd-vintage::after {
