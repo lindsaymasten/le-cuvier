@@ -148,3 +148,14 @@
   margin-block: 1rem;
   text-align: center;
 }
+
+/* Override C7 Styles */
+
+main.club .c7-club__details {
+    display: grid;
+    align-content: space-around;
+}
+
+main.club .c7-btn--primary {
+  height 3rem
+}
