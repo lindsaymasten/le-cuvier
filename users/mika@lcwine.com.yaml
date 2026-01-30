@@ -5,4 +5,5 @@ roles:
 groups:
   - winery
 id: c9a05d23-3623-4986-a31d-642880558c7f
-password_hash: $2y$12$TTonuHpq4NQ8z8XKemStfeHcuvDwHU/7vyRpeTo.v6yAAdr0g8/W2
+password: elliptical
+password_hash: 
