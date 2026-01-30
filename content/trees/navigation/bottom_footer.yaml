@@ -7,3 +7,7 @@ tree:
     id: 7729099b-6d44-4a1a-a85f-3a3a80673769
     title: Privacy
     url: /privacy
+  -
+    id: 849b4dad-9041-401e-a3f6-2c0a7cb4470c
+    title: Accessibility
+    url: /accessibility
