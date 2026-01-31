@@ -57,7 +57,9 @@ blocks:
             type: text
             text: 'Though our winery is tiny by every standard, our wines express cosmic attitude, a fine degree of hubris & exuberant dimension. Our grapes are all from gnarly limestone vineyards in the hills west of Paso Robles. Vine yields are unreasonably low, & of consequence the resultant wines reflect the essence of individuality & intense character that only comes from grapes which grow up rough & live hard.'
       -
-        type: paragraph
+        type: codeBlock
+        attrs:
+          language: null
         content:
           -
             type: text
@@ -97,5 +99,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1769819370
+updated_at: 1769819420
 ---
