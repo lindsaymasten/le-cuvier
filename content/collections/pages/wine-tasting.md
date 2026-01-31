@@ -61,10 +61,7 @@ blocks:
         content:
           -
             type: text
-            marks:
-              -
-                type: code
-            text: '<div><span class="small"><strong><span data-mce-style="color: #567d77;" style="font-family: &quot;Quattrocento Sans&quot;, sans-serif; font-size: 0.85em; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(86, 125, 119);">current lunch </span></strong><span style="font-family: &quot;Quattrocento Sans&quot;, sans-serif; font-size: 0.85em; letter-spacing: 0.1em; text-transform: uppercase;">| tuscan minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale, served with back porch bakery baguette&nbsp;&nbsp;</span><span style="font-size: 0.85em; letter-spacing: 0.1em;">(updated 12-12-2025)</span></span></div>'
+            text: '<span data-mce-style="color: #567d77;" style="color: rgb(86, 125, 119);">current lunch</span>| tuscan minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale, served with back porch bakery baguette&nbsp;&nbsp;</span><span style="font-size: 0.85em; letter-spacing: 0.1em;">(updated 12-12-2025)</span>'
       -
         type: paragraph
         content:
@@ -100,5 +97,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1769819240
+updated_at: 1769819370
 ---
