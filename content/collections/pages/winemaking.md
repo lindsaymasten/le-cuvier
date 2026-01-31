@@ -11,15 +11,6 @@ blocks:
         content:
           -
             type: text
-            marks:
-              -
-                type: bold
-            text: "le cuvier winery production overview\_"
-      -
-        type: paragraph
-        content:
-          -
-            type: text
             text: "All of the grapes we use come from vineyards planted to calcareous (limestone) soils in the hills west of Paso Robles.\_"
       -
         type: paragraph
@@ -95,37 +86,7 @@ blocks:
             marks:
               -
                 type: italic
-            text: 'notes by john munch, wineherd and plenipotentiary'
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            marks:
-              -
-                type: italic
-            text: 'web '
-          -
-            type: text
-            text: 'lcwine.com | '
-          -
-            type: text
-            marks:
-              -
-                type: italic
-            text: 'email '
-          -
-            type: text
-            text: 'club@lcwine.com | 3333 vine hill lane | paso robles, ca 93446 | '
-          -
-            type: text
-            marks:
-              -
-                type: italic
-            text: 'ph. '
-          -
-            type: text
-            text: "805.238.5706\_"
+            text: 'notes by john munch, wineherd & plenipotentiary'
       -
         type: paragraph
         content:
@@ -157,5 +118,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1769819496
+updated_at: 1769819554
 ---
