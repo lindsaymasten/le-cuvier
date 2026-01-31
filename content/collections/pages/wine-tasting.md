@@ -57,14 +57,6 @@ blocks:
             type: text
             text: 'Though our winery is tiny by every standard, our wines express cosmic attitude, a fine degree of hubris & exuberant dimension. Our grapes are all from gnarly limestone vineyards in the hills west of Paso Robles. Vine yields are unreasonably low, & of consequence the resultant wines reflect the essence of individuality & intense character that only comes from grapes which grow up rough & live hard.'
       -
-        type: codeBlock
-        attrs:
-          language: null
-        content:
-          -
-            type: text
-            text: '<span data-mce-style="color: #567d77;" style="color: rgb(86, 125, 119);">current lunch</span>| tuscan minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale, served with back porch bakery baguette&nbsp;&nbsp;</span><span style="font-size: 0.85em; letter-spacing: 0.1em;">(updated 12-12-2025)</span>'
-      -
         type: paragraph
         content:
           -
@@ -99,5 +91,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1769819420
+updated_at: 1769819452
 ---
