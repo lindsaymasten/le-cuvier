@@ -61,6 +61,12 @@ blocks:
         content:
           -
             type: text
+            text: 'CURRENT LUNCH: Tuscan Minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale served with back porch bakery baguette.'
+      -
+        type: paragraph
+        content:
+          -
+            type: text
             text: 'Please note, our experiences are currently offered to guests 21 years of age or older.'
           -
             type: hardBreak
@@ -90,6 +96,6 @@ seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
-updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1769130107
+updated_by: c9a05d23-3623-4986-a31d-642880558c7f
+updated_at: 1769819152
 ---
