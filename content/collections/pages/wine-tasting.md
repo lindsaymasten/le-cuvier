@@ -51,6 +51,16 @@ blocks:
             type: text
             text: 'Promoting a non-interventionist approach to winemaking, we are a crew of quirky individuals making and selling very serious wild yeast fermented, neutral oak aged, dry farmed wine exclusively from the west side of Paso Robles.'
       -
+        type: set
+        attrs:
+          id: ml6ztzl2
+          values:
+            type: aside
+            aside: |-
+              CURRENT LUNCH →
+
+              tuscan minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale, served with back porch bakery baguette paired with 2022 Le Chien Tordu.
+      -
         type: paragraph
         content:
           -
@@ -91,5 +101,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1769819452
+updated_at: 1770147176
 ---
