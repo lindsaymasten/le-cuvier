@@ -187,7 +187,44 @@ main.club .c7-club, .c7-reservation-type {
 
 /* Wine Selection */
 
-/*
-.c7-modal-container.c7-account-club-shipment {
 
-}*/
+.c7-account-club__header__actions .c7-account-club-shipment {
+  display: block;
+}
+
+@media screen and (max-width: 1201px) {
+  .c7-order-items.c7-order-items--shipment-edit ul {
+  grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .c7-modal-container.c7-account-club-shipment main {
+    flex-direction: row;
+  }
+  .c7-account-club__header__actions {
+    justify-content: space-between;
+  }
+  .c7-account-club-shipment.c7-modal main {
+  flex-wrap: initial;
+  }
+  .c7-order-items.c7-order-items--shipment-edit ul {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+  .c7-order-items--shipment-edit .c7-order-item {
+    min-height: 11.5ch;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .c7-account-club-shipment .c7-modal {
+  max-width: calc(100% - 40px);
+  }
+}
+
+.c7-account-club-shipment .c7-order-item button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
