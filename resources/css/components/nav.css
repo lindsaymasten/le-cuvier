@@ -29,7 +29,7 @@
   position: fixed;
   top: 0; left: 0;
   height: 100%; width: 100%;
-  background: var(--bg-color);
+  background: var(--color-neutral-md);
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 9999;
@@ -44,10 +44,22 @@
   gap: 24px;
 }
 .mobile-drawer-content a {
-  font-size: 20px;
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 3.5rem;
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-weight-regular);
+}
+.mobile-drawer-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 5ch;
+  height: 3px;
+  border-bottom: 2px dotted var(--color-moss);
 }
 .close-btn {
   position: absolute;
