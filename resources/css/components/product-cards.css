@@ -150,6 +150,12 @@
 .product-cards .product-card:focus-within .product-details {
   top: 0;                    /* expand overlay */
 }
+@media  (max-width: 600px) {
+  .product-cards .product-card:hover .product-details,
+  .product-cards .product-card:focus-within .product-details {
+    top: 3rem;                    /* expand overlay */
+  }
+}
 .product-cards .product-card:hover .product-details .product-info,
 .product-cards .product-card:focus-within .product-details .product-info {
   opacity: 1;
@@ -305,6 +311,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  height: 5.5em;
   min-height: 100%;
   padding: 0.75ch;
   margin-top: 0.75ch;
@@ -387,6 +394,11 @@
   height: 100%;
   max-height: calc(100% - 20rem);
   z-index: -1;
+}
+@media (max-width: 600px) {
+  .product-cards .product-info h1:before {
+    bottom: 2.5rem;
+  }  
 }
 
 /* ── Layout (flex) ─────────────────────────────────────────── */
