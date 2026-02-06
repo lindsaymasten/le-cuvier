@@ -146,7 +146,19 @@ footer:has(.scroll_complete_fade) {
   width: 100%;
   max-width: 400px;
   height: auto;
-  fill: #d4cec6;
+  fill: var(--color-accent-700);
+}
+
+@media screen and (max-width: 600px) {
+  .logo.scroll_complete_fade {
+    top: -3.5rem;
+    left: 13.5rem;
+  }  
+  .footer_logo_svg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
 }
 
 /* Large Link Button */
