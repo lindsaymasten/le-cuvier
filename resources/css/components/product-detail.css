@@ -14,7 +14,7 @@
 }
 
 .pd-top {
-  display: flex;
+  display: flex; 
   align-items: stretch; /* equal height columns */
   width: 100%;
   height: calc(100vh - 150px);
