@@ -125,6 +125,7 @@
 }
 
 .pd-price {
+  margin-left: 0.5em;
   min-width: fit-content;
 }
 

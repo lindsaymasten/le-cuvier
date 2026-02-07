@@ -19,7 +19,7 @@
                             const t = ($el.textContent || '').trim();
                             if (!t || $el.querySelector('.pd-vintage')) return;
 
-                            const out = t.replace(/\b(19|20)\d{2}\b/, '<span class=\'pd-vintage\'>$&</span>');
+                            const out = t.replace(/\b(19|20)\d{2}\b/, '&nbsp;<span class=\'pd-vintage\'>$&</span>');
                             if (out !== t) {
                             $el.innerHTML = out;
                             if (obs) obs.disconnect();
@@ -103,7 +103,8 @@
         </div>
 
         <c7-if product-meta-ph>
-
+        <section class="pd-meta-grid" aria-label="Production details">
+            <div class="pd-meta-grid__inner">
                 <div class="pd-meta-grid__row pd-meta-grid__row--top">
                     <div class="pd-meta-grid__top">
                         <div class="pd-meta-grid__cell pd-meta-grid__ava">
