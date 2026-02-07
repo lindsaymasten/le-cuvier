@@ -496,3 +496,12 @@
 .product-cards .product-card:focus-within .c7-product__price {
   opacity: 1;
 }
+
+/* Two product cards blocks stacked */
+
+.product-cards + .product-cards, 
+section.product-cards:nth-of-type(2) {
+  position: relative;
+  margin-top: 64px;
+  margin-bottom: 2rem;
+}
