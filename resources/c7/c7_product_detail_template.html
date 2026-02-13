@@ -59,6 +59,11 @@
 
                     <div class="pd-buy">
                     <div class="pd-buy-buttons">
+                        <if product-meta-member-price>
+                            <div class="member-price" style="visibility: hidden;">
+                                <span><c7-product-meta-member-price></span>
+                            </div>
+                        </if>
                         <button type="button" class="c7-buy bottle-buy btn" data-c7-qty="1">Add to Cart</button>
                     </div>
                     </div>

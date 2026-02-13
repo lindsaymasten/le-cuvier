@@ -63,7 +63,8 @@
 }
 .close-btn {
   position: absolute;
-  top: 24px; right: 32px;
+  top: 24px; 
+  right: 32px;
   font-size: 32px;
   background: none; border: none;
   color: var(--text-color);
@@ -78,7 +79,7 @@
 /* === Nav Shell === */
 .navbar {
   position: fixed;
-  top: 40px;
+  top: 36px;
   left: 0;
   right: 0;
   margin-inline: auto;
@@ -541,6 +542,7 @@ navbar-left:before {
   color: white;
   display: none;
   z-index: 5;
+  pointer-events: none;
 }
 .cart-wrap.has-items .cart-count {
   display: inline-block;

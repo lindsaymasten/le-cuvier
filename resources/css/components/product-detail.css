@@ -61,6 +61,7 @@
 .pd-media c7-product-image {
   max-width: 100%;
   height: auto;
+  max-height: 68vh;
   display: block;
 }
 
@@ -152,6 +153,12 @@
     margin-left: 2em;
     height: 3.5ch;
     align-items: center;
+}
+
+@media (max-width: 400px) {
+  .pd-title:not(.pd-vintage) {
+    font-size: 2ch;
+  }
 }
 
 .pd-vintage {
@@ -532,10 +539,6 @@ section.pd-section.pd-blend {
   .pd-meta-grid__tech-values {
     grid-template-columns: 1fr;
     gap: 0.85rem;
-  }
-
-  .pd-meta-grid__value--right {
-    text-align: right;
   }
 
   .pd-meta-grid__metric {
