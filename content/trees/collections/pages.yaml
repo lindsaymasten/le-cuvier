@@ -19,9 +19,9 @@ tree:
   -
     entry: d5b91fca-4c39-419c-945c-e421f67f19fd
   -
-<<<<<<< HEAD
+  -
     entry: 2fe0e22f-1ab8-4f9b-98ff-5cbee6b7fdf3
-=======
+  -
     entry: 93722fad-6f4e-4c4d-9d73-2ccea90be58f
   -
     entry: 18037b90-4227-4643-b134-eef76df874e2
@@ -37,4 +37,4 @@ tree:
     entry: 6c422d4f-1850-4877-b26d-ad8f5270d82a
   -
     entry: 249ae1ea-e2b2-4c67-811f-865a6ebb8de1
->>>>>>> 4f2045b25a08cc495639ea6b22b78ea70cb719f1
+
