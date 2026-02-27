@@ -40,3 +40,7 @@ yarn-error.log
 # Keep taxonomy and collection definitions
 !/content/taxonomies/**/*.yaml
 !/content/collections/**/.gitkeep
+.local_backups/
+content/trees/collections/pages.yaml.CLEANED
+content/trees/collections/pages.yaml.CLEANED2
+content/trees/collections/pages.yaml.PRE-CLEANED2.*
