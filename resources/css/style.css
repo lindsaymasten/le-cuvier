@@ -224,6 +224,7 @@ main#content > article {
   /* Messages */
   --c7-info-bg: var(--color-neutral-md);
   --c7-success-bg: var(--color-teal-dark);
+  --c7-error-bg: var(--color-tomato);
 
   /* Loading / misc */
   --c7-loading-bg: var(--color-surface);

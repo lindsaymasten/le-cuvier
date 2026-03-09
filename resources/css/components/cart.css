@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-.c7-message--alert-error {
+.c7-content.c7-cart .c7-message--alert-error {
     display: none;
 }
 
