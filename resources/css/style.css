@@ -242,6 +242,10 @@ main#content > article {
   color: var(--color-text);
 }
 
+.c7-account__header .c7-link svg {
+  display: inline;
+}
+
 /* -------- Links -------- */
 a {
   color: var(--color-accent);
