@@ -221,6 +221,9 @@ main#content > article {
 
   --c7-button-border-radius: var(--radius-btn);
 
+  /* Messages */
+  --c7-info-bg: var(--color-neutral-md);
+
   /* Loading / misc */
   --c7-loading-bg: var(--color-surface);
   --c7-progress-bar: var(--color-accent-500);
