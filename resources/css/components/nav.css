@@ -428,8 +428,8 @@ navbar-left:before {
   justify-content: center;
 }
 
-.login-btn #c7-account a,
-.login-btn #c7-account button {
+.login-btn #c7-account.c7-account-link a,
+.login-btn #c7-account button { 
   position: absolute;
   inset: 0;
   width: 100%;
