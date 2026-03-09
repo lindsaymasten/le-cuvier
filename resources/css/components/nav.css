@@ -455,6 +455,11 @@ navbar-left:before {
   z-index: 250;
   width: 30px;
   height: 30px;
+  visibility: hidden;
+}
+
+.is-logged-in .login-indicator {
+  visibility: visible;
 }
 
 .login-indicator-icon {
