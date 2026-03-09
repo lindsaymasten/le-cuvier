@@ -449,6 +449,40 @@ navbar-left:before {
   overflow: hidden;
 }
 
+/* Login indicator badge (e.g. for "Account" vs "Login") */
+.login-indicator {
+  position: absolute;
+  z-index: 250;
+  width: 30px;
+  height: 30px;
+}
+
+.login-indicator-icon {
+  position: absolute;
+  width: 13px;
+  stroke-width: 2pt;
+  text-align: center;
+  background: var(--login-bg);
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 999px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 2.5pt 1px 2.5pt;
+  font-size: 12px;
+  line-height: 18px;
+  bottom: -9px;
+  left: -6px;
+  transform: translate(35%, -35%);
+}
+
+.c7-account-notification {
+  /* hide C7's default notification dot (we use our own badge) */
+  width: 1px;
+  height: 1px;
+}
+
 /* === Cart widget (Commerce7) + badge === */
 .cart-wrap {
   position: relative;
