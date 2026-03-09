@@ -467,7 +467,7 @@ navbar-left:before {
   width: 13px;
   stroke-width: 2pt;
   text-align: center;
-  background: var(--login-bg);
+  background: var(--color-success);
   color: #fff;
   z-index: 10;
   pointer-events: none;
