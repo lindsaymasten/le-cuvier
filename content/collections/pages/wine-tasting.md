@@ -121,7 +121,9 @@ blocks:
           id: ml70e0hw
           values:
             type: aside
-            aside: 'tuscan minestrone - mild italian sausage, mighty cap black pearl mushroom, garbanzo beans, etto shells, kale, served with back porch bakery baguette paired with 2022 Le Chien Tordu.'
+            aside: |-
+              SPRING RELEASE MONTH! 
+              A new chapter has arrived. Join us this March for a strictly limited engagement: experience the full breadth of our Spring 2026 collection through an interactive flight of seven wines and their thoughtfully tailored culinary counterparts. This bespoke experience is a seasonal privilege available only to our Elliptical Society Members. We invite you to journey to Paso Robles and immerse yourself in the alchemy that defines Le Cuvier.
       -
         type: paragraph
         content:
@@ -218,5 +220,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1773169387
+updated_at: 1773169962
 ---
