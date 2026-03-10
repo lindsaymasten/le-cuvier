@@ -51,9 +51,12 @@ blocks:
             type: text
             marks:
               -
-                type: bold
-              -
-                type: underline
+                type: link
+                attrs:
+                  href: 'https://www.exploretock.com/lecuvierwinery'
+                  rel: null
+                  target: null
+                  title: null
             text: 'Reserve now online (link below) or call our tasting room!'
       -
         type: paragraph
@@ -215,5 +218,5 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1770148689
+updated_at: 1773169387
 ---
