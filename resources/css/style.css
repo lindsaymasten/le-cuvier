@@ -227,6 +227,7 @@ main#content > article {
   --c7-warning-bg: var(--color-neutral-md);
   --c7-error-bg: var(--color-tomato);
 
+
   /* Loading / misc */
   --c7-loading-bg: var(--color-surface);
   --c7-progress-bar: var(--color-accent-500);
@@ -248,6 +249,13 @@ main#content > article {
 
 p + .c7-marker--small {
   margin-block-start: 1rem;
+}
+
+/* -------- Messages -------- */
+@light-mode {
+  .c7-message--alert-error p {
+    color: var(--color-accent-500);
+  }
 }
 
 /* -------- Links -------- */
