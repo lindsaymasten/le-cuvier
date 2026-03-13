@@ -70,3 +70,36 @@ Alpine.start()
 
   observer.observe(logo)
 })()
+
+// C7 Member page add link to change club under cancellation button
+function injectChangeClubLink() {
+  const actions = document.querySelector(
+    '.c7-account-blocks--status .c7-account-block__actions'
+  );
+
+  if (!actions) return false;
+  if (actions.querySelector('.lc-change-club-link')) return true;
+
+  const link = document.createElement('a');
+  link.href = 'mailto:club@lcwine.com';
+  link.textContent = 'Contact us to change clubs';
+  link.className = 'lc-change-club-link';
+
+  actions.appendChild(link);
+  return true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (injectChangeClubLink()) return;
+
+  let attempts = 0;
+  const maxAttempts = 40;
+
+  const interval = setInterval(() => {
+    attempts += 1;
+
+    if (injectChangeClubLink() || attempts >= maxAttempts) {
+      clearInterval(interval);
+    }
+  }, 500);
+});

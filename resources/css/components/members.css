@@ -177,6 +177,45 @@ main.club .c7-club, .c7-reservation-type {
     margin: unset;
 }
 
+.c7-link {
+    border-radius: var(--radius-xl);
+}
+
+/* =========================================================
+   Member Cancellation Button Add-on
+   ========================================================= */
+
+.c7-account-blocks--status .c7-account-block__header {
+  align-items: flex-start;
+}
+
+.c7-account-blocks--status .c7-account-block__actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.lc-change-club-link {
+  order: -1;
+  margin-right: 10px;
+  margin-bottom: 1rem;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;  
+  cursor: pointer;
+  color: var(--color-neutral-950);
+  background: var(--color-neutral-dk);
+  border: 0;
+  font-family: var(--c7-font-family);
+  font-size: var(--c7-font-size);
+  padding: 0.85em;
+  text-decoration: none;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-1);
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
 /* =========================================================
    MEMBER LOGIN ACCOUNT NUKE BUTTON HIDE
    ========================================================= */
