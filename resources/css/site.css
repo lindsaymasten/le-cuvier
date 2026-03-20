@@ -32,6 +32,7 @@
 @import './components/typography.css';
 @import './components/product-cards.css';
 @import './components/promo-cards.css';
+@import './components/links-block.css';
 @import './components/product-detail.css';
 @import './components/recipe.css';
 @import './components/recipes-listing.css';

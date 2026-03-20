@@ -316,6 +316,104 @@ fields:
                             bg_type: equals color
                           width: 33
 
+            links_block:
+              display: Links Block
+              instructions: 'Manually curated link cards for events, recipes, and more.'
+              icon: dashboard-layout
+              fields:
+                - handle: cards
+                  field:
+                    type: grid
+                    display: Cards
+                    instructions: 'Add link cards. Drag to reorder.'
+                    mode: stacked
+                    reorderable: true
+                    min_rows: 1
+
+                    fields:
+
+                      - handle: title
+                        field:
+                          type: text
+                          display: Title
+                          instructions: 'Card headline.'
+                          validate:
+                            - required
+                          width: 50
+
+                      - handle: subtitle
+                        field:
+                          type: text
+                          display: Subtitle
+                          instructions: 'Optional short label shown above the title.'
+                          width: 50
+
+                      - handle: description
+                        field:
+                          type: textarea
+                          display: Description
+                          instructions: 'Optional short description shown on hover.'
+                          rows: 3
+
+                      - handle: image
+                        field:
+                          type: assets
+                          display: Image
+                          instructions: 'Upload or select a card image.'
+                          container: assets
+                          max_files: 1
+                          allow_uploads: true
+                          width: 66
+
+                      - handle: fallback_color
+                        field:
+                          type: color
+                          display: Fallback Color
+                          instructions: 'Background color shown when no image is uploaded.'
+                          swatches:
+                            - '#e1d6c4'
+                            - '#8f896a'
+                            - '#986b54'
+                            - '#b3a28a'
+                            - '#bbc0aa'
+                            - '#1b1a21'
+                          width: 33
+
+                      - handle: link_type
+                        field:
+                          type: select
+                          display: Link Type
+                          instructions: 'Choose how (or if) this card links.'
+                          options:
+                            none: No link
+                            internal: Internal Page
+                            external: External URL
+                          default: none
+                          clearable: false
+                          multiple: false
+                          searchable: false
+                          width: 33
+
+                      - handle: link_entry
+                        field:
+                          type: entries
+                          display: Internal Link
+                          instructions: 'Pick an internal page or entry to link to.'
+                          max_items: 1
+                          if:
+                            link_type: equals internal
+                          width: 33
+
+                      - handle: link_url
+                        field:
+                          type: text
+                          display: External URL
+                          instructions: 'Full external URL including https://'
+                          input_type: url
+                          if:
+                            link_type: equals external
+                          width: 33
+
             recipes_listing:
               display: 'Recipes Listing'
               icon: layout-carousel-horizontal

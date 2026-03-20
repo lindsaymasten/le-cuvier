@@ -1,0 +1,66 @@
+<section class="links-block">
+  <div class="links-block__cards">
+    {{ cards }}
+
+      {{# Determine the resolved href for this card #}}
+      {{ if link_type == 'internal' && link_entry }}
+        {{ card_href = link_entry:url }}
+        {{ card_target = '' }}
+      {{ elseif link_type == 'external' && link_url }}
+        {{ card_href = link_url }}
+        {{ card_target = '_blank' }}
+      {{ else }}
+        {{ card_href = '' }}
+        {{ card_target = '' }}
+      {{ /if }}
+
+      {{# Render as <a> when there's a link, otherwise <article> #}}
+      {{ if card_href }}
+        <a
+          class="links-block__card"
+          href="{{ card_href }}"
+          {{ if card_target }}target="{{ card_target }}" rel="noopener"{{ /if }}
+          {{ if !image && fallback_color }}style="background-color: {{ fallback_color }};"{{ /if }}
+        >
+      {{ else }}
+        <article
+          class="links-block__card"
+          {{ if !image && fallback_color }}style="background-color: {{ fallback_color }};"{{ /if }}
+        >
+      {{ /if }}
+
+        {{ if image }}
+          <div class="links-block__image">
+            {{ partial:components/ui/picture :image="image" w="800" h="1000" cover="true" }}
+          </div>
+        {{ /if }}
+
+        <div class="links-block__details">
+          <div class="links-block__info">
+            {{ if subtitle }}<p class="links-block__subtitle">{{ subtitle }}</p>{{ /if }}
+            {{ if description }}<p class="links-block__description">{{ description }}</p>{{ /if }}
+          </div>
+          <div class="links-block__purchase">
+            <h2 class="links-block__title">{{ title }}</h2>
+            {{ if card_href }}
+              <span class="links-block__cta-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M5 12l14 0" />
+                  <path d="M13 18l6 -6" />
+                  <path d="M13 6l6 6" />
+                </svg>
+              </span>
+            {{ /if }}
+          </div>
+        </div>
+
+      {{ if card_href }}
+        </a>
+      {{ else }}
+        </article>
+      {{ /if }}
+
+    {{ /cards }}
+  </div>
+</section>
