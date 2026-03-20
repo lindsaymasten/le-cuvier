@@ -4,60 +4,8 @@ blueprint: page
 title: 'Wine Tasting'
 blocks:
   -
-    id: mjxbmszb
-    title: Menu
-    subtitle: 'Menu Subtitle'
-    statement: 'A brief statement about the current wine tastings menu.'
-    pairings:
-      -
-        id: mjxbn9km
-        wine: '2023 Wine Name'
-        description: Description
-        food: 'Food title'
-        food_details: 'Food details.'
-      -
-        id: mjxboa3w
-        wine: '2023 Wine Name'
-        description: Description
-        food: 'Food title'
-        food_details: 'Food details.'
-      -
-        id: mjxbobcj
-        wine: '2023 Wine Name'
-        description: Description
-        food: 'Food title'
-        food_details: 'Food details.'
-      -
-        id: mjxbodaa
-        wine: '2023 Wine Name'
-        description: Description
-        food: 'Food title'
-        food_details: 'Food details.'
-      -
-        id: mjxboekf
-        wine: '2023 Wine Name'
-        description: Description
-        food: 'Food title'
-        food_details: 'Food details.'
-    type: menu
-    enabled: false
-  -
     id: mkpa0vo7
     article:
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            marks:
-              -
-                type: link
-                attrs:
-                  href: 'https://www.exploretock.com/lecuvierwinery'
-                  rel: null
-                  target: null
-                  title: null
-            text: 'Reserve now online (link below) or call our tasting room!'
       -
         type: paragraph
         content:
@@ -68,30 +16,20 @@ blocks:
             type: text
             marks:
               -
-                type: bold
-              -
                 type: italic
-            text: "entrée & flight\_"
+            text: 'entrée & flight—'
           -
             type: text
-            text: "(members only) or\_"
+            text: "members only—or\_"
           -
             type: text
             marks:
-              -
-                type: bold
               -
                 type: italic
             text: 'the original wine & food pairing'
           -
             type: text
-            text: "\_experience at Le Cuvier Winery."
-      -
-        type: paragraph
-        content:
-          -
-            type: text
-            text: 'Join us for a'
+            text: "\_experience at Le Cuvier Winery. Alternatively, join us for a"
           -
             type: text
             marks:
@@ -99,7 +37,13 @@ blocks:
                 type: bold
               -
                 type: italic
-            text: ' paired wine, cheese & charcuterie tasting'
+            text: ' '
+          -
+            type: text
+            marks:
+              -
+                type: italic
+            text: 'paired wine, cheese & charcuterie tasting'
           -
             type: text
             marks:
@@ -114,16 +58,29 @@ blocks:
         content:
           -
             type: text
-            text: 'We are available to accommodate pick-ups 7 days a week from 11am to 5pm. '
+            text: 'We are available to accommodate pick-ups daily, from 11am–5pm. '
+    type: article
+    enabled: true
+  -
+    id: mkp9zq86
+    embed_code:
+      code: '<a class="largeLinkBtn" href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservation Options </a>'
+      mode: html
+    embed_note: Tock
+    type: embed
+    enabled: true
+  -
+    id: mmzg8g85
+    article:
       -
         type: set
         attrs:
-          id: ml70e0hw
+          id: mmzgg1tg
           values:
             type: aside
             aside: |-
-              SPRING RELEASE MONTH! 
-              A new chapter has arrived. Join us this March for a strictly limited engagement: experience the full breadth of our Spring 2026 collection through an interactive flight of seven wines and their thoughtfully tailored culinary counterparts. This bespoke experience is a seasonal privilege available only to our Elliptical Society Members. We invite you to journey to Paso Robles and immerse yourself in the alchemy that defines Le Cuvier.
+              A new chapter has arrived. Join us this March for a strictly limited engagement: Spring Release Month. Experience the full breadth of our Spring 2026 collection through an interactive flight of seven wines and their thoughtfully tailored culinary counterparts. 
+              This bespoke experience is a seasonal privilege available only to our Elliptical Society Members.
       -
         type: paragraph
         content:
@@ -169,6 +126,11 @@ blocks:
           -
             type: text
             text: " 11am - 5pm.\_"
+    type: article
+    enabled: true
+  -
+    id: mmzgafk2
+    article:
       -
         type: paragraph
         content:
@@ -198,27 +160,11 @@ blocks:
             text: 'Our experiences are currently offered to guests 21 years of age or older. We welcome well behaved pets on a leash in our outdoor tasting area.'
     type: article
     enabled: true
-  -
-    id: mkp9zq86
-    embed_code:
-      code: '<a class="largeLinkBtn" href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservation Options </a>'
-      mode: html
-    embed_note: Tock
-    type: embed
-    enabled: true
-  -
-    id: mkpajnno
-    embed_code:
-      code: '<div id="Tock_widget_container" href="https://www.exploretock.com/lecuvierwinery" data-tock-business="lecuvierwinery" data-tock-reserve="true" data-tock-display-mode="Inline" data-tock-color-mode="White" data-tock-experience-list=true data-tock-locale="en-us" data-tock-timezone="America/Los_Angeles" class="no-touch"></div>'
-      mode: html
-    embed_note: Tock
-    type: embed
-    enabled: false
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
-updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1773169962
+updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
+updated_at: 1774045307
 ---
