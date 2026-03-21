@@ -93,8 +93,8 @@
 }
 .navbar-right {
   position: relative;
-  display: flex;
-  align-items: center;
+  display: flex; 
+  align-items: center; 
   gap: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), inset 0 0 40px 20px rgba(255, 255, 255, 0.2);
   background: #fff;
@@ -103,6 +103,7 @@
   border-radius: 0 2.5rem 2.5rem 0;
   padding: 14px 16px;
   margin: 0 0 0 2px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 .navbar-right:before {
   content: '';
@@ -124,9 +125,11 @@
 }
 .navbar-left {
   display: none; align-items: center; gap: 1rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
   padding: 15px 30px;
   margin: 0 2px 0 0;
-  box-shadow:
+  box-shadow: 
       0 4px 12px rgba(0,0,0,0.05),
       inset 0 0 40px 20px rgba(255, 255, 255, 0.2);
   background: #fff;
@@ -300,6 +303,8 @@
   transition: opacity 0.2s ease;
 }
 .main-nav-list li:hover a:before {
+  content: '';
+  background-color: var(--color-accent-500);
   content: '';
   background-color: var(--color-ochre);
   border-radius: 71% 29% 64% 36% / 39% 58% 42% 61%;
@@ -488,6 +493,26 @@
   position: relative;
   width: 44px;
   height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* C7 renders the clickable button inside #c7-cart */
+.cart-wrap #c7-cart {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Normalize the C7 button to behave like an icon button */
+.cart-wrap #c7-cart .c7-link {
+  width: auto;
+  min-width: 20px;
+  height: 40px;
+  display: inline-flex;
   display: inline-flex;
   align-items: center;
   justify-content: center;
