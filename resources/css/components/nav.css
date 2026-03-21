@@ -428,7 +428,7 @@ navbar-left:before {
   justify-content: center;
 }
 
-.login-btn #c7-account.c7-account-link a,
+.login-btn #c7-account.c7-account-link a, 
 .login-btn #c7-account button { 
   position: absolute;
   inset: 0;
@@ -594,6 +594,38 @@ navbar-left:before {
   right: 0;
   height: 100vh;
   z-index: 99999;
+}
+
+/* Style the C7 dropdown login panel to match our nav */
+.c7-user-nav__account__dropdown__header {
+  position: relative;
+  display: block;
+}
+
+.c7-user-nav__account__dropdown {
+  background: var(--color-neutral-md);
+  border-radius: var( --c7-dropdown-border-radius);
+  box-shadow: var( --c7-dropdown-shadow);
+}
+
+.login-btn #c7-account.c7-user-nav__account__dropdown__logout a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.c7-link.c7-user-nav__account__dropdown__logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c7-user-nav__account__dropdown li {
+  min-height: fit-content;
+}
+
+.login-btn .c7-user-nav__account__name svg {
+  visibility: hidden;
 }
 
 /* === Hamburger === */
