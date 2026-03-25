@@ -640,6 +640,20 @@
     overflow: hidden;
 }
 
+.login-btn #c7-account.c7-account-link .c7-user-nav__account .c7-user-nav__account__dropdown__header a {
+  text-indent: 0;
+}
+
+.login-btn #c7-account.c7-account-link .c7-user-nav__account .c7-user-nav__account__dropdown li a {
+    color: initial;
+    text-indent: 0;
+    align-items: flex-start;
+    margin: 0 1em;
+    padding: 0.5em 0.5em;
+    font-size: 1em;
+    position: relative;
+}
+
 .login-btn #c7-account.c7-user-nav__account__dropdown__logout a {
   display: flex;
   justify-content: space-between;
