@@ -42,7 +42,7 @@ main.club #c7-content {
   --pc-gap: 20px;
   --pc-radius: 8px;
   top: 0;
-  margin-top: 120px;
+  /*margin-top: 120px;*/
 }
 
 main.club .c7-content {
