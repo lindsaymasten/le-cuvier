@@ -12,9 +12,6 @@ preferences:
         - 'content::collections'
         - 'content::assets'
       items:
-        'content::navigation':
-          icon: burger
-          action: '@modify'
         'content::collections::pages': '@move'
         'content::collections':
           action: '@modify'
