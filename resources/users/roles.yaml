@@ -149,3 +149,7 @@ winery_admin:
           'content::globals::commerce7':
             action: '@move'
             icon: shopping-cart
+    locale: en
+    formatting_locale: en
+    start_page: /collections/pages
+    theme: null
