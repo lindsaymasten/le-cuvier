@@ -32,3 +32,5 @@ preferences:
       view: tree
     events:
       view: tree
+    recipes:
+      view: list
