@@ -154,12 +154,3 @@ tabs:
               default: now
               validate:
                 - required
-          -
-            handle: parent
-            field:
-              type: entries
-              collections:
-                - events
-              max_items: 1
-              listable: false
-              localizable: true
