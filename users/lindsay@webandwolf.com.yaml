@@ -30,3 +30,5 @@ preferences:
   collections:
     pages:
       view: tree
+    events:
+      view: tree
