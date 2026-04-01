@@ -1,1 +1,6 @@
-{  }
+enable_c7: true
+tenant_id: le-cuvier-winery
+c7_css_url: 'https://cdn.commerce7.com/v2/commerce7.css'
+c7_js_url: 'https://cdn.commerce7.com/v2/commerce7.js'
+c7_script_id: c7-javascript
+c7_defer: false
