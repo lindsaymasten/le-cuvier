@@ -27,3 +27,6 @@ preferences:
             - 'content::collections::history'
             - 'content::collections::blog_posts'
           icon: collections
+  collections:
+    pages:
+      view: tree
