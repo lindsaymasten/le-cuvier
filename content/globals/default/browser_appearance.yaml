@@ -1,1 +1,5 @@
-{  }
+disable_phone_detection: false
+disable_email_detection: false
+disable_address_detection: false
+apple_mobile_web_app: false
+android_mobile_web_app: false
