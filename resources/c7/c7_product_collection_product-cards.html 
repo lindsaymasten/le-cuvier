@@ -12,14 +12,15 @@
           <div class="product-info">
             <h1>
               <a class="product-card-title" href="/product/{{product-slug}}" aria-label="View details for {{product-title}}">
-                <span class="product-card-vintage"><c7-product-wine-vintage></span> <c7-product-subtitle></h1>
+                <span class="product-card-vintage"><c7-product-wine-vintage></span> <c7-product-subtitle>
               </a>
+            </h1>
             <h2><c7-product-meta-blend /></h2>
           </div>
 
           <div class="product-purchase">
             <c7-product-add-to-cart></c7-product-add-to-cart>
-            <a class="purchase-button" href="/product/{{product-slug}}" aria-label="View details for {{product-title}}">Details <span>&</span> Purchase</a>
+            <a class="purchase-button" href="/product/{{product-slug}}" aria-label="View details for {{product-title}}">Procure</a>
           </div>
 
         </div>
