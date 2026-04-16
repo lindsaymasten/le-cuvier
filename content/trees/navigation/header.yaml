@@ -56,7 +56,9 @@ tree:
   -
     id: e839907d-05c4-4bde-9f27-174c7f610904
     title: About
-    url: '#'
+    url: /about
+    data:
+      two_col_menu: true
     children:
       -
         id: 4cafa9e5-9c9e-4262-9b53-e75131e69291
