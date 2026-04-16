@@ -31,3 +31,5 @@ preferences:
       view: tree
     recipes:
       view: list
+    team:
+      view: list
