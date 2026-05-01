@@ -9,3 +9,5 @@ preferences:
   collections:
     pages:
       view: tree
+    team:
+      view: list
