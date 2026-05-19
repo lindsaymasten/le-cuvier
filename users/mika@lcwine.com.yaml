@@ -11,3 +11,5 @@ preferences:
       view: tree
     team:
       view: list
+    recipes:
+      view: list
