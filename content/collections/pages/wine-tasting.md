@@ -166,5 +166,8 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1774045307
+updated_at: 1779211341
+seo_title: 'Le Cuvier Wine Tasting Paso Robles'
+seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
+og_title: 'Wine Tasting at Le Cuvier'
 ---
