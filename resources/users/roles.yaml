@@ -5,7 +5,6 @@ winery_admin:
     - 'configure sites'
     - 'configure fields'
     - 'configure form fields'
-    - 'configure addons'
     - 'manage preferences'
     - 'configure collections'
     - 'view menus entries'
@@ -84,6 +83,8 @@ winery_admin:
     - 'view header nav'
     - 'edit header nav'
     - 'edit commerce7 globals'
+    - 'edit footer globals'
+    - 'edit seo globals'
     - 'view promo_images assets'
     - 'upload promo_images assets'
     - 'edit promo_images assets'
@@ -104,11 +105,13 @@ winery_admin:
     - 'assign user groups'
     - 'assign roles'
     - 'impersonate users'
+    - 'configure addons'
     - 'access cache utility'
     - 'access phpinfo utility'
     - 'access search utility'
     - 'access email utility'
     - 'access licensing utility'
+    - 'view graphql'
   preferences:
     nav:
       content:
