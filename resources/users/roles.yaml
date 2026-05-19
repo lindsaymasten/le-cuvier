@@ -154,5 +154,5 @@ winery_admin:
             icon: shopping-cart
     locale: en
     formatting_locale: en
-    start_page: /collections/pages
+    start_page: collections/pages
     theme: null
