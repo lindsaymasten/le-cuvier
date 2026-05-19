@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.10.1",
         "mallardduck/blade-lucide-icons": "^1.23",
         "ndx/statamic-bard-color-picker": "^3.0",
-        "statamic/cms": "^6.0"
+        "statamic/cms": "6.19.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^4.1",
