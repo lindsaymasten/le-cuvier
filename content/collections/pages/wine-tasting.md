@@ -78,9 +78,7 @@ blocks:
           id: mmzgg1tg
           values:
             type: aside
-            aside: |-
-              A new chapter has arrived. Join us this March for a strictly limited engagement: Spring Release Month. Experience the full breadth of our Spring 2026 collection through an interactive flight of seven wines and their thoughtfully tailored culinary counterparts. 
-              This bespoke experience is a seasonal privilege available only to our Elliptical Society Members.
+            aside: 'Dry-farmed. Organic. Wild yeast and uncommonly long neutral oak barrel aging. The Spring 2026 pairing flight — five wines, five thoughtfully matched pairing bites — is our most intentional way to show you what that means in the glass.'
       -
         type: paragraph
         content:
@@ -165,8 +163,8 @@ seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
-updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1779211753
+updated_by: c9a05d23-3623-4986-a31d-642880558c7f
+updated_at: 1779303769
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
