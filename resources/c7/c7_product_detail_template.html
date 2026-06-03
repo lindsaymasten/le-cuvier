@@ -58,14 +58,15 @@
                     </div>
 
                     <div class="pd-buy">
-                    <div class="pd-buy-buttons">
-                        <if product-meta-member-price>
-                            <div class="member-price" style="visibility: hidden;">
-                                <span><c7-product-meta-member-price></span>
-                            </div>
-                        </if>
-                        <button type="button" class="c7-buy bottle-buy btn" data-c7-qty="1">Add to Cart</button>
-                    </div>
+                        <div class="pd-buy-buttons">
+                            <button
+                            type="button"
+                            class="c7-buy bottle-buy btn"
+                            data-c7-qty="1"
+                            data-c7-add-label="Add to Cart"
+                            data-c7-login-label="Log in to Purchase"
+                            >Add to Cart</button>
+                        </div>
                     </div>
 
                     <c7-if product-meta-tasting_notes>

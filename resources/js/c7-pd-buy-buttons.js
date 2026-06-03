@@ -58,7 +58,9 @@ function findLoginTrigger(scope) {
   if (!scope) return null;
 
   const controls = Array.from(
-    scope.querySelectorAll('button, a, input[type="button"], input[type="submit"], [role="button"]')
+    scope.querySelectorAll(
+      'button, a, input[type="button"], input[type="submit"], [role="button"]'
+    )
   );
 
   return controls.find((control) => isLoginText(getControlText(control))) || null;
@@ -77,9 +79,97 @@ function findGlobalLoginTrigger() {
   );
 }
 
+function formatCurrency(raw) {
+  const value = Number(String(raw || '').replace(/[^0-9.-]/g, ''));
+
+  if (!Number.isFinite(value)) return '';
+
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(value);
+}
+
+function findRenderedPrice(atcBlock) {
+  if (!atcBlock) return '';
+
+  const priceEl =
+    atcBlock.querySelector('.c7-product__add-to-cart__price') ||
+    atcBlock.querySelector('[class*="add-to-cart__price"]');
+
+  if (!priceEl) return '';
+
+  return priceEl.textContent.trim();
+}
+
+function syncMemberPrices(scope = document) {
+  scope.querySelectorAll('[data-c7-pd-member-price]').forEach((el) => {
+    const raw =
+      el.getAttribute('data-c7-pd-member-price') ||
+      el.textContent ||
+      '';
+
+    const formatted = formatCurrency(raw);
+
+    if (!formatted) {
+      el.textContent = '';
+      el.hidden = true;
+      return;
+    }
+
+    el.textContent = formatted;
+    el.hidden = false;
+
+    const priceBox = el.closest('.pd-buy-price');
+
+    if (priceBox) {
+      priceBox.hidden = false;
+    }
+  });
+}
+
+function syncRegularPrice(btn) {
+  const wrapper = btn.closest('.pd-buy');
+  const priceTarget = wrapper?.querySelector('[data-c7-pd-regular-price]');
+
+  if (!priceTarget) return;
+
+  const priceBox = priceTarget.closest('.pd-buy-price');
+  const atcBlock = findAtcBlock(btn);
+  const price = findRenderedPrice(atcBlock);
+
+  if (!price) {
+    priceTarget.textContent = '';
+
+    if (priceBox) {
+      priceBox.hidden = true;
+    }
+
+    return;
+  }
+
+  priceTarget.textContent = price;
+  priceTarget.hidden = false;
+
+  if (priceBox) {
+    priceBox.hidden = false;
+  }
+}
+
+function syncDisplayedPrices(btn) {
+  syncMemberPrices();
+
+  if (btn) {
+    syncRegularPrice(btn);
+    return;
+  }
+
+  document.querySelectorAll('button[data-c7-qty]').forEach(syncRegularPrice);
+}
+
 function setButtonState(btn, state) {
   const addLabel = btn.getAttribute('data-c7-add-label') || 'Add to Cart';
-  const loginLabel = btn.getAttribute('data-c7-login-label') || 'Log in to purchase';
+  const loginLabel = btn.getAttribute('data-c7-login-label') || 'Log in to Purchase';
 
   if (state === 'login') {
     btn.textContent = loginLabel;
@@ -95,6 +185,8 @@ function setButtonState(btn, state) {
 
 function syncButtonState(btn) {
   const atcBlock = findAtcBlock(btn);
+
+  syncDisplayedPrices(btn);
 
   if (!atcBlock) {
     setButtonState(btn, 'cart');
@@ -114,6 +206,8 @@ function syncButtonState(btn) {
 }
 
 function syncPdBuyButtons() {
+  syncDisplayedPrices();
+
   document.querySelectorAll('button[data-c7-qty]').forEach(syncButtonState);
 }
 
@@ -153,11 +247,10 @@ document.addEventListener('click', (e) => {
 
   syncButtonState(btn);
 
-  const qty = parseInt(btn.getAttribute('data-c7-qty') || '1', 10);
   const atcBlock = findAtcBlock(btn);
 
   if (!atcBlock) {
-    console.warn('[LC] Case/Bottle clicked, but no C7 add-to-cart block found.');
+    console.warn('[LC] Product button clicked, but no C7 add-to-cart block was found.');
     return;
   }
 
@@ -175,13 +268,9 @@ document.addEventListener('click', (e) => {
     return;
   }
 
+  const qty = parseInt(btn.getAttribute('data-c7-qty') || '1', 10);
   const qtyInput = findQtyInput(atcBlock);
   const cta = findCta(atcBlock);
-
-  if (!cta) {
-    console.warn('[LC] C7 add-to-cart block found, but CTA button not found.');
-    return;
-  }
 
   if (!qtyInput) {
     if (loginTrigger) {
@@ -190,7 +279,12 @@ document.addEventListener('click', (e) => {
       return;
     }
 
-    console.warn('[LC] Quantity input not found.');
+    console.warn('[LC] C7 quantity input was not found.');
+    return;
+  }
+
+  if (!cta) {
+    console.warn('[LC] C7 add-to-cart CTA was not found.');
     return;
   }
 
