@@ -8,9 +8,13 @@ function findAtcRoot(fromEl) {
 
 function findAtcBlock(fromEl) {
   const atcRoot = findAtcRoot(fromEl);
+  const productRoot = fromEl.closest('.pd') || atcRoot;
+  const priceRoot = productRoot.querySelector('.pd-price');
 
   return (
-    atcRoot.querySelector('.pd-price .c7-product__add-to-cart') ||
+    priceRoot?.querySelector('.c7-product__add-to-cart') ||
+    priceRoot?.querySelector('[class*="product__add-to-cart"]') ||
+    priceRoot ||
     atcRoot.querySelector('.c7-product__add-to-cart') ||
     atcRoot.querySelector('[class*="product__add-to-cart"]')
   );
