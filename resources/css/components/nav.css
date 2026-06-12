@@ -448,6 +448,15 @@
   overflow: hidden; */
 }
 
+/* Hide "Login" text on the main account profile button in the main nav */
+.login-btn #c7-account.c7-account-link .c7-user-nav__account__login {
+  position: absolute;
+  font-size: 0; 
+  color: transparent;
+  text-indent: -9999px;
+  overflow: hidden; 
+}
+
 /* Hide C7's default "Account" text label (the user's name) while keeping the email address */
 .login-btn #c7-account.c7-account-link .c7-user-nav__account__dropdown__header {
   font-size: 0; 
@@ -456,6 +465,7 @@
   overflow: hidden;
 }
 
+/* Style "log in" text inside dropdown */
 .login-btn #c7-account.c7-account-link .c7-user-nav__account__dropdown__logout {
   display: flex;
   padding: 0.5em 1.5em;
@@ -489,6 +499,7 @@
   width: 30px;
   height: 30px;
   visibility: hidden;
+  pointer-events: none; /* ensures clicks go to the C7 overlay, not the badge */
 }
 
 .is-logged-in .login-indicator {
