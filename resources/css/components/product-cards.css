@@ -74,6 +74,7 @@
     opacity 0.35s var(--pc-ease),
     border-radius 0.35s var(--pc-ease);
 }
+
 .product-cards .product-card:hover::after,
 .product-cards .product-card:focus-within::after {
   opacity: 1;
@@ -130,11 +131,14 @@
   padding: 20px;
   border-radius: inherit;
   opacity: 1;                /* keep CTA visible */
-  pointer-events: auto;      /* allow clicking the CTA */
+  pointer-events: none;      
   font-size: 1em;
   transition:
     top 0.35s var(--pc-ease),
     border-radius 0.35s var(--pc-ease);
+}
+.product-cards .product-details .product-purchase {
+  pointer-events: auto; /* allow interaction with price and CTA */
 }
 /* Hide the “details” text block until hover/focus (CTA stays visible) */
 .product-cards .product-details .product-info {
@@ -399,6 +403,7 @@
   height: 100%;
   max-height: calc(100% - 20rem);
   z-index: -1;
+  pointer-events: none;
 }
 @media (max-width: 600px) {
   .product-cards .product-info h1:before {
