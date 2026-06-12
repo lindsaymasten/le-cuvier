@@ -428,7 +428,40 @@
   justify-content: center;
 }
 
-.login-btn #c7-account.c7-account-link a, 
+.login-btn #c7-account.c7-account-link a {
+  /* position: absolute; */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+  /* font-size: 0; 
+  color: transparent;
+  text-indent: -9999px;
+  overflow: hidden; */
+}
+
+/* Hide C7's default "Account" text label (the user's name) while keeping the email address */
+.login-btn #c7-account.c7-account-link .c7-user-nav__account__dropdown__header {
+  font-size: 0; 
+  color: transparent;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.login-btn #c7-account.c7-account-link .c7-user-nav__account__dropdown__logout {
+  display: flex;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+}
+
 .login-btn #c7-account button { 
   position: absolute;
   inset: 0;
@@ -602,7 +635,7 @@
   display: block;
 }
 
-.c7-user-nav__account__dropdown {
+.c7-user-nav__account__dropdown { 
   background: var(--color-neutral-md);
   border-radius: var( --c7-dropdown-border-radius);
   box-shadow: var( --c7-dropdown-shadow);
@@ -649,9 +682,10 @@
     text-indent: 0;
     align-items: flex-start;
     margin: 0 1em;
-    padding: 0.5em 0.5em;
+    padding: 0 0.5em;
     font-size: 1em;
     position: relative;
+    width: auto;
 }
 
 .login-btn #c7-account.c7-user-nav__account__dropdown__logout a {
