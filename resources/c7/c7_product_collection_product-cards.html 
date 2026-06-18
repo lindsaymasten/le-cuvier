@@ -13,8 +13,7 @@
             <h1>
               <a class="product-card-title" href="/product/{{product-slug}}" aria-label="View details for {{product-title}}">
                 <span class="product-card-vintage"><c7-product-wine-vintage></span> <c7-product-subtitle>
-              </a>
-            </h1>
+              </a></h1>
             <h2><c7-product-meta-blend /></h2>
           </div>
 
