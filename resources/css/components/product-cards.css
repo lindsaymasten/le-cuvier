@@ -300,6 +300,23 @@
   z-index: -1;
 }
 
+/* Keep C7's accessible label while showing Le Cuvier's visual CTA text. */
+.product-cards .product-purchase .c7-product__add-to-cart button[type="submit"] > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.product-cards .product-purchase .c7-product__add-to-cart button[type="submit"]::after {
+  content: 'Procure' / '';
+}
+
 .product-cards .product-purchase .c7-product__add-to-cart__cta button:hover,
 .product-cards .product-purchase .c7-product__add-to-cart button[type="submit"]:hover,
 .product-cards .product-purchase .c7-product__add-to-cart input[type="submit"]:hover {
