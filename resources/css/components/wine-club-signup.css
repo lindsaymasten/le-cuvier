@@ -161,6 +161,7 @@ main.club {
 main#content.club > section.club-hero {
   position: relative;
   z-index: 0;
+  width: 100%;
   min-height: clamp(20rem, 40vw, 42rem);
   margin-top: -150px;
   margin-bottom: clamp(-8rem, -10vw, -3rem);
@@ -171,8 +172,8 @@ main.club .club-hero__mark {
   position: absolute;
   inset-block-start: clamp(-4rem, -6vw, -1.5rem);
   inset-inline-start: 50%;
-  width: min(115vw, 112rem);
-  transform: translateX(-52%);
+  width: 120vw;
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
