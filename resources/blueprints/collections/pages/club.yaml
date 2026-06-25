@@ -117,6 +117,76 @@ tabs:
               required: true
               validate:
                 - required
+      -
+        display: 'Additional Content'
+        fields:
+          -
+            handle: article
+            field:
+              buttons:
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - aside
+                - removeformat
+                - anchor
+                - underline
+                - strikethrough
+                - code
+                - codeblock
+              toolbar_mode: floating
+              reading_time: true
+              type: bard
+              localizable: true
+              display: Article
+              instructions: 'Optional longform content shown below the pickup/shipping explanation.'
+              replicator_preview: false
+              always_show_set_button: true
+              container: assets
+              remove_empty_nodes: true
+              smart_typography: true
+              collapse: true
+              sets:
+                main:
+                  display: Main
+                  sets:
+                    picture:
+                      display: Picture
+                      icon: media-image-picture-orientation
+                      fields:
+                        -
+                          import: picture
+                    pull_quote:
+                      display: 'Pull quote'
+                      icon: text-formatting-quotation
+                      fields:
+                        -
+                          import: pull_quote
+                    aside:
+                      display: Aside
+                      icon: text-formatting-wrap-image-margin-left
+                      fields:
+                        -
+                          import: aside
+                    table:
+                      display: Table
+                      icon: layout-table-column-insert
+                      fields:
+                        -
+                          import: table
+                    video:
+                      display: Video
+                      icon: social-youtube
+                      fields:
+                        -
+                          import: video
   seo:
     display: SEO
     sections:

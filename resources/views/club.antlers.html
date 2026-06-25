@@ -1,14 +1,165 @@
-<main id="content" class="club">
-  <section class="club-hero" aria-labelledby="club-hero-title">
-    <h1 id="club-hero-title" class="sr-only">Elliptical Society</h1>
+{{ collection:pages slug:is="club" limit="1" }}
+  <main id="content" class="club">
+    <section class="club-hero" aria-labelledby="club-hero-title">
+      <h1 id="club-hero-title" class="sr-only">Elliptical Society</h1>
 
-    <div class="club-hero__mark" aria-hidden="true">
-      {{ svg src="assets/logos/elliptical-logo.svg" class="club-hero__svg" }}
-      <span class="club-hero__society-text" aria-hidden="true">Society</span>
-    </div>
-  </section>
+      <div class="club-hero__mark" aria-hidden="true">
+        {{ svg src="assets/logos/elliptical-logo.svg" class="club-hero__svg" }}
+        <span class="club-hero__society-text" aria-hidden="true">Society</span>
+      </div>
+    </section>
 
-  <section class="club-options" aria-label="Wine Club Options">
-    <div id="c7-content"></div>
-  </section>
-</main>
+    <section class="club-options" aria-labelledby="club-options-title">
+      <div class="club-options__inner">
+        <header class="club-options__header">
+          <h2 id="club-options-title">{{ club_options_heading }}</h2>
+          <p>{{ club_options_description }}</p>
+        </header>
+
+        <div class="club-options__cards">
+          <div class="club-options__list">
+            <article class="club-option" aria-labelledby="mixed-club-title">
+              <header class="club-option__header">
+                <h3 id="mixed-club-title">{{ mixed_club_title }}</h3>
+                <p id="mixed-club-description">{{ mixed_club_description }}</p>
+              </header>
+
+              <div class="club-option__fulfillment">
+                <label id="mixed-club-fulfillment-label" for="mixed-club-fulfillment">
+                  Pickup or shipping
+                  <span class="sr-only">for {{ mixed_club_title }}</span>
+                </label>
+
+                <div class="club-option__select-wrap">
+                  <select
+                    id="mixed-club-fulfillment"
+                    data-club-fulfillment="mixed"
+                    aria-describedby="mixed-club-description mixed-club-status"
+                    aria-controls="mixed-club-actions"
+                    disabled
+                  >
+                    <option value="">Select fulfillment</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="shipping">Shipping</option>
+                  </select>
+                </div>
+
+                <div id="mixed-club-actions" class="club-option__actions">
+                  <div data-club-choice="pickup" hidden>
+                    <div
+                      class="c7-club-join-button"
+                      data-club-slug="mixed-will-call"
+                      data-join-text="Join the Club"
+                      data-edit-text="Edit Membership"
+                    ></div>
+                  </div>
+
+                  <div data-club-choice="shipping" hidden>
+                    <div
+                      class="c7-club-join-button"
+                      data-club-slug="mixed-club"
+                      data-join-text="Join the Club"
+                      data-edit-text="Edit Membership"
+                    ></div>
+                  </div>
+                </div>
+
+                <p
+                  id="mixed-club-status"
+                  class="sr-only"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  data-club-status="mixed"
+                ></p>
+              </div>
+            </article>
+
+            <article class="club-option" aria-labelledby="reds-club-title">
+              <header class="club-option__header">
+                <h3 id="reds-club-title">{{ reds_club_title }}</h3>
+                <p id="reds-club-description">{{ reds_club_description }}</p>
+              </header>
+
+              <div class="club-option__fulfillment">
+                <label id="reds-club-fulfillment-label" for="reds-club-fulfillment">
+                  Pickup or shipping
+                  <span class="sr-only">for {{ reds_club_title }}</span>
+                </label>
+
+                <div class="club-option__select-wrap">
+                  <select
+                    id="reds-club-fulfillment"
+                    data-club-fulfillment="reds"
+                    aria-describedby="reds-club-description reds-club-status"
+                    aria-controls="reds-club-actions"
+                    disabled
+                  >
+                    <option value="">Select fulfillment</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="shipping">Shipping</option>
+                  </select>
+                </div>
+
+                <div id="reds-club-actions" class="club-option__actions">
+                  <div data-club-choice="pickup" hidden>
+                    <div
+                      class="c7-club-join-button"
+                      data-club-slug="reds-will-call"
+                      data-join-text="Join the Club"
+                      data-edit-text="Edit Membership"
+                    ></div>
+                  </div>
+
+                  <div data-club-choice="shipping" hidden>
+                    <div
+                      class="c7-club-join-button"
+                      data-club-slug="reds-only-club"
+                      data-join-text="Join the Club"
+                      data-edit-text="Edit Membership"
+                    ></div>
+                  </div>
+                </div>
+
+                <p
+                  id="reds-club-status"
+                  class="sr-only"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  data-club-status="reds"
+                ></p>
+              </div>
+            </article>
+          </div>
+
+          <aside class="club-fulfillment-note" aria-labelledby="club-fulfillment-title">
+            <h3 id="club-fulfillment-title" class="sr-only">{{ club_fulfillment_heading }}</h3>
+
+            <div class="club-fulfillment-note__grid">
+              <section class="club-fulfillment-note__item">
+                <h4>Pickup / Will Call</h4>
+                <p>{{ club_pickup_explanation }}</p>
+              </section>
+
+              <section class="club-fulfillment-note__item">
+                <h4>Shipping</h4>
+                <p>{{ club_shipping_explanation }}</p>
+              </section>
+            </div>
+          </aside>
+
+          {{ if article }}
+            <div class="club-options__article">
+              <article class="article-body">
+                {{ article scope="set" }}
+                  {{ partial src="sets/{type replace='_|-'}" }}
+                {{ /article }}
+              </article>
+            </div>
+          {{ /if }}
+        </div>
+      </div>
+    </section>
+  </main>
+{{ /collection:pages }}

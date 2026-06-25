@@ -9,6 +9,7 @@ import './c7-pd-buy-buttons.js'
 import './recipes-scroll.js'
 import './article-fade.js'
 import './product-detail-spacing.js'
+import './club-options.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine
