@@ -13,3 +13,5 @@ preferences:
       view: list
     recipes:
       view: list
+    events:
+      view: tree
