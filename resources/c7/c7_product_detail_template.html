@@ -34,6 +34,12 @@
                         </h1>
                         <div class="pd-price">
                             <c7-product-add-to-cart>
+                            <div class="pd-member-price" data-c7-pd-member-price-box hidden>
+                                <span class="pd-member-price__label">Member Price</span>
+                                <span data-c7-pd-member-price="{{product-meta-member-price}}">
+                                    <c7-product-meta-member-price>
+                                </span>
+                            </div>
                         </div>
                     </header>
 
@@ -58,14 +64,6 @@
                     </div>
 
                     <div class="pd-buy">
-                        <c7-if product-meta-member-price>
-                            <div class="pd-buy-price pd-buy-price--member">
-                                <span class="pd-buy-price__label">Member Price</span>
-                                <span data-c7-pd-member-price="{{product-meta-member-price}}">
-                                    <c7-product-meta-member-price>
-                                </span>
-                            </div>
-                        </c7-if>
                         <div class="pd-buy-buttons">
                             <button
                             type="button"

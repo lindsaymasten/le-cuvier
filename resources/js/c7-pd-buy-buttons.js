@@ -84,7 +84,13 @@ function findGlobalLoginTrigger() {
 }
 
 function formatCurrency(raw) {
-  const value = Number(String(raw || '').replace(/[^0-9.-]/g, ''));
+  const normalized = String(raw ?? '')
+    .trim()
+    .replace(/[^0-9.-]/g, '');
+
+  if (!normalized || !/[0-9]/.test(normalized)) return '';
+
+  const value = Number(normalized);
 
   if (!Number.isFinite(value)) return '';
 
@@ -108,23 +114,27 @@ function findRenderedPrice(atcBlock) {
 
 function syncMemberPrices(scope = document) {
   scope.querySelectorAll('[data-c7-pd-member-price]').forEach((el) => {
-    const raw =
-      el.getAttribute('data-c7-pd-member-price') ||
-      el.textContent ||
-      '';
-
-    const formatted = formatCurrency(raw);
+    const attributeValue = el.getAttribute('data-c7-pd-member-price');
+    const formatted =
+      formatCurrency(attributeValue) ||
+      formatCurrency(el.textContent);
+    const priceBox = el.closest('[data-c7-pd-member-price-box]');
 
     if (!formatted) {
-      el.textContent = '';
       el.hidden = true;
+
+      if (priceBox) {
+        priceBox.hidden = true;
+      }
+
       return;
     }
 
-    el.textContent = formatted;
-    el.hidden = false;
+    if (el.textContent.trim() !== formatted) {
+      el.textContent = formatted;
+    }
 
-    const priceBox = el.closest('.pd-buy-price');
+    el.hidden = false;
 
     if (priceBox) {
       priceBox.hidden = false;

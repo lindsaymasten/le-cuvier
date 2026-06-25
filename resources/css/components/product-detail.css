@@ -126,8 +126,35 @@
 }
 
 .pd-price {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
   margin-left: 0.5em;
   min-width: fit-content;
+}
+
+.pd-member-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+  white-space: nowrap;
+}
+
+.pd-member-price[hidden] {
+  display: none;
+}
+
+.pd-member-price__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+[data-c7-pd-member-price] {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
 }
 
 .pd-titlebar .c7-product__add-to-cart__form {
@@ -187,35 +214,11 @@
 
 .pd-buy {
   display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 1rem;
   margin: 4ch 0 5ch 0;
-}
-
-.pd-buy-price {
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 8rem;
-}
-
-.pd-buy-price__label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-[data-c7-pd-member-price] {
-  font-size: 1rem;
-  font-weight: var(--font-weight-medium);
 }
 
 .pd-buy .pd-buy-buttons {
   display: flex;
-  flex-basis: 16rem;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
