@@ -1,8 +1,44 @@
-# AGENTS.md - AI Development Guidelines
+# AGENTS.md — Le Cuvier Winery Website
 
-This file provides context and guidelines for AI assistants working with this Statamic CMS project.
+This file is the durable working agreement for Codex in the Le Cuvier repository. Follow it before making plans, editing files, running commands, or suggesting refactors.
 
-## Project Overview
+
+## Project identity
+
+Le Cuvier is a winery ecommerce website built with Statamic on Laravel and integrated with Commerce7. The site is not a generic Laravel app and not a generic ecommerce rebuild. Statamic owns the website/CMS layer. Commerce7 owns ecommerce, account, cart, checkout, clubs, and product-purchase behavior.
+
+Primary local project path:
+
+```text
+/Users/lindsaymasten/Herd/le-cuvier
+```
+
+Local site URL:
+
+```text
+https://le-cuvier.test/
+```
+
+Production path, for reference only:
+
+```text
+/home/forge/le-cuvier-dpslpel8.on-forge.com
+```
+
+GitHub repository:
+
+```text
+lindsaymasten/le-cuvier
+```
+
+Default/deploy branch:
+
+```text
+main
+```
+
+
+## Project Architecture Overview
 
 **Bedrock** is a Statamic starter-kit that demonstrates a Statamic CMS built on Laravel with a flat-file architecture. This is a sophisticated CMS project with custom CLI tooling and a component-based architecture.
 
@@ -24,6 +60,24 @@ This file provides context and guidelines for AI assistants working with this St
 - **TailwindCSS**: Utility-first CSS framework
 - **AlpineJS**: JavaScript framework for interactive components
 - **Embla Carousel**: Lightweight carousel library
+
+
+## Current stack and source of truth
+
+This project is a Laravel + Statamic + Commerce7 site using Bedrock patterns, Vite, Tailwind, Alpine, Antlers, and vanilla CSS components.
+
+Current repo dependency files are the source of truth when they conflict with older notes or README text. Check `composer.json`, `composer.lock`, `package.json`, and `package-lock.json` before making version-specific assumptions.
+
+Known current architecture from the repo:
+
+- Laravel 12.
+- Statamic Pro/CMS. Check `composer.json` for the exact current Statamic version before making version-specific changes.
+- PHP requirement is defined by `composer.json`; do not assume the README is current if it conflicts.
+- Vite is the frontend build tool.
+- Tailwind is present, but this project also uses explicit vanilla CSS component files.
+- Alpine is present and should be used only for small behavior/state interactions.
+- Commerce7 Front-end V2 is the only Commerce7 frontend integration to use unless Lindsay explicitly asks otherwise.
+
 
 ## Architecture Patterns
 
@@ -174,6 +228,226 @@ php please make:set         # Create new set
 php please delete:set       # Remove set
 ```
 
+## High-level architecture
+
+### Statamic/Laravel layer
+
+- Statamic renders the website, page structure, CMS content, globals, blueprints, blocks, templates, partials, navigation, and non-Commerce7 UI.
+- Laravel routes are used where needed for custom behavior.
+- Antlers templates are the default view layer. Do not convert Antlers to Blade unless explicitly asked or unless an existing file already uses Blade and the task is specific to that file.
+
+Important paths:
+
+```text
+routes/web.php
+app/Http/Controllers/
+resources/views/
+resources/views/layout.antlers.html
+resources/views/partials/
+resources/views/blocks/
+resources/css/site.css
+resources/css/components/
+resources/js/site.js
+```
+
+### Commerce7 layer
+
+Commerce7 owns ecommerce behavior. The site should integrate with Commerce7 rather than recreate it.
+
+- The global layout conditionally loads Commerce7 V2 CSS and JavaScript from Commerce7 globals.
+- Commerce7 globals such as `commerce7:enable_c7`, `commerce7:tenant_id`, `commerce7:c7_css_url`, `commerce7:c7_js_url`, `commerce7:c7_script_id`, and `commerce7:c7_defer` are used by the layout.
+- Product pages route through Laravel/Statamic and mount Commerce7 content in `#c7-content`.
+- Cart, club, checkout, and profile/account routes are Statamic routes that rely on Commerce7 rendering and behavior.
+- The navigation includes Commerce7 account and cart mount points.
+
+Do not replace Commerce7 widgets with a custom ecommerce implementation. Do not reintroduce Commerce7 Front-end V1. Do not attempt an API/SSR product rebuild unless Lindsay explicitly asks.
+
+### Product pages
+
+Product pages use:
+
+```text
+GET /product/{handle}
+app/Http/Controllers/ProductController.php
+resources/views/product.antlers.html
+```
+
+The product template mounts:
+
+```html
+<div id="c7-content"></div>
+```
+
+Earlier SSR/API product-page work hit Commerce7 401 tenant issues and was intentionally deferred. The current working direction is Commerce7 client/widget rendering unless Lindsay reopens the API/SSR task.
+
+### Layout and global assets
+
+The main layout is:
+
+```text
+resources/views/layout.antlers.html
+```
+
+It is responsible for global head/body structure, SEO partials, browser appearance, Commerce7 asset loading, Vite CSS, header/nav, template content, footer, pushed scripts, site JavaScript, and footer scripts.
+
+The main CSS entry is:
+
+```text
+resources/css/site.css
+```
+
+Preserve the import structure and order unless the task specifically requires changing it. CSS is organized into config, tokens, global styles, elements, objects, components, and utilities.
+
+### CSS conventions
+
+- Prefer existing CSS architecture over new one-off systems.
+- Put component-specific styling in the matching file under `resources/css/components/`.
+- All typographic styles relating specifically to Article blocks and other text-based blocks belong in:
+
+```text
+resources/css/components/typography.css
+```
+
+- Scope Commerce7 overrides to Le Cuvier/project classes or specific Commerce7 integration areas.
+- Do not make broad global CSS resets or global element changes unless explicitly asked.
+- Flexbox is preferred for layout unless an existing component uses grid or grid is specifically appropriate/requested.
+- No floats.
+- No JavaScript for layout unless there is no reasonable CSS/HTML approach and Lindsay approves.
+
+### JavaScript conventions
+
+The main JavaScript entry is:
+
+```text
+resources/js/site.js
+```
+
+It initializes Alpine, imports small behavior scripts, and contains targeted site behavior.
+
+- Keep JavaScript minimal and behavior-focused.
+- Do not use JavaScript to solve pure layout problems.
+- Do not add frontend frameworks.
+- Do not rewrite working vanilla scripts into a framework.
+- Keep imports explicit and localized.
+
+### Navigation
+
+Navigation uses Statamic navigation data, not hardcoded page links.
+
+- The current nav partial uses `{{ nav handle="header" ... }}`.
+- Do not hardcode primary navigation links unless explicitly asked.
+- Preserve accessibility affordances such as the aria-live region, mobile drawer labels, account/cart labels, and keyboard-relevant behavior.
+
+### Content and assets
+
+Production uses Statamic Git Automation for content and assets edited in the Control Panel.
+
+- Code/template/CSS/JS/config changes are made locally and committed through normal Git workflow.
+- Content, globals, users, and uploaded assets are edited in Statamic Control Panel and may be committed automatically by production Git Automation.
+- Do not edit production content, users, or uploaded assets over SSH.
+- Do not casually change content files locally during code refactors. If content changes are necessary, call them out clearly.
+
+## Refactoring rules
+
+Most Codex work on this project should be narrow refactoring, not redesign.
+
+When refactoring:
+
+- Preserve the frontend design unless Lindsay explicitly asks for a visual change.
+- Preserve current CMS behavior.
+- Preserve existing class names unless the task is specifically to rename/restructure them.
+- Preserve Commerce7 mount points and required IDs/classes.
+- Avoid changes that would require client-side content authors to relearn the CMS unless explicitly requested.
+- Do not remove comments that explain integration behavior unless they are obsolete and the cleanup is requested.
+- Keep changes reviewable.
+
+## Testing and verification
+
+Choose the smallest verification that matches the change.
+
+Common local checks:
+
+```bash
+npm run build
+```
+
+```bash
+php artisan test
+```
+
+```bash
+php please cache:clear
+```
+
+Do not run the full Composer `dev` script without permission because it starts multiple long-running processes. Do not run install/update commands unless explicitly asked.
+
+When finished, report:
+
+- Files changed.
+- What was changed.
+- What was intentionally not changed.
+- Verification command(s) run and results.
+- Any risks or follow-up questions.
+
+## Deployment preferences
+
+Production deployment is via Laravel Forge, not manual production `git pull`, unless Lindsay explicitly asks otherwise.
+
+Before any production deploy is even considered, confirm:
+
+- Production working tree is clean.
+- Production is on the expected branch.
+- Origin has been fetched.
+- Production is only behind `origin/main` and has no local-only commits.
+
+Do not deploy, push, or modify production unless Lindsay explicitly asks.
+
+## Protected files and actions
+
+Do not touch these without explicit permission:
+
+```text
+.env
+.env.*
+composer.lock
+package-lock.json
+config/*
+database/*
+storage/*
+vendor/*
+node_modules/*
+public/build/*
+```
+
+Lockfiles may change only when Lindsay explicitly asks to install, remove, or update dependencies.
+
+Be especially cautious with:
+
+```text
+content/*
+users/*
+public/assets/*
+resources/blueprints/*
+resources/fieldsets/*
+```
+
+Blueprints and fieldsets may be legitimate code/CMS-structure changes, but they affect the Control Panel editing experience and should not be changed casually.
+
+## Preferred task workflow
+
+For each task:
+
+1. Restate the requested outcome briefly.
+2. Inspect relevant files.
+3. Identify the smallest safe change.
+4. Make the change.
+5. Run the relevant check if safe.
+6. Show the diff summary.
+7. Stop and wait for Lindsay’s next direction.
+
+Do not continue into adjacent improvements after completing the requested change.
+
+
 ## Common Patterns & Best Practices
 
 ### 1. Working with Collections
@@ -244,6 +518,58 @@ php please delete:set       # Remove set
 4. **Consider SEO implications** - this is a marketing/business website
 5. **Maintain the existing design system** - it follows shadcn/ui patterns with Tailwind
 6. **Remember this is a flat-file CMS** - content changes are file-based, not database-based
+
+
+## Non-negotiable safety rules
+
+- Work only inside this repository unless Lindsay explicitly asks otherwise.
+- Do not modify parent directories, sibling Herd sites, global shell config, global Composer config, global npm config, Herd config, Valet config, SSH config, or Codex config unless explicitly asked.
+- Do not modify environment files or environment settings unless explicitly asked. This includes `.env`, `.env.*`, app keys, database settings, Commerce7 credentials, Forge settings, Herd settings, and machine-level PHP/Node/Composer settings.
+- Do not run destructive commands unless explicitly asked. This includes `rm -rf`, `git reset`, `git clean`, force pushes, database resets, migrations that alter data, and any command that discards local or production state.
+- Do not commit, push, deploy, SSH into production, or run Forge deploys unless explicitly asked.
+- Do not add, remove, or update dependencies unless explicitly asked. Do not run `composer update`, `npm update`, or package-install commands as a side effect of refactoring.
+- Do not run long-lived servers without permission. Herd serves the local Laravel site; `npm run dev` may be appropriate only when Lindsay wants an active Vite dev session.
+- Do not edit generated/vendor/cache directories directly, including `vendor/`, `node_modules/`, `storage/framework/`, and Vite build output.
+
+## Before doing work
+
+1. Run or request a `git status` check first.
+2. Confirm the current branch before editing.
+3. Inspect the relevant existing files before proposing changes.
+4. State a concise plan with the exact files expected to change.
+5. Make the smallest targeted change that satisfies the request.
+6. Preserve existing behavior unless Lindsay explicitly asks for behavior changes.
+
+Do not perform a broad cleanup, rename, formatting pass, architectural rewrite, or design change while doing a focused task.
+
+
+## Canonical documentation
+
+When external documentation is needed, prefer these sources:
+
+- Statamic documentation: `https://statamic.dev/`
+- Bedrock starter repository: `https://github.com/jasonbaciulis/bedrock`
+- Commerce7 Design Docs, Front-end V2 only: `https://design-docs.commerce7.com/`
+- Commerce7 Developer Docs: `https://developer.commerce7.com/docs/`
+
+Do not use Commerce7 Front-end V1 examples. Do not invent Statamic/Antlers syntax.
+
+
+## Communication style
+
+Lindsay prefers concise, practical, high-signal development help.
+
+- Give one terminal command at a time when commands are needed.
+- Label commands as `LOCAL` or `PRODUCTION` when context matters.
+- Do not give multi-command scripts unless Lindsay asks for them.
+- Do not guess when file contents, APIs, or framework behavior matter. Inspect the repo or check the canonical docs.
+- If something is uncertain, say so directly and identify the missing file, setting, or documentation.
+- Do not propose code until enough context has been checked.
+- Do not silently remove functionality.
+- Do not summarize documentation pages unless asked.
+- Prefer complete copy-pasteable file replacements or narrow diffs over vague descriptions.
+- Explain risky changes before making them.
+
 
 ## Helpful Resources
 
