@@ -1,0 +1,163 @@
+title: Club
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+      -
+        display: 'Page Introduction'
+        fields:
+          -
+            handle: club_options_heading
+            field:
+              type: text
+              display: Headline
+              instructions: 'The H2 shown above the club cards.'
+              antlers: false
+              required: true
+              validate:
+                - required
+          -
+            handle: club_options_description
+            field:
+              type: textarea
+              display: Description
+              instructions: 'Supporting copy shown below the headline.'
+              antlers: false
+              rows: 3
+              required: true
+              validate:
+                - required
+      -
+        display: 'Fulfillment Explanation'
+        fields:
+          -
+            handle: club_fulfillment_heading
+            field:
+              type: text
+              display: Heading
+              instructions: 'Short heading for the pickup/shipping explanation.'
+              antlers: false
+              required: true
+              validate:
+                - required
+          -
+            handle: club_pickup_explanation
+            field:
+              type: textarea
+              display: 'Pickup / Will Call'
+              instructions: 'Explains that will call means pickup at the winery.'
+              antlers: false
+              rows: 3
+              required: true
+              validate:
+                - required
+          -
+            handle: club_shipping_explanation
+            field:
+              type: textarea
+              display: Shipping
+              instructions: 'Explains the shipping fulfillment option.'
+              antlers: false
+              rows: 3
+              required: true
+              validate:
+                - required
+      -
+        display: 'Mixed Club'
+        fields:
+          -
+            handle: mixed_club_title
+            field:
+              type: text
+              display: Title
+              antlers: false
+              required: true
+              validate:
+                - required
+          -
+            handle: mixed_club_description
+            field:
+              type: textarea
+              display: Description
+              instructions: 'Copy shown directly below the Mixed club title.'
+              antlers: false
+              rows: 3
+              required: true
+              validate:
+                - required
+      -
+        display: 'Reds Only Club'
+        fields:
+          -
+            handle: reds_club_title
+            field:
+              type: text
+              display: Title
+              antlers: false
+              required: true
+              validate:
+                - required
+          -
+            handle: reds_club_description
+            field:
+              type: textarea
+              display: Description
+              instructions: 'Copy shown directly below the Reds Only club title.'
+              antlers: false
+              rows: 3
+              required: true
+              validate:
+                - required
+  seo:
+    display: SEO
+    sections:
+      -
+        display: Basic
+        instructions: 'Basic SEO settings'
+        fields:
+          -
+            import: seo_basic
+      -
+        display: Advanced
+        instructions: 'Advanced SEO settings'
+        fields:
+          -
+            import: seo_advanced
+      -
+        display: 'Open Graph'
+        instructions: 'Open Graph meta tags for social sharing'
+        fields:
+          -
+            import: seo_open_graph
+      -
+        display: Sitemap
+        instructions: 'Sitemap configuration'
+        fields:
+          -
+            import: seo_sitemap
+      -
+        display: 'JSON-ld Schema'
+        instructions: 'Custom JSON-ld schema objects'
+        fields:
+          -
+            import: seo_json-ld_schema
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
