@@ -2,22 +2,45 @@
   x-data="{
     loggedIn: false,
     init() {
-      const loginEl = this.$refs.c7login;
-      const check = () => { this.loggedIn = /logout/i.test((loginEl.textContent || '')); };
-      new MutationObserver(check).observe(loginEl, { subtree: true, childList: true, characterData: true });
+      const accountEl = document.getElementById('c7-account');
+      const check = () => {
+        if (!accountEl) return;
+
+        this.loggedIn = /logout/i.test(`${accountEl.textContent || ''} ${accountEl.innerHTML || ''}`);
+      };
+
+      if (accountEl) {
+        new MutationObserver(check).observe(accountEl, {
+          subtree: true,
+          childList: true,
+          characterData: true,
+          attributes: true
+        });
+      }
+
       check();
     }
   }"
   class="promo-cards"
 >
-  <div class="sr-only" aria-hidden="true" x-ref="c7login">
-    <div id="c7-login"></div>
-  </div>
-
   <div class="bento-grid">
     {{ cards }}
-      {{ if members_only }}
-        <template x-if="loggedIn">
+      {{ unless enabled === false }}
+        {{ if members_only }}
+          <template x-if="loggedIn">
+            {{ partial src="blocks/partials/promo-card"
+              :card_title="heading"
+              :card_subtitle="subtitle"
+              :card_body="body"
+              :card_link_type="link_type"
+              :card_link_entry="link_entry"
+              :card_link_url="link_url"
+              :card_bg_type="bg_type"
+              :card_bg_image="bg_image"
+              :card_bg_color="bg_color"
+            }}
+          </template>
+        {{ else }}
           {{ partial src="blocks/partials/promo-card"
             :card_title="heading"
             :card_subtitle="subtitle"
@@ -29,21 +52,8 @@
             :card_bg_image="bg_image"
             :card_bg_color="bg_color"
           }}
-        </template>
-      {{ else }}
-        {{ partial src="blocks/partials/promo-card"
-          :card_title="heading"
-          :card_subtitle="subtitle"
-          :card_body="body"
-          :card_link_type="link_type"
-          :card_link_entry="link_entry"
-          :card_link_url="link_url"
-          :card_bg_type="bg_type"
-          :card_bg_image="bg_image"
-          :card_bg_color="bg_color"
-        }}
-      {{ /if }}
+        {{ /if }}
+      {{ /unless }}
     {{ /cards }}
   </div>
 </section>
-

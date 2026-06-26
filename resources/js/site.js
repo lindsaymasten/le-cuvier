@@ -10,6 +10,7 @@ import './recipes-scroll.js'
 import './article-fade.js'
 import './product-detail-spacing.js'
 import './club-options.js'
+import './promo-cards.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine

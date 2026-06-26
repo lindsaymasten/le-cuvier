@@ -1,5 +1,5 @@
 {{ if card_link_type == 'internal' and card_link_entry }}
-  <a class="box" href="{{ card_link_entry:url }}">
+  <a class="box" href="{{ card_link_entry:url }}"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
@@ -12,17 +12,12 @@
     </div>
     <div class="get-started">
       <p>Get Started</p>
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M8 12h13" />
-        <path d="M18 9l3 3l-3 3" />
-        <path d="M5.5 9.5l-2.5 2.5l2.5 2.5l2.5 -2.5z" />
-      </svg>
+      <span class="get-started__icon" aria-hidden="true">☞</span>
     </div>
   </a>
 
 {{ elseif card_link_type == 'external' and card_link_url }}
-  <a class="box" href="{{ card_link_url }}" target="_blank" rel="noopener">
+  <a class="box" href="{{ card_link_url }}" target="_blank" rel="noopener"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
@@ -35,12 +30,7 @@
     </div>
     <div class="get-started">
       <p>Get Started</p>
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M8 12h13" />
-        <path d="M18 9l3 3l-3 3" />
-        <path d="M5.5 9.5l-2.5 2.5l2.5 2.5l2.5 -2.5z" />
-      </svg>
+      <span class="get-started__icon" aria-hidden="true">☞</span>
     </div>
   </a>
 
