@@ -225,6 +225,22 @@ fields:
 
                     fields:
 
+                      - handle: enabled
+                        field:
+                          type: toggle
+                          display: Enabled
+                          instructions: 'Show this card on the live site. Turn off to prepare a card without publishing it.'
+                          default: true
+                          width: 33
+
+                      - handle: members_only
+                        field:
+                          type: toggle
+                          display: Members Only
+                          instructions: 'Only show this card to visitors who are logged in to a Commerce7 account.'
+                          default: false
+                          width: 33
+
                       - handle: heading
                         field:
                           type: text
@@ -266,6 +282,8 @@ fields:
                           display: Internal Link (Entry)
                           instructions: 'Pick an internal page/entry to link to.'
                           max_items: 1
+                          validate:
+                            - 'required_if:{this}.link_type,internal'
                           if:
                             link_type: equals internal
                           width: 33
@@ -276,6 +294,8 @@ fields:
                           display: External Link (URL)
                           instructions: 'Full external URL (Tock, booking, etc).'
                           input_type: url
+                          validate:
+                            - 'required_if:{this}.link_type,external'
                           if:
                             link_type: equals external
                           width: 33
@@ -283,8 +303,8 @@ fields:
                       - handle: bg_type
                         field:
                           type: select
-                          display: Background Type
-                          instructions: 'Use an uploaded image (with focal point) or a solid color.'
+                          display: Card Visual Type
+                          instructions: 'Choose whether this card uses an uploaded image or a solid color.'
                           options:
                             image: Image
                             color: Color
@@ -294,8 +314,8 @@ fields:
                       - handle: bg_image
                         field:
                           type: assets
-                          display: Background Image
-                          instructions: 'Upload/select a background image. You can set focal point.'
+                          display: Card Image
+                          instructions: 'Upload/select an image shown inside the card. You can set its focal point.'
                           max_files: 1
                           container: promo_images
                           allow_uploads: true
@@ -306,8 +326,8 @@ fields:
                       - handle: bg_color
                         field:
                           type: color
-                          display: Background Color
-                          instructions: 'Used if no image.'
+                          display: Card Color
+                          instructions: 'Solid card color used when Card Visual Type is set to Color.'
                           swatches:
                             - '#000000'
                             - '#ffffff'
