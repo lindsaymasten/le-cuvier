@@ -119,10 +119,7 @@
 }
 
 .promo-cards .box--bento-fill-text .top-text {
-  hyphens: none;
-  overflow-wrap: normal;
   text-wrap: balance;
-  word-break: normal;
 }
 
 .promo-cards .box--bento-fill picture {
@@ -138,6 +135,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  hyphens: none;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .box-tag {
@@ -332,5 +332,21 @@
   .bento-grid--count-8 > .box--slot-6,
   .bento-grid--count-9 > .box--slot-6 {
     grid-column: span 5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-cards .box,
+  .promo-cards .get-started,
+  .promo-cards .get-started__icon {
+    transition: none;
+  }
+
+  .promo-cards .box:hover,
+  .promo-cards .box:focus-within,
+  .promo-cards .box:hover .get-started__icon,
+  .promo-cards .box:focus-within .get-started__icon,
+  .promo-cards .get-started:hover .get-started__icon {
+    transform: none;
   }
 }

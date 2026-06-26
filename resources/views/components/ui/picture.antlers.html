@@ -12,6 +12,7 @@
     - class: Additional classes for the image.
     - cover: Whether to use object-cover. Defaults to `false`.
     - not_lazy: Whether to disable lazy loading. Defaults to `false`.
+    - decorative: Whether to render an empty alt attribute for decorative images. Defaults to `false`.
  #}}
 
 {{ if image }}
@@ -26,7 +27,7 @@
                         {{ class | attribute:class }}
                     {{ /if }}
                     src="{{ url }}"
-                    alt="{{ alt }}"
+                    alt="{{ if decorative }}{{ else }}{{ alt }}{{ /if }}"
                     {{ unless not_lazy }}
                         loading="lazy"
                     {{ /unless }}
@@ -49,7 +50,7 @@
                     {{ /if }}
                     {{ glide :src="url" :width='w' :height='h' fit='crop_focal' }}
                         src="{{ url }}"
-                        alt="{{ alt }}"
+                        alt="{{ if decorative }}{{ else }}{{ alt }}{{ /if }}"
                         width="{{ width }}"
                         height="{{ height }}"
                     {{ /glide }}

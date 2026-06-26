@@ -1,13 +1,13 @@
 {{ if card_link_type == 'internal' and card_link_entry }}
-  <a class="box" href="{{ card_link_entry:url }}"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
+  <a class="box" href="{{ card_link_entry:url }}" aria-label="{{ card_title | strip_tags | entities }}"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
-        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
         {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" decorative="true" }}
       {{ /if }}
     </div>
     <div class="get-started">
@@ -17,19 +17,20 @@
   </a>
 
 {{ elseif card_link_type == 'external' and card_link_url }}
-  <a class="box" href="{{ card_link_url }}" target="_blank" rel="noopener"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
+  <a class="box" href="{{ card_link_url }}" target="_blank" rel="noopener" aria-label="{{ card_title | strip_tags | entities }} — opens in a new tab"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
-        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
         {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" decorative="true" }}
       {{ /if }}
     </div>
     <div class="get-started">
       <p>Get Started</p>
+      <span class="sr-only"> Opens in a new tab.</span>
       <span class="get-started__icon" aria-hidden="true">☞</span>
     </div>
   </a>
@@ -38,12 +39,12 @@
   <article class="box"{{ if card_bg_type == 'color' and card_bg_color }} style="background-color: {{ card_bg_color }};"{{ /if }}>
     <div class="box-content">
       <div class="top-text">
-        {{ if card_subtitle }}<h6 class="box-tag">{{ card_subtitle }}</h6>{{ /if }}
+        {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
         {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
-        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" }}
+        {{ partial:components/ui/picture :image="card_bg_image" w="800" h="600" cover="true" decorative="true" }}
       {{ /if }}
     </div>
   </article>
