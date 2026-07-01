@@ -68,6 +68,12 @@
     const style = clonedDoc.createElement("style");
     style.setAttribute("data-liquid-gl-clone-fix", "");
     style.textContent = `
+      html.c7-pending body,
+      body {
+        opacity: 1 !important;
+        transition: none !important;
+      }
+
       .club-hero,
       .club-hero *,
       .club-hero__svg,
@@ -89,14 +95,41 @@
 
     clonedDoc.head.appendChild(style);
 
+    clonedDoc.documentElement?.classList.remove("c7-pending");
+    clonedDoc.documentElement?.classList.add("c7-ready");
+
+    if (clonedDoc.body) {
+      clonedDoc.body.style.setProperty("opacity", "1", "important");
+      clonedDoc.body.style.setProperty("transition", "none", "important");
+    }
+
     const cloneWindow = clonedDoc.defaultView;
     if (!cloneWindow) return;
+
+    const colorProperties = [
+      "color",
+      "background",
+      "background-color",
+      "background-image",
+      "border-color",
+      "border-top-color",
+      "border-right-color",
+      "border-bottom-color",
+      "border-left-color",
+      "box-shadow",
+      "caret-color",
+      "column-rule-color",
+      "fill",
+      "outline-color",
+      "stroke",
+      "text-decoration-color",
+      "text-shadow",
+    ];
 
     clonedDoc.querySelectorAll("*").forEach((element) => {
       const computedStyle = cloneWindow.getComputedStyle(element);
 
-      for (let index = 0; index < computedStyle.length; index += 1) {
-        const property = computedStyle[index];
+      colorProperties.forEach((property) => {
         const value = computedStyle.getPropertyValue(property);
         const normalizedValue = normalizeColorFunction(value);
 
@@ -107,7 +140,7 @@
             /* Ignore read-only or unsupported properties in the cloned tree. */
           }
         }
-      }
+      });
     });
   }
 
@@ -531,9 +564,6 @@
             if (over > 1) scale = scale / over;
           }
           this.scaleFactor = Math.max(0.1, scale);
-
-          this.canvas.style.visibility = "hidden";
-          undos.push(() => (this.canvas.style.visibility = "visible"));
 
           const lensElements = this.lenses
             .flatMap((lens) => [lens.el, lens._shadowEl])
@@ -1478,8 +1508,10 @@
       this.originalShadow = this.el.style.boxShadow;
       this.originalOpacity = this.el.style.opacity;
       this.originalTransition = this.el.style.transition;
-      this.el.style.transition = "none";
-      this.el.style.opacity = 0;
+      if (this.revealTypeIndex === 1) {
+        this.el.style.transition = "none";
+        this.el.style.opacity = 0;
+      }
 
       this.el.style.position =
         this.el.style.position === "static"

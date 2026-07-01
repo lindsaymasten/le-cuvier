@@ -118,14 +118,29 @@
     0 18px 34px -22px rgba(18, 18, 18, 0.18);
 }
 
+.navbar-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 1;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46));
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  backdrop-filter: blur(18px) saturate(130%);
+  transition: opacity 140ms ease-out;
+}
+
 .is-liquid-gl-ready .navbar-frame {
   background: transparent;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
 
-.is-liquid-gl-ready .navbar-glass__section {
-  background: transparent;
+.is-liquid-gl-ready .navbar-frame::before {
+  opacity: 0;
 }
 
 .is-liquid-gl-ready .navbar-glass__section,
@@ -133,12 +148,14 @@
   pointer-events: auto !important;
 }
 
-.is-liquid-gl-failed .navbar-frame,
-.is-liquid-gl-skipped .navbar-frame {
+.is-liquid-gl-failed .navbar-frame::before,
+.is-liquid-gl-skipped .navbar-frame::before {
+  opacity: 1;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46));
   -webkit-backdrop-filter: blur(18px) saturate(130%);
   backdrop-filter: blur(18px) saturate(130%);
+  transition: none;
 }
 
 .navbar-glass__section,
@@ -170,7 +187,7 @@
   align-items: stretch;
   overflow: visible;
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   will-change: transform;
 }
 
@@ -253,8 +270,9 @@
     --lg-nav-separator-highlight: rgba(255, 255, 255, 0.3);
   }
 
-  .is-liquid-gl-failed .navbar-frame,
-  .is-liquid-gl-skipped .navbar-frame {
+  .navbar-frame::before,
+  .is-liquid-gl-failed .navbar-frame::before,
+  .is-liquid-gl-skipped .navbar-frame::before {
     background:
       linear-gradient(180deg, rgba(28, 28, 26, 0.72), rgba(28, 28, 26, 0.5));
   }

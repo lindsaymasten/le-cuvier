@@ -49,12 +49,13 @@
     shadow: false,
     specular: false,
     tilt: false,
-    reveal: 'fade',
+    reveal: false,
     proxy: '/liquid-glass-image-proxy',
   }
 
-  const c7RevealTransitionMs = 180
-
+  const startupDelayMs = 32
+  const snapshotRefreshDelayMs = 120
+  const postCommerce7RefreshDelayMs = 240
   let refreshTimer = 0
   let initTimeout = 0
   let snapshotRefreshTimer = 0
@@ -62,7 +63,7 @@
   let initialized = false
   let isInitializing = false
   let pendingRefresh = false
-  let waitingForVisiblePageReveal = false
+  let waitingForCommerce7Refresh = false
   let initCycle = 0
 
   const breakpointName = () => (breakpoint.matches ? 'mobile' : 'desktop')
@@ -137,7 +138,7 @@
     return visibleTargets
   }
 
-  const scheduleSnapshotRefresh = () => {
+  const scheduleSnapshotRefresh = (delay = snapshotRefreshDelayMs) => {
     if (!initialized) return
 
     window.clearTimeout(snapshotRefreshTimer)
@@ -146,11 +147,16 @@
 
       if (!renderer) return
 
+      if (renderer._capturing) {
+        scheduleSnapshotRefresh(180)
+        return
+      }
+
       renderer._snapshotResolution = liquidGlResolution()
       renderer._resizeCanvas?.()
       renderer.lenses?.forEach((lens) => lens.updateMetrics?.())
       renderer.captureSnapshot?.()
-    }, 160)
+    }, delay)
   }
 
   const finishInitializing = () => {
@@ -160,6 +166,10 @@
     activeBreakpoint = breakpointName()
     document.body.classList.remove('is-liquid-gl-failed', 'is-liquid-gl-skipped')
     document.body.classList.add('is-liquid-gl-ready')
+
+    if (document.documentElement.classList.contains('c7-ready')) {
+      scheduleSnapshotRefresh(postCommerce7RefreshDelayMs)
+    }
 
     if (pendingRefresh && activeBreakpoint !== breakpointName()) {
       pendingRefresh = false
@@ -278,39 +288,36 @@
     window.clearTimeout(refreshTimer)
 
     window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        refreshTimer = window.setTimeout(() => {
-          initializeLiquidGl(reason).catch(() => {
-            setLiquidGlFailed()
-            isInitializing = false
-          })
-        }, 120)
-      })
+      refreshTimer = window.setTimeout(() => {
+        initializeLiquidGl(reason).catch(() => {
+          setLiquidGlFailed()
+          isInitializing = false
+        })
+      }, startupDelayMs)
     })
   }
 
-  const scheduleAfterVisiblePageReveal = (reason = 'initial') => {
+  const scheduleAfterCommerce7ReadyRefresh = () => {
     const html = document.documentElement
 
-    if (!html.classList.contains('c7-pending') || html.classList.contains('c7-ready')) {
-      waitingForVisiblePageReveal = false
-      scheduleInitialize(reason)
+    if (!html.classList.contains('c7-pending')) return
+
+    if (html.classList.contains('c7-ready')) {
+      scheduleSnapshotRefresh(postCommerce7RefreshDelayMs)
       return
     }
 
-    if (waitingForVisiblePageReveal) return
+    if (waitingForCommerce7Refresh) return
 
-    waitingForVisiblePageReveal = true
+    waitingForCommerce7Refresh = true
 
     const observer = new MutationObserver(() => {
       if (!html.classList.contains('c7-ready')) return
 
       observer.disconnect()
-      waitingForVisiblePageReveal = false
+      waitingForCommerce7Refresh = false
 
-      window.setTimeout(() => {
-        scheduleInitialize(reason === 'initial' ? 'c7-ready' : reason)
-      }, c7RevealTransitionMs)
+      scheduleSnapshotRefresh(postCommerce7RefreshDelayMs)
     })
 
     observer.observe(html, {
@@ -327,7 +334,7 @@
     }
 
     if (!initialized) {
-      scheduleAfterVisiblePageReveal('breakpoint')
+      scheduleInitialize('breakpoint')
       return
     }
 
@@ -337,7 +344,7 @@
     )
 
     if (hasMissingLens) {
-      scheduleAfterVisiblePageReveal('breakpoint')
+      scheduleInitialize('breakpoint')
       return
     }
 
@@ -355,27 +362,120 @@
     scheduleSnapshotRefresh()
   }
 
-  const observeCommerce7NavChanges = () => {
-    const navbarRight = document.querySelector('.navbar-right')
+  const observeCommerce7Changes = () => {
+    const roots = Array.from(
+      document.querySelectorAll('.navbar-right, .product-cards, #c7-content')
+    ).filter((root) => root instanceof HTMLElement)
 
-    if (!(navbarRight instanceof HTMLElement)) return
+    if (!roots.length) return
 
-    const observer = new MutationObserver(scheduleSnapshotRefresh)
+    const observer = new MutationObserver(() => scheduleSnapshotRefresh())
+    const handleImageLoad = () => scheduleSnapshotRefresh(60)
 
-    observer.observe(navbarRight, {
-      childList: true,
-      subtree: true,
-      characterData: true,
+    roots.forEach((root) => {
+      observer.observe(root, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        characterData: true,
+      })
+
+      root.addEventListener('load', handleImageLoad, true)
     })
 
-    window.setTimeout(() => observer.disconnect(), 6000)
+    window.setTimeout(() => {
+      observer.disconnect()
+      roots.forEach((root) => {
+        root.removeEventListener('load', handleImageLoad, true)
+      })
+    }, 8000)
+  }
+
+  const observeFutureCommerce7Roots = () => {
+    const observer = new MutationObserver((records) => {
+      const hasCommerce7Root = records.some((record) =>
+        Array.from(record.addedNodes).some((node) =>
+          node instanceof HTMLElement &&
+          (node.matches?.('.product-cards, #c7-content') ||
+            node.querySelector?.('.product-cards, #c7-content'))
+        )
+      )
+
+      if (hasCommerce7Root) scheduleSnapshotRefresh()
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    })
+
+    window.setTimeout(() => observer.disconnect(), 8000)
+  }
+
+  const observeProductCardVisualStates = () => {
+    const productCardFromEvent = (event) => {
+      const target = event.target
+
+      if (!(target instanceof Element)) return null
+
+      return target.closest('.product-cards .product-card')
+    }
+
+    const isSameCardMove = (card, relatedTarget) =>
+      relatedTarget instanceof Node && card.contains(relatedTarget)
+
+    const scheduleAfterProductCardTransition = () => {
+      scheduleSnapshotRefresh(420)
+    }
+
+    const handlePointerStateChange = (event) => {
+      const card = productCardFromEvent(event)
+
+      if (!card || isSameCardMove(card, event.relatedTarget)) return
+
+      scheduleAfterProductCardTransition()
+    }
+
+    const handleFocusStateChange = (event) => {
+      if (!productCardFromEvent(event)) return
+
+      scheduleAfterProductCardTransition()
+    }
+
+    const handleTransitionEnd = (event) => {
+      const card = productCardFromEvent(event)
+
+      if (!card) return
+
+      const properties = new Set([
+        'border-radius',
+        'filter',
+        'max-height',
+        'opacity',
+        'top',
+        'transform',
+      ])
+
+      if (event.propertyName && !properties.has(event.propertyName)) return
+
+      scheduleSnapshotRefresh(40)
+    }
+
+    document.addEventListener('pointerover', handlePointerStateChange, true)
+    document.addEventListener('pointerout', handlePointerStateChange, true)
+    document.addEventListener('focusin', handleFocusStateChange, true)
+    document.addEventListener('focusout', handleFocusStateChange, true)
+    document.addEventListener('transitionend', handleTransitionEnd, true)
   }
 
   ready(() => {
     if (!targetSurfaces().length) return
 
-    scheduleAfterVisiblePageReveal()
-    observeCommerce7NavChanges()
+    scheduleInitialize()
+    scheduleAfterCommerce7ReadyRefresh()
+    observeCommerce7Changes()
+    observeFutureCommerce7Roots()
+    observeProductCardVisualStates()
 
     if (typeof breakpoint.addEventListener === 'function') {
       breakpoint.addEventListener('change', refreshOnBreakpointChange)
@@ -383,7 +483,7 @@
       breakpoint.addListener(refreshOnBreakpointChange)
     }
 
-    window.addEventListener('resize', scheduleSnapshotRefresh, { passive: true })
-    window.addEventListener('load', scheduleSnapshotRefresh, { once: true })
+    window.addEventListener('resize', () => scheduleSnapshotRefresh(), { passive: true })
+    window.addEventListener('load', () => scheduleSnapshotRefresh(), { once: true })
   })
 })()
