@@ -11,6 +11,8 @@
   --pc-gap: 20px;
   --pc-radius: 8px;
   --pc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --pc-hover-duration: 0.46s;
+  --pc-hover-quick-duration: 0.4s;
   --pc-col-1: 100%;
   --pc-col-2: calc((100% - var(--pc-gap)) / 2);
   --pc-col-3: calc((100% - (2 * var(--pc-gap))) / 3);
@@ -52,9 +54,9 @@
   overflow: hidden;
   max-height: 70vh; /* ensures product cards don't take over screen if there are fewer than 3 + a large screen */
   transition:
-    transform 0.35s var(--pc-ease),
-    filter 0.35s var(--pc-ease),
-    border-radius 0.35s var(--pc-ease);
+    transform var(--pc-hover-duration) var(--pc-ease),
+    filter var(--pc-hover-duration) var(--pc-ease),
+    border-radius var(--pc-hover-duration) var(--pc-ease);
 }
 
 /* Hover tint overlay */
@@ -71,12 +73,13 @@
   z-index: 2;
   border-radius: inherit;
   transition:
-    opacity 0.35s var(--pc-ease),
-    border-radius 0.35s var(--pc-ease);
+    opacity var(--pc-hover-duration) var(--pc-ease),
+    border-radius var(--pc-hover-duration) var(--pc-ease);
 }
 
 .product-cards .product-card:hover::after,
-.product-cards .product-card:focus-within::after {
+.product-cards .product-card:focus-within::after,
+.product-cards .product-card.is-liquid-gl-hovered::after {
   opacity: 1;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -88,7 +91,8 @@
     mix-blend-mode: color;
   }
   .product-cards .product-card:hover::after,
-  .product-cards .product-card:focus-within::after {
+  .product-cards .product-card:focus-within::after,
+  .product-cards .product-card.is-liquid-gl-hovered::after {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
@@ -96,17 +100,20 @@
 
 /* Hover lift / rounded corners */
 .product-cards .product-card:hover,
-.product-cards .product-card:focus-within {
+.product-cards .product-card:focus-within,
+.product-cards .product-card.is-liquid-gl-hovered {
   transform: translateY(-2px);
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
   border-radius: 2px;
 }
 .product-cards .product-card:hover .product-image img,
 .product-cards .product-card:focus-within .product-image img,
+.product-cards .product-card.is-liquid-gl-hovered .product-image img,
 .product-cards .product-card:hover .product-details,
-.product-cards .product-card:focus-within .product-details {
+.product-cards .product-card:focus-within .product-details,
+.product-cards .product-card.is-liquid-gl-hovered .product-details {
   /*border-radius: 18px;*/
-  transition: border-radius 0.35s var(--pc-ease);
+  transition: border-radius var(--pc-hover-duration) var(--pc-ease);
 }
 
 /* Media */
@@ -134,8 +141,8 @@
   pointer-events: none;      
   font-size: 1em;
   transition:
-    top 0.35s var(--pc-ease),
-    border-radius 0.35s var(--pc-ease);
+    top var(--pc-hover-duration) var(--pc-ease),
+    border-radius var(--pc-hover-duration) var(--pc-ease);
 }
 .product-cards .product-details .product-purchase {
   pointer-events: auto; /* allow interaction with price and CTA */
@@ -147,21 +154,24 @@
   overflow: hidden;
   pointer-events: none;
   transition:
-    opacity 0.35s var(--pc-ease),
-    max-height 0.35s var(--pc-ease);
+    opacity var(--pc-hover-duration) var(--pc-ease),
+    max-height var(--pc-hover-duration) var(--pc-ease);
 }
 .product-cards .product-card:hover .product-details,
-.product-cards .product-card:focus-within .product-details {
+.product-cards .product-card:focus-within .product-details,
+.product-cards .product-card.is-liquid-gl-hovered .product-details {
   top: 0;                    /* expand overlay */
 }
 @media  (max-width: 600px) {
   .product-cards .product-card:hover .product-details,
-  .product-cards .product-card:focus-within .product-details {
+  .product-cards .product-card:focus-within .product-details,
+  .product-cards .product-card.is-liquid-gl-hovered .product-details {
     top: 3rem;                    /* expand overlay */
   }
 }
 .product-cards .product-card:hover .product-details .product-info,
-.product-cards .product-card:focus-within .product-details .product-info {
+.product-cards .product-card:focus-within .product-details .product-info,
+.product-cards .product-card.is-liquid-gl-hovered .product-details .product-info {
   opacity: 1;
   max-height: 1000px;        /* large enough to reveal contents */
   pointer-events: auto;
@@ -527,7 +537,7 @@
   font-weight: 600;
   margin-right: 0.5rem;
   opacity: 0;
-  transition: opacity 0.3s var(--pc-ease);
+  transition: opacity var(--pc-hover-quick-duration) var(--pc-ease);
 }
 
 @media (hover: none) {
@@ -539,8 +549,10 @@
 
 .product-cards .product-card:hover .c7-product__price,
 .product-cards .product-card:focus-within .c7-product__price,
+.product-cards .product-card.is-liquid-gl-hovered .c7-product__price,
 .product-cards .product-card:hover .c7-product__add-to-cart__price,
-.product-cards .product-card:focus-within .c7-product__add-to-cart__price {
+.product-cards .product-card:focus-within .c7-product__add-to-cart__price,
+.product-cards .product-card.is-liquid-gl-hovered .c7-product__add-to-cart__price {
   opacity: 1;
 }
 

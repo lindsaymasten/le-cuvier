@@ -91,6 +91,52 @@
       .club-fulfillment-note {
         background-color: rgb(247, 247, 241) !important;
       }
+
+      .product-cards .product-card.is-liquid-gl-hovered .product-details {
+        top: 0 !important;
+        transition: none !important;
+      }
+
+      .product-cards .product-card.is-liquid-gl-hovered .product-details .product-info {
+        opacity: 1 !important;
+        max-height: 1000px !important;
+        overflow: visible !important;
+        transition: none !important;
+      }
+
+      .product-cards .product-card.is-liquid-gl-hovered .product-card-vintage,
+      .product-cards .product-card.is-liquid-gl-hovered .product-info h1,
+      .product-cards .product-card.is-liquid-gl-hovered .product-info h1::before,
+      .product-cards .product-card.is-liquid-gl-hovered .product-info h1 a,
+      .product-cards .product-card.is-liquid-gl-hovered .product-info h2,
+      .product-cards .product-card.is-liquid-gl-hovered .c7-product__price,
+      .product-cards .product-card.is-liquid-gl-hovered .c7-product__add-to-cart__price {
+        transition: none !important;
+      }
+
+      .product-cards .product-card.is-liquid-gl-hovered .c7-product__price,
+      .product-cards .product-card.is-liquid-gl-hovered .c7-product__add-to-cart__price {
+        opacity: 1 !important;
+      }
+
+      [data-liquid-gl-hover-proxy][data-liquid-gl-active="true"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background: #e5b321 !important;
+        pointer-events: none !important;
+        mix-blend-mode: normal !important;
+        filter: none !important;
+        transition: none !important;
+      }
+
+      [data-liquid-gl-hover-proxy]:not([data-liquid-gl-active="true"]) {
+        display: none !important;
+      }
+
+      .product-cards .product-card.is-liquid-gl-hovered .product-info h1::before {
+        content: none !important;
+      }
     `;
 
     clonedDoc.head.appendChild(style);
@@ -214,8 +260,11 @@
 
       this.lenses = [];
       this.texture = null;
+      this.previousTexture = null;
       this.textureWidth = 0;
       this.textureHeight = 0;
+      this._textureBlendStart = 0;
+      this._textureBlendDuration = 160;
       this.scaleFactor = 1;
       this.startTime = Date.now();
       this._scrollUpdateCounter = 0;
@@ -371,6 +420,7 @@
         precision mediump float;
         varying vec2 v_uv;
         uniform sampler2D u_tex;
+        uniform sampler2D u_prevTex;
         uniform vec2  u_resolution;
         uniform vec2  u_textureResolution;
         uniform vec4  u_bounds;
@@ -386,6 +436,7 @@
         uniform float u_tiltX;
         uniform float u_tiltY;
         uniform float u_magnify;
+        uniform float u_textureBlend;
 
         float udRoundBox( vec2 p, vec2 b, float r ) {
           return length(max(abs(p)-b+r,0.0))-r;
@@ -393,6 +444,16 @@
 
         float random(vec2 st) {
           return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+        }
+
+        vec4 sceneColor(vec2 uv) {
+          vec4 nextCol = texture2D(u_tex, uv);
+
+          if (u_textureBlend >= 0.999) {
+            return nextCol;
+          }
+
+          return mix(texture2D(u_prevTex, uv), nextCol, u_textureBlend);
         }
 
         float edgeFactor(vec2 uv, float radius_px){
@@ -424,7 +485,7 @@
           float blend = 1.0 - smoothstep(0.0, 0.01, oob);
           vec2 sampleUV = mix(mapped, refracted, blend);
 
-          vec4 baseCol   = texture2D(u_tex, mapped);
+          vec4 baseCol = sceneColor(mapped);
 
           vec2 texel = 1.0 / u_textureResolution;
           vec4 refrCol;
@@ -438,15 +499,15 @@
                   float angle = random(v_uv + float(i)) * 6.283185;
                   float dist = sqrt(random(v_uv - float(i))) * radius;
                   vec2 offset = vec2(cos(angle), sin(angle)) * texel * dist;
-                  sum += texture2D(u_tex, sampleUV + offset);
+                  sum += sceneColor(sampleUV + offset);
               }
               refrCol = sum / float(SAMPLES);
           } else {
-              refrCol = texture2D(u_tex, sampleUV);
-              refrCol += texture2D(u_tex, sampleUV + vec2( texel.x, 0.0));
-              refrCol += texture2D(u_tex, sampleUV + vec2(-texel.x, 0.0));
-              refrCol += texture2D(u_tex, sampleUV + vec2(0.0,  texel.y));
-              refrCol += texture2D(u_tex, sampleUV + vec2(0.0, -texel.y));
+              refrCol = sceneColor(sampleUV);
+              refrCol += sceneColor(sampleUV + vec2( texel.x, 0.0));
+              refrCol += sceneColor(sampleUV + vec2(-texel.x, 0.0));
+              refrCol += sceneColor(sampleUV + vec2(0.0,  texel.y));
+              refrCol += sceneColor(sampleUV + vec2(0.0, -texel.y));
               refrCol /= 5.0;
           }
 
@@ -503,6 +564,7 @@
 
       this.u = {
         tex: gl.getUniformLocation(this.program, "u_tex"),
+        prevTex: gl.getUniformLocation(this.program, "u_prevTex"),
         res: gl.getUniformLocation(this.program, "u_resolution"),
         textureResolution: gl.getUniformLocation(
           this.program,
@@ -521,6 +583,7 @@
         tiltX: gl.getUniformLocation(this.program, "u_tiltX"),
         tiltY: gl.getUniformLocation(this.program, "u_tiltY"),
         magnify: gl.getUniformLocation(this.program, "u_magnify"),
+        textureBlend: gl.getUniformLocation(this.program, "u_textureBlend"),
       };
     }
 
@@ -658,7 +721,28 @@
       if (srcCanvas.width === 0 || srcCanvas.height === 0) return;
       this.staticSnapshotCanvas = srcCanvas;
       const gl = this.gl;
-      if (!this.texture) this.texture = gl.createTexture();
+
+      const canBlendFromCurrent =
+        this.texture &&
+        this.textureWidth === srcCanvas.width &&
+        this.textureHeight === srcCanvas.height;
+
+      if (canBlendFromCurrent) {
+        if (this.previousTexture) gl.deleteTexture(this.previousTexture);
+        this.previousTexture = this.texture;
+        this.texture = gl.createTexture();
+        this._textureBlendStart =
+          typeof performance !== "undefined" ? performance.now() : Date.now();
+      } else {
+        if (this.previousTexture) {
+          gl.deleteTexture(this.previousTexture);
+          this.previousTexture = null;
+        }
+        this._textureBlendStart = 0;
+        if (!this.texture) this.texture = gl.createTexture();
+      }
+
+      gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, this.texture);
       gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
       gl.texImage2D(
@@ -683,6 +767,27 @@
         this._pendingReveal.forEach((ln) => ln._reveal());
         this._pendingReveal.length = 0;
       }
+    }
+
+    /* ----------------------------- */
+    _textureBlendProgress() {
+      if (!this.previousTexture || !this._textureBlendStart) return 1;
+
+      const now =
+        typeof performance !== "undefined" ? performance.now() : Date.now();
+      const progress = Math.min(
+        1,
+        (now - this._textureBlendStart) / this._textureBlendDuration
+      );
+
+      if (progress >= 1) {
+        this.gl.deleteTexture(this.previousTexture);
+        this.previousTexture = null;
+        this._textureBlendStart = 0;
+        return 1;
+      }
+
+      return progress;
     }
 
     /* ----------------------------- */
@@ -715,16 +820,32 @@
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(this.program);
-      gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, this.texture);
-      gl.uniform1i(this.u.tex, 0);
 
       const time = (Date.now() - this.startTime) / 1000;
       gl.uniform1f(this.u.time, time);
 
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, this.texture);
+
       this._updateDynamicVideos();
 
       this._updateDynamicNodes();
+
+      const textureBlend = this._textureBlendProgress();
+
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, this.texture);
+      gl.uniform1i(this.u.tex, 0);
+
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, this.previousTexture || this.texture);
+      gl.uniform1i(this.u.prevTex, 1);
+      gl.uniform1f(
+        this.u.textureBlend,
+        this.previousTexture ? textureBlend : 1
+      );
+
+      gl.activeTexture(gl.TEXTURE0);
 
       this.lenses.forEach((lens) => {
         lens.updateMetrics();
@@ -1532,6 +1653,7 @@
       this.el.style.webkitBackdropFilter = "none";
       this.el.style.backgroundImage = "none";
       this.el.style.background = "transparent";
+      this.el.style.backgroundColor = "rgba(242, 242, 240, 0.2)";
 
       this.el.style.pointerEvents = "none";
 

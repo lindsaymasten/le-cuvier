@@ -18,6 +18,8 @@
   const activeTargetClass = 'is-liquid-gl-target'
   const pendingTargetClass = 'is-liquid-gl-pending-target'
   const initializedTargetClass = 'is-liquid-gl-lens'
+  const activeProductCardClass = 'is-liquid-gl-hovered'
+  const productCardCaptureProxyAttribute = 'data-liquid-gl-hover-proxy'
   const breakpoint = window.matchMedia('(max-width: 768px)')
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   const highContrast = window.matchMedia('(prefers-contrast: more)')
@@ -37,7 +39,11 @@
     )
   }
 
-  const liquidGlResolution = () => (breakpoint.matches ? 0.5 : 0.66)
+  const liquidGlResolution = (isHoverRefresh = false) => {
+    if (isHoverRefresh) return breakpoint.matches ? 0.4 : 0.5
+
+    return breakpoint.matches ? 0.5 : 0.66
+  }
 
   const liquidGlOptions = {
     snapshot: snapshotSelector,
@@ -59,6 +65,7 @@
   let refreshTimer = 0
   let initTimeout = 0
   let snapshotRefreshTimer = 0
+  let snapshotRefreshDueAt = 0
   let activeBreakpoint = null
   let initialized = false
   let isInitializing = false
@@ -138,21 +145,33 @@
     return visibleTargets
   }
 
-  const scheduleSnapshotRefresh = (delay = snapshotRefreshDelayMs) => {
+  const scheduleSnapshotRefresh = (delay = snapshotRefreshDelayMs, options = {}) => {
     if (!initialized) return
 
+    const isHoverRefresh = Boolean(options.hover)
+    const now = window.performance?.now?.() ?? Date.now()
+    const nextDueAt = now + delay
+
+    if (snapshotRefreshTimer && nextDueAt >= snapshotRefreshDueAt - 4) {
+      return
+    }
+
     window.clearTimeout(snapshotRefreshTimer)
+    snapshotRefreshDueAt = nextDueAt
     snapshotRefreshTimer = window.setTimeout(() => {
+      snapshotRefreshTimer = 0
+      snapshotRefreshDueAt = 0
+
       const renderer = window.__liquidGLRenderer__
 
       if (!renderer) return
 
       if (renderer._capturing) {
-        scheduleSnapshotRefresh(180)
+        scheduleSnapshotRefresh(80, options)
         return
       }
 
-      renderer._snapshotResolution = liquidGlResolution()
+      renderer._snapshotResolution = liquidGlResolution(isHoverRefresh)
       renderer._resizeCanvas?.()
       renderer.lenses?.forEach((lens) => lens.updateMetrics?.())
       renderer.captureSnapshot?.()
@@ -413,6 +432,9 @@
   }
 
   const observeProductCardVisualStates = () => {
+    let productCardCaptureProxy = null
+    let productCardCaptureProxyCard = null
+
     const productCardFromEvent = (event) => {
       const target = event.target
 
@@ -421,50 +443,143 @@
       return target.closest('.product-cards .product-card')
     }
 
+    const rootFontSize = () => {
+      const value = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize)
+
+      return Number.isFinite(value) && value > 0 ? value : 16
+    }
+
+    const ensureProductCardCaptureProxy = () => {
+      if (productCardCaptureProxy?.isConnected) return productCardCaptureProxy
+
+      productCardCaptureProxy = document.createElement('div')
+      productCardCaptureProxy.setAttribute(productCardCaptureProxyAttribute, '')
+      productCardCaptureProxy.setAttribute('aria-hidden', 'true')
+      Object.assign(productCardCaptureProxy.style, {
+        position: 'absolute',
+        left: '0',
+        top: '0',
+        width: '0',
+        height: '0',
+        opacity: '0',
+        pointerEvents: 'none',
+        background: '#e5b321',
+        zIndex: '6',
+        contain: 'layout style paint',
+      })
+      document.body.appendChild(productCardCaptureProxy)
+
+      return productCardCaptureProxy
+    }
+
+    const clearProductCardCaptureProxy = (card = null) => {
+      if (!productCardCaptureProxy || (card && productCardCaptureProxyCard !== card)) return
+
+      productCardCaptureProxyCard = null
+      productCardCaptureProxy.dataset.liquidGlActive = 'false'
+      Object.assign(productCardCaptureProxy.style, {
+        width: '0',
+        height: '0',
+      })
+    }
+
+    const syncProductCardCaptureProxy = (card) => {
+      if (!(card instanceof HTMLElement)) {
+        clearProductCardCaptureProxy()
+        return
+      }
+
+      const rect = card.getBoundingClientRect()
+      const rem = rootFontSize()
+      const leftOffset = 3 * rem
+      const bottomOffset = (breakpoint.matches ? 2.5 : 4.5) * rem
+      const width = Math.max(0, rect.width - 6.25 * rem)
+      const height = Math.max(0, rect.height - 20 * rem)
+
+      if (rect.width <= 0 || rect.height <= 0 || width <= 0 || height <= 0) {
+        clearProductCardCaptureProxy(card)
+        return
+      }
+
+      const proxy = ensureProductCardCaptureProxy()
+      productCardCaptureProxyCard = card
+      proxy.dataset.liquidGlActive = 'true'
+      Object.assign(proxy.style, {
+        left: `${window.scrollX + rect.left + leftOffset}px`,
+        top: `${window.scrollY + rect.bottom - bottomOffset - height}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+      })
+    }
+
     const isSameCardMove = (card, relatedTarget) =>
       relatedTarget instanceof Node && card.contains(relatedTarget)
 
-    const scheduleAfterProductCardTransition = () => {
-      scheduleSnapshotRefresh(420)
+    const setProductCardState = (card, active) => {
+      if (!(card instanceof HTMLElement)) return
+
+      const hadState = card.classList.contains(activeProductCardClass)
+      card.classList.toggle(activeProductCardClass, active)
+
+      if (hadState !== active) {
+        if (active) {
+          syncProductCardCaptureProxy(card)
+        } else {
+          clearProductCardCaptureProxy(card)
+        }
+
+        scheduleSnapshotRefresh(0, { hover: true })
+      }
     }
 
-    const handlePointerStateChange = (event) => {
+    const cardHasVisualState = (card) =>
+      card.matches(':hover') || card.matches(':focus-within')
+
+    const handlePointerOver = (event) => {
       const card = productCardFromEvent(event)
 
       if (!card || isSameCardMove(card, event.relatedTarget)) return
 
-      scheduleAfterProductCardTransition()
+      setProductCardState(card, true)
     }
 
-    const handleFocusStateChange = (event) => {
-      if (!productCardFromEvent(event)) return
+    const handlePointerOut = (event) => {
+      const card = productCardFromEvent(event)
 
-      scheduleAfterProductCardTransition()
+      if (!card || isSameCardMove(card, event.relatedTarget)) return
+
+      setProductCardState(card, card.matches(':focus-within'))
+    }
+
+    const handleFocusIn = (event) => {
+      const card = productCardFromEvent(event)
+
+      if (!card) return
+
+      setProductCardState(card, true)
+    }
+
+    const handleFocusOut = (event) => {
+      const card = productCardFromEvent(event)
+
+      if (!card || isSameCardMove(card, event.relatedTarget)) return
+
+      setProductCardState(card, cardHasVisualState(card))
     }
 
     const handleTransitionEnd = (event) => {
       const card = productCardFromEvent(event)
 
-      if (!card) return
+      if (!card || !card.classList.contains(activeProductCardClass)) return
 
-      const properties = new Set([
-        'border-radius',
-        'filter',
-        'max-height',
-        'opacity',
-        'top',
-        'transform',
-      ])
-
-      if (event.propertyName && !properties.has(event.propertyName)) return
-
-      scheduleSnapshotRefresh(40)
+      syncProductCardCaptureProxy(card)
+      scheduleSnapshotRefresh(40, { hover: true })
     }
 
-    document.addEventListener('pointerover', handlePointerStateChange, true)
-    document.addEventListener('pointerout', handlePointerStateChange, true)
-    document.addEventListener('focusin', handleFocusStateChange, true)
-    document.addEventListener('focusout', handleFocusStateChange, true)
+    document.addEventListener('pointerover', handlePointerOver, true)
+    document.addEventListener('pointerout', handlePointerOut, true)
+    document.addEventListener('focusin', handleFocusIn, true)
+    document.addEventListener('focusout', handleFocusOut, true)
     document.addEventListener('transitionend', handleTransitionEnd, true)
   }
 

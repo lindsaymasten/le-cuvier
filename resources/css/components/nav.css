@@ -126,8 +126,7 @@
   pointer-events: none;
   border-radius: inherit;
   opacity: 1;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46));
+  background: rgba(242, 242, 240, 0.2);
   -webkit-backdrop-filter: blur(18px) saturate(130%);
   backdrop-filter: blur(18px) saturate(130%);
   transition: opacity 140ms ease-out;
@@ -151,8 +150,7 @@
 .is-liquid-gl-failed .navbar-frame::before,
 .is-liquid-gl-skipped .navbar-frame::before {
   opacity: 1;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46));
+  background: rgba(242, 242, 240, 0.2);
   -webkit-backdrop-filter: blur(18px) saturate(130%);
   backdrop-filter: blur(18px) saturate(130%);
   transition: none;
@@ -273,8 +271,7 @@
   .navbar-frame::before,
   .is-liquid-gl-failed .navbar-frame::before,
   .is-liquid-gl-skipped .navbar-frame::before {
-    background:
-      linear-gradient(180deg, rgba(28, 28, 26, 0.72), rgba(28, 28, 26, 0.5));
+    background: rgba(242, 242, 240, 0.2);
   }
 
   .center-logo svg,
