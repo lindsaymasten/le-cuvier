@@ -9,7 +9,7 @@
         {{ partial:partials/browser-appearance }}
 
         <link rel="preload" href="/vendor/liquidgl/html2canvas.min.js" as="script">
-        <link rel="preload" href="/vendor/liquidgl/liquidGL.js?v=20260701-7" as="script">
+        <link rel="preload" href="/vendor/liquidgl/liquidGL.js?v=20260701-8" as="script">
 
         {{# --- Commerce7 CSS (guarded by globals) --- #}}
         {{ if commerce7:enable_c7 && commerce7:tenant_id }}
@@ -76,7 +76,7 @@
         {{ stack:scripts }}
         {{# liquidGL production nav dependencies. Local copies from naughtyduk/liquidGL. #}}
         <script src="/vendor/liquidgl/html2canvas.min.js"></script>
-        <script src="/vendor/liquidgl/liquidGL.js?v=20260701-7"></script>
+        <script src="/vendor/liquidgl/liquidGL.js?v=20260701-8"></script>
         {{ vite src="resources/js/site.js" }}
 
         {{# Scripts #}}

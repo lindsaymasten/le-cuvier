@@ -1653,7 +1653,6 @@
       this.el.style.webkitBackdropFilter = "none";
       this.el.style.backgroundImage = "none";
       this.el.style.background = "transparent";
-      this.el.style.backgroundColor = "rgba(242, 242, 240, 0.2)";
 
       this.el.style.pointerEvents = "none";
 
