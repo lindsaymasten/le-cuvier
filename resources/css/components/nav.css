@@ -78,6 +78,14 @@
 
 /* === Nav Shell === */
 .navbar {
+  --nav-foreground-dark: #1b1a21;
+  --nav-foreground-light: #f8f8f8;
+  --nav-foreground: var(--color-text);
+  --nav-foreground-transition:
+    color 160ms ease,
+    stroke 160ms ease,
+    background-color 160ms ease;
+
   position: fixed;
   top: 36px;
   left: 0;
@@ -116,6 +124,31 @@
     0 1px 2px rgba(18, 18, 18, 0.08),
     0 8px 18px -10px rgba(18, 18, 18, 0.24),
     0 18px 34px -22px rgba(18, 18, 18, 0.18);
+}
+
+.navbar.navbar--over-light-bg {
+  --nav-foreground: var(--nav-foreground-dark);
+}
+
+.navbar.navbar--over-dark-bg {
+  --nav-foreground: var(--nav-foreground-light);
+}
+
+.navbar.navbar--over-light-bg .navbar-frame {
+  --lg-nav-focus-color: var(--color-teal-dark);
+  --lg-nav-profile-focus-color: var(--nav-foreground-dark);
+}
+
+.navbar.navbar--over-dark-bg .navbar-frame {
+  --lg-nav-focus-color: var(--color-ochre);
+  --lg-nav-profile-focus-color: var(--color-ochre);
+}
+
+.navbar.navbar--over-light-bg .center-logo svg,
+.navbar.navbar--over-light-bg .logo-slot svg,
+.navbar.navbar--over-dark-bg .center-logo svg,
+.navbar.navbar--over-dark-bg .logo-slot svg {
+  filter: none;
 }
 
 .navbar-frame::before {
@@ -289,7 +322,8 @@
 .center-logo,
 .logo-slot,
 .logo-slot .center-logo {
-  color: var(--color-text);
+  color: var(--nav-foreground);
+  transition: var(--nav-foreground-transition);
 }
 
 /* === Menu List === */
@@ -313,8 +347,10 @@
   justify-content: center;
   text-decoration: none;
   font-weight: 450;
-  color: var(--text-color);
-  transition: color 0.2s ease;
+  color: var(--nav-foreground);
+  transition:
+    color 0.2s ease,
+    stroke 0.2s ease;
 }
 .main-nav-list li a:before {
   content: '';
@@ -454,7 +490,7 @@
 
 /* === Buttons === */
 .login-btn, .cart-btn {
-  color: var(--text-color);
+  color: var(--nav-foreground);
   font-weight: 600;
   padding: 8px;
   text-decoration: none;
@@ -462,6 +498,7 @@
   align-items: center;
   gap: 6px; 
   font-size: 14px;
+  transition: var(--nav-foreground-transition);
 }
 
 /* Ensure login icon area is a stable click target */
@@ -479,14 +516,15 @@
 .login-btn:hover,
 .login-btn:focus,
 .login-btn:focus-visible {
-  color: var(--text-color);
+  color: var(--nav-foreground);
 }
 
 /* SVG is visual only; clicks should go to the C7 overlay */
 .login-btn .nav-user-icon {
   width: 36px;
   height: 22px;
-  stroke: var(--text-color);
+  color: inherit;
+  stroke: currentColor;
   stroke-width: 6;
   vertical-align: text-top;
   pointer-events: none;
@@ -676,7 +714,8 @@
 .c7-user-nav__cart__title svg {
   width: 36px;
   height: 25px;
-  stroke: var(--text-color);
+  color: var(--nav-foreground);
+  stroke: currentColor;
   stroke-width: 1.1;
   vertical-align: text-top;
   transition:
@@ -877,8 +916,9 @@ a.c7-link.c7-user-nav__account__dropdown__logout {
 .hamburger span {
   display: block;
   height: 2px; width: 24px;
-  background: var(--text-color);
+  background: var(--nav-foreground);
   border-radius: 2px;
+  transition: var(--nav-foreground-transition);
 }
 .hamburger:hover {
   box-shadow: none;
