@@ -52,6 +52,7 @@
         lastFocus = document.activeElement
         drawer.classList.add('open')
         drawer.setAttribute('aria-hidden', 'false')
+        openBtn.setAttribute('aria-expanded', 'true')
         const f = firstFocusable(drawer)
         if (f) f.focus()
         if (live) live.textContent = 'Menu opened'
@@ -62,6 +63,7 @@
       function closeDrawer() {
         drawer.classList.remove('open')
         drawer.setAttribute('aria-hidden', 'true')
+        openBtn.setAttribute('aria-expanded', 'false')
         if (live) live.textContent = 'Menu closed'
         document.removeEventListener('keydown', onKeydown)
         document.removeEventListener('focus', trapFocus, true)

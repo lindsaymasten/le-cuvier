@@ -30,6 +30,20 @@
                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="goo" />
                     <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
                 </filter>
+                <filter id="gooey-splatter-noise" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.58" numOctaves="4" seed="13" stitchTiles="stitch" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.25" xChannelSelector="R" yChannelSelector="G" result="roughened" />
+                    <feGaussianBlur in="roughened" stdDeviation="0.18" result="softened" />
+                    <feColorMatrix in="noise" type="saturate" values="0" result="monoNoise" />
+                    <feComponentTransfer in="monoNoise" result="grain">
+                        <feFuncR type="linear" slope="0.64" intercept="0.24" />
+                        <feFuncG type="linear" slope="0.64" intercept="0.24" />
+                        <feFuncB type="linear" slope="0.64" intercept="0.24" />
+                        <feFuncA type="linear" slope="0.34" intercept="-0.02" />
+                    </feComponentTransfer>
+                    <feComposite in="grain" in2="SourceAlpha" operator="in" result="clippedGrain" />
+                    <feBlend in="softened" in2="clippedGrain" mode="multiply" />
+                </filter>
             </defs>
         </svg>
         {{ partial:partials/skip-to-content }}
@@ -57,6 +71,9 @@
 
         {{# Push scripts when various components are added #}}
         {{ stack:scripts }}
+        {{# liquidGL production nav dependencies. Local copies from naughtyduk/liquidGL. #}}
+        <script src="/vendor/liquidgl/html2canvas.min.js"></script>
+        <script src="/vendor/liquidgl/liquidGL.js?v=20260630-11"></script>
         {{ vite src="resources/js/site.js" }}
 
         {{# Scripts #}}
