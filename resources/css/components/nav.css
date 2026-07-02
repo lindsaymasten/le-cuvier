@@ -219,7 +219,6 @@
   overflow: visible;
   pointer-events: auto;
   background: transparent;
-  will-change: transform;
 }
 
 .navbar-glass__section--left {
@@ -279,6 +278,13 @@
     );
   border-radius: 999px;
   opacity: 0.62;
+}
+
+body:has(#c7-side-cart.c7-side-cart--visible) .navbar-glass__section--right::before,
+body:has(#c7-side-cart.c7-side-cart--visible) .navbar-glass__section--main::before {
+  content: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* === Main Nav === */
@@ -763,11 +769,14 @@
 
 /* Force the side cart to overlay the viewport (not open inside nav) */
 #c7-side-cart.c7-side-cart {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  z-index: 99999;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  z-index: 99999 !important;
 }
 
 /* Style the C7 dropdown login panel to match our nav */
@@ -927,25 +936,28 @@ a.c7-link.c7-user-nav__account__dropdown__logout {
 /* === Commerce7 Slideout Side Cart === */
 @media (min-width: 769px) {
   #c7-side-cart.c7-side-cart {
-    position: fixed;
-    top: 0; 
-    right: 0;  
-    height: 100vh;
-    width: min(440px, 100vw);
-    max-width: 520px;
-    z-index: 99999;
+    width: min(440px, 100vw) !important;
+    max-width: 520px !important;
   }
 }
 
 @media (max-width: 768px) {
-  #c7-side-cart.c7-side-cart {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 99999;
+  html:has(#c7-side-cart.c7-side-cart--visible),
+  body:has(#c7-side-cart.c7-side-cart--visible) {
+    overflow: hidden !important;
+    overscroll-behavior: none;
   }
+
+  #c7-side-cart.c7-side-cart {
+    width: 100vw !important;
+  }
+
+  #c7-side-cart.c7-side-cart--visible {
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
 }
 
 #c7-side-cart .c7-order-item__image {
