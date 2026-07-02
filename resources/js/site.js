@@ -53,28 +53,6 @@ Alpine.start()
   window.setTimeout(markReady, 1500)
 })()
 
-// Footer logo scroll fade
-;(function () {
-  const logo = document.querySelector('.logo.scroll_complete_fade')
-  if (!logo) return
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          logo.classList.add('visible')
-        }
-      })
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -10% 0px'
-    }
-  )
-
-  observer.observe(logo)
-})()
-
 // C7 Member page add link to change club under cancellation button
 function injectChangeClubLink() {
   const actions = document.querySelector(
