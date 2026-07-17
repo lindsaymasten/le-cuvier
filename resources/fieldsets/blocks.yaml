@@ -65,135 +65,32 @@ fields:
 
             wine_club_signup:
               display: Wine Club Signup
-              instructions: 'Let visitors choose a wine club, then select pickup or shipping.'
+              instructions: 'Shows the same Mixed and Reds Only club options configured for the Club page.'
               icon: mail-inbox-content
               fields:
                 - handle: heading
                   field:
                     type: text
                     display: Heading
-                    instructions: 'Short headline shown above the club options.'
+                    instructions: 'Optional. Short headline shown above the club options.'
                     antlers: false
-                    default: 'Choose Your Club'
-                    validate:
-                      - required
 
                 - handle: intro
                   field:
                     type: textarea
                     display: Description
-                    instructions: 'Supporting copy shown below the headline.'
+                    instructions: 'Optional. Supporting copy shown below the headline.'
                     antlers: false
                     rows: 3
-                    default: 'Select your wine preference, then choose pickup or shipping.'
-                    validate:
-                      - required
-
-                - handle: clubs
-                  field:
-                    type: grid
-                    display: 'Club Options'
-                    instructions: 'Add one row per wine preference. Each option needs both a pickup and a shipping club in Commerce7.'
-                    add_row: 'Add Club Option'
-                    mode: stacked
-                    min_rows: 1
-                    fields:
-                      - handle: club_name
-                        field:
-                          type: text
-                          display: Name
-                          instructions: 'The wine preference shown to visitors, such as Mixed or Reds Only.'
-                          antlers: false
-                          validate:
-                            - required
-
-                      - handle: description
-                        field:
-                          type: textarea
-                          display: Description
-                          instructions: 'Short description shown directly below the club name.'
-                          antlers: false
-                          rows: 3
-                          validate:
-                            - required
-
-                      - handle: pickup_club_slug
-                        field:
-                          type: slug
-                          display: 'Pickup Club Slug'
-                          instructions: 'Commerce7 slug for the pickup / will call version of this club.'
-                          antlers: false
-                          validate:
-                            - required
-
-                      - handle: shipping_club_slug
-                        field:
-                          type: slug
-                          display: 'Shipping Club Slug'
-                          instructions: 'Commerce7 slug for the shipping version of this club.'
-                          antlers: false
-                          validate:
-                            - required
-
-                - handle: fulfillment_heading
-                  field:
-                    type: text
-                    display: 'Fulfillment Heading'
-                    instructions: 'Accessible heading for the pickup and shipping explanation.'
-                    antlers: false
-                    default: 'Pickup vs. Shipping'
-                    validate:
-                      - required
-
-                - handle: pickup_explanation
-                  field:
-                    type: textarea
-                    display: 'Pickup / Will Call'
-                    instructions: 'Explain what pickup means and when club orders are available.'
-                    antlers: false
-                    rows: 3
-                    validate:
-                      - required
-
-                - handle: shipping_explanation
-                  field:
-                    type: textarea
-                    display: Shipping
-                    instructions: 'Explain what shipping means and when club orders are sent.'
-                    antlers: false
-                    rows: 3
-                    validate:
-                      - required
-
-                - handle: join_text
-                  field:
-                    type: text
-                    display: 'Join Button Text'
-                    instructions: 'Button text shown to visitors who are not members.'
-                    antlers: false
-                    default: 'Join the Club'
-                    validate:
-                      - required
-
-                - handle: edit_text
-                  field:
-                    type: text
-                    display: 'Membership Button Text'
-                    instructions: 'Button text shown to visitors who already have a membership.'
-                    antlers: false
-                    default: 'Edit Membership'
-                    validate:
-                      - required
 
                 - handle: c7_notice
                   field:
                     type: html
-                    display: 'Commerce7 setup'
+                    display: 'Club content'
                     antlers: false
                     html: |
                       <div class="help-block">
-                      <p>Each club slug must match a Commerce7 club with Web Status set to Available.</p>
-                      <p>Manage clubs: <a href="https://admin.commerce7.com/" target="_blank" rel="noopener">Open Commerce7</a></p>
+                      <p>Club names, descriptions, fulfillment details, and Commerce7 signup options are inherited from the Club page.</p>
                       </div>
 
             events_listing:

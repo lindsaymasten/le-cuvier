@@ -1,48 +1,59 @@
 {{ wine_club_signup_id = id }}
+{{ wine_club_signup_heading = heading }}
+{{ wine_club_signup_intro = intro }}
 
-<section
-  class="wine-club-signup club-options"
-  aria-labelledby="club-options-title-{{ wine_club_signup_id }}"
->
-  <div class="club-options__inner">
-    <header class="club-options__header">
-      <h2 id="club-options-title-{{ wine_club_signup_id }}">{{ heading }}</h2>
-      <p>{{ intro }}</p>
-    </header>
+{{ collection:pages slug:is="club" limit="1" }}
+  <section
+    class="wine-club-signup club-options"
+    {{ if wine_club_signup_heading }}
+      aria-labelledby="club-options-title-{{ wine_club_signup_id }}"
+    {{ else }}
+      aria-label="Wine club options"
+    {{ /if }}
+  >
+    <div class="club-options__inner">
+      {{ if wine_club_signup_heading or wine_club_signup_intro }}
+        <header class="club-options__header">
+          {{ if wine_club_signup_heading }}
+            <h2 id="club-options-title-{{ wine_club_signup_id }}">
+              {{ wine_club_signup_heading }}
+            </h2>
+          {{ /if }}
 
-    <div class="club-options__cards">
-      <div class="club-options__list">
-        {{ clubs }}
-          {{ club_option_id = id }}
+          {{ if wine_club_signup_intro }}
+            <p>{{ wine_club_signup_intro }}</p>
+          {{ /if }}
+        </header>
+      {{ /if }}
 
+      <div class="club-options__cards">
+        <div class="club-options__list">
           <article
             class="club-option"
-            aria-labelledby="club-option-title-{{ wine_club_signup_id }}-{{ club_option_id }}"
+            aria-labelledby="mixed-club-title-{{ wine_club_signup_id }}"
           >
             <header class="club-option__header">
-              <h3 id="club-option-title-{{ wine_club_signup_id }}-{{ club_option_id }}">
-                {{ club_name }}
-              </h3>
-              <p id="club-option-description-{{ wine_club_signup_id }}-{{ club_option_id }}">
-                {{ description }}
+              <h3 id="mixed-club-title-{{ wine_club_signup_id }}">{{ mixed_club_title }}</h3>
+              <p id="mixed-club-description-{{ wine_club_signup_id }}">
+                {{ mixed_club_description }}
               </p>
             </header>
 
             <div class="club-option__fulfillment">
               <label
-                id="club-option-fulfillment-label-{{ wine_club_signup_id }}-{{ club_option_id }}"
-                for="club-option-fulfillment-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                id="mixed-club-fulfillment-label-{{ wine_club_signup_id }}"
+                for="mixed-club-fulfillment-{{ wine_club_signup_id }}"
               >
                 Pickup or shipping
-                <span class="sr-only">for {{ club_name }}</span>
+                <span class="sr-only">for {{ mixed_club_title }}</span>
               </label>
 
               <div class="club-option__select-wrap">
                 <select
-                  id="club-option-fulfillment-{{ wine_club_signup_id }}-{{ club_option_id }}"
-                  data-club-fulfillment="{{ club_option_id }}"
-                  aria-describedby="club-option-description-{{ wine_club_signup_id }}-{{ club_option_id }} club-option-status-{{ wine_club_signup_id }}-{{ club_option_id }}"
-                  aria-controls="club-option-actions-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                  id="mixed-club-fulfillment-{{ wine_club_signup_id }}"
+                  data-club-fulfillment="mixed"
+                  aria-describedby="mixed-club-description-{{ wine_club_signup_id }} mixed-club-status-{{ wine_club_signup_id }}"
+                  aria-controls="mixed-club-actions-{{ wine_club_signup_id }}"
                   disabled
                 >
                   <option value="">Select fulfillment</option>
@@ -52,61 +63,129 @@
               </div>
 
               <div
-                id="club-option-actions-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                id="mixed-club-actions-{{ wine_club_signup_id }}"
                 class="club-option__actions"
               >
                 <div data-club-choice="pickup" hidden>
                   <div
                     class="c7-club-join-button"
-                    data-club-slug="{{ pickup_club_slug | trim | lower }}"
-                    data-join-text="{{ join_text }}"
-                    data-edit-text="{{ edit_text }}"
+                    data-club-slug="mixed-will-call"
+                    data-join-text="Join the Club"
+                    data-edit-text="Edit Membership"
                   ></div>
                 </div>
 
                 <div data-club-choice="shipping" hidden>
                   <div
                     class="c7-club-join-button"
-                    data-club-slug="{{ shipping_club_slug | trim | lower }}"
-                    data-join-text="{{ join_text }}"
-                    data-edit-text="{{ edit_text }}"
+                    data-club-slug="mixed-club"
+                    data-join-text="Join the Club"
+                    data-edit-text="Edit Membership"
                   ></div>
                 </div>
               </div>
 
               <p
-                id="club-option-status-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                id="mixed-club-status-{{ wine_club_signup_id }}"
                 class="sr-only"
                 role="status"
                 aria-live="polite"
                 aria-atomic="true"
-                data-club-status="{{ club_option_id }}"
+                data-club-status="mixed"
               ></p>
             </div>
           </article>
-        {{ /clubs }}
-      </div>
 
-      <aside
-        class="club-fulfillment-note"
-        aria-labelledby="club-fulfillment-title-{{ wine_club_signup_id }}"
-      >
-        <h3 id="club-fulfillment-title-{{ wine_club_signup_id }}" class="sr-only">
-          {{ fulfillment_heading }}
-        </h3>
+          <article
+            class="club-option"
+            aria-labelledby="reds-club-title-{{ wine_club_signup_id }}"
+          >
+            <header class="club-option__header">
+              <h3 id="reds-club-title-{{ wine_club_signup_id }}">{{ reds_club_title }}</h3>
+              <p id="reds-club-description-{{ wine_club_signup_id }}">
+                {{ reds_club_description }}
+              </p>
+            </header>
 
-        <div class="club-fulfillment-note__grid">
-          <section class="club-fulfillment-note__item">
-            <h4>Pickup / Will Call</h4>
-            <p>{{ pickup_explanation }}</p>
-          </section>
+            <div class="club-option__fulfillment">
+              <label
+                id="reds-club-fulfillment-label-{{ wine_club_signup_id }}"
+                for="reds-club-fulfillment-{{ wine_club_signup_id }}"
+              >
+                Pickup or shipping
+                <span class="sr-only">for {{ reds_club_title }}</span>
+              </label>
 
-          <section class="club-fulfillment-note__item">
-            <h4>Shipping</h4>
-            <p>{{ shipping_explanation }}</p>
-          </section>
+              <div class="club-option__select-wrap">
+                <select
+                  id="reds-club-fulfillment-{{ wine_club_signup_id }}"
+                  data-club-fulfillment="reds"
+                  aria-describedby="reds-club-description-{{ wine_club_signup_id }} reds-club-status-{{ wine_club_signup_id }}"
+                  aria-controls="reds-club-actions-{{ wine_club_signup_id }}"
+                  disabled
+                >
+                  <option value="">Select fulfillment</option>
+                  <option value="pickup">Pickup</option>
+                  <option value="shipping">Shipping</option>
+                </select>
+              </div>
+
+              <div
+                id="reds-club-actions-{{ wine_club_signup_id }}"
+                class="club-option__actions"
+              >
+                <div data-club-choice="pickup" hidden>
+                  <div
+                    class="c7-club-join-button"
+                    data-club-slug="reds-will-call"
+                    data-join-text="Join the Club"
+                    data-edit-text="Edit Membership"
+                  ></div>
+                </div>
+
+                <div data-club-choice="shipping" hidden>
+                  <div
+                    class="c7-club-join-button"
+                    data-club-slug="reds-only-club"
+                    data-join-text="Join the Club"
+                    data-edit-text="Edit Membership"
+                  ></div>
+                </div>
+              </div>
+
+              <p
+                id="reds-club-status-{{ wine_club_signup_id }}"
+                class="sr-only"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                data-club-status="reds"
+              ></p>
+            </div>
+          </article>
         </div>
-      </aside>
+
+        <aside
+          class="club-fulfillment-note"
+          aria-labelledby="club-fulfillment-title-{{ wine_club_signup_id }}"
+        >
+          <h3 id="club-fulfillment-title-{{ wine_club_signup_id }}" class="sr-only">
+            {{ club_fulfillment_heading }}
+          </h3>
+
+          <div class="club-fulfillment-note__grid">
+            <section class="club-fulfillment-note__item">
+              <h4>Pickup / Will Call</h4>
+              <p>{{ club_pickup_explanation }}</p>
+            </section>
+
+            <section class="club-fulfillment-note__item">
+              <h4>Shipping</h4>
+              <p>{{ club_shipping_explanation }}</p>
+            </section>
+          </div>
+        </aside>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+{{ /collection:pages }}
