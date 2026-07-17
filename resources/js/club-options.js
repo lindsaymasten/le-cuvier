@@ -1,6 +1,4 @@
-const clubOptions = document.querySelector('.club-options__cards')
-
-if (clubOptions) {
+const initClubOptions = (clubOptions) => {
   const selectContexts = Array.from(
     clubOptions.querySelectorAll('[data-club-fulfillment]')
   ).map((select) => {
@@ -238,7 +236,7 @@ if (clubOptions) {
   const markReady = () => {
     const widgets = clubOptions.querySelectorAll('.c7-club-join-button')
     const allWidgetsReady =
-      widgets.length === 4 &&
+      widgets.length === selectContexts.length * 2 &&
       Array.from(widgets).every((widget) => widget.querySelector('.c7-btn'))
 
     if (!allWidgetsReady) return
@@ -259,3 +257,5 @@ if (clubOptions) {
   observer.observe(clubOptions, { childList: true, subtree: true })
   markReady()
 }
+
+document.querySelectorAll('.club-options__cards').forEach(initClubOptions)

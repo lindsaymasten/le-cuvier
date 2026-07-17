@@ -1,58 +1,112 @@
-<section class="wine-club-signup">
-  {{ if heading }}
-    <h2 class="wine-club-signup__heading">{{ heading }}</h2>
-  {{ /if }}
+{{ wine_club_signup_id = id }}
 
-  {{ if intro }}
-    <p class="wine-club-signup__intro">{{ intro }}</p>
-  {{ /if }}
+<section
+  class="wine-club-signup club-options"
+  aria-labelledby="club-options-title-{{ wine_club_signup_id }}"
+>
+  <div class="club-options__inner">
+    <header class="club-options__header">
+      <h2 id="club-options-title-{{ wine_club_signup_id }}">{{ heading }}</h2>
+      <p>{{ intro }}</p>
+    </header>
 
-  {{ if clubs }}
-    <div class="wine-club-signup__clubs {{ if clubs | count == 2 or clubs | count == 4 }}wine-club-signup__clubs--two-wide{{ /if }}">
-      {{ clubs }}
-        <article class="wine-club-signup__club">
-          {{ if description }}
-            <div class="wine-club-signup__description">
-              {{ description }}
-            </div>
-          {{ /if }}
+    <div class="club-options__cards">
+      <div class="club-options__list">
+        {{ clubs }}
+          {{ club_option_id = id }}
 
-          <div class="wine-club-signup__join-area">
-            {{ if club_name }}
-              <h3 class="wine-club-signup__club-name">
-                  {{ club_name }}
+          <article
+            class="club-option"
+            aria-labelledby="club-option-title-{{ wine_club_signup_id }}-{{ club_option_id }}"
+          >
+            <header class="club-option__header">
+              <h3 id="club-option-title-{{ wine_club_signup_id }}-{{ club_option_id }}">
+                {{ club_name }}
               </h3>
-            {{ /if }} 
+              <p id="club-option-description-{{ wine_club_signup_id }}-{{ club_option_id }}">
+                {{ description }}
+              </p>
+            </header>
 
-            <ul class="wine-club-signup__meta">
-              {{ if bottle_count }}
-                <li class="wine-club-signup__meta-item">
-                  <strong>{{ bottle_count }}</strong> bottles included per shipment.
-                </li>
-              {{ /if }}
+            <div class="club-option__fulfillment">
+              <label
+                id="club-option-fulfillment-label-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                for="club-option-fulfillment-{{ wine_club_signup_id }}-{{ club_option_id }}"
+              >
+                Pickup or shipping
+                <span class="sr-only">for {{ club_name }}</span>
+              </label>
 
-              <li class="wine-club-signup__meta-item">
-                <strong>{{ if fulfillment }}Ships{{ else }}Will Call{{ /if }}</strong>
-                {{ if frequency_value }}
-                    every {{ frequency_value }}
-                    {{ if frequency_unit == "year" }}year{{ else }}month{{ /if }}{{ if frequency_value > 1 }}s{{ /if }}.
-                {{ /if }}
-              </li>
+              <div class="club-option__select-wrap">
+                <select
+                  id="club-option-fulfillment-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                  data-club-fulfillment="{{ club_option_id }}"
+                  aria-describedby="club-option-description-{{ wine_club_signup_id }}-{{ club_option_id }} club-option-status-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                  aria-controls="club-option-actions-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                  disabled
+                >
+                  <option value="">Select fulfillment</option>
+                  <option value="pickup">Pickup</option>
+                  <option value="shipping">Shipping</option>
+                </select>
+              </div>
 
-            </ul>
-
-            {{ if club_slug }}
               <div
-                class="c7-club-join-button"
-                data-club-slug="{{ club_slug | trim | lower }}"
-                data-join-text="{{ join_text }}"
-                data-edit-text="{{ edit_text }}"
-              ></div>
-            {{ /if }}
+                id="club-option-actions-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                class="club-option__actions"
+              >
+                <div data-club-choice="pickup" hidden>
+                  <div
+                    class="c7-club-join-button"
+                    data-club-slug="{{ pickup_club_slug | trim | lower }}"
+                    data-join-text="{{ join_text }}"
+                    data-edit-text="{{ edit_text }}"
+                  ></div>
+                </div>
 
-          </div>
-        </article>
-      {{ /clubs }}
+                <div data-club-choice="shipping" hidden>
+                  <div
+                    class="c7-club-join-button"
+                    data-club-slug="{{ shipping_club_slug | trim | lower }}"
+                    data-join-text="{{ join_text }}"
+                    data-edit-text="{{ edit_text }}"
+                  ></div>
+                </div>
+              </div>
+
+              <p
+                id="club-option-status-{{ wine_club_signup_id }}-{{ club_option_id }}"
+                class="sr-only"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                data-club-status="{{ club_option_id }}"
+              ></p>
+            </div>
+          </article>
+        {{ /clubs }}
+      </div>
+
+      <aside
+        class="club-fulfillment-note"
+        aria-labelledby="club-fulfillment-title-{{ wine_club_signup_id }}"
+      >
+        <h3 id="club-fulfillment-title-{{ wine_club_signup_id }}" class="sr-only">
+          {{ fulfillment_heading }}
+        </h3>
+
+        <div class="club-fulfillment-note__grid">
+          <section class="club-fulfillment-note__item">
+            <h4>Pickup / Will Call</h4>
+            <p>{{ pickup_explanation }}</p>
+          </section>
+
+          <section class="club-fulfillment-note__item">
+            <h4>Shipping</h4>
+            <p>{{ shipping_explanation }}</p>
+          </section>
+        </div>
+      </aside>
     </div>
-  {{ /if }}
+  </div>
 </section>

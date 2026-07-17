@@ -1,155 +1,4 @@
 /* =========================================================
-   Wine Club Signup Grid
-   ========================================================= */
-
-/* Component scope variables */
-.wine-club-signup {
-  --pc-gap: 20px;
-  --pc-radius: 8px;
-  --pc-ease: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Styling */
-
-.wine-club-signup {
-  display: grid;
-  gap: var(--pc-gap);
-  padding: var(--pc-gap);
-  margin-bottom: clamp(2rem, 2rem + 3vw, 10rem) clamp(1.5rem, 2rem + 2vw, 7.5rem);
-  max-width: 105ch;
-}
-
-.wine-club-signup__heading {
-  position: relative;
-  z-index: 1;
-}
-
-.wine-club-signup__heading:after {
-  content: '';
-  position: absolute;
-  left: -5ch;
-  bottom: -1ch;
-  width: 4em;
-  height: 2em;
-  opacity: 0.5;
-  z-index: -1;
-  background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='h1_arrow' fill='%23dde0df' viewBox='0 0 112.69 44.58'%3E%3Cpath d='M104.88 22.34c-9.39 0-16.51 6.72-16.51 15.72 0 4 2.28 6.52 5.14 6.52a8 8 0 004-1.08c-1.82-12.44 7.08-20.27 15.18-21.16-8.1-1-17-8.79-15.22-21.25a8 8 0 00-4-1.09c-2.82 0-5.17 2.48-5.17 6.53 0 8.99 7.19 15.81 16.58 15.81zm-13.14-.39c-4.65-1.39-66.63-4.75-79-4.75C6.23 17.2 0 18.06 0 22.94s6.23 5.83 12.76 5.83c12.35 0 74.33-5.04 78.98-6.82z'/%3E%3C/svg%3E%0A");
-}
-
-.wine-club-signup > p {
-  max-width: 70ch;
-  padding-inline: 1.5rem;
-  margin: auto;
-  margin-block-end: 0.75rem;
-}
-
-.wine-club-signup__clubs {
-  display: grid;
-  gap: var(--pc-gap);
-  grid-template-columns: 1fr; /* mobile: stacked cards */
-}
-
-@media (min-width: 640px) {
-  /* 1 club: centered with max-width */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:only-child) {
-    grid-template-columns: 1fr;
-    max-width: 40rem;
-    margin-inline: auto;
-  }
-
-  /* 2 clubs: 2 columns */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(2):last-child) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* 3 clubs: 3 columns */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(3):last-child) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* 4 clubs: 2 columns */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(4):last-child) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* 5 clubs: 3 columns */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(5):last-child) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* 6+ clubs: auto-fit */
-  .wine-club-signup__clubs:has(.wine-club-signup__club:nth-child(6)) {
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  }
-
-  .wine-club-signup__clubs {
-    align-items: start;
-  }
-
-  .wine-club-signup__clubs--two-wide {
-    /* 2 or 4 clubs: 2 columns */
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 640px) {
-  .wine-club-signup__clubs {
-    /* desktop: auto-fit comparison grid */
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    align-items: start;
-  }
-}
-
-.wine-club-signup__club {
-  display: grid;
-  gap: var(--pc-gap);
-  padding: 2rem;
-  border: 1px solid var(--color-bg);
-  border-radius: var(--pc-radius);
-  background-color: var(--color-bg);
-  filter: drop-shadow(0 6px 14px rgba(20, 19, 19, 0.12));
-}
-
-.wine-club-signup__join-area {
-  padding: 1rem;
-  background-color: var(--color-neutral-md);
-  border-radius: var(--pc-radius);
-}
-
-.wine-club-signup__club-name {
-  margin: 0;
-  font-size: clamp(1.7rem, 1.35rem + 0.85vw, 2rem);
-  text-align: center;
-  padding-block: 0.5rem;
-}
-
-.wine-club-signup__description p {
-  margin-block: var(--space-2);
-}
-
-.wine-club-signup__description ul,
-.wine-club-signup__description ol {
-  margin-block: var(--space-3);
-  padding-left: 1.25rem;
-}
-
-.wine-club-signup__meta {
-  display: grid;
-  gap: 0.25rem;
-  list-style: none;
-}
-
-.wine-club-signup__meta-item {
-  opacity: 0.85;
-}
-
-.wine-club-signup .c7-club-join-button {
-  margin-block: 1rem;
-  text-align: center;
-}
-
-/* =========================================================
    Club Page Hero
    ========================================================= */
 
@@ -200,33 +49,37 @@ span.club-hero__society-text {
   text-transform: uppercase;
 }
 
-main.club .club-options {
+/* =========================================================
+   Shared Club Options
+   ========================================================= */
+
+:is(main.club .club-options, .wine-club-signup.club-options) {
   position: relative;
   z-index: 1;
   width: 100%;
   padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4rem) clamp(4rem, 8vw, 8rem);
 }
 
-main.club .club-options__inner {
+:is(main.club, .wine-club-signup) .club-options__inner {
   width: min(100%, 68rem);
   margin-inline: auto;
 }
 
-main.club .club-options__header {
+:is(main.club, .wine-club-signup) .club-options__header {
   max-width: 42rem;
   margin: 0 auto clamp(2rem, 5vw, 4rem);
   text-align: center;
 }
 
-main.club .club-options__header h2 {
+:is(main.club, .wine-club-signup) .club-options__header h2 {
   margin-block: 0 0.5rem;
 }
 
-main.club .club-options__header p {
+:is(main.club, .wine-club-signup) .club-options__header p {
   margin: 0;
 }
 
-main.club .club-fulfillment-note {
+:is(main.club, .wine-club-signup) .club-fulfillment-note {
   width: 100%;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -236,30 +89,30 @@ main.club .club-fulfillment-note {
   box-shadow: var(--shadow-1);
 }
 
-main.club .club-fulfillment-note h3 {
+:is(main.club, .wine-club-signup) .club-fulfillment-note h3 {
   margin-block: 0 1rem;
   text-align: center;
   font-size: clamp(1.25rem, 1rem + 0.7vw, 1.6rem);
 }
 
-main.club .club-fulfillment-note__grid {
+:is(main.club, .wine-club-signup) .club-fulfillment-note__grid {
   display: grid;
   gap: 1rem;
 }
 
-main.club .club-fulfillment-note__item h4 {
+:is(main.club, .wine-club-signup) .club-fulfillment-note__item h4 {
   margin-block: 0 0.35rem;
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: var(--font-weight-bold);
 }
 
-main.club .club-fulfillment-note__item p {
+:is(main.club, .wine-club-signup) .club-fulfillment-note__item p {
   margin: 0;
   font-size: 0.95rem;
 }
 
-main.club .club-options__cards {
+:is(main.club, .wine-club-signup) .club-options__cards {
   --club-options-gap: clamp(1.25rem, 3vw, 2rem);
   --club-select-focus: color-mix(in srgb, var(--color-accent) 75%, var(--color-text));
   position: relative;
@@ -268,14 +121,14 @@ main.club .club-options__cards {
   gap: var(--club-options-gap);
 }
 
-main.club .club-options__list {
+:is(main.club, .wine-club-signup) .club-options__list {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
   gap: var(--club-options-gap);
 }
 
-main.club .club-option {
+:is(main.club, .wine-club-signup) .club-option {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -287,39 +140,39 @@ main.club .club-option {
   filter: drop-shadow(0 6px 14px rgba(20, 19, 19, 0.12));
 }
 
-main.club .club-option:has(.club-option__combobox[aria-expanded="true"]) {
+:is(main.club, .wine-club-signup) .club-option:has(.club-option__combobox[aria-expanded="true"]) {
   z-index: 20;
 }
 
-main.club .club-option__header {
+:is(main.club, .wine-club-signup) .club-option__header {
   text-align: center;
 }
 
-main.club .club-option__header h3 {
+:is(main.club, .wine-club-signup) .club-option__header h3 {
   margin-block: 0 0.5rem;
   font-size: clamp(1.7rem, 1.35rem + 0.85vw, 2rem);
 }
 
-main.club .club-option__header p {
+:is(main.club, .wine-club-signup) .club-option__header p {
   margin: 0;
 }
 
-main.club .club-option__fulfillment {
+:is(main.club, .wine-club-signup) .club-option__fulfillment {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-main.club .club-option__fulfillment label {
+:is(main.club, .wine-club-signup) .club-option__fulfillment label {
   font-weight: var(--font-weight-bold);
 }
 
-main.club .club-option__select-wrap {
+:is(main.club, .wine-club-signup) .club-option__select-wrap {
   position: relative;
   color: var(--color-text);
 }
 
-main.club .club-option__select-wrap::after {
+:is(main.club, .wine-club-signup) .club-option__select-wrap::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -332,7 +185,7 @@ main.club .club-option__select-wrap::after {
   pointer-events: none;
 }
 
-main.club .club-option__fulfillment select {
+:is(main.club, .wine-club-signup) .club-option__fulfillment select {
   appearance: none;
   width: 100%;
   min-height: 3.25rem;
@@ -352,38 +205,38 @@ main.club .club-option__fulfillment select {
     box-shadow 150ms ease;
 }
 
-main.club .club-option__fulfillment select:hover:not(:disabled) {
+:is(main.club, .wine-club-signup) .club-option__fulfillment select:hover:not(:disabled) {
   border-color: var(--color-accent);
   background-color: var(--color-neutral-lt);
 }
 
-main.club .club-option__fulfillment select:focus,
-main.club .club-option__fulfillment select:focus-visible {
+:is(main.club, .wine-club-signup) .club-option__fulfillment select:focus,
+:is(main.club, .wine-club-signup) .club-option__fulfillment select:focus-visible {
   border-color: var(--color-accent);
   outline: none;
   box-shadow: 0 0 0 3px var(--club-select-focus);
 }
 
-main.club .club-option__fulfillment select:disabled {
+:is(main.club, .wine-club-signup) .club-option__fulfillment select:disabled {
   color: color-mix(in srgb, var(--color-text) 65%, transparent);
   background-color: var(--color-neutral-lt);
   cursor: wait;
 }
 
-main.club .club-option__select-wrap.has-selection select {
+:is(main.club, .wine-club-signup) .club-option__select-wrap.has-selection select {
   border-color: var(--color-accent);
   background-color: var(--color-bg);
 }
 
-main.club .club-option__select-wrap.is-enhanced::after {
+:is(main.club, .wine-club-signup) .club-option__select-wrap.is-enhanced::after {
   display: none;
 }
 
-main.club .club-option__select-wrap.is-enhanced > select {
+:is(main.club, .wine-club-signup) .club-option__select-wrap.is-enhanced > select {
   display: none;
 }
 
-main.club .club-option__combobox {
+:is(main.club, .wine-club-signup) .club-option__combobox {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -406,30 +259,30 @@ main.club .club-option__combobox {
     box-shadow 150ms ease;
 }
 
-main.club .club-option__combobox:hover:not(:disabled) {
+:is(main.club, .wine-club-signup) .club-option__combobox:hover:not(:disabled) {
   border-color: var(--color-accent);
   background-color: var(--color-neutral-lt);
 }
 
-main.club .club-option__combobox:focus,
-main.club .club-option__combobox:focus-visible {
+:is(main.club, .wine-club-signup) .club-option__combobox:focus,
+:is(main.club, .wine-club-signup) .club-option__combobox:focus-visible {
   border-color: var(--color-accent);
   outline: none;
   box-shadow: 0 0 0 3px var(--club-select-focus);
 }
 
-main.club .club-option__combobox:disabled {
+:is(main.club, .wine-club-signup) .club-option__combobox:disabled {
   color: color-mix(in srgb, var(--color-text) 65%, transparent);
   background-color: var(--color-neutral-lt);
   cursor: wait;
 }
 
-main.club .club-option__select-wrap.has-selection .club-option__combobox {
+:is(main.club, .wine-club-signup) .club-option__select-wrap.has-selection .club-option__combobox {
   border-color: var(--color-accent);
   background-color: var(--color-bg);
 }
 
-main.club .club-option__combobox-chevron {
+:is(main.club, .wine-club-signup) .club-option__combobox-chevron {
   flex: 0 0 auto;
   width: 0.65rem;
   height: 0.65rem;
@@ -439,11 +292,11 @@ main.club .club-option__combobox-chevron {
   transition: transform 150ms ease;
 }
 
-main.club .club-option__combobox[aria-expanded="true"] .club-option__combobox-chevron {
+:is(main.club, .wine-club-signup) .club-option__combobox[aria-expanded="true"] .club-option__combobox-chevron {
   transform: translateY(20%) rotate(225deg);
 }
 
-main.club .club-option__combobox-menu {
+:is(main.club, .wine-club-signup) .club-option__combobox-menu {
   position: absolute;
   z-index: 10;
   top: calc(100% + 0.5rem);
@@ -457,28 +310,28 @@ main.club .club-option__combobox-menu {
   box-shadow: var(--shadow-2);
 }
 
-main.club .club-option__combobox-menu[hidden] {
+:is(main.club, .wine-club-signup) .club-option__combobox-menu[hidden] {
   display: none;
 }
 
-main.club .club-option__combobox-option {
+:is(main.club, .wine-club-signup) .club-option__combobox-option {
   position: relative;
   padding: 0.75rem 2.5rem 0.75rem 1rem;
   border-radius: 5px;
   cursor: pointer;
 }
 
-main.club .club-option__combobox-option:hover,
-main.club .club-option__combobox-option.is-active {
+:is(main.club, .wine-club-signup) .club-option__combobox-option:hover,
+:is(main.club, .wine-club-signup) .club-option__combobox-option.is-active {
   background-color: var(--color-accent-700);
 }
 
-main.club .club-option__combobox-option[aria-selected="true"] {
+:is(main.club, .wine-club-signup) .club-option__combobox-option[aria-selected="true"] {
   font-weight: var(--font-weight-bold);
   background-color: var(--color-accent-600);
 }
 
-main.club .club-option__combobox-option[aria-selected="true"]::after {
+:is(main.club, .wine-club-signup) .club-option__combobox-option[aria-selected="true"]::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -490,44 +343,44 @@ main.club .club-option__combobox-option[aria-selected="true"]::after {
   transform: translateY(-60%) rotate(45deg);
 }
 
-main.club .club-option__actions [hidden] {
+:is(main.club, .wine-club-signup) .club-option__actions [hidden] {
   display: none;
 }
 
-main.club .club-option__actions .c7-btn {
+:is(main.club, .wine-club-signup) .club-option__actions .c7-btn {
   width: 100%;
 }
 
-main.club .club-options__article {
+:is(main.club, .wine-club-signup) .club-options__article {
   width: 100%;
 }
 
-main.club .club-options__article .article-body {
+:is(main.club, .wine-club-signup) .club-options__article .article-body {
   margin-block: clamp(1rem, 3vw, 2rem) 0;
   padding-inline: 0;
 }
 
-main.club .club-option__fulfillment option {
+:is(main.club, .wine-club-signup) .club-option__fulfillment option {
   color: var(--color-text);
   background-color: var(--color-bg);
 }
 
 @media (min-width: 768px) {
-  main.club .club-fulfillment-note__grid {
+  :is(main.club, .wine-club-signup) .club-fulfillment-note__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  main.club .club-options__list {
+  :is(main.club, .wine-club-signup) .club-options__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (forced-colors: active) {
-  main.club .club-option__select-wrap::after {
+  :is(main.club, .wine-club-signup) .club-option__select-wrap::after {
     display: none;
   }
 
-  main.club .club-option__fulfillment select {
+  :is(main.club, .wine-club-signup) .club-option__fulfillment select {
     appearance: auto;
     padding-right: 1rem;
     border-color: ButtonText;
@@ -535,28 +388,28 @@ main.club .club-option__fulfillment option {
     color: FieldText;
   }
 
-  main.club .club-option__fulfillment select:focus-visible {
+  :is(main.club, .wine-club-signup) .club-option__fulfillment select:focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
     box-shadow: none;
   }
 
-  main.club .club-option__combobox,
-  main.club .club-option__combobox-menu {
+  :is(main.club, .wine-club-signup) .club-option__combobox,
+  :is(main.club, .wine-club-signup) .club-option__combobox-menu {
     border-color: ButtonText;
     background-color: Canvas;
     color: CanvasText;
   }
 
-  main.club .club-option__combobox:focus-visible {
+  :is(main.club, .wine-club-signup) .club-option__combobox:focus-visible {
     outline: 2px solid Highlight;
     outline-offset: 2px;
     box-shadow: none;
   }
 
-  main.club .club-option__combobox-option:hover,
-  main.club .club-option__combobox-option.is-active,
-  main.club .club-option__combobox-option[aria-selected="true"] {
+  :is(main.club, .wine-club-signup) .club-option__combobox-option:hover,
+  :is(main.club, .wine-club-signup) .club-option__combobox-option.is-active,
+  :is(main.club, .wine-club-signup) .club-option__combobox-option[aria-selected="true"] {
     color: HighlightText;
     background-color: Highlight;
   }
@@ -581,6 +434,6 @@ main.club .c7-club__details {
     align-content: space-between;
 }
 
-main.club .c7-btn--primary {
+:is(main.club, .wine-club-signup) .c7-btn--primary {
   height: 3rem;
 }
