@@ -299,24 +299,22 @@ body:has(#c7-side-cart.c7-side-cart--visible) .navbar-glass__section--main::befo
   width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  .navbar-frame {
-    --lg-nav-focus-color: var(--color-ochre);
-    --lg-nav-profile-focus-color: var(--color-ochre);
-    --lg-nav-separator-shadow: rgba(0, 0, 0, 0.35);
-    --lg-nav-separator-highlight: rgba(255, 255, 255, 0.3);
-  }
+:root[data-theme="dark"] .navbar-frame {
+  --lg-nav-focus-color: var(--color-ochre);
+  --lg-nav-profile-focus-color: var(--color-ochre);
+  --lg-nav-separator-shadow: rgba(0, 0, 0, 0.35);
+  --lg-nav-separator-highlight: rgba(255, 255, 255, 0.3);
+}
 
-  .navbar-frame::before,
-  .is-liquid-gl-failed .navbar-frame::before,
-  .is-liquid-gl-skipped .navbar-frame::before {
-    background: rgba(242, 242, 240, 0.2);
-  }
+:root[data-theme="dark"] .navbar-frame::before,
+:root[data-theme="dark"] .is-liquid-gl-failed .navbar-frame::before,
+:root[data-theme="dark"] .is-liquid-gl-skipped .navbar-frame::before {
+  background: rgba(242, 242, 240, 0.2);
+}
 
-  .center-logo svg,
-  .logo-slot svg {
-    filter: invert(1) brightness(0.95);
-  }
+:root[data-theme="dark"] .center-logo svg,
+:root[data-theme="dark"] .logo-slot svg {
+  filter: invert(1) brightness(0.95);
 }
 
 /* center-logo base (mobile-visible; desktop hidden below) */

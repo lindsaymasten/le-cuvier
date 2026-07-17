@@ -131,38 +131,41 @@
   --font-family-btn: var(--font-sans);
 }
 
-/* dark mode token equivalents */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg:           #171715;
-    --color-surface:      #151617;
-    --color-surface-alt:  #232628;
-    --color-border:       rgba(255,255,255,0.12);
-    --color-text:         #f8f8f8;
+/* theme color-scheme and dark token equivalents */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
 
-    --color-accent:       #ded9ce; /* nav alt-color */
-    --color-accent-500:   #d1cab9;
-    --color-accent-600:   #cac1ab;
-    --color-accent-700:   #a19883;
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg:           #171715;
+  --color-surface:      #151617;
+  --color-surface-alt:  #232628;
+  --color-border:       rgba(255,255,255,0.12);
+  --color-text:         #f8f8f8;
 
-    --color-neutral-lt:   #1a1919;
-    --color-neutral-md:   #383735;
-    --color-neutral-dk:   #514e4b;
-    --color-neutral-950:  #f8f8f8;
+  --color-accent:       #ded9ce; /* nav alt-color */
+  --color-accent-500:   #d1cab9;
+  --color-accent-600:   #cac1ab;
+  --color-accent-700:   #a19883;
 
-    --color-moss:         #d2d8c0;
-    --color-moss-alt:     #bbc0aa;
-    --color-tomato:       #f5402b;
-    --color-teal:         #4d968c;
-    --color-teal-dark:    #5fcdbe;
-    --color-teal-alt:     #1b7e6f;
-    --color-ochre:        #e6b308; 
-    --color-avocado:      #b6b72b;  
+  --color-neutral-lt:   #1a1919;
+  --color-neutral-md:   #383735;
+  --color-neutral-dk:   #514e4b;
+  --color-neutral-950:  #f8f8f8;
 
-    --color-success:      #9fc470;
-    --color-warning:      #f7b604;
-    --color-danger:       #d72525;
+  --color-moss:         #d2d8c0;
+  --color-moss-alt:     #bbc0aa;
+  --color-tomato:       #f5402b;
+  --color-teal:         #4d968c;
+  --color-teal-dark:    #5fcdbe;
+  --color-teal-alt:     #1b7e6f;
+  --color-ochre:        #e6b308;
+  --color-avocado:      #b6b72b;
 
-    --bg-gradient:        linear-gradient(90deg, #2a2b2a, #252528);  
-  }
+  --color-success:      #9fc470;
+  --color-warning:      #f7b604;
+  --color-danger:       #d72525;
+
+  --bg-gradient:        linear-gradient(90deg, #2a2b2a, #252528);
 }

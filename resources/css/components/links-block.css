@@ -65,15 +65,14 @@
   -webkit-backdrop-filter: blur(2px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .links-block__card::after {
-    mix-blend-mode: color;
-  }
-  .links-block__card:hover::after,
-  .links-block__card:focus-within::after {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
+:root[data-theme="dark"] .links-block__card::after {
+  mix-blend-mode: color;
+}
+
+:root[data-theme="dark"] .links-block__card:hover::after,
+:root[data-theme="dark"] .links-block__card:focus-within::after {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Hover lift */

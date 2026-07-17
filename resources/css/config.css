@@ -4,6 +4,8 @@
 
 @plugin '@tailwindcss/forms';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 /*
     Using inline theme to reference Tailwind color variables.
     More info: https://tailwindcss.com/docs/theme#referencing-other-variables

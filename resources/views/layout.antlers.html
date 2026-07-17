@@ -5,6 +5,25 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+        <script>
+            (() => {
+                const storageKey = 'le-cuvier-theme';
+                let theme;
+
+                try {
+                    theme = window.localStorage.getItem(storageKey);
+                } catch {
+                    theme = null;
+                }
+
+                if (theme !== 'light' && theme !== 'dark') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+
+                document.documentElement.dataset.theme = theme;
+            })();
+        </script>
+
         {{ partial:partials/seo }}
         {{ partial:partials/browser-appearance }}
 

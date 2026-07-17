@@ -86,16 +86,15 @@
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .product-cards .product-card::after {
-    mix-blend-mode: color;
-  }
-  .product-cards .product-card:hover::after,
-  .product-cards .product-card:focus-within::after,
-  .product-cards .product-card.is-liquid-gl-hovered::after {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
+:root[data-theme="dark"] .product-cards .product-card::after {
+  mix-blend-mode: color;
+}
+
+:root[data-theme="dark"] .product-cards .product-card:hover::after,
+:root[data-theme="dark"] .product-cards .product-card:focus-within::after,
+:root[data-theme="dark"] .product-cards .product-card.is-liquid-gl-hovered::after {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Hover lift / rounded corners */

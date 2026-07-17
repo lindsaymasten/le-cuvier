@@ -83,10 +83,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-  @media (prefers-color-scheme: dark) {
-    section:has(.c7-product-collection) + *:has(.article-body)::before {
-      filter: brightness(0.25);
-    }
+  :root[data-theme="dark"] section:has(.c7-product-collection) + *:has(.article-body)::before {
+    filter: brightness(0.25);
   }
 
   section:has(.c7-product-collection) + *:has(.article-body) {

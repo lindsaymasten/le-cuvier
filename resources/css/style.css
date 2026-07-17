@@ -17,12 +17,10 @@ main {
 }  
 
 /* -------- Modes / Preferences -------- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: var(--color-bg);
-    --bg-color: var(--color-text);
-    --border-color: var(--border-color);
-  }
+:root[data-theme="dark"] {
+  --text-color: var(--color-text);
+  --bg-color: var(--color-bg);
+  --border-color: var(--color-border);
 }
 @media (prefers-contrast: more) {
   body { 
@@ -386,14 +384,17 @@ input[type="submit"]:hover,
   padding: 11px 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .c7-btn--primary, .c7-btn--primary--small {
-    background: var(--color-surface-alt);
-    color: var(--color-text);
-  }
-  .c7-btn--primary:hover, .c7-btn--primary:active, .c7-btn--primary--small:hover, .c7-btn--primary--small:active {
-    color: var(--color-neutral-lt);
-  }
+:root[data-theme="dark"] .c7-btn--primary,
+:root[data-theme="dark"] .c7-btn--primary--small {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] .c7-btn--primary:hover,
+:root[data-theme="dark"] .c7-btn--primary:active,
+:root[data-theme="dark"] .c7-btn--primary--small:hover,
+:root[data-theme="dark"] .c7-btn--primary--small:active {
+  color: var(--color-neutral-lt);
 }
 
 /* Tock button override */

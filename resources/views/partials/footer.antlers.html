@@ -33,23 +33,35 @@
     </div>
   </div>
   <div class="footer_lower">
-    <div class="footer_column">
+    <div class="footer_column footer_tagline">
       {{ footer:tagline }}
     </div>
     <div class="footer_menu_wrap">
-      <div class="footer_column">
+      <div class="footer_column footer_copyright">
         © Copyright {{ now | format('Y') }} {{ footer:copyright_text }}
       </div>
-      <div class="footer_column" role="navigation" aria-label="footer menu">
-        {{ nav handle="bottom_footer" max_depth="1" select="title|url|is_external" as="links" }}
-          {{ if links }}
-            <ul>
-              {{ links }}
-                <li><a href="{{ url }}"{{ if is_external }} target="_blank" rel="noopener nofollow"{{ /if }}>{{ title }}</a></li>
-              {{ /links }}
-            </ul>
-          {{ /if }}
-        {{ /nav }}
+      <div class="footer_column footer_menu_column">
+        <nav class="footer_nav" aria-label="footer menu">
+          {{ nav handle="bottom_footer" max_depth="1" select="title|url|is_external" as="links" }}
+            {{ if links }}
+              <ul>
+                {{ links }}
+                  <li><a href="{{ url }}"{{ if is_external }} target="_blank" rel="noopener nofollow"{{ /if }}>{{ title }}</a></li>
+                {{ /links }}
+              </ul>
+            {{ /if }}
+          {{ /nav }}
+        </nav>
+        <button
+          class="theme-toggle"
+          type="button"
+          data-theme-toggle
+          aria-label="Switch color theme"
+          title="Switch color theme"
+        >
+          {{ svg src="symbols/theme-dark" class="theme-toggle_icon theme-toggle_icon--dark" aria-hidden="true" }}
+          {{ svg src="symbols/theme-light" class="theme-toggle_icon theme-toggle_icon--light" aria-hidden="true" }}
+        </button>
       </div>
     </div>
   </div>
