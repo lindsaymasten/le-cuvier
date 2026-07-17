@@ -1,0 +1,33 @@
+title: Tock
+fields:
+  -
+    handle: title
+    field:
+      input_type: text
+      antlers: false
+      default: 'Tasting Reservations'
+      display: Heading
+      instructions: 'Presentation only. Reservation details are read automatically from Tock.'
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      validate:
+        - required
+  -
+    handle: intro
+    field: common.text_plain
+    config:
+      display: Introduction
+      instructions: 'Optional introductory copy shown above the Tock reservations.'
+  -
+    handle: button_label
+    field:
+      type: text
+      display: 'Booking button label'
+      default: Reserve
+      instructions: 'Opens the selected reservation in Tock without leaving this page.'
+      validate:
+        - required
+      antlers: false
