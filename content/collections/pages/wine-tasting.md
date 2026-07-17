@@ -135,8 +135,8 @@ blocks:
     enabled: true
   -
     id: Aj4rlPPlUvjgSinIeJ_KJ
-    title: 'Wine Pairings'
-    subtitle: 'Tasting Experience'
+    title: 'Original Wine & Food'
+    subtitle: 'Pairing Experience'
     pairings:
       - id: pcXnlg2K
         enabled: true
@@ -146,7 +146,7 @@ blocks:
           Sourdough starter Suzy Jr. walks into a bar filled with smoky bacon, aged white cheddar, and fresh chives — and decides she’s never leaving.
           The result of that fateful evening? A golden, flaky savory scone with serious character. Served alongside a dollop of velvety Devon double cream that showed up fashionably late, a bright little squeeze of lemon zest who clearly came to liven things up, and a sprig of thyme who’s been there since the beginning and holds the whole gang together.
           Paired with Chardonnay — because even Suzy Jr. knows a good scone deserves a good glass of wine.
-        food: 'Sourdough Savory Scone'
+        food: 'sourdough savory scone'
         food_details: 'applewood smoked bacon, aged white cheddar, devon double cream, lemon zest, thyme'
       - id: 6Z7AYs35Mzsl4HtZP4jip
         enabled: true
@@ -202,8 +202,8 @@ seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
-updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1784319922
+updated_by: c9a05d23-3623-4986-a31d-642880558c7f
+updated_at: 1784329814
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
