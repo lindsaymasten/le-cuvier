@@ -197,13 +197,18 @@ blocks:
         food_details: 'organic chicken, oregano orzo, grilled halloumi, blanched asparagus, grilled olives, zucchini, roasted mini san marzano tomato, blackberry'
     type: menu
     enabled: true
+  - id: etmyRX3d_mfXe0TxPE0PL
+    title: 'Tasting Reservations'
+    button_label: Reserve
+    type: tock
+    enabled: true
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1784319922
+updated_at: 1784332659
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
