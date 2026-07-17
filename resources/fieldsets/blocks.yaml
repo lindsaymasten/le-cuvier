@@ -508,57 +508,100 @@ fields:
 
             menu:
               display: Menu
-              instructions: Wine & Food Pairing menu block.
+              instructions: 'Build a responsive wine and food tasting menu. The website controls the design; editors control the menu copy and item order.'
               icon: dashboard-layout
               fields:
                 - handle: title
                   field:
                     type: text
-                    display: Title
+                    display: Menu title
+                    instructions: 'Main heading shown above the tasting menu.'
                     width: 50
                     validate: [required]
 
                 - handle: subtitle
                   field:
                     type: text
-                    display: Subtitle
+                    display: Menu subtitle
+                    instructions: 'Optional short label, such as “Tasting Experience”.'
                     width: 50
 
                 - handle: statement
                   field:
                     type: textarea
-                    display: Menu statement
+                    display: Introduction
+                    instructions: 'Optional introductory statement shown below the menu title.'
+                    rows: 3
                     antlers: false
 
                 - handle: pairings
                   field:
                     type: grid
-                    display: Pairings
-                    add_row: Add pairing
+                    display: Tasting menu items
+                    instructions: 'Add one row per wine and food pairing. Drag rows to change their order; turn a row off to keep it as a draft.'
+                    add_row: Add menu item
+                    mode: stacked
                     reorderable: true
+                    fullscreen: true
+                    min_rows: 1
                     fields:
+                      - handle: enabled
+                        field:
+                          type: toggle
+                          display: Show this item
+                          instructions: 'Turn off to keep this item in Statamic without showing it on the website.'
+                          default: true
+                          width: 25
+
+                      - handle: special_item
+                        field:
+                          type: toggle
+                          display: Special menu item
+                          instructions: 'Show this as an unnumbered featured item, such as the Lunch / Member Only offering.'
+                          default: false
+                          width: 25
+
                       - handle: wine
                         field:
                           type: text
-                          display: Wine (title)
+                          display: Wine
+                          instructions: 'Vintage and wine name, such as “2020 Chardonnay”.'
+                          width: 50
                           validate: [required]
+
+                      - handle: special_label
+                        field:
+                          type: text
+                          display: Special item label
+                          instructions: 'For example: “Lunch // Member Only”.'
+                          width: 50
+                          if:
+                            special_item: equals true
 
                       - handle: description
                         field:
-                          type: textarea
-                          display: Description
+                          type: markdown
+                          display: Wine Description
+                          instructions: 'Optional. Use a blank line between paragraphs. The website controls paragraph spacing and indentation.'
+                          buttons: []
+                          automatic_line_breaks: false
+                          escape_markup: true
+                          fullscreen: true
                           antlers: false
 
                       - handle: food
                         field:
                           type: text
-                          display: Pairing (food title)
+                          display: Pairing Item
+                          instructions: 'The featured food pairing shown in teal.'
                           validate: [required]
 
                       - handle: food_details
                         field:
                           type: textarea
-                          display: Food details
+                          display: Pairing details
+                          instructions: 'Optional ingredients or supporting description.'
+                          rows: 3
                           antlers: false
 
             article:
