@@ -2,6 +2,8 @@ footer {
   --footer-rule-color: rgba(0,0,0,.1);
   --footer-menu-fill-color: var(--color-accent);
   --footer-menu-fill-text-color: var(--color-bg);
+  --footer-logo-width: calc(100vw + clamp(2rem, 4vw, 4rem));
+  --footer-logo-height: calc(39.225vw + clamp(0.785rem, 1.569vw, 1.569rem));
 
   position: relative;
   isolation: isolate;
@@ -128,13 +130,18 @@ footer {
 }
 
 @media screen and (min-width: 980px) {
+  .footer_upper {
+    min-height: max(var(--footer-logo-height), clamp(40rem, 70dvh, 55rem));
+  }
+
   .footer_upper_inner {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto minmax(2rem, 1fr) auto;
     padding-block:
-      clamp(10rem, 15vw, 14rem)
+      clamp(10rem, calc(22rem - 18dvh), 14rem)
       clamp(3.75rem, 6vw, 5.25rem);
+    row-gap: 0;
   }
 
   .footer_cta {
@@ -172,10 +179,10 @@ footer {
 /* Logo */
 .footer_logo_mark {
   position: absolute;
-  bottom: clamp(-4.5rem, -4vw, -1.5rem);
+  bottom: 0;
   left: 50%;
   z-index: 0;
-  width: calc(100vw + clamp(2rem, 4vw, 4rem));
+  width: var(--footer-logo-width);
   max-width: none;
   color: var(--color-accent-700);
   pointer-events: none;
