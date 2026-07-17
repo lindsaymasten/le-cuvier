@@ -139,7 +139,7 @@ footer {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: auto minmax(2rem, 1fr) auto;
     padding-block:
-      clamp(10rem, calc(22rem - 18dvh), 14rem)
+      clamp(2.5rem, calc(34rem - 42dvh), 14rem)
       clamp(3.75rem, 6vw, 5.25rem);
     row-gap: 0;
   }
