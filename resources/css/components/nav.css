@@ -309,12 +309,14 @@ body:has(#c7-side-cart.c7-side-cart--visible) .navbar-glass__section--main::befo
 :root[data-theme="dark"] .navbar-frame::before,
 :root[data-theme="dark"] .is-liquid-gl-failed .navbar-frame::before,
 :root[data-theme="dark"] .is-liquid-gl-skipped .navbar-frame::before {
-  background: rgba(242, 242, 240, 0.2);
+  background: rgba(255, 255, 255, 0.085);
 }
 
-:root[data-theme="dark"] .center-logo svg,
-:root[data-theme="dark"] .logo-slot svg {
-  filter: invert(1) brightness(0.95);
+:root[data-theme="dark"] .is-liquid-gl-ready .navbar-frame::before {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.055);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 /* center-logo base (mobile-visible; desktop hidden below) */

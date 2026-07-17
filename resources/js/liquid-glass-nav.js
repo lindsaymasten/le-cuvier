@@ -600,5 +600,6 @@
 
     window.addEventListener('resize', () => scheduleSnapshotRefresh(), { passive: true })
     window.addEventListener('load', () => scheduleSnapshotRefresh(), { once: true })
+    window.addEventListener('themechange', () => scheduleSnapshotRefresh(40))
   })
 })()

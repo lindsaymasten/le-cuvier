@@ -17,7 +17,8 @@
   const overLightClass = 'navbar--over-light-bg'
   const darkText = [27, 26, 33]
   const lightText = [248, 248, 248]
-  const defaultBackground = [254, 255, 251]
+  const lightDefaultBackground = [254, 255, 251]
+  const darkDefaultBackground = [23, 23, 21]
   const highContrast = window.matchMedia('(prefers-contrast: more)')
   const forcedColors = window.matchMedia('(forced-colors: active)')
   const contrastSwitchMargin = 0.35
@@ -33,6 +34,12 @@
   ].join(',')
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
+
+  const defaultBackground = () => (
+    document.documentElement.dataset.theme === 'dark'
+      ? darkDefaultBackground
+      : lightDefaultBackground
+  )
 
   const channelToLinear = (channel) => {
     const value = channel / 255
@@ -347,7 +354,7 @@
       ? colorToRgb(bodyBackground)
       : htmlBackground
         ? colorToRgb(htmlBackground)
-        : defaultBackground
+        : defaultBackground()
 
     return layers.length ? composeLayers(layers, fallback) : fallback
   }
@@ -439,6 +446,7 @@
 
     scheduleContrast()
 
+    window.addEventListener('themechange', () => scheduleContrast())
     window.addEventListener('scroll', () => scheduleContrast(), { passive: true })
     window.addEventListener('resize', () => scheduleContrast(80), { passive: true })
     window.addEventListener('load', () => scheduleContrast(), { once: true })
