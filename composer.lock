@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ede2b10778acc801697ebb46f11372a",
+    "content-hash": "0badd311989a7dbcec37e2aa79eee2b9",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -5383,16 +5383,16 @@
         },
         {
             "name": "statamic/cms",
-            "version": "v6.23.0",
+            "version": "v6.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statamic/cms.git",
-                "reference": "c2ed8c28db5e2177e6853da36ec6beb2c0715044"
+                "reference": "a22735234ba35344af2b4f26be3d49a4fa97cd3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/c2ed8c28db5e2177e6853da36ec6beb2c0715044",
-                "reference": "c2ed8c28db5e2177e6853da36ec6beb2c0715044",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/a22735234ba35344af2b4f26be3d49a4fa97cd3c",
+                "reference": "a22735234ba35344af2b4f26be3d49a4fa97cd3c",
                 "shasum": ""
             },
             "require": {
@@ -5402,12 +5402,13 @@
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^6.3 || ^7.0",
                 "inertiajs/inertia-laravel": "^2.0",
+                "intervention/image": "^3.9.1 || ^4.0",
                 "james-heinrich/getid3": "^1.9.21",
                 "laravel/framework": "^12.40.0 || ^13.0",
                 "laravel/prompts": "^0.3.0",
                 "league/commonmark": "^2.2",
                 "league/csv": "^9.1",
-                "league/glide": "^3.0",
+                "league/glide": "^3.0 || ^4.0",
                 "maennchen/zipstream-php": "^3.1",
                 "michelf/php-smartypants": "^1.8.1",
                 "nesbot/carbon": "^3.0",
@@ -5435,10 +5436,14 @@
                 "doctrine/dbal": "^3.6",
                 "fakerphp/faker": "~1.10",
                 "google/cloud-translate": "^1.6",
+                "larastan/larastan": "^3.10",
+                "laravel/pao": "^1.1",
                 "laravel/pint": "1.16.0",
+                "laravel/socialite": "^5.28",
                 "mockery/mockery": "^1.6.10",
                 "orchestra/testbench": "^10.8 || ^11.0",
-                "phpunit/phpunit": "^11.5.3",
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^12.5.23",
                 "spatie/laravel-ray": "^1.43.6"
             },
             "suggest": {
@@ -5485,7 +5490,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v6.23.0"
+                "source": "https://github.com/statamic/cms/tree/v6.25.0"
             },
             "funding": [
                 {
@@ -5493,7 +5498,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-23T15:08:30+00:00"
+            "time": "2026-07-17T17:37:17+00:00"
         },
         {
             "name": "statamic/stringy",
