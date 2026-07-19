@@ -14,6 +14,8 @@ import './article-fade.js'
 import './product-detail-spacing.js'
 import './club-options.js'
 import './promo-cards.js'
+import './tock.js'
+import './smart-quotes.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine

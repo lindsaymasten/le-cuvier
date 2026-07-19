@@ -1,26 +1,46 @@
 title: Tock
 fields:
   -
-    handle: title
+    handle: introductory_content
     field:
-      input_type: text
-      antlers: false
-      default: 'Tasting Reservations'
-      display: Heading
-      instructions: 'Presentation only. Reservation details are read automatically from Tock.'
-      type: text
-      icon: text
-      listable: hidden
-      instructions_position: above
-      visibility: visible
-      validate:
-        - required
-  -
-    handle: intro
-    field: common.text_plain
-    config:
-      display: Introduction
-      instructions: 'Optional introductory copy shown above the Tock reservations.'
+      type: group
+      display: 'Introductory content'
+      instructions: 'Optional content displayed above the Tock reservations.'
+      collapsible: true
+      collapsed: true
+      fields:
+        -
+          handle: subheading
+          field:
+            input_type: text
+            antlers: false
+            default: 'Visit Le Cuvier'
+            display: Subheading
+            instructions: 'Optional single line displayed above the heading.'
+            type: text
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+        -
+          handle: heading
+          field:
+            input_type: text
+            antlers: false
+            default: 'Tasting Reservations'
+            display: Heading
+            instructions: 'Optional heading displayed above the Tock reservations.'
+            type: text
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+        -
+          handle: introduction
+          field: common.text_plain
+          config:
+            display: Introduction
+            instructions: 'Optional introductory copy shown above the Tock reservations.'
   -
     handle: button_label
     field:
