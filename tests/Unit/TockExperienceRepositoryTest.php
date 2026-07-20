@@ -6,6 +6,7 @@ use App\Services\Tock\TockExperienceRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Statamic\Facades\Antlers;
+use Statamic\Facades\YAML;
 use Tests\TestCase;
 
 class TockExperienceRepositoryTest extends TestCase
@@ -112,8 +113,11 @@ class TockExperienceRepositoryTest extends TestCase
             [
                 'id' => 'block-one',
                 'introductory_content' => [
+                    'show_subheading' => true,
                     'subheading' => 'Visit Le Cuvier',
+                    'show_heading' => true,
                     'heading' => 'Tasting Reservations',
+                    'show_introduction' => true,
                     'introduction' => 'Choose your tasting experience.',
                 ],
                 'button_label' => 'Reserve',
@@ -122,6 +126,7 @@ class TockExperienceRepositoryTest extends TestCase
 
         $this->assertStringContainsString('Visit Le Cuvier', $output);
         $this->assertStringContainsString('Tasting Reservations', $output);
+        $this->assertStringContainsString('Choose your tasting experience.', $output);
         $this->assertStringContainsString('The “Original” Wine <span class="brand-serif-italic">&amp;</span> Food Pairing', $output);
         $this->assertStringContainsString('Entrée <span class="brand-serif-italic">&amp;</span> Flight Experience', $output);
         $this->assertStringContainsString('<span class="tock-experience__schedule-label">available</span>', $output);
@@ -130,12 +135,42 @@ class TockExperienceRepositoryTest extends TestCase
         $this->assertStringContainsString('data-tock-experience="191491"', $output);
         $this->assertStringContainsString('data-tock-experience="353861"', $output);
         $this->assertStringContainsString(
+            '<span class="sr-only"> The “Original” Wine <span class="brand-serif-italic">&amp;</span> Food Pairing</span>',
+            $output
+        );
+        $this->assertStringContainsString(
             '<article class="tock-experience tock-experience--tilted" aria-labelledby="tock-experience-191491">',
             $output
         );
         $this->assertSame(1, substr_count($output, 'tock-experience--tilted'));
         $this->assertStringContainsString('2–6 guests', $output);
         $this->assertStringNotContainsString('temporarily unavailable', $output);
+
+        $outputWithDisabledIntroductoryContent = (string) Antlers::parse(
+            $template,
+            [
+                'id' => 'block-with-disabled-heading',
+                'introductory_content' => [
+                    'show_subheading' => false,
+                    'subheading' => 'Visit Le Cuvier',
+                    'show_heading' => false,
+                    'heading' => 'Tasting Reservations',
+                    'show_introduction' => false,
+                    'introduction' => 'Choose your tasting experience.',
+                ],
+                'button_label' => 'Reserve',
+            ]
+        );
+
+        $this->assertStringNotContainsString('class="tock-block__header"', $outputWithDisabledIntroductoryContent);
+        $this->assertStringNotContainsString('Visit Le Cuvier', $outputWithDisabledIntroductoryContent);
+        $this->assertStringNotContainsString('Tasting Reservations', $outputWithDisabledIntroductoryContent);
+        $this->assertStringNotContainsString('Choose your tasting experience.', $outputWithDisabledIntroductoryContent);
+        $this->assertStringContainsString('aria-labelledby="tock-heading-block-with-disabled-heading"', $outputWithDisabledIntroductoryContent);
+        $this->assertStringContainsString(
+            '<h2 id="tock-heading-block-with-disabled-heading" class="sr-only">Tasting reservations</h2>',
+            $outputWithDisabledIntroductoryContent
+        );
 
         $outputWithoutIntroductoryContent = (string) Antlers::parse(
             $template,
@@ -146,7 +181,27 @@ class TockExperienceRepositoryTest extends TestCase
         );
 
         $this->assertStringNotContainsString('class="tock-block__header"', $outputWithoutIntroductoryContent);
-        $this->assertStringContainsString('aria-label="Tasting reservations"', $outputWithoutIntroductoryContent);
+        $this->assertStringContainsString('aria-labelledby="tock-heading-block-without-heading"', $outputWithoutIntroductoryContent);
+        $this->assertStringContainsString(
+            '<h2 id="tock-heading-block-without-heading" class="sr-only">Tasting reservations</h2>',
+            $outputWithoutIntroductoryContent
+        );
+    }
+
+    public function test_the_introductory_fields_are_off_by_default_and_revealed_by_toggles(): void
+    {
+        $fieldset = YAML::parse(file_get_contents(resource_path('fieldsets/tock.yaml')));
+        $fields = collect($fieldset['fields'][0]['field']['fields'])->keyBy('handle');
+
+        foreach (['show_subheading', 'show_heading', 'show_introduction'] as $toggle) {
+            $this->assertFalse($fields[$toggle]['field']['default']);
+        }
+
+        $this->assertArrayNotHasKey('default', $fields['subheading']['field']);
+        $this->assertArrayNotHasKey('default', $fields['heading']['field']);
+        $this->assertSame(['show_subheading' => 'equals true'], $fields['subheading']['field']['if']);
+        $this->assertSame(['show_heading' => 'equals true'], $fields['heading']['field']['if']);
+        $this->assertSame(['show_introduction' => 'equals true'], $fields['introduction']['config']['if']);
     }
 
     private function fixture(): string

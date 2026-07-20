@@ -1,15 +1,20 @@
-<section class="tock-block"{{ if introductory_content:heading }} aria-labelledby="tock-heading-{{ id }}"{{ else }} aria-label="Tasting reservations"{{ /if }}>
-  {{ if introductory_content:subheading || introductory_content:heading || introductory_content:introduction }}
+<section class="tock-block" aria-labelledby="tock-heading-{{ id }}">
+  {{ if introductory_content:show_heading && introductory_content:heading }}
+  {{ else }}
+    <h2 id="tock-heading-{{ id }}" class="sr-only">Tasting reservations</h2>
+  {{ /if }}
+
+  {{ if introductory_content:show_subheading && introductory_content:subheading || introductory_content:show_heading && introductory_content:heading || introductory_content:show_introduction && introductory_content:introduction }}
     <header class="tock-block__header">
-      {{ if introductory_content:subheading }}
+      {{ if introductory_content:show_subheading && introductory_content:subheading }}
         <p class="tock-block__eyebrow">{{ introductory_content:subheading | brand_ampersands }}</p>
       {{ /if }}
 
-      {{ if introductory_content:heading }}
+      {{ if introductory_content:show_heading && introductory_content:heading }}
         <h2 id="tock-heading-{{ id }}" class="tock-block__heading">{{ introductory_content:heading | brand_ampersands }}</h2>
       {{ /if }}
 
-      {{ if introductory_content:introduction }}
+      {{ if introductory_content:show_introduction && introductory_content:introduction }}
         <p class="tock-block__intro">{{ introductory_content:introduction | brand_ampersands | nl2br }}</p>
       {{ /if }}
     </header>
@@ -20,7 +25,7 @@
       {{ if has_experiences }}
         <div class="tock-block__experiences">
           {{ experiences }}
-            <article class="tock-experience{{ if is_tilted }} tock-experience--tilted{{ /if }}" aria-labelledby="tock-experience-{{ id }}">
+            <div class="tock-experience-slot{{ if is_tilted }} tock-experience-slot--tilted{{ /if }}">
               <svg class="tock-experience__splatters" viewBox="0 0 260 210" aria-hidden="true" focusable="false">
                 <g class="tock-experience__splatter-variant tock-experience__splatter-variant--one">
                   <path d="M165 58c4-4 10-1 9 4-1 5-8 7-11 3-2-3-1-5 2-7Z"></path>
@@ -104,55 +109,59 @@
                 </g>
               </svg>
 
-              <div class="tock-experience__copy">
-                {{ if schedule }}
-                  <p class="tock-experience__schedule">
-                    <span class="tock-experience__schedule-label">available</span>
-                    <span class="tock-experience__schedule-days">{{ schedule | brand_ampersands }}</span>
-                    {{ if schedule_note }}
-                      <em class="tock-experience__schedule-note">{{ schedule_note | brand_ampersands }}</em>
-                    {{ /if }}
-                  </p>
-                {{ /if }}
+              <article class="tock-experience{{ if is_tilted }} tock-experience--tilted{{ /if }}" aria-labelledby="tock-experience-{{ id }}">
+                {{ svg src="symbols/tock-notecard" class="tock-experience__notecard" }}
 
-                <h3 id="tock-experience-{{ id }}" class="tock-experience__title">{{ title | brand_ampersands }}</h3>
-
-                {{ if description }}
-                  <div class="tock-experience__description">
-                    {{ description }}
-                      <p>{{ value | brand_ampersands }}</p>
-                    {{ /description }}
-                  </div>
-                {{ /if }}
-              </div>
-
-              <footer class="tock-experience__footer">
-                <div class="tock-experience__details">
-                  {{ if prices }}
-                    <div class="tock-experience__prices" aria-label="Pricing">
-                      {{ prices }}
-                        <p>{{ value | brand_ampersands }}</p>
-                      {{ /prices }}
-                    </div>
+                <div class="tock-experience__copy">
+                  {{ if schedule }}
+                    <p class="tock-experience__schedule">
+                      <span class="tock-experience__schedule-label">available</span>
+                      <span class="tock-experience__schedule-days">{{ schedule | brand_ampersands }}</span>
+                      {{ if schedule_note }}
+                        <em class="tock-experience__schedule-note">{{ schedule_note | brand_ampersands }}</em>
+                      {{ /if }}
+                    </p>
                   {{ /if }}
 
-                  {{ if party_size_label }}
-                    <p class="tock-experience__party">
-                      <span>Party size</span>
-                      {{ party_size_label | brand_ampersands }}
-                    </p>
+                  <h3 id="tock-experience-{{ id }}" class="tock-experience__title">{{ title | brand_ampersands }}</h3>
+
+                  {{ if description }}
+                    <div class="tock-experience__description">
+                      {{ description }}
+                        <p>{{ value | brand_ampersands }}</p>
+                      {{ /description }}
+                    </div>
                   {{ /if }}
                 </div>
 
-                <a
-                  class="tock-experience__button"
-                  href="{{ booking_url | entities }}"
-                  data-tock-reserve="true"
-                  data-tock-business="lecuvierwinery"
-                  data-tock-experience="{{ id }}"
-                >{{ button_label ?? 'Reserve' }}</a>
-              </footer>
-            </article>
+                <footer class="tock-experience__footer">
+                  <div class="tock-experience__details">
+                    {{ if prices }}
+                      <div class="tock-experience__prices" aria-label="Pricing">
+                        {{ prices }}
+                          <p>{{ value | brand_ampersands }}</p>
+                        {{ /prices }}
+                      </div>
+                    {{ /if }}
+
+                    {{ if party_size_label }}
+                      <p class="tock-experience__party">
+                        <span>Party size</span>
+                        {{ party_size_label | brand_ampersands }}
+                      </p>
+                    {{ /if }}
+                  </div>
+
+                  <a
+                    class="tock-experience__button"
+                    href="{{ booking_url | entities }}"
+                    data-tock-reserve="true"
+                    data-tock-business="lecuvierwinery"
+                    data-tock-experience="{{ id }}"
+                  >{{ button_label ?? 'Reserve' }}<span class="sr-only"> {{ title | brand_ampersands }}</span></a>
+                </footer>
+              </article>
+            </div>
           {{ /experiences }}
         </div>
       {{ else }}

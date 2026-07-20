@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <rect class="tock-notecard__paper" x="1" y="1" width="998" height="598" />
+
+  <g class="tock-notecard__rules">
+    <path class="tock-notecard__rule" d="M1 138.5H999M1 190.5H999M1 242.5H999M1 294.5H999M1 346.5H999M1 398.5H999M1 450.5H999M1 502.5H999M1 554.5H999" />
+    <path class="tock-notecard__guide" d="M1 91.5H999M178.5 1V599M246.5 1V599" />
+  </g>
+
+  <rect class="tock-notecard__edge" x="1" y="1" width="998" height="598" />
+</svg>
