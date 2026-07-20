@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1784575787
+updated_at: 1784576575
 blocks:
   - id: memat9au
     type: product_cards
@@ -190,8 +190,8 @@ blocks:
     limit: 5
     show_past: true
     type: events_listing
-    enabled: true
-    intro: "Here's an intro text for events at Le Cuvier Winery in Paso Robles, California. These events are very good and fancy, etc. And this text is their important introduction."
+    enabled: false
+    intro: "Some occasions ask for more than a tasting. This is where we gather for the extraordinary — themed celebrations, seasonal moments, and experiences built to be savored slowly. You're always welcome."
   -
     id: mjx1b8a5
     title: 'Wine & Food Pairing'
