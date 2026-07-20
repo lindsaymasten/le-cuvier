@@ -51,13 +51,22 @@ blocks:
     type: article
     enabled: true
   -
+    id: gM1j9JqE8aru6MDCHeG8S
+    introductory_content:
+      show_subheading: false
+      show_heading: false
+      show_introduction: false
+    button_label: Reserve
+    type: tock
+    enabled: true
+  -
     id: mkp9zq86
     embed_code:
       code: '<a class="largeLinkBtn" href="https://www.exploretock.com/lecuvierwinery" data-tock-reserve=true data-tock-experience-list=true> View All Reservation Options </a>'
       mode: html
     embed_note: Tock
     type: embed
-    enabled: true
+    enabled: false
   -
     id: mmzg8g85
     article:
@@ -104,33 +113,6 @@ blocks:
             text: 'Friday through Monday'
           - type: text
             text: " 11am - 5pm.\_"
-    type: article
-    enabled: true
-  -
-    id: mmzgafk2
-    article:
-      -
-        type: paragraph
-        content:
-          - type: text
-            text: "Offerings & availability can change without notice. Call\_the winery to confirm current offerings and availability. Please review all details in your confirmation email regarding all our current company protocols.\_"
-      -
-        type: paragraph
-        content:
-          - type: text
-            text: 'Reservations are highly encouraged and '
-          -
-            type: text
-            marks:
-              - type: bold
-            text: 'we can only accommodate parties of up to 6 guests'
-          - type: text
-            text: '. Please note we will only be able to seat the confirmed number of guest per your reservation confirmation (including non-tasters). Our cancellation policy is 24 hours. No shows will be charged $20/person reserved. Parties that are more than 15 minutes late will forfeit their reservation.'
-      -
-        type: paragraph
-        content:
-          - type: text
-            text: 'Our experiences are currently offered to guests 21 years of age or older. We welcome well behaved pets on a leash in our outdoor tasting area.'
     type: article
     enabled: true
   -
@@ -197,13 +179,40 @@ blocks:
         food_details: 'organic chicken, oregano orzo, grilled halloumi, blanched asparagus, grilled olives, zucchini, roasted mini san marzano tomato, blackberry'
     type: menu
     enabled: true
+  -
+    id: mmzgafk2
+    article:
+      -
+        type: paragraph
+        content:
+          - type: text
+            text: "Offerings & availability can change without notice. Call\_the winery to confirm current offerings and availability. Please review all details in your confirmation email regarding all our current company protocols.\_"
+      -
+        type: paragraph
+        content:
+          - type: text
+            text: 'Reservations are highly encouraged and '
+          -
+            type: text
+            marks:
+              - type: bold
+            text: 'we can only accommodate parties of up to 6 guests'
+          - type: text
+            text: '. Please note we will only be able to seat the confirmed number of guest per your reservation confirmation (including non-tasters). Our cancellation policy is 24 hours. No shows will be charged $20/person reserved. Parties that are more than 15 minutes late will forfeit their reservation.'
+      -
+        type: paragraph
+        content:
+          - type: text
+            text: 'Our experiences are currently offered to guests 21 years of age or older. We welcome well behaved pets on a leash in our outdoor tasting area.'
+    type: article
+    enabled: true
 seo_noindex: false
 seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
-updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1784329814
+updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
+updated_at: 1784522034
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
