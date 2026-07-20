@@ -164,7 +164,7 @@ blocks:
       - id: i2tNaALyfhdScbq96EuEO
         enabled: true
         special_item: false
-        wine: '2020 Malbec'
+        wine: '2021 Malbec'
         description: |-
           Malbec lucked out. And it knows it. Spam Maki arrived with the quiet dignity of a craft centuries in the making. Nori, precise and purposeful. Rice, each grain an act of intention. Tamago egg, folded with patience and care. Avocado, placed just so. Furikake, a final blessing of the sea. And Spam — elevated, treated with the same reverence the Japanese bestow on every ingredient that earns its place at the table.
           Malbec stood a little straighter, grateful to have been invited. Some pairings are planned. This one was a gift.
@@ -211,8 +211,8 @@ seo_nofollow: false
 seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
-updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1784559184
+updated_by: c9a05d23-3623-4986-a31d-642880558c7f
+updated_at: 1784576716
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
