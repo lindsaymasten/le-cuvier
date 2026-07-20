@@ -3,11 +3,10 @@ id: home
 blueprint: pages
 title: Home
 template: default
-updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1770423667
+updated_by: c9a05d23-3623-4986-a31d-642880558c7f
+updated_at: 1784575787
 blocks:
-  -
-    id: memat9au
+  - id: memat9au
     type: product_cards
     enabled: true
     c7_collection_slug: home
@@ -18,17 +17,14 @@ blocks:
       -
         type: paragraph
         content:
-          -
-            type: text
+          - type: text
             text: 'Le Cuvier is indeed a very small winery with current annual production of just under 4,000 cases. Our maximum allowable size by virtue of the wisdom of County Regulations is just 5,000 cases. That means that even as we grow to full capacity, we are going to remain committed to our Elliptical Members '
           -
             type: text
             marks:
-              -
-                type: italic
+              - type: italic
             text: '&'
-          -
-            type: text
+          - type: text
             text: ' the kind, curious souls who deign to visit our tasting room.'
       -
         type: set
@@ -40,46 +36,38 @@ blocks:
       -
         type: paragraph
         content:
-          -
-            type: text
+          - type: text
             text: 'Unfortunately, one of the consistently troublesome things we do at Le Cuvier is insist on an extraordinarily long 3-year minimum barrel aging of Le Cuvier wines. Many of our wines are barrel aged longer—much longer— '
           -
             type: text
             marks:
-              -
-                type: italic
+              - type: italic
             text: '&'
-          -
-            type: text
+          - type: text
             text: ' the unusual character we gain via this process cannot be rushed without loss of that je ne sais quoi that makes our wines unique. The consequence of this long, long time in barrel is that it renders accurate planning a delusional process at best.'
       -
         type: paragraph
         content:
-          -
-            type: text
+          - type: text
             text: 'And, oh yes, another bit of stupidity is that for each additional year we stay in barrel we lose about 8% of our wine to evaporation—meaning that by the time we slide the wine into bottles, we’ve lost roughly a quarter of it in the form of the proverbial “angels’ share”—fumes to be enjoyed by those besotted winged beings that can be heard giggling in the darkened corners of our barrel room.'
       -
         type: paragraph
         content:
-          -
-            type: text
+          - type: text
             text: 'To summarize the point a bit more briefly; Le Cuvier wines can be mercurial in their availability, as impossible to predict as the weather '
           -
             type: text
             marks:
-              -
-                type: italic
+              - type: italic
             text: '(meaning not entirely unfathomable, but not quite reliably able to be ascertained).'
-          -
-            type: text
+          - type: text
             text: ' To enjoy them is to accept this quirk of fate, as their limitations are a side effect of their exceptional character.'
     type: article
     enabled: true
   -
     id: mhemungq
     cards:
-      -
-        id: 65Llqbdm
+      - id: 65Llqbdm
         members_only: false
         title: 'Testing 123'
         subtitle: 'optional subtitle test test'
@@ -90,8 +78,8 @@ blocks:
         bg_image: 1y6a6729.jpeg
         heading: 'First Title Test'
         featured: false
-      -
-        id: mhemv4wv
+        enabled: true
+      - id: mhemv4wv
         members_only: false
         title: 'members only test'
         subtitle: Subtitle
@@ -101,8 +89,8 @@ blocks:
         heading: 'Second Title'
         featured: false
         bg_color: '#be2323'
-      -
-        id: mhzcivw8
+        enabled: true
+      - id: mhzcivw8
         members_only: false
         heading: 'Test test Test'
         subtitle: kjwebfkiu
@@ -111,8 +99,8 @@ blocks:
         bg_type: image
         bg_image: 1y6a6940.jpg
         featured: false
-      -
-        id: mhzcixdv
+        enabled: true
+      - id: mhzcixdv
         members_only: false
         heading: rflkejoit34
         subtitle: dsfmrwliuh
@@ -121,6 +109,7 @@ blocks:
         bg_type: image
         bg_image: _eee0245.jpg
         featured: false
+        enabled: true
     type: promo_cards
     enabled: false
   -
@@ -139,8 +128,7 @@ blocks:
           -
             type: paragraph
             content:
-              -
-                type: text
+              - type: text
                 text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
         bottle_count: 12
         fulfillment: false
@@ -156,8 +144,7 @@ blocks:
           -
             type: paragraph
             content:
-              -
-                type: text
+              - type: text
                 text: 'This is the club description for the Mixed Club. It can be somewhat long or very short. It should definitely say what the club includes.'
         bottle_count: 6
         fulfillment: true
@@ -173,8 +160,7 @@ blocks:
           -
             type: paragraph
             content:
-              -
-                type: text
+              - type: text
                 text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
         bottle_count: 12
         fulfillment: false
@@ -190,8 +176,7 @@ blocks:
           -
             type: paragraph
             content:
-              -
-                type: text
+              - type: text
                 text: 'This is the club description for the Reds Only Club. It can be somewhat long or very short. It should definitely say what the club includes.'
         bottle_count: 12
         fulfillment: false
@@ -200,13 +185,12 @@ blocks:
         club_name: 'Reds Only'
     heading: 'Club Signup Heading'
     intro: 'Intro text, lorem ipsum doler san init compset. Thereafter, we’ll blend you a bottle of perfume for each season, delivered on the solstice.'
-  -
-    id: mk61eofl
+  - id: mk61eofl
     heading: 'Upcoming Events'
     limit: 5
     show_past: true
     type: events_listing
-    enabled: false
+    enabled: true
     intro: "Here's an intro text for events at Le Cuvier Winery in Paso Robles, California. These events are very good and fancy, etc. And this text is their important introduction."
   -
     id: mjx1b8a5
@@ -214,40 +198,44 @@ blocks:
     subtitle: 'Tasting Experience'
     statement: 'Wines of distinction and fervor fermented only with wild yeast and aged exclusively in neutral oak barrels from Paso Robles’ best westside, dry-farmed vineyards.'
     pairings:
-      -
-        id: mjx1baq5
+      - id: mjx1baq5
         wine: '2022 Grenache'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
-      -
-        id: mjxdlxi4
+        enabled: true
+        special_item: false
+      - id: mjxdlxi4
         wine: '2023 Zinfandel'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
-      -
-        id: mjxdlzwn
+        enabled: true
+        special_item: false
+      - id: mjxdlzwn
         wine: '2021 Grenache'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
-      -
-        id: mjxdlwc0
+        enabled: true
+        special_item: false
+      - id: mjxdlwc0
         wine: '2021 Chrysos'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
-      -
-        id: mjxdlyi7
+        enabled: true
+        special_item: false
+      - id: mjxdlyi7
         wine: '2021 Grenache'
         description: '…a rustic Italian villa, perched high above the azure glistening sea, it is neither imposing nor dramatic, yet irresistible, its magnetic allure beaming with mystery.'
         food: 'chicken gyro'
         food_details: 'marinated chicken, tzatziki, feta, dill on lavash'
+        enabled: true
+        special_item: false
     type: menu
     enabled: false
-  -
-    id: mjxdpi4r
+  - id: mjxdpi4r
     title: 'Made up recipe'
     description: description
     servings: 4-6
@@ -262,16 +250,14 @@ blocks:
     notes: 'Notes go here.'
     type: recipe
     enabled: false
-  -
-    id: mj6ya4s6
+  - id: mj6ya4s6
     title: Recipes
     text: 'Recipes text intro'
     query: latest
     limit: 3
     type: recipes_listing
     enabled: false
-  -
-    id: mjxe0neh
+  - id: mjxe0neh
     title: Team
     query: ordered
     limit: 6
