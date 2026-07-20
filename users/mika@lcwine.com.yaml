@@ -15,3 +15,5 @@ preferences:
       view: list
     events:
       view: tree
+    testimonials:
+      view: list
