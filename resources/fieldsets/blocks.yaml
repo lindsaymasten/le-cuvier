@@ -607,6 +607,14 @@ fields:
                 -
                   import: testimonials
 
+            tock:
+              display: Tock
+              instructions: 'Displays tasting experiences managed in Tock.'
+              icon: calendar
+              fields:
+                -
+                  import: tock
+
             embed:
               display: Embed
               icon: code

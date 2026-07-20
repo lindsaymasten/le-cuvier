@@ -1,0 +1,78 @@
+title: Tock
+fields:
+  -
+    handle: introductory_content
+    field:
+      type: group
+      display: 'Introductory content'
+      instructions: 'Each item is off by default. Turn on an item to reveal its content field.'
+      collapsible: true
+      collapsed: true
+      fields:
+        -
+          handle: show_subheading
+          field:
+            type: toggle
+            display: 'Show subheading'
+            instructions: 'Display a short line above the heading.'
+            default: false
+        -
+          handle: subheading
+          field:
+            input_type: text
+            antlers: false
+            display: 'Subheading text'
+            instructions: 'A single line displayed above the heading.'
+            type: text
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            if:
+              show_subheading: 'equals true'
+        -
+          handle: show_heading
+          field:
+            type: toggle
+            display: 'Show heading'
+            instructions: 'Display the primary heading above the Tock reservations.'
+            default: false
+        -
+          handle: heading
+          field:
+            input_type: text
+            antlers: false
+            display: 'Heading text'
+            instructions: 'The primary heading displayed above the Tock reservations.'
+            type: text
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            if:
+              show_heading: 'equals true'
+        -
+          handle: show_introduction
+          field:
+            type: toggle
+            display: 'Show introduction'
+            instructions: 'Display introductory copy above the Tock reservations.'
+            default: false
+        -
+          handle: introduction
+          field: common.text_plain
+          config:
+            display: 'Introduction text'
+            instructions: 'Introductory copy shown above the Tock reservations.'
+            if:
+              show_introduction: 'equals true'
+  -
+    handle: button_label
+    field:
+      type: text
+      display: 'Booking button label'
+      default: Reserve
+      instructions: 'Opens the selected reservation in Tock without leaving this page.'
+      validate:
+        - required
+      antlers: false
