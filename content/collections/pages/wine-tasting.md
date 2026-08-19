@@ -134,8 +134,8 @@ blocks:
         special_item: false
         wine: '2023 Grenache'
         description: 'Vibrant feijoa green monk parrots flit from tree to tree, raucous in greeting the day; little curious Castelvetrano murmurations launched from a trebuchet, exploding with watermelon, violet, rose petal and lavender. Meanwhile a mostly empty glass sits forlornly upon a coffee table containing the dregs and vestiges of last night’s sangria; decorative dehydrated citrus, red fleshed pitaya, nectarine and plum'
-        food: 'bossam wrap'
-        food_details: 'napa cabbage, sushi rice, mayo, amino acids, cherry & orange glaze seared pork belly, avocado, sesame seeds, orange segments'
+        food: 'eggs mimosa'
+        food_details: 'beet cured egg, bacon, chives'
       - id: i2tNaALyfhdScbq96EuEO
         enabled: true
         special_item: false
@@ -150,15 +150,22 @@ blocks:
         special_item: false
         wine: 'nv Pentimento ‘26 bottling'
         description: 'Merciless, meutrière strategically positioned for maximum effect, spilling boysenberry and elderberry bordelaise upon unsuspecting intruders, trapped beneath rough steel plates and chains, blood welling to the surface of the skin like the deep purple of an eggplant. Fresh cracked black pepper rains down upon indigo rose heirloom tomatoes with fragrant Genovese basil and mozzarella di bufala, leading into risotto all’Amarone con tartufo nero of course.'
-        food: 'caponata with forbidden rice'
-        food_details: 'mozzarella pearls, basil, pine nuts'
+        food: 'tri-tip panini'
+        food_details: 'fresh mozzarella, pesto'
       - id: lCMFCNesCOahEkrjOQLFf
         enabled: true
         special_item: false
         wine: '2023 Zinfandel'
         description: 'Elderberry blossoms danced amid the shadows of a candlelit ballroom, its lambent glow igniting the gold thread and crystal embroidery adorning every gown. Oxtail soup, fragrant and warm, established the evening’s cadence, while local wild salmon, slowly grilled over aged birch and finished with star anise and plum reduction, defined its temperament.'
-        food: 'shropshire blue'
-        food_details: 'local wild honey, think nori, blackberry'
+        food: 'dark chocolate cupcake'
+        food_details: 'whipped mascarpone, local wild honey'
+      - id: SOzsZ4pYZL9veNHsH0Nof
+        enabled: true
+        special_item: true
+        wine: '2022 Viognier'
+        special_label: 'Lunch // Member Only'
+        food: jambalaya
+        food_details: 'sinton & sons linguica, shrimp, chicken, rice, 3 color bell pepper, celery, passata, cajun spices'
     type: menu
     enabled: true
   -
@@ -194,7 +201,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1786665003
+updated_at: 1787180979
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
