@@ -17,6 +17,13 @@ Route::statamic('/checkout/{any?}', 'checkout')->where('any', '.*');
 // Route for member login
 Route::statamic('/profile/{any?}', 'profile')->where('any', '.*');
 
+// Local-only block previews keep CMS-managed page content untouched while
+// movable blocks are tested outside their production page context.
+if (app()->environment('local')) {
+    Route::statamic('/_preview/wine-club-block', 'previews/wine-club-block');
+    Route::statamic('/_preview/member-product-cards', 'previews/member-product-cards');
+}
+
 // Route for handling newsletter subscriptions.
 Route::post('/newsletter', NewsletterController::class)->name('newsletter');
 

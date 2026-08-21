@@ -10,17 +10,18 @@ import './nav-contrast.js'
 import './liquid-glass-nav.js'
 import './c7-pd-buy-buttons.js'
 import './recipes-scroll.js'
-import './article-fade.js'
 import './product-detail-spacing.js'
 import './club-options.js'
 import './promo-cards.js'
 import './tock.js'
 import './smart-quotes.js'
+import productCardsAccess from './product-cards.js'
 
 window.Cookies = Cookies
 window.Alpine = Alpine
 
 Alpine.plugin([collapse, focus, persist, intersect])
+Alpine.data('productCardsAccess', productCardsAccess)
 Alpine.start()
 
 // C7 smooth initial paint
