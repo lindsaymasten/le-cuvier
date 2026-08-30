@@ -447,12 +447,24 @@
 /* ≥640px: two across */
 @media (min-width: 640px) {
   .product-cards .product-card { 
-    flex-basis: var(--pc-col-2); 
+    flex-basis: var(--pc-col-2);
+  }
+
+  .product-cards:has(> .products > :is(.c7-product-collection__product-list, .c7-product-allocation__product-list) > .product-card:only-of-type) > .products {
+    width: 100%;
+  }
+
+  .product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list):has(> .product-card:only-of-type) {
+    width: 100%;
+  }
+
+  .product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list) > .product-card:only-of-type {
+    max-width: var(--pc-col-2);
   }
 }
 
-/* 641px - 1199px */
-@media (min-width: 641px) and (max-width: 1199px) {
+/* 640px - 1199px */
+@media (min-width: 640px) and (max-width: 1199px) {
   /* If the total number of cards is odd, make the last 3 cards 3-up */
   .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:last-of-type,
   .product-cards .products:has(.product-card:last-of-type:nth-child(odd)) .product-card:nth-last-of-type(2),
@@ -474,9 +486,10 @@
     flex-basis: var(--pc-col-4);
   }
 
-  /* Balance last row: never end with a single card */
-  .product-cards .products:has(> .product-card:last-child:nth-child(odd)) > .product-card:last-child,
-  .product-cards .products:has(> .product-card:last-child:nth-child(odd)) > .product-card:nth-last-child(2) {
+  /* Rebalance only the tail patterns that would leave one card on the last row. */
+  .product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list):has(> .product-card:last-of-type:nth-of-type(10n + 1)) > .product-card:nth-last-of-type(-n + 2),
+  .product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list):has(> .product-card:last-of-type:nth-of-type(10n + 4)) > .product-card:nth-last-of-type(-n + 2),
+  .product-cards :is(.c7-product-collection__product-list, .c7-product-allocation__product-list):has(> .product-card:last-of-type:nth-of-type(10n + 8)) > .product-card:nth-last-of-type(-n + 2) {
     flex-basis: var(--pc-col-2);
   }
 }
@@ -486,6 +499,7 @@
   .product-cards { padding: 0 0.55rem; }
   .product-cards .products { margin-top: 240px; }
   .product-cards .product-card { flex: 0 1 var(--pc-col-2); max-height: 43vh; }
+  .product-cards .product-card:first-of-type:nth-last-of-type(3),
   .product-cards .product-card:nth-last-of-type(5):nth-of-type(odd) { flex: 0 1 var(--pc-col-1); }
   .product-cards .product-details { justify-content: space-between; }
   .product-cards .product-info { padding: 0.5rem 0; }
