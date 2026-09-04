@@ -1,0 +1,17 @@
+{{ tock }}
+  <section class="product-search-experiences" data-search-source-ready="{{ if has_experiences }}true{{ else }}false{{ /if }}" aria-label="Tastings and experiences">
+    {{ experiences }}
+      <article class="product-search-experience" data-search-item>
+        <p class="product-search-experience__eyebrow" data-search-text>Wine tasting &amp; Tock experiences</p>
+        <h2><a data-search-link href="/wine-tasting#tock-experience-{{ id }}">{{ title | entities }}</a></h2>
+        <div data-search-text>
+          {{ if schedule }}<p class="product-search-experience__schedule">{{ schedule | entities }} {{ schedule_note | entities }}</p>{{ /if }}
+          {{ description }}<p>{{ value | entities }}</p>{{ /description }}
+          {{ if party_size_label }}<p>Party size: {{ party_size_label | entities }}</p>{{ /if }}
+          {{ prices }}<p>{{ value | entities }}</p>{{ /prices }}
+        </div>
+        <a class="product-search-experience__link" href="/wine-tasting#tock-experience-{{ id }}">View on Wine Tasting page</a>
+      </article>
+    {{ /experiences }}
+  </section>
+{{ /tock }}

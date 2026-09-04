@@ -27,6 +27,7 @@ yarn-error.log
 /content/collections/*/*.md
 /content/globals/*.yaml
 !/content/globals/.gitkeep
+!/content/globals/search.yaml
 /content/navigation/*.yaml
 !/content/navigation/.gitkeep
 /content/trees/**/*.yaml

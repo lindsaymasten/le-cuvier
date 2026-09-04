@@ -99,6 +99,8 @@
 
         {{ partial:partials/footer }}
 
+        {{ partial:components/product-search }}
+
         {{# --- Commerce7 JS (guarded by globals) --- #}}
         {{ if commerce7:enable_c7 && commerce7:tenant_id }}
             <script

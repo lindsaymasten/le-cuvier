@@ -3,11 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductSearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 // Route to individual product/wine pages; template: resources/views/product.antlers.html
 Route::get('/product/{handle}', [ProductController::class, 'show'])->name('product.show');
+
+Route::get('/_search/catalog', [ProductSearchController::class, 'catalog'])->name('product-search.catalog');
+Route::get('/_search/experiences', [ProductSearchController::class, 'experiences'])->name('product-search.experiences');
+Route::get('/_search/pages', [ProductSearchController::class, 'pages'])->name('product-search.pages');
 
 // Routes for product purchase
 Route::statamic('/cart', 'cart');

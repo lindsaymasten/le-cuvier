@@ -1,0 +1,11 @@
+<section class="site-search-pages" data-search-source-ready="true" aria-label="Pages">
+  {{ pages }}
+    <article class="site-search-page" data-search-item data-search-page-id="{{ id | entities }}">
+      <p class="product-search-experience__eyebrow">Page</p>
+      <h2><a data-search-link href="{{ url | entities }}">{{ title | entities }}</a></h2>
+      <p>{{ excerpt | entities }}</p>
+      <span data-search-text hidden>{{ text | entities }}</span>
+      <a class="product-search-experience__link" href="{{ url | entities }}">Read more</a>
+    </article>
+  {{ /pages }}
+</section>

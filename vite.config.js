@@ -12,6 +12,7 @@ export default defineConfig(({ command, mode }) => {
           'resources/css/site.css',
           'resources/css/fonts.css',
           'resources/js/site.js',
+          'resources/js/product-search-catalog.js',
           'resources/js/embla.js',
           'resources/js/form.js',
           'resources/js/cookieDialog.js',

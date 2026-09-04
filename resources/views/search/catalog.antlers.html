@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Site search | Le Cuvier</title>
+    <base target="_top">
+    <script>
+      document.documentElement.dataset.embedded = window.parent !== window ? 'true' : 'false';
+      try {
+        document.documentElement.dataset.theme = window.parent.document.documentElement.dataset.theme || localStorage.getItem('le-cuvier-theme') || 'light';
+      } catch { document.documentElement.dataset.theme = 'light'; }
+    </script>
+    {{ if commerce7:enable_c7 && commerce7:tenant_id }}
+      <link rel="stylesheet" href="{{ commerce7:c7_css_url or 'https://cdn.commerce7.com/v2/commerce7.css' }}">
+    {{ /if }}
+    {{ vite src="resources/css/site.css|resources/css/fonts.css" }}
+  </head>
+  <body class="product-search-catalog">
+    <main class="product-search-catalog__inner">
+      <form class="product-search-input product-search-catalog__form" role="search" data-catalog-form>
+        <label for="catalog-query" class="sr-only">Search the site</label>
+        <input id="catalog-query" type="search" name="q" placeholder="Wines, experiences and more" autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+      <div class="product-search-catalog__toolbar">
+        <p data-catalog-status role="status" aria-live="polite" aria-atomic="true">Searching…</p>
+        <div class="product-search-catalog__account" hidden aria-hidden="true">
+          <div id="c7-account"></div>
+          <div id="c7-cart"></div>
+        </div>
+      </div>
+      <button type="button" data-catalog-retry hidden>Try again</button>
+      <p data-source-status="products" role="status">Loading products…</p>
+      <p data-source-status="pages" role="status">Loading site pages…</p>
+      <p data-source-status="experiences" role="status">Loading tasting experiences…</p>
+      <a data-experience-fallback href="/wine-tasting" hidden>Explore the Wine Tasting page</a>
+      <div data-search-featured data-settings="{{ search_featured_json | entities }}" hidden></div>
+        {{# Each source uses the existing Product Cards template. No server/API catalog. #}}
+        <div data-product-search-catalog aria-busy="true" hidden>
+          <div data-search-html-source="pages" data-source-url="/_search/pages"></div>
+          {{ if commerce7:enable_c7 && commerce7:tenant_id }}
+            {{ search_collections }}
+              <div class="c7-product-collection" data-product-search-source data-collection-slug="{{ slug | entities }}"></div>
+            {{ /search_collections }}
+          {{ /if }}
+          <div data-search-html-source="experiences" data-source-url="/_search/experiences"></div>
+        </div>
+      <noscript><p>Please enable JavaScript to search the site.</p></noscript>
+    </main>
+    {{ vite src="resources/js/product-search-catalog.js" }}
+    {{ if commerce7:enable_c7 && commerce7:tenant_id }}
+      <script id="{{ commerce7:c7_script_id or 'c7-javascript' }}" src="{{ commerce7:c7_js_url or 'https://cdn.commerce7.com/v2/commerce7.js' }}" data-tenant="{{ commerce7:tenant_id }}" defer></script>
+    {{ /if }}
+  </body>
+</html>

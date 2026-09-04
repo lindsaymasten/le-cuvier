@@ -1,0 +1,10 @@
+search_opening_view: featured
+search_featured_sections:
+  -
+    id: Dt7Zkr3bSW4WG41Z94apl
+    kind: pages
+    limit: 2
+    heading: Test
+    pages:
+      - 4bc7aa8c-ec45-4ae0-b5b7-50042d91ce57
+      - d5b91fca-4c39-419c-945c-e421f67f19fd

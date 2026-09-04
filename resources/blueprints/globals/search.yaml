@@ -1,0 +1,134 @@
+title: Search
+tabs:
+  main:
+    display: Search sources
+    sections:
+      - display: Product sources
+        instructions: 'Collections rendered from Commerce7 for site search. This setting does not edit Commerce7.'
+        fields:
+          - handle: search_collection_slugs
+            field:
+              type: list
+              display: Search collection slugs
+              instructions: 'Commerce7 collection URL slugs, one per item. Use the existing Product Cards template for each collection. Products are combined and duplicates removed. When blank, uses available-wines, home, wine-search-results, event-tasting-experiences, bundles, and limited.'
+  search:
+    display: Opening view
+    sections:
+      - display: Before a visitor searches
+        instructions: 'Choose what appears when the search modal opens. Typing always searches all configured products, experiences, and public site pages.'
+        fields:
+          - handle: search_opening_view
+            field:
+              type: select
+              display: Opening view
+              default: all
+              options:
+                - key: all
+                  value: All searchable content
+                - key: featured
+                  value: Featured sections
+                - key: empty
+                  value: Search input only
+              validate:
+                - 'in:all,featured,empty'
+          - handle: search_featured_sections
+            field:
+              type: grid
+              display: Featured sections
+              instructions: 'Drag sections into display order. Repeated products or pages appear once, in the first matching section. Empty sections are hidden.'
+              mode: stacked
+              reorderable: true
+              max_rows: 8
+              add_row: Add featured section
+              always_save: true
+              if:
+                search_opening_view: 'equals featured'
+              fields:
+                - handle: heading
+                  field:
+                    type: text
+                    display: Section heading
+                    placeholder: Discover Le Cuvier
+                    validate:
+                      - 'max:120'
+                - handle: kind
+                  field:
+                    type: select
+                    display: Content
+                    default: collection
+                    width: 66
+                    options:
+                      - key: collection
+                        value: Commerce7 collection
+                      - key: products
+                        value: Individual products
+                      - key: pages
+                        value: Site pages
+                    validate:
+                      - 'in:collection,products,pages'
+                - handle: limit
+                  field:
+                    type: integer
+                    display: Maximum items
+                    default: 4
+                    width: 33
+                    validate:
+                      - integer
+                      - 'min:1'
+                      - 'max:24'
+                - handle: collection_slug
+                  field:
+                    type: select
+                    display: Commerce7 collection
+                    instructions: 'Choose a collection or type another exact C7 URL slug and press Enter. Uses its Product Cards and C7 display order. Additional collections are also included when visitors search.'
+                    searchable: true
+                    taggable: true
+                    always_save: true
+                    options:
+                      - key: available-wines
+                        value: Wines available online
+                      - key: home
+                        value: Home
+                      - key: wine-search-results
+                        value: Wine search results
+                      - key: event-tasting-experiences
+                        value: Event / tasting experiences
+                      - key: bundles
+                        value: Bundles
+                      - key: limited
+                        value: Limited
+                    if:
+                      kind: 'equals collection'
+                    validate:
+                      - 'regex:/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/'
+                - handle: products
+                  field:
+                    type: grid
+                    display: Product pages
+                    instructions: 'Paste product URLs from lcwine.com, or paths such as /product/2023-rose-of-grenache. Drag to reorder. Products must be in a search source collection and visible to the visitor in C7.'
+                    reorderable: true
+                    max_rows: 24
+                    add_row: Add product
+                    always_save: true
+                    if:
+                      kind: 'equals products'
+                    fields:
+                      - handle: product_url
+                        field:
+                          type: text
+                          display: Product page URL
+                          validate:
+                            - required
+                            - 'regex:~^(?:https?://(?:www\.)?lcwine\.com|https?://le-cuvier\.test)?/product/[a-zA-Z0-9][a-zA-Z0-9_-]*/?(?:[?#].*)?$~'
+                - handle: pages
+                  field:
+                    type: entries
+                    display: Site pages
+                    instructions: 'Choose and reorder pages. Only public pages eligible for site search will appear.'
+                    collections:
+                      - pages
+                    create: false
+                    max_items: 24
+                    always_save: true
+                    if:
+                      kind: 'equals pages'

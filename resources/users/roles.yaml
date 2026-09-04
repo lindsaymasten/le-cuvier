@@ -83,6 +83,7 @@ winery_admin:
     - 'view header nav'
     - 'edit header nav'
     - 'edit commerce7 globals'
+    - 'edit search globals'
     - 'edit footer globals'
     - 'edit seo globals'
     - 'view promo_images assets'
@@ -152,6 +153,9 @@ winery_admin:
           'content::globals::commerce7':
             action: '@move'
             icon: shopping-cart
+          'content::globals::search':
+            action: '@move'
+            icon: search
     locale: en
     formatting_locale: en
     start_page: collections/pages
