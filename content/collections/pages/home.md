@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1784576575
+updated_at: 1789496309
 blocks:
   - id: memat9au
     type: product_cards
@@ -70,48 +70,27 @@ blocks:
       - id: 65Llqbdm
         members_only: false
         title: 'Testing 123'
-        subtitle: 'optional subtitle test test'
-        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
-        link_type: internal
-        link_entry: 84b0c988-3fdc-4f37-a548-df1d444961a4
+        subtitle: 'upcoming event'
+        body: 'Come decant a vicious viniferous murder on October 17th.'
+        link_type: none
         bg_type: image
-        bg_image: 1y6a6729.jpeg
-        heading: 'First Title Test'
+        bg_image: f26.mm.web.2.jpg
+        heading: 'Murder Mystery Dinner'
         featured: false
         enabled: true
       - id: mhemv4wv
         members_only: false
         title: 'members only test'
-        subtitle: Subtitle
-        body: 'Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing. Optional body text that is longer for testing.'
-        link_type: none
-        bg_type: color
-        heading: 'Second Title'
-        featured: false
-        bg_color: '#be2323'
-        enabled: true
-      - id: mhzcivw8
-        members_only: false
-        heading: 'Test test Test'
-        subtitle: kjwebfkiu
-        body: erajhi43yug8i
+        subtitle: 'Starting December 9th'
+        body: 'Each pour is a quiet testament to patience: wines allowed the uncommon gift of time in bottle, now ready to reveal what years of restraint have made possible.'
         link_type: none
         bg_type: image
-        bg_image: 1y6a6940.jpg
+        heading: 'Library Redux'
         featured: false
         enabled: true
-      - id: mhzcixdv
-        members_only: false
-        heading: rflkejoit34
-        subtitle: dsfmrwliuh
-        body: reglemliuhr3i8
-        link_type: none
-        bg_type: image
-        bg_image: _eee0245.jpg
-        featured: false
-        enabled: true
+        bg_image: library_redux.jpg
     type: promo_cards
-    enabled: false
+    enabled: true
   -
     id: mjd8zaz0
     cta_label: 'View Club Options'
