@@ -13,7 +13,8 @@
   border-radius: 50%;
   background: transparent;
   box-shadow: none;
-  color: inherit;
+  color: var(--nav-foreground);
+  transition: var(--nav-foreground-transition);
   cursor: pointer;
 }
 .nav-search-button::before { content: ''; position: absolute; inset: -2px 0; }
