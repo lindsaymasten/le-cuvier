@@ -153,6 +153,9 @@
 [data-search-featured] { display: flex; flex-direction: column; gap: 36px; }
 .product-search-featured-heading { margin: 0 0 20px; font-size: clamp(24px, 3vw, 32px); font-weight: 400; }
 
+@media (min-width: 769px) {
+  .nav-search-button svg { width: 24px; height: 24px; }
+}
 @media (max-width: 768px) {
   /* Reserve space for the new icon without moving the right-anchored cart. */
   .navbar:has(.nav-search-button) .main-nav .center-logo { min-width: 0; width: 100%; transform: none; }
