@@ -1,6 +1,24 @@
 # Tock fallback: production runbook
 
-Implemented locally; server preparation and activation remain coordinated steps with Lindsay. **Production deploys only main**, using Lindsay's Forge GUI button. GitHub pushes do not trigger deployment. No feature-branch deployment or Forge CLI installation.
+Activated and verified in production on September 16, 2026. **Production deploys only main**, using Lindsay's Forge GUI button. GitHub pushes do not trigger deployment. No feature-branch deployment or Forge CLI installation.
+
+## Verified production setup
+
+- Deployed implementation: merge `44098c1`, feature commit `48c3613`.
+- Ubuntu 24.04 x86_64; PHP 8.5.4 with DOM, JSON and mbstring verified; Python 3.12.3.
+- Python venv support, Xvfb and xauth installed; Xvfb startup verified as `forge`.
+- Google Chrome 153.0.8010.47 installed at `/usr/bin/google-chrome` from Google's amd64 Debian package. Package previews and installation reported no existing-package upgrades or removals.
+- `/home/forge/tock-runtime` is owned by `forge:forge`, mode 700. Its `venv` contains the pinned dependencies below; Nodriver import passed.
+- Three previous experiences backed up to `legacy-backup.json` before deployment, then imported successfully using `tock:seed`.
+- Manual production collector returned HTTP 200, all three experiences and `browserClosed: true` in 15.34 seconds. Full `tock:refresh` subsequently returned `browser_ok` and published a valid snapshot.
+- Forge job **Tock Experiences — Refresh Saved Data** runs as `forge` every five minutes (`*/5 * * * *`), using the command in section 5. Existing Composer-update and unused-package maintenance jobs were left unchanged.
+- Scheduled execution advanced `last_attempt_at` while retaining `last_browser_attempt_at`, with outcome `browser_cooldown`: six-hour eligibility was respected.
+- Production now has `TOCK_BROWSER_ENABLED=true` and `TOCK_SNAPSHOT_READS=true`. The other paths match section 3. Config cache was rebuilt after activation.
+- Live browser verification: Wine Tasting displayed all three experiences, and search for `cheese` returned Wine, Cheese & Charcuterie with its Wine Tasting anchor link and no experience-unavailable warning.
+- Actual production environment has `STATAMIC_STATIC_CACHING_STRATEGY=null`; it was left unchanged. Full static caching was covered by local tests, not enabled for production verification.
+- Forge deployment script was left unchanged. It deploys in place, checks for a clean tree and fast-forward history, runs Composer install, reloads PHP-FPM, builds assets and runs optimize/Stache/search commands. Its Composer hooks clear Laravel cache; persistent Tock runtime files are outside that cache and checkout.
+
+Use Forge GUI recipes for setup and checks. Lindsay runs them on **le-cuvier only**. Installation recipes run as `root`; Python environment, collector and application commands run as `forge`. Forge sometimes showed no output in its run viewer even when emailed logs contained successful results; consult emailed logs before repeating an operation. Related checks can be grouped in one recipe. The sections below document the original installation/activation sequence; do not repeat it on an already activated server.
 
 ## Behavior
 
@@ -20,7 +38,7 @@ Finish tests, commit the feature branch, confirm production edits have been push
 
 ## 1. Production read-only checks
 
-Use Forge's browser command interface, one command at a time. Confirm clean working tree, main, fetched origin and no local-only commits before deployment:
+Use Forge's GUI recipes, grouping related checks when useful. Confirm clean working tree, main, fetched origin and no local-only commits before deployment:
 
 ```sh
 git -C /home/forge/le-cuvier-dpslpel8.on-forge.com status --short --branch
@@ -47,7 +65,7 @@ Needed: Python 3.12 venv support, regular Chrome for the server architecture, it
 Preview package changes first:
 
 ```sh
-sudo apt-get --simulate install python3.12-venv xvfb xauth
+apt-get --simulate install python3.12-venv xvfb xauth
 ```
 
 Choose the Chrome installation command after checking architecture and package inventory. Review upgrades/removals and service restart implications before installation. Do not change PHP/Node defaults, Nginx, queue configuration or browser sandbox settings. No public port or permanent display/browser service is needed.
@@ -134,4 +152,4 @@ Verify a scheduled invocation and a valid populated snapshot. Then enable `TOCK_
 
 Disable browser fallback alone to retain PHP refreshes and snapshot reads. For full rollback, disable snapshot reads and the scheduled job; retain runtime data/profile. Old request-time/cache limitations return in legacy mode. Never delete cooldown state, snapshots or profiles as routine deployment cleanup.
 
-Remaining coordinated steps: actual host inventory, final package commands, backup command, configuration and manual Forge deployment/activation. None has been executed by the local implementation.
+Activation is complete. Future automated retrieval can still fail if Tock changes its page or access checks; the last valid snapshot remains available and `tock:status` exposes its age and latest outcome. No ongoing browser process or additional paid service was added.
