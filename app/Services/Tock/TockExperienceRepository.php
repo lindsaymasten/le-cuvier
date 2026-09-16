@@ -31,6 +31,10 @@ class TockExperienceRepository
      */
     public function all(): array
     {
+        if (config('tock.snapshot_reads', false)) {
+            return app(TockSnapshot::class)->experiences();
+        }
+
         if (Cache::has(self::CACHE_KEY)) {
             return Cache::get(self::CACHE_KEY, []);
         }
@@ -295,7 +299,7 @@ class TockExperienceRepository
     /**
      * @return array<int, array<string, mixed>>
      */
-    private function fetch(): array
+    public function fetch(bool $requireComplete = false): array
     {
         $sources = [
             [self::TOCK_WIDGET_URL, []],
@@ -310,7 +314,7 @@ class TockExperienceRepository
                 $response = $this->request($headers)->get($url)->throw();
                 $experiences = $this->parse($response->body());
 
-                if ($experiences !== []) {
+                if ($requireComplete ? TockSnapshot::valid($experiences) : $experiences !== []) {
                     return $experiences;
                 }
             } catch (Throwable $exception) {
