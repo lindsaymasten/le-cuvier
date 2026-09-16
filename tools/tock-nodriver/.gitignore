@@ -1,0 +1,9 @@
+/.venv/
+/.venv312/
+/.runtime/
+/.cache/
+/profile/
+/reports/
+/__pycache__/
+/.run.lock
+/browser.lock
