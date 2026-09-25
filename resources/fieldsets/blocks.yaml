@@ -129,6 +129,12 @@ fields:
               instructions: 'Promotional cards: recipes, events, wines.'
               icon: dashboard-layout-2
               fields:
+                - handle: promo_title
+                  field:
+                    type: text
+                    display: Promo Area Title
+                    instructions: 'Optional heading above all cards in this area. Leave blank to show cards only.'
+                    antlers: false
                 - handle: cards
                   field:
                     type: grid

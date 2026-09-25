@@ -3,7 +3,13 @@
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
-        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_title }}
+          {{ if area_title }}
+            <h3 class="box-title">{{ card_title }}</h3>
+          {{ else }}
+            <h2 class="box-title">{{ card_title }}</h2>
+          {{ /if }}
+        {{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
@@ -21,7 +27,13 @@
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
-        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_title }}
+          {{ if area_title }}
+            <h3 class="box-title">{{ card_title }}</h3>
+          {{ else }}
+            <h2 class="box-title">{{ card_title }}</h2>
+          {{ /if }}
+        {{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}
@@ -40,7 +52,13 @@
     <div class="box-content">
       <div class="top-text">
         {{ if card_subtitle }}<p class="box-tag">{{ card_subtitle }}</p>{{ /if }}
-        {{ if card_title }}<h2 class="box-title">{{ card_title }}</h2>{{ /if }}
+        {{ if card_title }}
+          {{ if area_title }}
+            <h3 class="box-title">{{ card_title }}</h3>
+          {{ else }}
+            <h2 class="box-title">{{ card_title }}</h2>
+          {{ /if }}
+        {{ /if }}
         {{ if card_body }}<p class="box-description">{{ card_body }}</p>{{ /if }}
       </div>
       {{ if card_bg_type == 'image' and card_bg_image }}

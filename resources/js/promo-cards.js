@@ -1,3 +1,25 @@
+// Use native headings; CSS controls their appearance independently of rank.
+const replacePromoHeading = (heading, tagName) => {
+  if (heading.tagName.toLowerCase() === tagName) return
+
+  const replacement = document.createElement(tagName)
+  Array.from(heading.attributes).forEach(({ name, value }) => replacement.setAttribute(name, value))
+  replacement.append(...heading.childNodes)
+  heading.replaceWith(replacement)
+}
+
+const promoTitles = document.querySelectorAll('.promo-cards > .promo-cards__title')
+// Exclude each titled area's own headings when checking the rest of the page.
+let hasPageH2 = Array.from(document.querySelectorAll('h2')).some((heading) => {
+  const area = heading.closest('.promo-cards')
+  return !area || !area.querySelector(':scope > .promo-cards__title')
+})
+
+promoTitles.forEach((title) => {
+  replacePromoHeading(title, hasPageH2 ? 'h3' : 'h2')
+  hasPageH2 = true
+})
+
 const promoGrids = document.querySelectorAll('.promo-cards .bento-grid')
 
 if (promoGrids.length) {
@@ -80,7 +102,7 @@ if (promoGrids.length) {
   const measureRows = (grid) => {
     const cards = getCards(grid)
 
-    if (!bentoMediaQuery.matches || !cards.length) {
+    if (!bentoMediaQuery.matches || cards.length <= 3) {
       clearMeasuredRows(grid)
       return
     }
@@ -208,6 +230,11 @@ if (promoGrids.length) {
   }
 
   const updateCards = (grid) => {
+    const title = grid.parentElement.querySelector(':scope > .promo-cards__title')
+    if (title) {
+      const cardTag = title.tagName === 'H2' ? 'h3' : 'h4'
+      grid.querySelectorAll('.box-title').forEach((heading) => replacePromoHeading(heading, cardTag))
+    }
     setLayoutClasses(grid)
     getCards(grid).forEach(setContrastClass)
     scheduleMeasure(grid)
