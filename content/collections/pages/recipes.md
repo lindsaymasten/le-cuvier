@@ -8,15 +8,15 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790367593
+updated_at: 1790367767
 blocks:
   - id: mkp6l50q
-    title: 'Tarte Flambee With Piave Mornay'
+    title: 'Fall 2026 Collection of Pairing Recipes'
     query: latest
     limit: 4
     type: recipes_listing
     enabled: true
-    text: 'Alsace and Condrieu meet somewhere over an open flame, and the result is a tarte flambée that doesn’t know if it wants to be rustic or noble — so it’s both: golden, crackling dough draped in piave mornay, with grilled nectarine playing coy against salty prosciutto, while fresh thyme and a whisper of lemon zest referee the whole delicious argument. Paired with Viognier, because even a tarte deserves a wine equally at home in a vineyard and a fairy tale.'
+    text: 'We cordially invite to recreate the Le Cuvier experience in the comfort of your home. Birthdays, anniversaries or special occasions, these chef crafted pairings would be honored to grace your table together with our dry-farmed, wild yeast, neutral oak aged to perfection wines.'
   - id: RFGynNjtxaNvS4rH3zBA2
     title: 'Tarte Flambee With Piave Mornay'
     description: 'Alsace and Condrieu meet somewhere over an open flame, and the result is a tarte flambée that doesn’t know if it wants to be rustic or noble — so it’s both: golden, crackling dough draped in piave mornay, with grilled nectarine playing coy against salty prosciutto, while fresh thyme and a whisper of lemon zest referee the whole delicious argument. Paired with Viognier, because even a tarte deserves a wine equally at home in a vineyard and a fairy tale.'
