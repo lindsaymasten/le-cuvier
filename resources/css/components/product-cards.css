@@ -345,14 +345,18 @@
   outline-offset: 2px;
 }
 
-.product-cards .c7-product__login-message { 
+.product-cards .product-card .product-purchase .c7-product__login-message {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  /* Keep the badge 15% wider than tall in every overlay state. */
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 6.325em;
   height: 5.5em;
-  min-height: 100%;
+  min-height: 0;
   padding: 0.75ch;
   margin-top: 0.75ch;
   margin-bottom: 0.75ch;
@@ -361,18 +365,19 @@
   border: 1px solid #1b1a2133;
 }
 
-.product-cards .c7-product__login-message:hover {
+.product-cards .product-card:is(:hover, :focus-within, .is-liquid-gl-hovered) .product-purchase .c7-product__login-message {
   background-color: var(--color-text);
   transition: background-color .2s ease;
 }
 
-.product-cards .c7-product__login-message:hover .c7-btn {
+.product-cards .product-card:is(:hover, :focus-within, .is-liquid-gl-hovered) .product-purchase .c7-product__login-message .c7-btn {
   color: var(--color-bg);
   transition: color .2s ease;
 }
 
 .product-cards .c7-product__login-message .c7-btn { 
   display: flex;
+  translate: 0 -0.15em;
   justify-content: center;
   align-items: flex-start;
   color: var(--color-text);
@@ -505,7 +510,6 @@
   .product-cards .product-info { padding: 0.5rem 0; }
   .product-cards .product-purchase { flex-wrap: wrap; flex-direction: column; justify-content: center; padding: 0; gap: 3px; }
   .product-cards .product-info h2 { display: none; }
-  .product-cards .c7-product__login-message { min-height: 9.5ch; }
   .product-cards .c7-product__login-message .c7-btn { font-size: 0.8rem; }
   .product-cards .c7-product__login-message .c7-btn:after { margin-top: 1.2rem; }
 }
