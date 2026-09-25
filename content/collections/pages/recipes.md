@@ -8,7 +8,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790367549
+updated_at: 1790367593
 blocks:
   - id: mkp6l50q
     title: 'Tarte Flambee With Piave Mornay'
@@ -23,7 +23,6 @@ blocks:
     servings: '4'
     prep_time: 'approx 1 hour'
     image: images/vio2022.pairing.1.jpg
-    caption: 'Tarte Flambee With Piave Mornay'
     ingredients: |-
       homemade tarte dough
       3 cups all purpose flour | plus more for dusting
