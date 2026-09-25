@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: 0f3f0ebe-13b9-4eae-8a6e-bf5d75118f50
-updated_at: 1790369466
+updated_at: 1790371500
 blocks:
   - id: memat9au
     type: product_cards
@@ -91,7 +91,6 @@ blocks:
         bg_image: library_redux.jpg
     type: promo_cards
     enabled: true
-    promo_title: 'Title Test'
   -
     id: mjd8zaz0
     cta_label: 'View Club Options'
