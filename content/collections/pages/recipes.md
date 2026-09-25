@@ -8,7 +8,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: weekly
 sitemap_priority: 0.5
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790367767
+updated_at: 1790367789
 blocks:
   - id: mkp6l50q
     title: 'Fall 2026 Collection of Pairing Recipes'
@@ -77,4 +77,5 @@ blocks:
       Dough, sauce, and grilled nectarines can all be made ahead — assemble and bake just before serving. Preheating a baking stone or steel takes 30–45 minutes, so start the oven early in the process rather than after assembly.
     type: recipe
     enabled: true
+    caption: 'Alsace and Condrieu meet somewhere over an open flame, and the result is a tarte flambée that doesn’t know if it wants to be rustic or noble — so it’s both: golden, crackling dough draped in piave mornay, with grilled nectarine playing coy against salty prosciutto, while fresh thyme and a whisper of lemon zest referee the whole delicious argument. Paired with Viognier, because even a tarte deserves a wine equally at home in a vineyard and a fairy tale.'
 ---
