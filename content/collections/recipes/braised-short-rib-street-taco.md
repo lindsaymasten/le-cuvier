@@ -29,11 +29,11 @@ ingredients:
     heading: 'Assembling the Tacos'
     items:
       - '12 small corn or flour tortillas'
-      - '1 cup shredded purple cabbage'
-      - '1 avocado, smashed (if desired add lime juice to preserve color & freshness)'
+      - '1 cup purple cabbage | shredded'
+      - '1 avocado | smashed (if desired add lime juice to preserve color & freshness)'
       - '1/2 cup lime crema'
       - '1/4 cup pickled red onion'
-      - '1 oz fresh micro cilantro'
+      - '1 oz  micro cilantro'
       - '12 lime wedges for serving'
     type: group
     enabled: true
@@ -42,6 +42,7 @@ instructions:
     type: orderedList
     attrs:
       start: 1
+      type: null
     content:
       -
         type: listItem
@@ -122,7 +123,7 @@ instructions:
             type: paragraph
             content:
               - type: text
-                text: 'Reduce the heat to low, cover the skillet or Dutch oven, and let the short ribs simmer gently for2-3 hours, or until the meat is tender and falling off the bone. Check occasionally and add more broth if needed to keep the ribs partially submerged.'
+                text: 'Reduce the heat to low, cover the skillet or Dutch oven, and let the short ribs simmer gently for 2-3 hours, or until the meat is tender and falling off the bone. Check occasionally and add more broth if needed to keep the ribs partially submerged.'
       -
         type: listItem
         content:
@@ -158,7 +159,7 @@ instructions:
 date: '2024-03-27'
 featured: false
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790639719
+updated_at: 1790639872
 notes: |-
   Pair with Le Cuvier Winery 2020 Zinfandel XLB.
   Serving size: 2 tacos 
