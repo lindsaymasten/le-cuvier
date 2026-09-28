@@ -1,7 +1,7 @@
 ---
 id: 95198012-c696-4fad-aeb8-f5a0ac7e42f9
 blueprint: recipe
-title: 'Tarte Flambee With Piave Mornay'
+title: '1. Tarte Flambee With Piave Mornay'
 servings: 4
 prep_time: Medium
 cook_time: 1.5
@@ -207,7 +207,7 @@ instructions:
 date: '2024-03-27'
 featured: false
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790623209
+updated_at: 1790623231
 notes: |-
   To serve:
   Finish each tarte with lemon zest, fresh thyme leaves, and flaky sea salt, to taste. Serve immediately.
