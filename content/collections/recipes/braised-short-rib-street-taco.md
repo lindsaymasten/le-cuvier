@@ -2,7 +2,7 @@
 id: 10eeb5e4-e551-4a16-88d3-aa1f1c204406
 blueprint: recipe
 title: 'Braised Short Rib Street Taco'
-servings: 2
+servings: 6
 prep_time: Medium
 cook_time: 3.5
 ingredients:
@@ -158,8 +158,11 @@ instructions:
 date: '2024-03-27'
 featured: false
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790623706
-notes: 'Pair with Le Cuvier Winery 2020 Zinfandel XLB'
+updated_at: 1790639719
+notes: |-
+  Pair with Le Cuvier Winery 2020 Zinfandel XLB.
+  Serving size: 2 tacos 
+  Servings per recipe: 6
 description: 'Optional descriptive text may go here.'
 difficulty: intermediate
 image: images/zn2019-xlb-taco-pairing.jpg
