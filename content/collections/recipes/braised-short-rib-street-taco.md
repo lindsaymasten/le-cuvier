@@ -39,19 +39,16 @@ ingredients:
     enabled: true
 instructions:
   -
+    type: paragraph
+    content:
+      - type: text
+        text: 'Season the short ribs generously with salt and pepper.'
+  -
     type: orderedList
     attrs:
       start: 1
       type: null
     content:
-      -
-        type: listItem
-        content:
-          -
-            type: paragraph
-            content:
-              - type: text
-                text: 'Season the short ribs generously with salt and pepper.'
       -
         type: listItem
         content:
@@ -159,7 +156,7 @@ instructions:
 date: '2024-03-27'
 featured: false
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790639872
+updated_at: 1790639958
 notes: |-
   Pair with Le Cuvier Winery 2020 Zinfandel XLB.
   Serving size: 2 tacos 
