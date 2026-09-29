@@ -164,8 +164,8 @@ blocks:
         special_item: true
         wine: '2022 Viognier'
         special_label: 'Lunch // Member Only'
-        food: jambalaya
-        food_details: 'sinton & sons linguica, shrimp, chicken, rice, 3 color bell pepper, celery, passata, cajun spices'
+        food: 'hangar steak with st. agur potato gratin'
+        food_details: 'brussels sprouts, demi glace, bacon, radish'
     type: menu
     enabled: true
   -
@@ -201,7 +201,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1787180979
+updated_at: 1790717811
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
