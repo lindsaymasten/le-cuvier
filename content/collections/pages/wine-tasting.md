@@ -76,7 +76,7 @@ blocks:
           id: mmzgg1tg
           values:
             type: aside
-            aside: 'Dry-farmed. Organic. Wild yeast and uncommonly long neutral oak barrel aging. The Spring 2026 pairing flight — five wines, five thoughtfully matched pairing bites — is our most intentional way to show you what that means in the glass.'
+            aside: 'Dry-farmed. Organic. Wild yeast and uncommonly long neutral oak barrel aging. The Fall 2026 pairing flight — five wines, five thoughtfully matched pairing bites — is our most intentional way to show you what that means in the glass.'
       -
         type: paragraph
         content:
@@ -201,7 +201,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790720000
+updated_at: 1790720069
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
