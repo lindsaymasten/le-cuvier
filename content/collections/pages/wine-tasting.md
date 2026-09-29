@@ -162,7 +162,7 @@ blocks:
       - id: SOzsZ4pYZL9veNHsH0Nof
         enabled: true
         special_item: true
-        wine: '2022 Viognier'
+        wine: 'nv Pentimento ‘26 bottling'
         special_label: 'Lunch // Member Only'
         food: 'hangar steak with st. agur potato gratin'
         food_details: 'brussels sprouts, demi glace, bacon, radish'
@@ -201,7 +201,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790717811
+updated_at: 1790717855
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
