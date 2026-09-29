@@ -124,7 +124,7 @@ blocks:
         enabled: true
         special_item: false
         wine: '2022 Viognier'
-        description: 'Spun like a velvet spell, the elixir gleams with a brilliant mandarin garnet warmth, captures the golden hour of an eternal spring, and casts jeweled reflections across goblets carved from yellow sea glass. As the magic unfolds, an ethereal breath lifts into the cool night air, where drenched blossoms of wild jasmine and dripping honeysuckle intertwine with fragrant crushed lemon thyme, fresh tarragon and hazelnuts.'
+        description: 'Alsace and Condrieu meet somewhere over an open flame, and the result is a tarte flambée that doesn’t know if it wants to be rustic or noble — so it’s both: golden, crackling dough draped in piave mornay, with grilled nectarine playing coy against salty prosciutto, while fresh thyme and a whisper of lemon zest referee the whole delicious argument. Paired with Viognier, because even a tarte deserves a wine equally at home in a vineyard and a fairy tale.'
         food: 'tarte flambée with mornay sauce'
         food_details: |-
           house made alsatian flatbread, piave mornay sauce, grilled nectarine, 
@@ -133,14 +133,14 @@ blocks:
         enabled: true
         special_item: false
         wine: '2023 Grenache'
-        description: 'Vibrant feijoa green monk parrots flit from tree to tree, raucous in greeting the day; little curious Castelvetrano murmurations launched from a trebuchet, exploding with watermelon, violet, rose petal and lavender. Meanwhile a mostly empty glass sits forlornly upon a coffee table containing the dregs and vestiges of last night’s sangria; decorative dehydrated citrus, red fleshed pitaya, nectarine and plum'
+        description: 'Somewhere between last night’s sangria and this morning’s sun, an egg mimosa decides to be reborn — its white blushing fuchsia from a beet cure while the yolk still glows tangerine-gold, smoky bacon standing in for the smoldering violet haze, chives scattered like the last murmuration of parrots overhead, and orange pearls bursting bright as citrus dregs finally forgiven by daylight. Paired with Grenache — because the morning after deserves just as much devotion as the night before.'
         food: 'eggs mimosa'
         food_details: 'beet cured egg, bacon, chives'
       - id: i2tNaALyfhdScbq96EuEO
         enabled: true
         special_item: false
         wine: '2023 Petite Sirah'
-        description: 'Purple basil unfurls like green wings. Star anise becomes a constellation floating on the surface. Cinnamon and nutmeg drift upward, blessing the air with the scent of forgotten homes. He drinks, and wine appears. Blackberry gathers in the glass like twilight beneath the jungle canopy. Vanilla curls through the steam until broth and barrel can no longer be told apart.'
+        description: 'The fire has been burning since before anyone remembers why, and the kefta has learned to trust it completely — dancing over the flame until muhammara runs deep beneath; yogurt sauce arrives like the first cool breath after a long day, and estate dry-farmed tomatoes and parsley, glistening gold in olive oil, wander in as if they’d been invited to the party all along. Paired with Petite Sirah, because every good story needs a little fire to survive the telling.'
         food: kefta
         food_details: |-
           pita bread, muhammara sauce, beef, lamb & pork kefta, yogurt sauce, 
@@ -149,14 +149,14 @@ blocks:
         enabled: true
         special_item: false
         wine: 'nv Pentimento ‘26 bottling'
-        description: 'Merciless, meutrière strategically positioned for maximum effect, spilling boysenberry and elderberry bordelaise upon unsuspecting intruders, trapped beneath rough steel plates and chains, blood welling to the surface of the skin like the deep purple of an eggplant. Fresh cracked black pepper rains down upon indigo rose heirloom tomatoes with fragrant Genovese basil and mozzarella di bufala, leading into risotto all’Amarone con tartufo nero of course.'
+        description: 'The panini closes like a portcullis over its spoils — tri-tip laid siege beneath melted mozzarella, pesto pooling green as it’s overtaken, roasted red bell pepper surrendering its last sweetness into the wreckage, all pressed between ciabatta walls that won’t hold much longer. Paired with Pentimento, because some victories are best eaten while they’re still warm.'
         food: 'tri-tip panini'
         food_details: 'fresh mozzarella, pesto'
       - id: lCMFCNesCOahEkrjOQLFf
         enabled: true
         special_item: false
         wine: '2023 Zinfandel'
-        description: 'Elderberry blossoms danced amid the shadows of a candlelit ballroom, its lambent glow igniting the gold thread and crystal embroidery adorning every gown. Oxtail soup, fragrant and warm, established the evening’s cadence, while local wild salmon, slowly grilled over aged birch and finished with star anise and plum reduction, defined its temperament.'
+        description: 'Word from the Grand Bazaar this morning: the dark chocolate cupcake has claimed a title no rival dared contest, crowned in whipped mascarpone and draped in local wild honey, with blackberries strewn about like jewels loosed from a queen’s own collection. Paired with Zinfandel — for even royalty, in the end, answers to something darker and sweeter than the throne.'
         food: 'dark chocolate cupcake'
         food_details: 'whipped mascarpone, local wild honey'
       - id: SOzsZ4pYZL9veNHsH0Nof
@@ -201,7 +201,7 @@ seo_canonical_type: entry
 sitemap_change_frequency: daily
 sitemap_priority: '1'
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1790717855
+updated_at: 1790720000
 seo_title: 'Le Cuvier Wine Tasting Paso Robles'
 seo_description: 'Enjoy entrée and flight—members only—or the original wine and food pairing experience at Le Cuvier Winery in Paso Robles, California.'
 og_title: 'Wine Tasting at Le Cuvier'
