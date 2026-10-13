@@ -347,6 +347,14 @@ Production uses Statamic Git Automation for content and assets edited in the Con
 - Do not edit production content, users, or uploaded assets over SSH.
 - Do not casually change content files locally during code refactors. If content changes are necessary, call them out clearly.
 
+### Local Control Panel changes: exclude from GitHub by default
+
+- Do not stage, commit, or push local Statamic Control Panel changes unless Lindsay explicitly identifies the changes to include for that occasion. A general request to commit or push code changes does not authorize including local Control Panel edits.
+- This includes local edits to content, globals, navigation, users, uploaded assets, and any other files changed through the Control Panel. Check the actual diff rather than relying only on file paths.
+- Stage explicitly named files or hunks for the authorized task; do not use blanket staging that could include unrelated Control Panel edits. Review both the staged diff and outgoing commits before pushing.
+- Preserve excluded local edits. If they prevent syncing with GitHub, keep a recoverable copy and do not silently discard or publish them.
+- Production Statamic Git Automation remains unchanged by this rule.
+
 ## Refactoring rules
 
 Most Codex work on this project should be narrow refactoring, not redesign.
