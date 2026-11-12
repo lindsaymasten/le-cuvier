@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1794442338
+updated_at: 1794442396
 blocks:
   -
     id: memat9au
