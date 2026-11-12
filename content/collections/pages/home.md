@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1793137634
+updated_at: 1794442338
 blocks:
   -
     id: memat9au
@@ -83,13 +83,13 @@ blocks:
         members_only: false
         title: 'Testing 123'
         subtitle: 'upcoming event'
-        body: 'Come decant a vicious viniferous murder on October 17th.'
+        body: 'Our XLB releases are a celebration of patience and the beauty of time, given the space to soften, deepen, and find their own rhythm. These are wines to linger over, share generously, and enjoy slowly, because some things are simply worth waiting for.'
         link_type: none
         bg_type: image
-        bg_image: f26.mm.web.2.jpg
-        heading: 'Murder Mystery Dinner'
+        bg_image: sy2020.xlb.5-3.jpg
+        heading: 'November XLB Feature'
         featured: false
-        enabled: false
+        enabled: true
       -
         id: mhemv4wv
         members_only: false
