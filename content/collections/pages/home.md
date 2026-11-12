@@ -4,7 +4,7 @@ blueprint: pages
 title: Home
 template: default
 updated_by: c9a05d23-3623-4986-a31d-642880558c7f
-updated_at: 1794442433
+updated_at: 1794442584
 blocks:
   -
     id: memat9au
@@ -83,7 +83,9 @@ blocks:
         members_only: false
         title: 'Testing 123'
         subtitle: 'Starting November 11th'
-        body: 'Our XLB releases are a celebration of patience and the beauty of time, given the space to soften, deepen, and find their own rhythm. These are wines to linger over, share generously, and enjoy slowly, because some things are simply worth waiting for.'
+        body: |-
+          Our XLB releases are a celebration of patience and the beauty of time, given the space to soften, deepen, and find their own rhythm. These are wines to linger over, share generously, and enjoy slowly, because some things are simply worth waiting for.
+          The 2020 Syrah XLB will be available to taste at the winery, part of the pairing line up Black Friday through Cyber Monday.
         link_type: none
         bg_type: image
         bg_image: sy2020.xlb.5-3.jpg
